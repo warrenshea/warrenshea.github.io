@@ -24,7 +24,7 @@ storm_eagle.module('prism', function () {
     linkCodeWithPrismSnippet: function linkCodeWithPrismSnippet() {
       document.querySelectorAll("[data-code-reference]").forEach(function (el) {
         var $cleanse = el.cloneNode(true);
-        document.querySelector("code[data-code-snippet=".concat(el.getAttribute("data-code-reference"))).innerHTML = htmlEncode($cleanse.innerHTML);
+        document.querySelector("code[data-code-snippet=".concat(el.getAttribute("data-code-reference"))).innerHTML = $cleanse.innerHTML;
       });
     },
     forcePrismReinit: function forcePrismReinit() {
