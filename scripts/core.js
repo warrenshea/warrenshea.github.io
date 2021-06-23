@@ -1,17 +1,5 @@
 "use strict";
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /* Define global constants and map */
@@ -32,13 +20,13 @@ keyboard.keys = {
   'shift': 16
 };
 var breakpoints = {
-  'small_min': 320,
-  'small_max': 767,
-  'medium_min': 768,
-  'medium_max': 1023,
-  'large_min': 1024,
-  'large_max': 1279,
-  'xlarge_min': 1280
+  'sm_min': 320,
+  'sm_max': 767,
+  'md_min': 768,
+  'md_max': 1023,
+  'lg_min': 1024,
+  'lg_max': 1279,
+  'xl_min': 1280
 };
 var focus_trap_selector = "a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled]), li[role=\"tab\"]:not([disabled]), div[role=\"tabpanel\"]:not([disabled]), label";
 var remove_focus_selector = ".form\\:style\\:1 input[type=\"radio\"]+label, .form\\:style\\:1 input[type=\"text\"]+label, .form\\:style\\:1 input[type=\"email\"]+label, .form\\:style\\:2 label, [data-module=\"popover\"] button, [data-module=\"popover\"] a";
@@ -58,11 +46,15 @@ var remove_focus_selector = ".form\\:style\\:1 input[type=\"radio\"]+label, .for
  * storm_eagle.client.viewport.get_width()
  * storm_eagle.client.viewport.get_breakpoint()
  * storm_eagle.client.viewport.get_height()
- * storm_eagle.client.viewport.is_retina()
- * storm_eagle.client.viewport.is_xlarge()
- * storm_eagle.client.viewport.is_large()
- * storm_eagle.client.viewport.is_medium()
- * storm_eagle.client.viewport.is_small()
+ * storm_eagle.client.viewport.sm_only()
+ * storm_eagle.client.viewport.sm_up()
+ * storm_eagle.client.viewport.md_down()
+ * storm_eagle.client.viewport.md_only()
+ * storm_eagle.client.viewport.md_up()
+ * storm_eagle.client.viewport.lg_down()
+ * storm_eagle.client.viewport.lg_only()
+ * storm_eagle.client.viewport.lg_up()
+ * storm_eagle.client.viewport.xl_up()
  * storm_eagle.client.get_user_agent()
  * storm_eagle.client.is_android()
  * storm_eagle.client.is_blackberry()
@@ -78,6 +70,7 @@ var remove_focus_selector = ".form\\:style\\:1 input[type=\"radio\"]+label, .for
  * storm_eagle.open_window()
  * storm_eagle.scroll_to()
  * storm_eagle.debounce()
+ * storm_eagle.resize_observer()
  **/
 
 var storm_eagle = function (window, document, undefined) {
@@ -368,7 +361,7 @@ var storm_eagle = function (window, document, undefined) {
          */
         get_breakpoint: function get_breakpoint() {
           var viewportWidth = storm_eagle.client.viewport.get_width();
-          if (viewportWidth >= breakpoints["xlarge_min"]) return 'xl';else if (viewportWidth >= breakpoints["large_min"]) return 'lg';else if (viewportWidth >= breakpoints["medium_min"]) return 'md';else if (viewportWidth >= breakpoints["small_min"]) return 'sm';else {
+          if (viewportWidth >= breakpoints["xl_min"]) return 'xl';else if (viewportWidth >= breakpoints["lg_min"]) return 'lg';else if (viewportWidth >= breakpoints["md_min"]) return 'md';else if (viewportWidth >= breakpoints["sm_min"]) return 'sm';else {
             storm_eagle.throw_exception("smaller than sm");
             return;
           }
@@ -399,43 +392,45 @@ var storm_eagle = function (window, document, undefined) {
         },
 
         /**
-         * Checks if the viewport is within the "xlarge" threshhold
+         * Checks if the viewport is within "sm_only" threshhold
+         * Checks if the viewport is within "sm_up" threshhold
+         * Checks if the viewport is within "md_down" threshhold
+         * Checks if the viewport is within "md_only" threshhold
+         * Checks if the viewport is within "md_up" threshhold
+         * Checks if the viewport is within "lg_down" threshhold
+         * Checks if the viewport is within "lg_only" threshhold
+         * Checks if the viewport is within "lg_up" threshhold
+         * Checks if the viewport is within "xl_up" threshhold
          *
          * @return boolean
          * @scope public
          */
-        is_xlarge: function is_xlarge() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["xlarge_min"] ? true : false;
+        is_sm_only: function is_sm_only() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["sm_min"] && storm_eagle.client.viewport.get_width() <= breakpoints["sm_max"] ? true : false;
         },
-
-        /**
-         * Checks if the viewport is within the "xlarge" threshhold
-         *
-         * @return boolean
-         * @scope public
-         */
-        is_large: function is_large() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["large_min"] && storm_eagle.client.viewport.get_width() <= breakpoints["large_max"] ? true : false;
+        is_sm_up: function is_sm_up() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["sm_min"] ? true : false;
         },
-
-        /**
-         * Checks if the viewport is within the "medium" threshhold
-         *
-         * @return boolean
-         * @scope public
-         */
-        is_medium: function is_medium() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["medium_min"] && storm_eagle.client.viewport.get_width() <= breakpoints["medium_max"] ? true : false;
+        is_md_down: function is_md_down() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["sm_min"] && storm_eagle.client.viewport.get_width() <= breakpoints["md_max"] ? true : false;
         },
-
-        /**
-         * Checks if the viewport is within the "small" threshhold
-         *
-         * @return boolean
-         * @scope public
-         */
-        is_small: function is_small() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["small_min"] && storm_eagle.client.viewport.get_width() <= breakpoints["small_max"] ? true : false;
+        is_md_only: function is_md_only() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["md_min"] && storm_eagle.client.viewport.get_width() <= breakpoints["md_max"] ? true : false;
+        },
+        is_md_up: function is_md_up() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["md_min"] ? true : false;
+        },
+        is_lg_down: function is_lg_down() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["sm_min"] && storm_eagle.client.viewport.get_width() <= breakpoints["lg_max"] ? true : false;
+        },
+        is_lg_only: function is_lg_only() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["lg_min"] && storm_eagle.client.viewport.get_width() <= breakpoints["lg_max"] ? true : false;
+        },
+        is_lg_up: function is_lg_up() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["lg_min"] ? true : false;
+        },
+        is_xl_up: function is_xl_up() {
+          return storm_eagle.client.viewport.get_width() >= breakpoints["xl_min"] ? true : false;
         }
       },
 
@@ -598,11 +593,75 @@ var storm_eagle = function (window, document, undefined) {
         timeout = setTimeout(later, wait);
         if (callNow) func.apply(context, args);
       };
+    },
+
+    /**
+     * Observes an element and runs a function when the element is resized
+     * Replaces window.addEventListener("resize", (event) => { function(); }) as it performs better
+     *
+     * @param  { array } elements     elements we want to observe
+     * @param  { function } func      callback function
+     */
+    resize_observer: function resize_observer(elements, func) {
+      var resize_observer = new ResizeObserver(function (el) {
+        func();
+      }); //@TODO: write cleaner way to iterate through one DOM Element OR NodeList
+
+      elements instanceof HTMLElement ? resize_observer.observe(elements) : elements.forEach(function (el) {
+        resize_observer.observe(el);
+      });
     }
   };
 }(window, document);
 
 var LANG = storm_eagle.page.get_language_code();
+storm_eagle.module('_temp_fill_ids', function () {
+  'use strict';
+
+  return {
+    initialize: function initialize() {
+      var self = this;
+      self.fill_empty_ids();
+    },
+    fill_empty_ids: function fill_empty_ids() {
+      function get_random_id() {
+        return '_' + Math.random().toString(36).substr(2, 9);
+      }
+
+      document.querySelectorAll('*[id]').forEach(function (el) {
+        if (el.id === "") {
+          el.id = get_random_id();
+        }
+      });
+    }
+  };
+});
+storm_eagle.module('javascript_utility', function () {
+  return {
+    initialize: function initialize() {
+      var self = this;
+      self.add_class_prototype_functions();
+    },
+    add_class_prototype_functions: function add_class_prototype_functions() {
+      var element = HTMLElement.prototype;
+
+      element.addClass = function (cls) {
+        this.classList.add(cls);
+        return this;
+      };
+
+      element.removeClass = function (cls) {
+        this.classList.remove(cls);
+        return this;
+      };
+
+      element.toggleClass = function (cls) {
+        this.classList.toggle(cls);
+        return this;
+      };
+    }
+  };
+});
 storm_eagle.module('ie11_polyfill', function () {
   return {
     initialize: function initialize() {
@@ -752,6 +811,10 @@ storm_eagle.module('equalize_heights', function () {
       self.get_data_equal_height_items();
       self.resize_listener();
     },
+    ready: function ready() {
+      var self = this;
+      self.force_resize();
+    },
 
     /*
     * Checks all the items that need to equalize height, and add keys to array
@@ -771,12 +834,12 @@ storm_eagle.module('equalize_heights', function () {
     */
     resize_listener: function resize_listener() {
       var self = this;
-      window.addEventListener("resize", function (event) {
-        self.force_resize();
-      });
-      window.addEventListener('DOMContentLoaded', function (event) {
-        self.force_resize();
-      });
+
+      function force_resize() {
+        return self.force_resize();
+      }
+
+      storm_eagle.resize_observer(document.querySelector("body"), force_resize);
     },
 
     /*
@@ -788,13 +851,13 @@ storm_eagle.module('equalize_heights', function () {
       self.get_data_equal_height_items();
       max_Height();
 
-      if (storm_eagle.client.viewport.is_small()) {
+      if (storm_eagle.client.viewport.is_sm_only()) {
         document.querySelectorAll('[data-equalize-height][data-equalize-md-up]').forEach(function (el) {
           el.style.height = "auto";
         });
       }
 
-      if (!storm_eagle.client.viewport.is_small()) {
+      if (storm_eagle.client.viewport.is_md_up()) {
         document.querySelectorAll('[data-equalize-height][data-equalize-sm-only]').forEach(function (el) {
           el.style.height = "auto";
         });
@@ -811,484 +874,11 @@ storm_eagle.module('disable_tel_medium_up', function () {
     initialize: function initialize() {
       document.querySelectorAll('a[href^="tel"]').forEach(function (el) {
         el.addEventListener("click", function (event) {
-          if (!storm_eagle.client.viewport.is_small()) {
+          if (storm_eagle.client.viewport.is_md_up()) {
             event.preventDefault();
           }
         });
       });
-    }
-  };
-});
-storm_eagle.module('form_validation', function () {
-  "use strict";
-
-  return {
-    //validate(): highlights/hides the border of the input that has an issue + adds/hides the error message; this function is customizable
-    //@param {string} element_name is the name of the DOM object being tested - used here for 'error-message'
-    //@param {string} type is the character set to be validated again (e.g. alpha_numeric, numeric, email, postalCode, dropDown, checkBox, radioButton)
-    validate: function validate(element_name, type) {
-      var self = this;
-
-      if (self.check_field(element_name, type)) {
-        document.querySelector("[name='".concat(element_name, "']")).parentElement.querySelector('label').classList.add("error-field");
-
-        if (type === "radiobutton") {
-          document.getElementById(element_name).classList.add("has-error");
-        } else {
-          document.querySelector("[name='".concat(element_name, "']")).parentElement.querySelector("span.error-message").classList.add("has-error");
-        }
-
-        errormessage += element_name + " ";
-      } else {
-        document.querySelector("[name='".concat(element_name, "']")).parentElement.querySelector('label').classList.remove("error-field");
-
-        if (type === "radiobutton") {
-          document.getElementById(element_name).classList.remove("has-error");
-        } else {
-          document.querySelector("[name='".concat(element_name, "']")).parentElement.querySelector("span.error-message").classList.remove("has-error");
-        }
-      }
-    },
-    //check_field(): form validation based on input type
-    //@param {string} element_name is the name of the form element being checked
-    //@param {string} type is the character set to test (e.g. alphaNumeric, numeric, email, postalCode)
-    //@returns true to show an error
-    //@returns false to hide an error
-    check_field: function check_field(element_name, type) {
-      var itemSelected = false;
-      var el;
-
-      if (type == "radiobutton" || type == "checkbox") {
-        el = document.querySelectorAll("[name='".concat(element_name, "']")); //returns array, el gets first el
-      } else {
-        el = document.querySelector("[name='".concat(element_name, "']")); //returns array, el gets first el
-      }
-
-      var value = el.value;
-
-      if (type == "radiobutton" || type == "checkbox") {
-        for (var i = 0; i < el.length; i++) {
-          if (el[i].checked) {
-            itemSelected = true;
-          }
-        }
-
-        if (!itemSelected) {
-          for (var _i = 0; _i < el.length; _i++) {
-            return true;
-          }
-        } else {
-          return false;
-        }
-      } else if (type == "dropdown") {
-        if (el) {
-          return value === "";
-        }
-      } else {
-        //input boxes, email, postcalcode
-        if (el) {
-          if (value === "" || !this.is_value_valid(type, value)) return true;else return false;
-        }
-      }
-    },
-    //is_value_valid(): returns true if value successfully tested again regex
-    //@param {string} type is the character set to test (e.g. alphaNumeric, numeric, email, postalCode)
-    //@param {string} value is the value being tested
-    is_value_valid: function is_value_valid(type, value) {
-      var regex;
-
-      switch (type) {
-        case "alpha_numeric":
-          // alphaNumeric + french characters
-          regex = /^[A-Za-z\u00E0-\u00FC0-9 ]/;
-          break;
-
-        case "numeric":
-          // numbers
-          regex = /^\d+$/;
-          break;
-
-        case "phone":
-          //phone
-          regex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
-          break;
-
-        case "email":
-          //email
-          regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          break;
-
-        case "postal_code":
-          //postal code
-          regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-          break;
-
-        case "zip_code":
-          //zip code
-          regex = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
-          break;
-
-        default:
-          return true;
-          break;
-      }
-
-      return regex.test(value);
-    }
-  };
-});
-/**
- * Enables floating labels
- */
-
-storm_eagle.module('form_style_1_floating_labels', function () {
-  "use strict";
-
-  function setActiveLabel() {
-    this.nextElementSibling.classList[this.value.length ? 'add' : 'remove']('active-label');
-  }
-
-  return {
-    initialize: function initialize() {
-      document.querySelectorAll('.form\\:style\\:1 input, .form\\:style\\:1 select, .form\\:style\\:1 textarea').forEach(function (el) {
-        if (el.type !== 'radio') {
-          setActiveLabel.call(el);
-          el.addEventListener('change', setActiveLabel);
-        }
-      });
-    }
-  };
-});
-storm_eagle.module("accordion", function () {
-  "use strict";
-
-  var accordion_state = [];
-  return {
-    initialize: function initialize() {
-      var self = this;
-      document.querySelectorAll("[data-module='accordion']").forEach(function (el) {
-        var accordion_id = el.getAttribute("id");
-        accordion_state[accordion_id] = {
-          "focusable_elements": []
-        };
-        self.get_accordion_focusable_elements(accordion_id);
-      });
-    },
-    open: function open(accordion_id) {
-      var self = this;
-      /* updates accordion visuals */
-
-      document.getElementById(accordion_id).classList.add('active');
-      document.getElementById(accordion_id).classList.toggle('display:none');
-      /* removes focus from elements except in accordion */
-
-      accordion_state[accordion_id]["focusable_elements"].forEach(function (el) {
-        el.setAttribute("tabindex", "0");
-      });
-    },
-    close: function close(accordion_id) {
-      var self = this;
-      /* updates accordion visuals */
-
-      document.getElementById(accordion_id).setAttribute('tabIndex', '-1');
-      document.getElementById(accordion_id).setAttribute('aria-expanded', false);
-      document.getElementById(accordion_id).classList.remove('active');
-      document.getElementById(accordion_id).classList.toggle('display:none');
-      document.querySelectorAll("[data-target='accordion']").forEach(function (accordion, index) {
-        /* remove focus from accordion elements */
-        accordion_state[accordion_id]["focusable_elements"].forEach(function (el) {
-          el.setAttribute("tabindex", "-1");
-        });
-      });
-      document.querySelectorAll("[data-target='accordion-trigger']").forEach(function (accordion_trigger, index) {
-        accordion_trigger.setAttribute("aria-expanded", false);
-      });
-    },
-    get_accordion_focusable_elements: function get_accordion_focusable_elements(accordion_id) {
-      var self = this;
-      var accordion = document.getElementById(accordion_id);
-      accordion_state[accordion_id]["focusable_elements"] = accordion.querySelectorAll(focus_trap_selector);
-    },
-    toggle: function toggle(accordion_trigger, accordion_id) {
-      var self = this;
-      accordion_trigger.querySelector(".accordion\\:show-more-button").classList.toggle("display:none");
-      accordion_trigger.querySelector(".accordion\\:show-less-button").classList.toggle("display:none");
-
-      if (document.getElementById(accordion_id).classList.contains("active")) {
-        /* if the accordion is open */
-        accordion_trigger.setAttribute("aria-expanded", false);
-        accordion_trigger.classList.remove("active");
-        self.close(accordion_id);
-      } else {
-        /* if the accordion is closed */
-        accordion_trigger.setAttribute("aria-expanded", true);
-        accordion_trigger.classList.add("active");
-        self.open(accordion_id);
-      }
-    }
-  };
-});
-/* data-module: poopver         the modal
- data-module: poopver-overlay the full screen part behind the modal
- data-module: poopver-trigger the button that opens the modal */
-
-storm_eagle.module('popover', function () {
-  'use strict';
-
-  var focus_placeholder;
-  var popover_first_tab_stop;
-  var popover_last_tab_stop;
-  var popover_state = {};
-
-  function keyboard_popover_focus_trap(event) {
-    if (event.keyCode === keyboard.keys.tab) {
-      if (event.shiftKey) {
-        if (document.activeElement === popover_first_tab_stop) {
-          event.preventDefault();
-          popover_last_tab_stop.focus();
-        }
-      } else {
-        if (document.activeElement === popover_last_tab_stop) {
-          event.preventDefault();
-          popover_first_tab_stop.focus();
-        }
-      }
-    }
-
-    if (event.keyCode === keyboard.keys.esc || event.keyCode === keyboard.keys.enter && document.activeElement.hasAttribute("[data-module='popover.close']")) {
-      storm_eagle.popover.close();
-    }
-  }
-
-  return {
-    initialize: function initialize() {
-      var self = this;
-      document.querySelectorAll("[data-module='popover']").forEach(function (el, index) {
-        var popover_id = el.getAttribute("id");
-        popover_state[popover_id] = {
-          "focusable_elements": []
-        };
-        self.get_popover_focusable_elements(popover_id);
-      });
-      self.add_popover_resize_listener();
-      self.add_popover_overlay_close_listener();
-    },
-    open: function open(popover_trigger, popover_id) {
-      var self = this;
-      /* updates popover visuals */
-
-      document.querySelector("[data-module='popover.overlay']").classList.add('active');
-      popover_trigger.classList.add('active');
-      document.getElementById(popover_id).classList.add('active');
-      self.set_popover_location(popover_id);
-      /* removes focus from elements except in popover */
-
-      popover_state[popover_id]["focusable_elements"].forEach(function (el) {
-        el.setAttribute("tabindex", "0");
-      });
-      /* saves item that opened popover for later */
-
-      focus_placeholder = document.activeElement;
-      popover_first_tab_stop = popover_state[popover_id]["focusable_elements"][0];
-      popover_last_tab_stop = popover_state[popover_id]["focusable_elements"][popover_state[popover_id]["focusable_elements"].length - 1];
-      /* set focus to popover (but not the popover_first_tab_stop */
-
-      popover_first_tab_stop.focus();
-      /* add keyboard event listener */
-
-      document.getElementById(popover_id).addEventListener('keydown', keyboard_popover_focus_trap);
-    },
-    close: function close() {
-      var self = this;
-      /* updates popover visuals */
-
-      document.querySelector("[data-module='popover.overlay'].active").classList.remove('active');
-      document.querySelector("[data-module='popover'].active").setAttribute('tabIndex', '-1');
-      document.querySelector("[data-module='popover'].active").setAttribute('aria-expanded', false);
-      document.querySelector("[data-module='popover'].active").classList.remove('active');
-      document.querySelector("[data-module='popover.trigger'].active").classList.remove('active');
-      document.querySelectorAll("[data-target='popover']").forEach(function (popover, index) {
-        var popover_id = popover.getAttribute("id");
-        /* remove focus from popover elements */
-
-        popover_state[popover_id]["focusable_elements"].forEach(function (el) {
-          el.setAttribute("tabindex", "-1");
-        });
-        /* remove keyboard event listener */
-
-        document.getElementById(popover_id).removeEventListener('keydown', keyboard_popover_focus_trap);
-      });
-      document.querySelectorAll("[data-module='popover.trigger']").forEach(function (popover_trigger) {
-        popover_trigger.setAttribute("aria-expanded", false);
-      });
-      /* set focus to focus_placeholder */
-
-      focus_placeholder.focus();
-    },
-    get_popover_focusable_elements: function get_popover_focusable_elements(popover_id) {
-      var self = this;
-      popover_state[popover_id]["focusable_elements"] = document.getElementById(popover_id).querySelectorAll(focus_trap_selector);
-      console.log(popover_state[popover_id]["focusable_elements"]);
-    },
-    add_popover_overlay_close_listener: function add_popover_overlay_close_listener() {
-      var self = this;
-
-      if (document.querySelector("[data-module='popover.overlay']")) {
-        document.querySelector("[data-module='popover.overlay']").addEventListener('click', function () {
-          self.close();
-        });
-      }
-    },
-    add_popover_resize_listener: function add_popover_resize_listener() {
-      var self = this;
-      window.addEventListener("resize", function (event) {
-        if (document.querySelector("[data-module='popover'].active")) {
-          self.set_popover_location(document.querySelector("[data-module='popover'].active").getAttribute("id"));
-        }
-      });
-    },
-    set_popover_location: function set_popover_location(popover_id) {
-      var popover_trigger = document.querySelector("[data-module='popover.trigger'].active");
-      var popover = document.getElementById(popover_id);
-
-      if (storm_eagle.client.viewport.is_small() || storm_eagle.client.viewport.is_medium()) {
-        popover.style.top = "initial";
-        popover.style.left = "0px";
-      } else if (storm_eagle.client.viewport.is_large() || storm_eagle.client.viewport.is_xlarge()) {
-        popover.style.top = popover_trigger.offsetTop + "px";
-        popover.style.left = popover_trigger.offsetLeft + 40 + "px";
-      }
-    }
-  };
-});
-storm_eagle.module('modal', function () {
-  'use strict';
-
-  var focus_placeholder;
-  var modal_first_tab_stop;
-  var modal_last_tab_stop;
-  var modal_state = {};
-
-  function modal_close(event) {
-    //console.log(event.target.classList);
-    if (event.target.classList.contains("modal-container") || event.target.classList.contains("modal-overlay")) {
-      storm_eagle.modal.close();
-    }
-  }
-
-  function keyboard_modal_focus_trap(event) {
-    if (event.keyCode === keyboard.keys.tab) {
-      if (event.shiftKey) {
-        if (document.activeElement === modal_first_tab_stop) {
-          event.preventDefault();
-          modal_last_tab_stop.focus();
-        }
-      } else {
-        if (document.activeElement === modal_last_tab_stop) {
-          event.preventDefault();
-          modal_first_tab_stop.focus();
-        }
-      }
-    }
-
-    if (event.keyCode === keyboard.keys.esc || event.keyCode === keyboard.keys.enter && document.activeElement.hasAttribute("[data-trigger='modal-close']")) {
-      storm_eagle.modal.close();
-    }
-  }
-
-  return {
-    initialize: function initialize() {
-      var self = this;
-      document.querySelectorAll("[data-module='modal']").forEach(function (el) {
-        var modal_id = el.getAttribute("id");
-        modal_state[modal_id] = {
-          "focusable_elements": [],
-          "remove_focusable_elements": []
-        };
-        self.get_modal_focusable_elements(modal_id);
-      });
-    },
-    open: function open(modal_trigger, modal_id) {
-      var self = this;
-      document.addEventListener('mousedown', modal_close);
-      /* updates modal visuals */
-
-      document.querySelector("body").classList.add("overflow:hidden");
-
-      if (modal_trigger) {
-        modal_trigger.classList.add('active');
-      }
-
-      document.getElementById(modal_id).classList.add('active');
-      document.getElementById(modal_id).querySelector(".modal-container").classList.add('active');
-      /* removes focus from elements except in modal */
-
-      modal_state[modal_id]["focusable_elements"].forEach(function (el) {
-        el.setAttribute("tabindex", "0");
-      });
-      modal_state[modal_id]["remove_focusable_elements"].forEach(function (el) {
-        el.setAttribute("tabindex", "-1");
-      });
-      /* remove focusable elements from nodelist, e.g. popover inside modal */
-
-      modal_state[modal_id]["focusable_elements"] = _toConsumableArray(modal_state[modal_id]["focusable_elements"]).filter(function (el) {
-        return !_toConsumableArray(modal_state[modal_id]["remove_focusable_elements"]).includes(el);
-      });
-      /* saves item that opened modal for later */
-
-      focus_placeholder = document.activeElement;
-      modal_first_tab_stop = modal_state[modal_id]["focusable_elements"][0];
-      modal_last_tab_stop = modal_state[modal_id]["focusable_elements"][modal_state[modal_id]["focusable_elements"].length - 1];
-      /* set focus to modal (but not the modal_first_tab_stop */
-
-      setTimeout(function () {
-        if (modal_first_tab_stop) {
-          modal_first_tab_stop.focus();
-        }
-      }, 100);
-      /* add keyboard event listener */
-
-      document.getElementById(modal_id).addEventListener('keydown', keyboard_modal_focus_trap);
-    },
-    close: function close() {
-      var self = this;
-      document.removeEventListener('mousedown', modal_close);
-      document.querySelector("body").classList.remove("overflow:hidden");
-      /* updates modal visuals */
-
-      document.querySelector("[data-module='modal'].active").setAttribute('tabIndex', '-1');
-      document.querySelector("[data-module='modal'].active").setAttribute('aria-expanded', false);
-
-      if (document.querySelector("[data-module='modal.trigger'].active")) {
-        document.querySelector("[data-module='modal.trigger'].active").classList.remove('active');
-      }
-
-      document.querySelector("[data-module='modal'].active").querySelector(".modal-container").classList.remove('active');
-      document.querySelector("[data-module='modal'].active").classList.remove('active');
-      document.querySelectorAll("[data-module='modal']").forEach(function (modal, index) {
-        var modal_id = modal.getAttribute("id");
-        /* remove focus from modal elements */
-
-        modal_state[modal_id]["focusable_elements"].forEach(function (el) {
-          el.setAttribute("tabindex", "-1");
-        });
-        /* remove keyboard event listener */
-
-        document.getElementById(modal_id).removeEventListener('keydown', keyboard_modal_focus_trap);
-      });
-      document.querySelectorAll("[data-module='modal.trigger']").forEach(function (modal_trigger) {
-        modal_trigger.setAttribute("aria-expanded", false);
-      });
-      /* set focus to focus_placeholder */
-
-      focus_placeholder.focus();
-    },
-    get_modal_focusable_elements: function get_modal_focusable_elements(modal_id) {
-      var self = this;
-      modal_state[modal_id]["focusable_elements"] = document.getElementById(modal_id).querySelectorAll(focus_trap_selector);
-      console.log(modal_state[modal_id]["focusable_elements"]);
-      modal_state[modal_id]["remove_focusable_elements"] = document.getElementById(modal_id).querySelectorAll(remove_focus_selector);
-      console.log(modal_state[modal_id]["remove_focusable_elements"]);
     }
   };
 });
