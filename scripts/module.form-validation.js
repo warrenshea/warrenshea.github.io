@@ -6,24 +6,26 @@ storm_eagle.module('form_validation', function () {
   return {
     //validate(): highlights/hides the border of the input that has an issue + adds/hides the error message; this function is customizable
     //@param {string} element_name is the name of the DOM object being tested - used here for 'error-message'
-    //@param {string} type is the character set to be validated again (e.g. alpha_numeric, numeric, email, postalCode, dropDown, checkBox, radioButton)
-    validate: function validate(element_name, type) {
+    //@param {array} validation_rules is the character set to be validated again (e.g. alpha_numeric, numeric, email, postal_code, dropDown, checkBox, radioButton)
+    validate: function validate(element_name, validation_rules) {
       var self = this;
-
-      if (self.check_field(element_name, type)) {
+      var status = self.check_field(element_name, validation_rules);
+      self.display_error(element_name, validation_rules, status);
+      return status;
+    },
+    display_error: function display_error(element_name, validation_rules, bool_show) {
+      if (bool_show) {
         document.querySelector("[name='".concat(element_name, "']")).parentElement.querySelector('label').classList.add("error-field");
 
-        if (type === "radiobutton") {
+        if (type === "radiobutton" || type === "checkbox") {
           document.getElementById(element_name).classList.add("has-error");
         } else {
           document.querySelector("[name='".concat(element_name, "']")).parentElement.querySelector("span.error-message").classList.add("has-error");
         }
-
-        errormessage += element_name + " ";
       } else {
         document.querySelector("[name='".concat(element_name, "']")).parentElement.querySelector('label').classList.remove("error-field");
 
-        if (type === "radiobutton") {
+        if (type === "radiobutton" || type === "checkbox") {
           document.getElementById(element_name).classList.remove("has-error");
         } else {
           document.querySelector("[name='".concat(element_name, "']")).parentElement.querySelector("span.error-message").classList.remove("has-error");
@@ -32,17 +34,18 @@ storm_eagle.module('form_validation', function () {
     },
     //check_field(): form validation based on input type
     //@param {string} element_name is the name of the form element being checked
-    //@param {string} type is the character set to test (e.g. alphaNumeric, numeric, email, postalCode)
+    //@param {string} type is the character set to test (e.g. alpha_numeric, numeric, email, postal_code)
     //@returns true to show an error
     //@returns false to hide an error
     check_field: function check_field(element_name, type) {
-      var itemSelected = false;
+      var self = this;
+      var item_selected = false;
       var el;
 
       if (type == "radiobutton" || type == "checkbox") {
         el = document.querySelectorAll("[name='".concat(element_name, "']")); //returns array, el gets first el
       } else {
-        el = document.querySelector("[name='".concat(element_name, "']")); //returns array, el gets first el
+        el = document.querySelector("[name='".concat(element_name, "']"));
       }
 
       var value = el.value;
@@ -50,11 +53,11 @@ storm_eagle.module('form_validation', function () {
       if (type == "radiobutton" || type == "checkbox") {
         for (var i = 0; i < el.length; i++) {
           if (el[i].checked) {
-            itemSelected = true;
+            item_selected = true;
           }
         }
 
-        if (!itemSelected) {
+        if (!item_selected) {
           for (var _i = 0; _i < el.length; _i++) {
             return true;
           }
@@ -66,14 +69,14 @@ storm_eagle.module('form_validation', function () {
           return value === "";
         }
       } else {
-        //input boxes, email, postcalcode
+        //input boxes, email, postal_code
         if (el) {
-          if (value === "" || !this.is_value_valid(type, value)) return true;else return false;
+          if (value === "" || !self.is_value_valid(type, value)) return true;else return false;
         }
       }
     },
     //is_value_valid(): returns true if value successfully tested again regex
-    //@param {string} type is the character set to test (e.g. alphaNumeric, numeric, email, postalCode)
+    //@param {string} type is the character set to test (e.g. alphaNumeric, numeric, email, postal_code)
     //@param {string} value is the value being tested
     is_value_valid: function is_value_valid(type, value) {
       var regex;
@@ -115,59 +118,6 @@ storm_eagle.module('form_validation', function () {
       }
 
       return regex.test(value);
-    }
-  };
-});
-/**
- * Enables floating labels
- */
-
-storm_eagle.module('form_theme_maverick_a', function () {
-  "use strict";
-
-  return {
-    initialize: function initialize() {
-      var self = this;
-      self.input_listener();
-      self.textarea_autoexpand_listener();
-    },
-    ready: function ready() {
-      var self = this;
-      document.querySelectorAll('.form\\:theme\\:maverick-a input, .form\\:theme\\:maverick-a select, .form\\:theme\\:maverick-a textarea').forEach(function (element) {
-        if (element.type !== 'radio') {
-          self.force_set_active_label(element);
-        }
-      });
-      document.querySelectorAll(".form\\:theme\\:maverick-a textarea").forEach(function (element) {
-        self.force_textarea_autoexpand(element);
-      });
-    },
-    force_set_active_label: function force_set_active_label(element) {
-      console.log(element);
-      console.log(element.nextElementSibling);
-      element.nextElementSibling.classList[element.value.length ? 'add' : 'remove']('active-label');
-    },
-    input_listener: function input_listener() {
-      var self = this;
-      document.querySelectorAll('.form\\:theme\\:maverick-a input, .form\\:theme\\:maverick-a select, .form\\:theme\\:maverick-a textarea').forEach(function (element) {
-        if (element.type !== 'radio') {
-          element.addEventListener('change', function () {
-            self.force_set_active_label(element);
-          });
-        }
-      });
-    },
-    force_textarea_autoexpand: function force_textarea_autoexpand(element) {
-      element.style.height = 'inherit';
-      element.style.height = element.scrollHeight + 'px';
-    },
-    textarea_autoexpand_listener: function textarea_autoexpand_listener() {
-      var self = this;
-      document.querySelectorAll(".form\\:theme\\:maverick-a textarea").forEach(function (element) {
-        element.addEventListener('input', function () {
-          self.force_textarea_autoexpand(element);
-        });
-      });
     }
   };
 });

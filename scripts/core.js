@@ -29,7 +29,7 @@ var breakpoints = {
   'xl_min': 1280
 };
 var focus_trap_selector = "a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled]), li[role=\"tab\"]:not([disabled]), div[role=\"tabpanel\"]:not([disabled]), label";
-var remove_focus_selector = ".form\\:style\\:1 input[type=\"radio\"]+label, .form\\:style\\:1 input[type=\"text\"]+label, .form\\:style\\:1 input[type=\"email\"]+label, .form\\:style\\:2 label, [data-module=\"popover\"] button, [data-module=\"popover\"] a";
+var remove_focus_selector = ".form\\:theme\\:maverick-a input[type=\"radio\"]+label, .form\\:theme\\:maverick-a input[type=\"text\"]+label, .form\\:theme\\:maverick-a input[type=\"email\"]+label, .form\\:theme\\:maverick-b label, [data-module=\"popover\"] button, [data-module=\"popover\"] a";
 /**
  * storm_eagle Object
  * storm_eagle.module()
@@ -597,7 +597,7 @@ var storm_eagle = function (window, document, undefined) {
 
     /**
      * Observes an element and runs a function when the element is resized
-     * Replaces window.addEventListener("resize", (event) => { function(); }) as it performs better
+     * Replaces window.addEventListener("resize", event = { function(); }) as it performs better
      *
      * @param  { array } elements     elements we want to observe
      * @param  { function } func      callback function

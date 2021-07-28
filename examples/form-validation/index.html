@@ -9,234 +9,445 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
+    <link href="/stylesheets/core.css" rel="stylesheet" type="text/css" />
+
   </head>
   <body>
 
-    <style type="text/css">
-      .wrapper {margin:50px auto 0;width:100%;max-width:1200px}
-      form[name="example-form"] .row {padding-bottom:20px;overflow:hidden}
-      form[name="example-form"] input[type="text"].error,
-      form[name="example-form"] input[type="number"].error,
-      form[name="example-form"] select.error {border:1px solid red}
-      form[name="example-form"] .error-message {display:none}
-      form[name="example-form"] .error-message.active {display:block;color:red}
-      form[name="example-form"] label.screen-reader-only {overflow:hidden;position:absolute;width:1px;height:1px;border:0;clip:rect(0,0,0,0);margin:-1px;padding:0;top:-500px}
-      form[name="example-form"] input[type="text"],
-      form[name="example-form"] input[type="number"],
-      form[name="example-form"] select {margin-bottom:3px}
-      form[name="example-form"] input[type="text"]::-webkit-input-placeholder,
-      form[name="example-form"] input[type="number"]::-webkit-input-placeholder {color:#444}
-      form[name="example-form"] input[type="text"],
-      form[name="example-form"] input[type="number"] {width:100%;padding:7px 8px;box-sizing:border-box;border:1px solid #cacaca;border-radius:3px;background-color:#fff;line-height:1.4em}
-      form[name="example-form"] input[type="checkbox"] + label {padding-left:2%}
-      form[name="example-form"] input[type="radio"] + label {padding-left:2%}
-      form[name="example-form"] select {width:100%;padding:7px;box-sizing:border-box;border:1px solid #cacaca;border-radius:3px;background-color:#fff;appearance:none;overflow-wrap:initial}
-    </style>
-    <main>
-      <form name="example-form" action="" method="post">
-        <div class="row">
-          <label for="firstname" class="screen-reader-only">First Name</label>
-          <input type="text" placeholder="First name *" name="firstName" id="firstname" value="">
-          <span class="firstName error-message">Please enter your first name</span>
+<!--     <nav>
+      <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">warrenshea.github.io</div>
+      </div>
+      <div class="top-bar" id="example-menu">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text hide-for-small-only">warrenshea.github.io</li>
+            <li>
+              <a tabindex="0">Code Examples</a>
+              <ul class="menu vertical">
+                <li><a href="#height-equalizer">Height Equalizer</a></li>
+                <li><a href="#form-validation">Form Validation</a></li>
+                <li><a href="#sticky-validation">Sticky Navigation</a></li>
+                <li><a href="#carousel">Carousel</a></li>
+              </ul>
+            </li>
+            <li>
+              <a>Sandbox</a>
+              <ul class="menu vertical">
+                <li><a href="#foundation-sandbox-example">Foundation Sandbox Example</a></li>
+                <li><a href="#javascript-framework-example-i">JavaScript Framework Example I</a></li>
+                <li><a href="#javascript-framework-example-ii">JavaScript Framework Example II</a></li>
+              </ul>
+            </li>
+            <li>
+              <a>Tools</a>
+              <ul class="menu vertical">
+                <li><a href="#add-to-calendar">Add to Calendar</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <div class="row">
-          <label for="lastname" class="screen-reader-only">Last Name</label>
-          <input type="text" placeholder="Last name" name="lastName" id="lastname" value="">
-          <span class="lastName error-message">Please enter your last name</span>
-        </div>
-        <div class="row">
-          <label for="email" class="screen-reader-only">Email</label>
-          <input type="text" placeholder="Email Address *" name="email" id="email" value="">
-          <span class="email error-message">Please enter a valid email</span>
-        </div>
-        <div class="row">
-          <label for="phone" class="screen-reader-only">Phone Number</label>
-          <input type="number" placeholder="Phone Number *" name="phone" id="phone" value="">
-          <span class="phone error-message">Please enter your phone</span>
-        </div>
-        <div class="row">
-          <label for="address" class="screen-reader-only">Address</label>
-          <input type="text" placeholder="Address *" name="address" id="address" value="">
-          <span class="address error-message">Please enter your address</span>
-        </div>
-        <div class="row">
-          <label for="province" class="screen-reader-only">Province</label>
-          <select name="province" id="province">
-            <optgroup label="Provinces">
-            <option value="" disabled selected>Province/Terrority *</option>
-            <option value="ON">Ontario</option>
-            <option value="AB">Alberta</option>
-            <option value="BC">British Columbia</option>
-            <option value="MB">Manitoba</option>
-            <option value="NB">New Brunswick</option>
-            <option value="NL">Newfoundland and Labrador</option>
-            <option value="NS">Nova Scotia</option>
-            <option value="ON">Ontario</option>
-            <option value="PE">Prince Edward Island</option>
-            <option value="QC">Quebec</option>
-            <option value="SK">Saskatchewan</option>
-            <option value="NT">Northwest Territories</option>
-            <option value="NU">Nunavut</option>
-            <option value="YT">Yukon</option>
-            </optgroup>
-          </select>
-          <span class="province error-message">Please enter your province</span>
-        </div>
-        <div class="row">
-          <label for="postalcode" class="screen-reader-only">Postal Code</label>
-          <input type="text" placeholder="Postal Code * (e.g. A1A1A1)" name="postalCode" id="postalcode" value="">
-          <span class="postalCode error-message">Please enter your postal code</span>
-        </div>
-        <div class="row">
-          <label for="zipcode" class="screen-reader-only">Zip Code</label>
-          <input type="text" placeholder="Zip Code * (e.g. 90210)" name="zipCode" id="zipcode" value="">
-          <span class="zipCode error-message">Please enter your zip code</span>
-        </div>
-        <div class="row">
-          <input type="checkbox" name="checkbox" id="checkbox_yes" value="Yes">
-          <label for="checkbox_yes">Checkbox Label Yes</label>
-        </div>
-        <div class="row">
-          <input type="checkbox" name="checkbox" id="checkbox_no" value="No">
-          <label for="checkbox_no">Checkbox Label No</label>
-          <span class="checkbox error-message">Please check the checkbox</span>
-        </div>
-        <div class="row">
-          <fieldset>
-            <legend>Radio Buttons</legend>
-            <input name="radioButton" id="radio-button-yes" type="radio" value="Yes"><label for="radio-button-yes">Yes</label><br>
-            <input name="radioButton" id="radio-button-no" type="radio" value="No"><label for="radio-button-no">No</label>
-            <span class="radioButton error-message">Please select a radio button</span>
-          </fieldset>
-        </div>
-        <div>
-          <button type="submit" name="button" class="primary">Submit</button>
-        </div>
-      </form>
-    </main>
-    <script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="/resources/scripts/core.js"></script>
-    <script>    
-      sandbox.core.extend('formValidation', function(){
-        return {
-        //checkField(): form validation based on input type
-        //@param {string} elementName is the name of the form element being checked
-        //@param {string} type is the character set to test (e.g. alphaNumeric, numeric, email, postalCode)
-        //@returns true to show an error
-        //@returns false to hide an error
-        checkField:function(elementName,type) {
-          var itemSelected = false;
-          $element = $(`[name=${elementName}]`); //returns array, $element gets first $element
-          $val = $element.val();
-          if (type == "radioButton" || type == "checkBox") {
-            for (i = 0; i < $element.length; i++) {
-              if ($element[i].checked) {
-                itemSelected = true;
-              }
-            }
-            if (!itemSelected) {
-              for (i = 0; i < $element.length; i++) {
-                return true;
-              }
-            } else {
-              return false;
-            }
-          } else if (type == "dropDown") {
-            if ($element) {
-              $val = $(`[name=${elementName}] option:selected`).val();
-              if ($val == "" || !(this.isValueValid("alphaNumeric",$val)))
-                return true;
-              else
-                return false;
-            }
-          } else { //input boxes, email, postcalcode
-            if ($element) {
-              if ($val == "" || !(this.isValueValid(type,$val)))
-                return true;
-              else
-                return false;
-            }
-          }
-        },
-        //isValueValid(): returns true if value successfully tested again regex
-        //@param {string} type is the character set to test (e.g. alphaNumeric, numeric, email, postalCode)
-        //@param {string} value is the value being tested
-        isValueValid:function(type,value) {
-          var regex;
-          switch (type) {
-            case "alphaNumeric": // alphaNumeric + french characters
-              regex = /^[A-Za-z\u00E0-\u00FC0-9 ]/;
-              break;
-            case "numeric": // numbers
-              regex = /^\d+$/;
-              break;
-            case "email": //email
-              regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-              break;
-            case "postalCode": //postal code
-              regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-              break;
-            case "zipCode": //zip code
-              regex = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
-              break;
-            }
-            return regex.test(value);
-          }
-        }
-      });
+      </div>
+    </nav> -->
 
-      sandbox.core.extend("exampleForm", function() {
-        var errormessage = "";
-        return {
-          _ready: function(){
-            var self = this;
-            self.submitListener();
-          },
-          //validateForm(): returns true when all fields are validated successfuly
-          validateForm: function() {
-            var self = this;
-            errormessage = "";
-            self.displayStatus("firstName","alphaNumeric");
-            if ($("[name=lastName]").val() != "") { //optional - validates if input is filled
-              self.displayStatus("lastName","alphaNumeric");
-            }
-            self.displayStatus("email","email");
-            self.displayStatus("phone","alphaNumeric");
-            self.displayStatus("address","alphaNumeric");
-            self.displayStatus("province","dropDown");
-            self.displayStatus("postalCode","postalCode");
-            self.displayStatus("zipCode","zipCode");
-            self.displayStatus("checkbox","checkBox");
-            self.displayStatus("radioButton","radioButton");
-            if (errormessage != "") {
-              return false;
-            }
-            return true;
-          },
-          //displayStatus(): highlights/hides the border of the input that has an issue + adds/hides the error message; this function is customizable
-          //@param {string} elementName is the name of the DOM object being tested - used here for 'error-message'  
-          //@param {string} type is the character set to be validated again (e.g. alphaNumeric, numeric, email, postalCode, dropDown, checkBox, radioButton)
-          displayStatus: function(elementName,type) {
-            if (sandbox.formValidation.checkField(elementName,type)) {
-              $element.addClass("error");
-              $(`.${elementName}.error-message`).addClass("active");
-              errormessage += elementName + " ";
-            } else {
-              $element.removeClass("error");
-              $(`.${elementName}.error-message.active`).removeClass("active");
-            }
-          },
-          submitListener: function() {
-            var self = this;
-            $('form[name=example-form]').submit(function(ev) {
-              ev.preventDefault(); // to stop the form from submitting
-              if (self.validateForm()) { // if all the validations succeeded
-                this.submit();
-              }
-            });
-          }
-        }
-      });
-    </script>
+    <main class="w:100% form:theme:maverick-a" role="main">
+      <form name="example-form" action="#" method="get" onsubmit="return storm_eagle.example_form.validate_form(event);">
+        <div class="row">
+          <div class="w:12">
+            <h1 class="play:bold fs:40px color:slate pb:16px">Form and Form Validation</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="w:3 px:8px">
+            <h2 class="fs:28px lh:24 pb:16px">Mandatory</h2>
+
+            <h3 class="fs:20px lh:24 pt:16px">Input (text)</h3>
+            <div class="position:relative pt:4px">
+              <input id="text-mandatory" name="text-mandatory" type="text" aria-required="true" data-module="input-text" aria-describedby="">
+              <label for="text-mandatory">
+                <span class="description">Text Input*</span>
+              </label>
+              <span class="error-message" id="text-mandatory:is_mandatory">Please provide a value</span>
+              <span class="error-message" id="text-mandatory:is_alphanumeric">The value provided has unacceptable characters</span>
+              <ul class="helper-description">
+                <li>Input (text) is mandatory</li>
+                <li>Cannot be empty</li>
+                <li>Is alphanumeric (+french characters): /^[A-Za-z\u00E0-\u00FC0-9 ]/</li>
+                <li>Examples: First Name, Last Name, Address</li>
+              </ul>
+            </div>
+
+            <h3 class="fs:20px lh:24 pt:16px">Input (number)</h3>
+            <div class="position:relative pt:4px">
+              <input name="number-mandatory" id="number-mandatory" type="number">
+              <label for="number-mandatory">
+                <span class="description">Number*</span>
+              </label>
+              <span class="error-message" id="number-mandatory:is_mandatory">Please provide a number</span>
+              <span class="error-message" id="number-mandatory:is_number">The value provided has unacceptable characters</span>
+              <ul class="helper-description">
+                <li>Input (number) is mandatory</li>
+                <li>Cannot be empty</li>
+                <li>Is numeric: /^\d+$/</li>
+                <li>Examples: YYYYMMDD, YYYY, MM, DD, hh, ss</li>
+              </ul>
+            </div>
+
+            <h3 class="fs:20px lh:24 pt:16px">Input (email)</h3>
+            <div class="position:relative pt:4px">
+              <input id="email-mandatory" name="email-mandatory" type="text">
+              <label for="email-mandatory">
+                <span class="description">Email*</span>
+              </label>
+              <span class="error-message" id="email-mandatory:is_mandatory">Please provide a value</span>
+              <span class="error-message" id="email-mandatory:is_email">The value provided does not match an email format</span>
+              <ul class="helper-description">
+                <li>Input (email) is mandatory</li>
+                <li>Cannot be empty</li>
+                <li>Is email</li>
+              </ul>
+            </div>
+
+            <h3 class="fs:20px lh:24 pt:16px">Input (postal code)</h3>
+            <div class="position:relative pt:4px">
+              <input id="postal-code" name="postal-code" type="text">
+              <label for="postal-code">
+                <span class="description">Postal Code*</span>
+              </label>
+              <span class="error-message" id="postal-code:is_mandatory">Please provide a value</span>
+              <span class="error-message" id="postal-code:is_email">The value provided does not match a the postal code format (e.g. A1A1A1)</span>
+              <ul class="helper-description">
+                <li>Input (email) is mandatory</li>
+                <li>Cannot be empty</li>
+                <li>Is postal code: /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/</li>
+              </ul>
+            </div>
+
+            <h3 class="fs:20px lh:24 pt:16px">Input (zip code)</h3>
+            <div class="position:relative pt:4px">
+              <input id="zip-code" name="zip-code" type="text">
+              <label for="zip-code">
+                <span class="description">Postal Code*</span>
+              </label>
+              <span class="error-message" id="zip-code:is_mandatory">Please provide a value</span>
+              <span class="error-message" id="zip-code:is_email">The value provided does not match a the postal code format (e.g. 90210)</span>
+              <ul class="helper-description">
+                <li>Input (email) is mandatory</li>
+                <li>Cannot be empty</li>
+                <li>Is postal code: /(^\d{5}$)|(^\d{5}-\d{4}$)/</li>
+              </ul>
+            </div>
+
+            <h3 class="fs:20px lh:24 pt:16px">Select / Dropdown</h3>
+            <div class="position:relative pt:4px">
+              <select id="select-mandatory">
+                <option value="" selected="" disabled></option>
+                <option value="1">Option One</option>
+                <option value="2">Option Two</option>
+                <option value="3">Option Three</option>
+                <option value="4">Option Four</option>
+                <option value="5">Option Five</option>
+                <option value="6">Option Six</option>
+                <option value="7">Option Seven</option>
+                <option value="8">Option Eight</option>
+              </select>
+              </optgroup>
+              <label for="select-mandatory">
+                <span class="description">Select / Dropdown</span>
+              </label>
+              <span class="error-message" id="select-mandatory:is_mandatory">Please select an option</span>
+              <span class="helper-description">Helper Text</span>
+            </div>
+            <div class="row">
+              <div class="w:6">
+                <div class="position:relative pt:4px">
+                  <select id="provinces-en-mandatory">
+                    <optgroup label="Provinces">
+                    <option value="" selected disabled></option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="New Brunswick">New Brunswick</option>
+                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                    <option value="Nova Scotia">Nova Scotia</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Prince Edward Island">Prince Edward Island</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Northwest Territories">Northwest Territories</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Yukon">Yukon</option>
+                    </optgroup>
+                  </select>
+                  </optgroup>
+                  <label for="provinces-en-mandatory">
+                    <span class="description">Province/Terrority *</span>
+                  </label>
+                  <span class="error-message" id="provinces-en-mandatory:is_mandatory">Please select an option</span>
+                  <span class="helper-description">Provinces (EN)</span>
+                </div>
+              </div>
+              <div class="w:6">
+                <div class="position:relative pt:4px">
+                  <select id="provinces-en-mandatory">
+                    <optgroup label="Provinces">
+                    <option value="" selected disabled></option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">Colombie-Britannique</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="New Brunswick">Nouveau-Brunswick</option>
+                    <option value="Newfoundland and Labrador">Terre-Neuve-et-Labrador</option>
+                    <option value="Nova Scotia">Nouvelle-Écosse</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Prince Edward Island">Île-du-Prince-Édouard</option>
+                    <option value="Quebec">Québec</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Northwest Territories">Territoires du Nord-Ouest</option>
+                    <option value="Nunavut">Nunavut</option>
+                    <option value="Yukon">Yukon</option>
+                    </optgroup>
+                  </select>
+                  </optgroup>
+                  <label for="provinces-en-mandatory">
+                    <span class="description">Province/Territoire *</span>
+                  </label>
+                  <span class="error-message" id="provinces-en-mandatory:is_mandatory">Please select an option</span>
+                  <span class="helper-description">Provinces (FR)</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="w:6">
+                <div class="position:relative pt:4px">
+                  <select id="month-en-mandatory">
+                    <optgroup label="Month">
+                    <option value="" selected disabled></option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                    </optgroup>
+                  </select>
+                  </optgroup>
+                  <label for="month-en-mandatory">
+                    <span class="description">Month *</span>
+                  </label>
+                  <span class="error-message" id="month-en-mandatory:is_mandatory">Please select an option</span>
+                  <span class="helper-description">Month (EN)</span>
+                </div>
+              </div>
+              <div class="w:6">
+                <div class="position:relative pt:4px">
+                  <select id="month-fr-mandatory">
+                    <optgroup label="Provinces">
+                    <option value="" selected disabled></option>
+                    <option value="01">janvier</option>
+                    <option value="02">février</option>
+                    <option value="03">mars</option>
+                    <option value="04">avril</option>
+                    <option value="05">mai</option>
+                    <option value="06">juin</option>
+                    <option value="07">juillet</option>
+                    <option value="08">août</option>
+                    <option value="09">septembre</option>
+                    <option value="10">octobre</option>
+                    <option value="11">november</option>
+                    <option value="12">décembre</option>
+                    </optgroup>
+                  </select>
+                  </optgroup>
+                  <label for="month-fr-mandatory">
+                    <span class="description">mois *</span>
+                  </label>
+                  <span class="error-message" id="month-fr-mandatory:is_mandatory">Please select an option</span>
+                  <span class="helper-description">Month (FR)</span>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="fs:20px lh:24 pt:16px">Textarea</h3>
+            <div class="position:relative pt:4px">
+              <textarea name="textarea" id="textarea" class="scrollbar" rows="1" placeholder=""></textarea>
+              <label for="textarea">
+                <span class="description">Textarea *</span>
+              </label>
+              <span class="error-message" id="textarea:is_mandatory">Please provide a value</span>
+              <ul class="helper-description">
+                <li>Textarea is mandatory</li>
+                <li>Textarea will expand as you type</li>
+                <li>Cannot be empty</li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="w:3 px:8px">
+            <h2 class="fs:20px">Optional Inputs, Emails, Zip Code, Postal Code</h2>
+            <div class="position:relative pt:4px">
+              <input id="text-optional" name="text-optional" type="text">
+              <label for="text-optional">
+                <span class="description">First Name</span>
+              </label>
+              <span class="error-message" id="text-optional:is_optional">Please provide a value, this is optional</span>
+              <span class="error-message" id="text-optional:is_alphanumeric">Mandatory Input("text") with not_empty & alpha_numeric</span>
+              <span class="helper-description">Input("text") is optional, is alpha_numeric</span>
+            </div>
+            <div class="position:relative pt:4px">
+              <input id="email-mandatory" name="email-mandatory" type="text">
+              <label for="email-mandatory">
+                <span class="description">Email</span>
+              </label>
+              <span class="error-message" id="text-optional:is_mandatory">Please provide a value, this is optional</span>
+              <span class="error-message" id="text-optional:is_email">Mandatory Input("text") with not_empty & alpha_numeric</span>
+              <span class="helper-description">Optional Input("text") with not_empty & alpha_numeric</span>
+            </div>
+            <div class="position:relative pt:4px">
+              <input type="text" name="postal-code" id="postal-code" value="">
+              <label for="postal-code">
+                <span class="description">Postal Code * (e.g. A1A1A1)</span>
+              </label>
+              <span class="error-message">Please enter your postal code</span>
+            </div>
+            <div class="position:relative pt:4px">
+              <input type="text" name="zip-code" id="zip-code" value="">
+              <label for="zip-code">
+                <span class="description">"Zip Code * (e.g. 90210)</span>
+              </label>
+              <span class="zip-code error-message">Please enter your zip code</span>
+            </div>
+          </div>
+          <div class="w:3 px:8px">
+
+<h3>Traditional Checkboxes</h3>
+<input type="checkbox" name="traditionalCheckbox" id="traditionalCheckbox1" checked="">
+<label for="traditionalCheckbox1" class="active-label">Checkbox Label</label>
+<br>
+<input type="checkbox" name="traditionalCheckbox" id="traditionalCheckbox2">
+<label for="traditionalCheckbox2" class="active-label">Checkbox Label</label>
+<br>
+<input type="checkbox" name="traditionalCheckbox" id="traditionalCheckbox3" disabled="" checked="">
+<label for="traditionalCheckbox3" class="active-label">Checkbox Label</label>
+
+<h3>Parent-Child Checkboxes</h3>
+<div class="parent-checkbox">
+<input aria-controls="checkboxChild1 checkboxChild2 checkboxChild3" type="checkbox" name="parentCheckbox" id="parentCheckbox1" aria-checked="mixed">
+<label for="parentCheckbox1" class="active-label">Checkbox Label</label>
+<ul class="checkboxes unstyle pl:16px">
+  <li>
+    <div class="input-wrap input-checkbox">
+      <input type="checkbox" name="checkboxChildInput" id="checkboxChild1" checked="">
+      <label for="checkboxChild1" class="active-label">Checkbox Label</label>
+    </div>
+  </li>
+  <li>
+    <div class="input-wrap input-checkbox">
+      <input type="checkbox" name="checkboxChildInput" id="checkboxChild2" checked="">
+      <label for="checkboxChild2" class="active-label">Checkbox Label</label>
+    </div>
+  </li>
+  <li>
+    <div class="input-wrap input-checkbox">
+      <input type="checkbox" name="checkboxChildInput" id="checkboxChild3">
+      <label for="checkboxChild3" class="active-label">Checkbox Label</label>
+    </div>
+  </li>
+</ul>
+</div>
+
+<h3>Traditional Radio Buttons</h3>
+<fieldset>
+    <legend>Traditional&nbsp;radio button</legend>
+    <input type="radio" name="radio" id="radio4" value="1" checked="">
+    <label for="radio4">Test1</label>
+    <input type="radio" name="radio" id="radio5" value="2">
+    <label for="radio5">Test2</label>
+    <input type="radio" name="radio" id="radio6" value="3">
+    <label for="radio6" role="alert">Test3</label>
+</fieldset>
+
+<h3>Box Radio Buttons</h3>
+<fieldset class="box-radio-buttons">
+  <legend>Box radio button</legend>
+  <input type="radio" name="radio-box" id="radio-box4" value="radio-box1" checked="">
+  <label for="radio-box4" class="box-radio-label">yes</label>
+  <input type="radio" name="radio-box" id="radio-box5" value="radio-box2">
+  <label for="radio-box5" class="box-radio-label">no</label>
+</fieldset>
+
+<h3>TEXTAREA</h3>
+<div>
+
+</div>
+
+<h3>TEXTAREA DISABLED</h3>
+<div>
+  <div class="position:relative">
+    <textarea name="text-area-demo-3" id="text-area-demo-3" class="scrollbar" rows="1" disabled="">Disabled textarea</textarea>
+    <label class="active-label disabled" for="text-area-demo-3">
+      <span class="description">Disabled Textarea</span>
+    </label>
+    <span class="error-message">Textarea error</span>
+    <span class="helper-description">Text box will expand as you type</span>
+  </div>
+</div>
+
+<div class="form:style:card-checkboxes">
+  <input id="checkCard2" name="checkCardInput" type="checkbox">
+  <label for="checkCard2" class="box-shadow:layer-level-2 active-label">
+    <div class="check"></div>
+    <div class="image">
+      <div class="icon display:block icon-color:blue icon-size:32px dragon"></div>
+    </div>
+    <div class="description">Card Checkbox Label.</div>
+  </label>
+</div>
+
+<h3>Card Radio Buttons</h3>
+<div class="form:style:card-radiobuttons">
+  <input id="checkCard4" name="checkCardInput" type="radio">
+  <label for="checkCard4" class="box-shadow:layer-level-2">
+    <div class="check"></div>
+    <div class="image">
+      <div class="icon display:block icon-color:blue icon-size:32px dragon"></div>
+    </div>
+    <div class="description">Card Checkbox Label.</div>
+  </label>
+
+  <br><br>
+
+  <input id="checkCard5" name="checkCardInput" type="radio">
+  <label for="checkCard5" class="box-shadow:layer-level-2">
+    <div class="check"></div>
+    <div class="image">
+      <div class="icon display:block icon-color:blue icon-size:32px dragon"></div>
+    </div>
+    <div class="description">Card Checkbox Label.</div>
+  </label>
+</div>
+          </div>
+          <div class="w:3 px:8px">
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+    <script src="/scripts/core.js"></script>
+    
+    <script src="example-form.js"/></script>
+    
+    <script src="/scripts/module.form-validation.js"/></script>
+    
+    <script src="/scripts/module.form-theme-maverick-a.js"/></script>
+    
   </body>
 </html>

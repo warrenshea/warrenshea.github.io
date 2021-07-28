@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="storm-eagle" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calendar Event Builder</title>
+    <link rel="alternate" hreflang="en" href="https://warrenshea.github.io/examples/calendar-event-builder/">
+    <link rel="canonical" href="https://warrenshea.github.io" />
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link href="/stylesheets/core.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body>
+
+    <main class="w:100%" role="main">
+      <section class="mw:1200px align-self:centered pt:32px">
+        <div class="row form:theme:maverick-a">
+          <div class="w:4 offset:2">
+            <h1 class="play:bold fs:40px color:slate pb:16px">Calendar Event Builder</h1>
+            <form name="calendar-form" action="" method="post">
+              <div class="position:relative pb:4px"><input type="text" name="start_date" id="start_date" value=""><label for="start_date"><span class="description">Start Date</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="start_time" id="start_time" value=""><label for="start_time"><span class="description">Start Time</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="end_date" id="end_date" value=""><label for="end_date"><span class="description">End Date</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="end_time" id="end_time" value=""><label for="end_time"><span class="description">End Time</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="duration" id="duration" value=""><label for="duration"><span class="description">Duration</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="timezone" id="timezone" value=""><label for="timezone"><span class="description">Timezone</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="title" id="title" value=""><label for="title"><span class="description">Title</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="description" id="description" value=""><label for="description"><span class="description">Description</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="location" id="location" value=""><label for="location"><span class="description">Location</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="organizer" id="organizer" value=""><label for="organizer"><span class="description">Organizer</span></label></div>
+              <div class="position:relative pb:4px"><input type="text" name="organizer_email" id="organizer_email" value=""><label for="organizer_email"><span class="description">Organizer Email</span></label></div>
+              <div class="pt:8px"><button type="submit" value="Submit" class="button:primary uppercase">Submit</button></div>
+            </form>
+          </div>
+          <div class="w:5 offset:1">
+            <h2 class="fs:32px play:bold pt:8px pb:16px">Results</h2>
+            <div class="results">
+              <a href="" target="_blank" id="outlook">Outlook</a><br><br>
+              <a href="" target="_blank" id="google">Google Calendar</a><br><br>
+              <a href="" target="_blank" id="yahoo">Yahoo</a><br><br>
+              <div class="position:relative pt:16px">
+                <textarea id="icalendar" class="" rows="4" placeholder="" style="min-height:435px"></textarea>
+                <label for="icalendar"><span class="description">iCalendar</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/scripts/core.js"></script>
+    
+    <script src="/scripts/module.calendar-event-builder.js"/></script>
+    
+    <script src="/scripts/module.form-theme-maverick-a.js"/></script>
+    
+  </body>
+</html>
