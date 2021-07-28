@@ -1,0 +1,18 @@
+<h1>Warren Shea&#39;s Notes for Git</h1><p>v20210614</p>
+<h2>My notes</h2><ul>
+<li><code>git add -A</code> stages all changes</li>
+<li><code>git add .</code> stages the new files and modifications but not deletions</li>
+</ul>
+<h2>Gitflow (my preferred git workflow)</h2><ul>
+<li><p><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow Workflow</a>
+<a href="https://wac-cdn.atlassian.com/dam/jcr:cc0b526e-adb7-4d45-874e-9bcea9898b4a/04%20Hotfix%20branches.svg?cdnVersion=1655">Gitflow</a></p>
+</li>
+<li><p><a href="https://www.git-tower.com/learn/cheat-sheets/git/">https://www.git-tower.com/learn/cheat-sheets/git/</a>
+<img src="https://www.git-tower.com/learn/cheat-sheets/git/git-cheat-sheet-large01.png" alt="GitHub Cheat Sheet 1">
+<img src="https://www.git-tower.com/learn/cheat-sheets/git/git-cheat-sheet-large02.png" alt="GitHub Cheat Sheet 2"></p>
+</li>
+</ul>
+<h2>Useful Chrome Extensions</h2><p><a href="https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc">Octotree - GitHub code tree</a>
+<a href="https://chrome.google.com/webstore/detail/github-code-folding/lefcpjbffalgdcdgidjdnmabfenecjdf">GitHub Code Folding</a>
+<a href="https://chrome.google.com/webstore/detail/render-whitespace-on-gith/ifdbipohclgnokjgpejhnbjdlgjkkhom?hl=en">Render Whitespace on GitHub</a>
+<a href="https://chrome.google.com/webstore/detail/github-repository-size/apnjnioapinblneaedefcnopcjepgkci?hl=en">GitHub Repository Size</a></p>

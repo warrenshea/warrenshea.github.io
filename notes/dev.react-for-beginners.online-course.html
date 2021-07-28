@@ -1,0 +1,430 @@
+<h1>Warren Shea&#39;s Notes for React for Beginners (Online Course)</h1><p><a href="https://courses.wesbos.com/">https://courses.wesbos.com/</a> | <a href="https://reactforbeginners.com/">https://reactforbeginners.com/</a> <br><strong>Version</strong>: 20180122 | <strong>Status</strong>:  <del>In Progress</del> Abandoned</p>
+<hr>
+<h2>Table of Contents</h2><ul>
+<li><a href="#module-01-introduction-tooling-and-editor-setup">Module 01: Introduction, Tooling and Editor Setup</a></li>
+<li><a href="#module-02-thinking-and-understanding-react-components">Module 02: Thinking and Understanding React Components</a></li>
+<li><a href="">Module 03: Creating our First Components</a></li>
+<li><a href="">Module 04: Writing HTML with JSX</a></li>
+<li><a href="">Module 05: Loading CSS into our React Application</a></li>
+<li><a href="">Module 06: Creating our application layout with components</a></li>
+<li><a href="">Module 07: Passing Dynamic data with props</a></li>
+<li><a href="">Module 08: Stateless Functional Components</a></li>
+<li><a href="">Module 09: Routing with React Router</a></li>
+<li><a href="">Module 10: Helper and Utility Functions</a></li>
+<li><a href="">Module 11: Working with React Events</a></li>
+<li><a href="">Module 12: All About React Router</a></li>
+<li><a href="">Module 13: Understanding State</a></li>
+<li><a href="">Module 14: Loading data into state onClick</a></li>
+<li><a href="">Module 15: Displaying State with JSX</a></li>
+<li><a href="">Module 16: Updating Order State</a></li>
+<li><a href="">Module 17: Displaying Order State with JSX</a></li>
+<li><a href="">Module 18: Persisting our State with Firebase</a></li>
+<li><a href="">Module 19: Persisting Order State with localstorage</a></li>
+<li><a href="">Module 20: Bi-directional Data Flow and Live State Editing </a></li>
+<li><a href="">Module 21: Removing Items from State</a></li>
+<li><a href="">Module 22: Animating React Components</a></li>
+<li><a href="">Module 23: Component Validation with PropTypes</a></li>
+<li><a href="">Module 24: Authentication</a></li>
+<li><a href="">Module 25: Building React for Production</a></li>
+<li><a href="">Module 26: Deploying to now.sh</a></li>
+<li><a href="">Module 27: Deploying to GitHub Pages</a></li>
+<li><a href="">Module 28: Deploying to an Apache Server</a></li>
+<li><a href="">Module 29: Future React Today - Property Initializers and getting rid of .bind()</a></li>
+<li><a href="">Module 30: Ejecting from create-react-app</a></li>
+</ul>
+<hr>
+<h2>Module 01: Introduction, Tooling and Editor Setup</h2><ul>
+<li><strong>Requirements:</strong> NodeJS, React Dev Tools (Extension), Babel extension, Terminal (cmder)</li>
+<li>Need Module bundler (e.g. Webpack) rather than link to react references all the time</li>
+<li>Shortcut: <code>cd</code> (and then drag folder into terminal) to navigation to folder quickly</li>
+<li>Need: Create React App (create-react-app) via <code>npm install -g create-react-app</code></li>
+</ul>
+<h2>Module 02: Thinking and Understanding React Components</h2><ul>
+<li>Everything is a component - a reusable peice of the website</li>
+<li>React - you can use your own tag</li>
+<li>Using React Dev Tools shows how a site is build/what custom components are used</li>
+</ul>
+<h2>Module 03: Creating our First Components</h2><ul>
+<li><code>&lt;div id=&quot;main&quot;&gt;</code> is the mounting point for React App</li>
+<li><code>import { render } from &#39;react-dom&#39;;</code> to render the code as DOM/HTML (as opposed to for an Android App)</li>
+<li><code>import ReactDom from &#39;react-dom&#39;;</code> will load the whole ReactDom package but we don&#39;t need entire package, just need <code>render</code> method</li>
+<li>An example of a simple component, rendered to a div (<code>&lt;div id=&quot;#main&quot;&gt;</code>)<pre><code class="language-javascript">class StorePicker extends React.Component {
+render() {
+  return &lt;p&gt;Hello&lt;/p&gt;
+}
+}
+</code></pre>
+</li>
+</ul>
+<p>render(<StorePicker/>,document.querySelector(&#39;#main&#39;));</p>
+<pre><code>* Best Practice is each component is its own file
+* Each file in the `components` folder
+* `./index.js`
+```javascript
+import React from &#39;react&#39;;
+import { render } from &#39;react-dom&#39;;
+
+import StorePicker from &#39;./components/StorePicker&#39;;
+
+render(&lt;StorePicker/&gt;,document.querySelector(&#39;#main&#39;));</code></pre><ul>
+<li><code>./components/StorePicker.js</code><pre><code class="language-javascript">import React from &#39;react&#39;;
+</code></pre>
+</li>
+</ul>
+<p>class StorePicker extends React.Component {
+  render() {
+    return <p>Hello</p>
+  }
+}</p>
+<p>export default StorePicker</p>
+<pre><code>
+## Module 04: Writing HTML with JSX
+* JSX - write HTML inside JavaScript
+* `return React.createElement(&#39;p&#39;, {className: &#39;Testing&#39;}, &#39;Test&#39;);` - a (bad) way to write HTML
+* Better way
+```javascript
+  return (
+    All the HTML code you need
+  )</code></pre><ul>
+<li>cannot use <code>class</code> because it is a reserved word/name in JavaScript - use <code>className</code></li>
+<li>Can only return 1 parent element. This is okay:<pre><code class="language-javascript">return (
+  &lt;form&gt;
+  &lt;/form&gt;
+)</code></pre>
+This is not:<pre><code class="language-javascript">return (
+  &lt;form&gt;
+  &lt;/form&gt;
+  &lt;p&gt;
+  &lt;/p&gt;
+)</code></pre>
+</li>
+<li>Self-closing tags need to be self-closed (similar to XHTML, not like HTML5) e.g. <code>img</code> <code>input</code> <code>hr</code> <code>br</code></li>
+<li>Comments - <code>{/* comment */}</code> when in JSX</li>
+<li>Comments - don&#39;t put them at the same level as your returned code, the render function can only return 1 parent element</li>
+</ul>
+<h2>Module 05: Loading CSS into our React Application</h2><ul>
+<li>Ways to load CSS: Inline styles, separate files, or loading CSS/SASS into HTML file</li>
+<li>In this example, we&#39;re loading a file into the HTML file via <code>import &#39;./css/style.css&#39;;</code></li>
+</ul>
+<h2>Module 06: Creating our application layout with components</h2><ul>
+<li>Modified App component + Created 3 new components<pre><code class="language-javascript">import React from &#39;react&#39;;
+import Header from &#39;./Header&#39;;
+import Order from &#39;./Order&#39;;
+import Inventory from &#39;./Inventory&#39;;
+</code></pre>
+</li>
+</ul>
+<p>class App extends React.Component {
+  render() {
+    /* comment */
+    return (
+      <div className="catch-of-the-day">
+        <div className="menu">
+          <Header />
+        </div>
+        <Order />
+        <Inventory />
+      </div>
+    );
+  }
+}</p>
+<p>export default App</p>
+<pre><code>
+## Module 07: Passing Dynamic data with props
+* Pass data to component via `props`, with is like an attribute for a component
+```javascript
+in `App.js`
+&lt;Header tagline=&quot;Fresh Seafood Market&quot;/&gt;
+
+in `Header.js`
+&lt;h3 className=&quot;tagline&quot;&gt;{this.props.tagline}&lt;/h3&gt;</code></pre><ul>
+<li><code>this</code> refers to the component</li>
+<li>Passing a number, variable, for bollean, you need to wrap value in <code>{ }</code></li>
+<li>If you need to debug a component, go to the component in React Dev Tools, then go to <code>Console</code> and press <code>$r</code></li>
+<li>(Not React Related) If you need to debug some html, go to the component in Dev Tools, then go to <code>Console</code> and press <code>$0</code></li>
+</ul>
+<h2>Module 08: Stateless Functional Components</h2><ul>
+<li>Used for &quot;simple&quot; components that don&#39;t really do anything else/have no other methods expect render stuff</li>
+<li>Instead of<pre><code class="language-javascript">class Header extends React.Component {
+render () {
+  return (
+    {/* code */}
+  );
+}
+}</code></pre>
+You can use (best practice):<pre><code class="language-javascript">const Header = (props) = &gt; {
+  return (
+    {/* code */}
+  );
+}</code></pre>
+or<pre><code class="language-javascript">function Header(props) {
+  return (
+    {/* code */}
+  );
+}</code></pre>
+or<pre><code class="language-javascript">const Header = function(props) {
+  return (
+    {/* code */}
+  );
+}</code></pre>
+</li>
+</ul>
+<h2>Module 09: Routing with React Router</h2><ul>
+<li>React Router is not part of React</li>
+<li>React Router 4 is being used - to show/hide components depending on URL</li>
+<li><code>index.js</code><pre><code class="language-javascript">import React from &#39;react&#39;;
+import { render } from &#39;react-dom&#39;;
+import { BrowserRouter, Match, Miss } from &#39;react-router&#39;;
+</code></pre>
+</li>
+</ul>
+<p>import App from &#39;./components/App&#39;;
+import StorePicker from &#39;./components/StorePicker&#39;;
+import NotFound from &#39;./components/NotFound&#39;;</p>
+<p>const Root = () =&gt; {
+  return (
+    <BrowserRouter>
+      <div>{/* Match cannot be a child of BrowserRouter....I guess? <em>/}
+        {/</em> For the root <em>/}
+        <Match exactly pattern='/' component={StorePicker} />
+        {/</em> For anything &#39;/store&#39; <em>/}
+        <Match pattern='/store/:storeId' component={App} />
+        {/</em> For anything &#39;/store&#39; */}
+        <Miss component={NotFound} />
+      </div>
+    </BrowserRouter>
+  )
+}</p>
+<p>render(<Root/>,document.querySelector(&#39;#main&#39;));</p>
+<pre><code>
+## Module 10: Helper and Utility Functions
+* Helpers file to stick functions not tied to specific page/functionality - not big enough to be modules
+* In the `helpers.js` file
+```javascript
+export function getFunName() {
+}</code></pre><p>And in the place to call the helper function,</p>
+<pre><code class="language-javascript">import { getFunName } from &#39;../helpers&#39;;</code></pre>
+<h2>Module 11: Working with React Events</h2><ul>
+<li><p>Add events inline into code</p>
+</li>
+<li><p><code>render</code> is bound to the component, so refering <code>this</code> references the component</p>
+</li>
+<li><p>In other functions, <code>this</code> does not reference the component</p>
+</li>
+<li><p>In React, you don&#39;t want to touch the DOM</p>
+</li>
+<li><p>This will make it so that <code>StorePicker.storeInput</code> references the <code>input</code></p>
+<pre><code class="language-javascript">&lt;input type=&#39;text&#39; required placeholder=&#39;Store Name&#39; defaultValue={getFunName()}
+ref={(input) =&gt; { this.storeInput = input}} /&gt;</code></pre>
+</li>
+<li><p>Constructor - the code that runs when a component is created</p>
+</li>
+<li><p>To bind <code>this</code> inside a function, you can do :</p>
+<pre><code class="language-javascript">constructor() {
+  super(); /*runs React.Component*/
+  this.goToStore = this.goToStore.bind(this);
+}
+goToStore(event) {
+  console.log(this); /*is now the correct &#39;this&#39;*/
+}</code></pre>
+<p>And call the event through</p>
+<pre><code class="language-javascript">&lt;form action=&#39;&#39; className=&#39;store-selector&#39; onSubmit={this.goToStore.bind(this)}&gt;</code></pre>
+<p>OR</p>
+<pre><code class="language-javascript">&lt;form action=&#39;&#39; className=&#39;store-selector&#39; onSubmit={(e) =&gt; this.goToStore(e)}&gt;</code></pre>
+</li>
+<li><p>Altogether</p>
+<pre><code class="language-javascript">class StorePicker extends React.Component {
+goToStore(event) {
+  /*stopped form from submitting*/
+  event.preventDefault();
+  //grab text from box
+  console.log(this.storeInput.value);
+  //transition from / to store/id
+}
+
+render () {
+  return (
+    &lt;form action=&#39;&#39; className=&#39;store-selector&#39; onSubmit={(e) =&gt; this.goToStore(e)}&gt;
+      &lt;input type=&#39;text&#39; required placeholder=&#39;Store Name&#39; defaultValue={getFunName()} ref={(input) =&gt; { this.storeInput = input}} /&gt;
+    &lt;/form&gt;
+  );
+}
+}</code></pre>
+</li>
+</ul>
+<h2>Module 12: All About React Router</h2><ul>
+<li>React Router 4: 2 main ways to change the page: Declarative (use a component) and Imperative (use a function e.g. <code>.transitionTo</code>)</li>
+<li>BrowserRouter is the parent of the entire application, so you can access it at any time</li>
+<li>Use &quot;Context&quot; to surface the router - delcare something at a top level and it will be made available to children</li>
+<li>State holds data, Props passes data from parent to child</li>
+<li>At the bottom:<pre><code class="language-javascript">/* Tells react that StorePicker wants router */
+StorePicker.contextTypes = {
+router: React.PropTypes.object
+}</code></pre>
+</li>
+<li>Using transitionTo:<pre><code class="language-javascript">goToStore(event) {
+  /*
+    code...
+  */
+  const storeId = this.storeInput.value;
+  //transition from / to store/id
+  this.context.router.transitionTo(`/store/${storeId}`);
+}</code></pre>
+</li>
+<li>This is all client side so transitionTo uses HTML5 pushState</li>
+</ul>
+<h2>Module 13: Understanding State</h2><ul>
+<li><p>State is one object that holds all the data related to all/a piece of the application</p>
+</li>
+<li><p>You store all data in a massive object called State - if you change anything on the page, you change State</p>
+</li>
+<li><p>If you want to change anything on the page, you change the state / let React handle it for you</p>
+</li>
+<li><p>State is tied to App Component - functions that change state are in App.js (in this example)</p>
+</li>
+<li><p>State is always tied to a specific Component</p>
+</li>
+<li><p>Each Component can have its own state</p>
+</li>
+<li><p>Sometimes state needs to be shared among components (e.g. App w/ Order, Inventory) - so then we put State on App Component and pass it down</p>
+</li>
+<li><p>Don&#39;t forget that if you need to access the function that changes state (e.g. AddFish), you have to attach it to components and reference them as props in the component
+<code>App.js</code></p>
+<pre><code class="language-javascript">class App extends React.Component {
+constructor () {
+  super();
+  this.addFish = this.addFish.bind(this);
+  this.state = {
+    fishes: {}
+  };
+}
+
+addFish (fish) {
+  const fishes = {...this.state.fishes};
+  /* change fishes */
+  this.setState({ fishes });
+}
+render () {
+  return (
+    &lt;div&gt;
+      &lt;Inventory addFish={this.addFish} /&gt; {/* addFish is passed down */}
+    &lt;/div&gt;
+  );
+}
+}
+export default App;</code></pre>
+</li>
+</ul>
+<p><code>Inventory.js</code></p>
+<pre><code class="language-javascript">        &lt;AddFishForm addFish={this.props.addFish} /&gt;</code></pre>
+<p><code>AddFishForm.js</code></p>
+<pre><code class="language-javascript">class addFishForm extends React.Component {
+  createFish (event) {
+    event.preventDefault();
+    const fish = {
+      name: this.name.value,
+      price: this.price.value,
+      status: this.status.value,
+      desc: this.desc.value,
+      image: this.image.value
+    };
+    this.props.addFish(fish);
+    this.fishForm.reset();
+  }
+  render () {
+    return (
+      &lt;form ref={(input) =&gt; { this.fishForm = input; }} action=&#39;&#39; className=&#39;fish-edit&#39; onSubmit={(e) =&gt; this.createFish(e)}&gt;
+        &lt;button type=&#39;submit&#39;&gt;Add Item&lt;/button&gt;
+      &lt;/form&gt;
+    );
+  }
+}
+export default addFishForm;</code></pre>
+<h2>Module 14: Loading data into state onClick</h2><ul>
+<li>On click of a button in <code>Inventory.js</code><pre><code class="language-javascript">&lt;button onClick={this.props.loadSamples}&gt;Load Samples&lt;/button&gt;</code></pre>
+</li>
+</ul>
+<p>We load in a fishes object from <code>sample-fishes.js</code>
+In <code>App.js</code></p>
+<pre><code class="language-javascript">import sampleFishes from &#39;../sample-fishes&#39;;
+
+class App extends React.Component {
+  constructor () {
+    super();
+    this.loadSamples = this.loadSamples.bind(this);
+    // getInitialState
+    this.state = {
+      fishes: {}
+    };
+  }
+  loadSamples () {
+    this.setState({
+      fishes: sampleFishes
+    });
+  }
+  render () {
+    return (
+      &lt;div className=&#39;catch-of-the-day&#39;&gt;
+        &lt;Inventory addFish={this.addFish} loadSamples={this.loadSamples} /&gt; {/* addFish is passed down */}
+      &lt;/div&gt;
+    );
+  }
+}</code></pre>
+<h2>Module 15: Displaying State with JSX</h2><ul>
+<li>No loops or login in JSX - if you want it, you use regular JavaScript</li>
+<li><code>Object.keys(object)</code> will map over object</li>
+<li>loop over object (<code>this.state.fishes</code>)<pre><code class="language-javascript">{
+  Object
+    .keys(this.state.fishes)
+    .map(key =&gt; &lt;Fish key={key} details={this.state.fishes[key]}/&gt;)
+}</code></pre>
+</li>
+</ul>
+<h2>Module 16: Updating Order State</h2><ul>
+<li>if you need to pass a key, use <code>index</code>. <code>key</code> is for the component, <code>index</code> is for you.</li>
+</ul>
+<h2>Module 17: Displaying Order State with JSX</h2><ul>
+<li>Not good practice to push state down</li>
+</ul>
+<h2>Module 18: Persisting our State with Firebase</h2><ul>
+<li><p>Firebase is product from Google</p>
+</li>
+<li><p>Uses HTML5 websockets - you can sync data from app and firebase and vice versa</p>
+</li>
+<li><p>Firebase saves information as one big object which is good because state is one big object</p>
+</li>
+<li><p>created base.js and filled it with Firebase code allowing export of <code>base</code> so it can be imported elsewhere</p>
+</li>
+<li><p><code>componentWillMount</code> - when component is mounted, you can do ajax request/connect to rebase/sync component state with firebase state</p>
+</li>
+<li><p>Use firebase and these functions to maintain state across Firebase</p>
+<pre><code class="language-javascript">componentWillMount () {
+  this.ref = base.syncState(`${this.props.params.storeId}/fishes`, {
+    context: this,
+    state: &#39;fishes&#39;
+  });
+}
+
+componentWillUnmount () {
+  base.removeBinding(this.ref);
+}</code></pre>
+</li>
+</ul>
+<h2>Module 19: Persisting Order State with localstorage</h2><ul>
+<li>Better to store this information as local storage VS cookies or Firebase</li>
+<li>Hook into <code>componentWillUpdate</code> - invoked before props or state changes</li>
+<li>information stored in Local Storage<pre><code class="language-javascript">componentWillUpdate (nextProps, nextState) {
+  localStorage.setItem(&#39;order-${this.props.params.storeId}&#39;,JSON.stringify(nextState.order);
+}</code></pre>
+</li>
+<li><code>JSON.stringify</code> to convert <code>object</code> to <code>string</code></li>
+<li>information to load from Local Storage<pre><code class="language-javascript">const localStorageRef = localStorage.getItem(`order-${this.props.params.storeId}`);
+if (localStorageRef) {
+  this.setState({
+    order: JSON.parse(localStorageRef)
+  });
+}</code></pre>
+</li>
+<li><code>JSON.parse</code> to convert <code>string</code> to <code>object</code></li>
+</ul>
+<h2>Module 20: Bi-directional Data Flow and Live State Editing</h2><h2>Module 21: Removing Items from State</h2><h2>Module 22: Animating React Components</h2><h2>Module 23: Component Validation with PropTypes</h2><h2>Module 24: Authentication</h2><h2>Module 25: Building React for Production</h2><h2>Module 26: Deploying to now.sh</h2><h2>Module 27: Deploying to GitHub Pages</h2><h2>Module 28: Deploying to an Apache Server</h2><h2>Module 29: Future React Today - Property Initializers and getting rid of .bind()</h2><h2>Module 30: Ejecting from create-react-app</h2>

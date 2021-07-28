@@ -1,0 +1,16 @@
+<h1>Warren Shea&#39;s Notes for CSS</h1><p>v20210614</p>
+<h2>Hex w/ Alpha Transparency</h2><p>#XXXXXX30 = color #XXXXXX w/ 30% alpha transparency</p>
+<h2>Useful Chrome Extensions</h2><ul>
+<li><a href="https://chrome.google.com/webstore/detail/web-developer/bfbameneiokkgbdmiekhjnmfkcnldhhm">Web Developer</a></li>
+<li>Pesticide</li>
+<li>Stylus</li>
+</ul>
+<h2>Stylus</h2><h3>Style configuration for noticing inconsistencies</h3><pre><code class="language-css">* { background-color: rgba(255,0,0,.2); }
+* * { background-color: rgba(0,255,0,.2); }
+* * * { background-color: rgba(0,0,255,.2); }
+* * * * { background-color: rgba(255,0,255,.2); }
+* * * * * { background-color: rgba(0,255,255,.2); }
+* * * * * * { background-color: rgba(255,255,0,.2); }
+* * * * * * * { background-color: rgba(255,0,0,.2); }
+* * * * * * * * { background-color: rgba(0,255,0,.2); }
+* * * * * * * * * { background-color: rgba(0,0,255,.2); }</code></pre>

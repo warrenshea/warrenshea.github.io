@@ -1,0 +1,85 @@
+<h1>Warren Shea&#39;s Notes for Mastering Markdown (Online Course)</h1><p><a href="https://courses.wesbos.com/">https://courses.wesbos.com/</a> | <a href="https://masteringmarkdown.com/">https://masteringmarkdown.com/</a> <br><strong>Version</strong>: 20171219 | <strong>Status</strong>: Completed</p>
+<hr>
+<h2>Table of Contents</h2><ul>
+<li><a href="#module-01-introduction-to-markdown--the-tooling">Module 01: Introduction to Markdown &amp; The Tooling</a></li>
+<li><a href="#module-02-paragraphs-and-text-decoration">Module 02: Paragraphs and Text Decoration</a></li>
+<li><a href="#module-03-headings-in-markdown">Module 03: Headings in Markdown</a></li>
+<li><a href="#module-04-links-in-markdown">Module 04: Links in Markdown</a></li>
+<li><a href="#module-05-markdown-images">Module 05: Markdown Images</a></li>
+<li><a href="#module-06-lists--ordered-unorderd-bullets-and-nesting">Module 06: Lists — Ordered, Unorderd, Bullets and Nesting</a></li>
+<li><a href="#module-07-line-breaks-horizontal-rules-and-blockquotes">Module 07: Line Breaks, Horizontal Rules and BlockQuotes</a></li>
+<li><a href="#module-08-code-blocks">Module 08: Code Blocks</a></li>
+<li><a href="#module-09-tables">Module 09: Tables</a></li>
+<li><a href="#module-10-github-treats">Module 10: Github Treats</a></li>
+</ul>
+<hr>
+<h2>Module 01: Introduction to Markdown &amp; The Tooling</h2><ul>
+<li>For Sublime, Markdown Editing is the best package (<a href="https://github.com/SublimeText-Markdown/MarkdownEditing">https://github.com/SublimeText-Markdown/MarkdownEditing</a>)</li>
+<li>GitHub uses Markdown GFM (GitHub Flavored Markdown)</li>
+<li>Specs and examples can be found here - <a href="https://github.github.com/gfm">https://github.github.com/gfm</a></li>
+<li>To change theme: <code>Sublime Text</code> &gt; <code>Preferences</code> &gt; <code>Package Settings</code> &gt; <code>Markdown Editing</code> &gt; <code>GFM Settings - User</code></li>
+<li><code>CTRL + B</code> inside Sublime will create an <code>.html</code> page</li>
+</ul>
+<h2>Module 02: Paragraphs and Text Decoration</h2><ul>
+<li>Markdown needs a full line space between items to become a paragraph</li>
+<li>Strikethrough: surround with <code>~~</code></li>
+</ul>
+<h2>Module 03: Headings in Markdown</h2><h2>Module 04: Links in Markdown</h2><ul>
+<li><p>Regular Link
+<code>&lt;https://www.warrenshea.com&gt;</code> = <a href="https://www.warrenshea.com">https://www.warrenshea.com</a></p>
+</li>
+<li><p>Regular Link - Customize Link Text
+<code>[warrenshea.com](https://www.warrenshea.com)</code> = <a href="https://www.warrenshea.com">warrenshea.com</a></p>
+</li>
+<li><p>Regular Link - Customize Link Text + Add Title Tag
+<code>[warrenshea.com](https://www.warrenshea.com &quot;This is a title tag&quot;)</code> = <a href="https://www.warrenshea.com" title="This is a title tag">warrenshea.com</a></p>
+</li>
+<li><p>Regular Link but use Pointer. Pointer is somewhere on the page. Recommended for readability or links that may change
+<code>[warrenshea.com][1]</code> + <code>[1]: https://www.warrenshea.com</code>
+<code>[warrenshea.com][ws]</code> + <code>[ws]: https://www.warrenshea.com</code></p>
+</li>
+</ul>
+<h2>Module 05: Markdown Images</h2><ul>
+<li><p>Image with Alt Text and Tooltip
+<code>![ALT TEXT](IMG PATH &quot;This is a tooltip&quot;)</code> = <img src="http://www.v1.worldofwarren.com/common/megaman/ani_beat_rush_megaman.gif" alt="Mega Man GIF" title="This is a tooltip"></p>
+</li>
+<li><p>Image with Alt Text and Pointer. Pointer is somewhere on the page. Recommended for readability or links that may change
+<code>![ALT TEXT][megaman]</code> + <code>[megaman]: http://www.v1.worldofwarren.com/common/megaman/ani_beat_rush_megaman.gif</code> = <img src="http://www.v1.worldofwarren.com/common/megaman/ani_beat_rush_megaman.gif" alt="Mega Man GIF" title="This is a tooltip"></p>
+</li>
+<li><p>Combining Hyperlink and Image
+<code>[![ALT TEXT](IMG PATH)](http://www.v1.worldofwarren.com)</code> = <a href="http://www.v1.worldofwarren.com">![ALT TEXT](IMG PATH)</a></p>
+</li>
+</ul>
+<h2>Module 06: Lists — Ordered, Unorderd, Bullets and Nesting</h2><ul>
+<li>Unordered List <code>*</code> or <code>-</code> or <code>+</code></li>
+<li>Ordered List <code>1.</code> - just put a <code>1.</code> and the browser will automatically order it. Do not put <code>1.</code>, <code>2.</code>, <code>3.</code> as that leads to manual changes later</li>
+<li>Nest copy with indents</li>
+</ul>
+<h2>Module 07: Line Breaks, Horizontal Rules and BlockQuotes</h2><ul>
+<li>Line Breaks: use <code>&lt;br&gt;</code> or <code>\</code></li>
+<li>Horizontal Rules: <code>---</code> or <code>===</code> but put space between that and the item, or it becomes a header</li>
+<li>Block Quotes: <code>&gt;</code></li>
+</ul>
+<h2>Module 08: Code Blocks</h2><ul>
+<li>3 backticks: <code>```</code> and then the language, e.g. ````javascript`</li>
+<li>1 backtick: <code>code</code></li>
+<li>Diff:
+```diff
+var x = 100;</li>
+<li>var y = 200;</li>
+<li>var y = 100;<pre><code></code></pre></li>
+</ul>
+<h2>Module 09: Tables</h2><ul>
+<li><code>:---</code> = Left Aligned</li>
+<li><code>---:</code> = Right Aligned</li>
+<li><code>:--:</code> = Centered Aligned</li>
+</ul>
+<h2>Module 10: Github Treats</h2><ul>
+<li>Checkboxes:</li>
+<li><input disabled="" type="checkbox"> Do dishes</li>
+<li><input disabled="" type="checkbox"> Bathe the dog</li>
+<li><input checked="" disabled="" type="checkbox"> Take long, hibernating nap<pre><code class="language-markdown">[ ] Do dishes
+[ ] Bathe the dog
+[x] Take long, hibernating nap</code></pre>
+</li>
+</ul>
