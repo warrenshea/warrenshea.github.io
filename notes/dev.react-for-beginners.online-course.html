@@ -48,13 +48,13 @@
 <li><code>&lt;div id=&quot;main&quot;&gt;</code> is the mounting point for React App</li>
 <li><code>import { render } from &#39;react-dom&#39;;</code> to render the code as DOM/HTML (as opposed to for an Android App)</li>
 <li><code>import ReactDom from &#39;react-dom&#39;;</code> will load the whole ReactDom package but we don&#39;t need entire package, just need <code>render</code> method</li>
-<li>An example of a simple component, rendered to a div (<code>&lt;div id=&quot;#main&quot;&gt;</code>)<pre><code class="language-javascript">class StorePicker extends React.Component {
+<li>An example of a simple component, rendered to a div (<code>&lt;div id=&quot;#main&quot;&gt;</code>)
+```javascript
+class StorePicker extends React.Component {
 render() {
-  return &lt;p&gt;Hello&lt;/p&gt;
+  return <p>Hello</p>
 }
-}
-</code></pre>
-</li>
+}</li>
 </ul>
 <p>render(<StorePicker/>,document.querySelector(&#39;#main&#39;));</p>
 <pre><code>* Best Practice is each component is its own file
@@ -66,10 +66,12 @@ import { render } from &#39;react-dom&#39;;
 
 import StorePicker from &#39;./components/StorePicker&#39;;
 
-render(&lt;StorePicker/&gt;,document.querySelector(&#39;#main&#39;));</code></pre><ul>
-<li><code>./components/StorePicker.js</code><pre><code class="language-javascript">import React from &#39;react&#39;;
+render(&lt;StorePicker/&gt;,document.querySelector(&#39;#main&#39;));
 </code></pre>
-</li>
+<ul>
+<li><code>./components/StorePicker.js</code>
+```javascript
+import React from &#39;react&#39;;</li>
 </ul>
 <p>class StorePicker extends React.Component {
   render() {
@@ -85,18 +87,22 @@ render(&lt;StorePicker/&gt;,document.querySelector(&#39;#main&#39;));</code></pr
 ```javascript
   return (
     All the HTML code you need
-  )</code></pre><ul>
+  )
+</code></pre>
+<ul>
 <li>cannot use <code>class</code> because it is a reserved word/name in JavaScript - use <code>className</code></li>
 <li>Can only return 1 parent element. This is okay:<pre><code class="language-javascript">return (
   &lt;form&gt;
   &lt;/form&gt;
-)</code></pre>
+)
+</code></pre>
 This is not:<pre><code class="language-javascript">return (
   &lt;form&gt;
   &lt;/form&gt;
   &lt;p&gt;
   &lt;/p&gt;
-)</code></pre>
+)
+</code></pre>
 </li>
 <li>Self-closing tags need to be self-closed (similar to XHTML, not like HTML5) e.g. <code>img</code> <code>input</code> <code>hr</code> <code>br</code></li>
 <li>Comments - <code>{/* comment */}</code> when in JSX</li>
@@ -107,12 +113,12 @@ This is not:<pre><code class="language-javascript">return (
 <li>In this example, we&#39;re loading a file into the HTML file via <code>import &#39;./css/style.css&#39;;</code></li>
 </ul>
 <h2>Module 06: Creating our application layout with components</h2><ul>
-<li>Modified App component + Created 3 new components<pre><code class="language-javascript">import React from &#39;react&#39;;
+<li>Modified App component + Created 3 new components
+```javascript
+import React from &#39;react&#39;;
 import Header from &#39;./Header&#39;;
 import Order from &#39;./Order&#39;;
-import Inventory from &#39;./Inventory&#39;;
-</code></pre>
-</li>
+import Inventory from &#39;./Inventory&#39;;</li>
 </ul>
 <p>class App extends React.Component {
   render() {
@@ -137,7 +143,9 @@ in `App.js`
 &lt;Header tagline=&quot;Fresh Seafood Market&quot;/&gt;
 
 in `Header.js`
-&lt;h3 className=&quot;tagline&quot;&gt;{this.props.tagline}&lt;/h3&gt;</code></pre><ul>
+&lt;h3 className=&quot;tagline&quot;&gt;{this.props.tagline}&lt;/h3&gt;
+</code></pre>
+<ul>
 <li><code>this</code> refers to the component</li>
 <li>Passing a number, variable, for bollean, you need to wrap value in <code>{ }</code></li>
 <li>If you need to debug a component, go to the component in React Dev Tools, then go to <code>Console</code> and press <code>$r</code></li>
@@ -151,32 +159,36 @@ render () {
     {/* code */}
   );
 }
-}</code></pre>
+}
+</code></pre>
 You can use (best practice):<pre><code class="language-javascript">const Header = (props) = &gt; {
   return (
     {/* code */}
   );
-}</code></pre>
+}
+</code></pre>
 or<pre><code class="language-javascript">function Header(props) {
   return (
     {/* code */}
   );
-}</code></pre>
+}
+</code></pre>
 or<pre><code class="language-javascript">const Header = function(props) {
   return (
     {/* code */}
   );
-}</code></pre>
+}
+</code></pre>
 </li>
 </ul>
 <h2>Module 09: Routing with React Router</h2><ul>
 <li>React Router is not part of React</li>
 <li>React Router 4 is being used - to show/hide components depending on URL</li>
-<li><code>index.js</code><pre><code class="language-javascript">import React from &#39;react&#39;;
+<li><code>index.js</code>
+```javascript
+import React from &#39;react&#39;;
 import { render } from &#39;react-dom&#39;;
-import { BrowserRouter, Match, Miss } from &#39;react-router&#39;;
-</code></pre>
-</li>
+import { BrowserRouter, Match, Miss } from &#39;react-router&#39;;</li>
 </ul>
 <p>import App from &#39;./components/App&#39;;
 import StorePicker from &#39;./components/StorePicker&#39;;
@@ -202,8 +214,11 @@ import NotFound from &#39;./components/NotFound&#39;;</p>
 * In the `helpers.js` file
 ```javascript
 export function getFunName() {
-}</code></pre><p>And in the place to call the helper function,</p>
-<pre><code class="language-javascript">import { getFunName } from &#39;../helpers&#39;;</code></pre>
+}
+</code></pre>
+<p>And in the place to call the helper function,</p>
+<pre><code class="language-javascript">import { getFunName } from &#39;../helpers&#39;;
+</code></pre>
 <h2>Module 11: Working with React Events</h2><ul>
 <li><p>Add events inline into code</p>
 </li>
@@ -215,7 +230,8 @@ export function getFunName() {
 </li>
 <li><p>This will make it so that <code>StorePicker.storeInput</code> references the <code>input</code></p>
 <pre><code class="language-javascript">&lt;input type=&#39;text&#39; required placeholder=&#39;Store Name&#39; defaultValue={getFunName()}
-ref={(input) =&gt; { this.storeInput = input}} /&gt;</code></pre>
+ref={(input) =&gt; { this.storeInput = input}} /&gt;
+</code></pre>
 </li>
 <li><p>Constructor - the code that runs when a component is created</p>
 </li>
@@ -226,11 +242,14 @@ ref={(input) =&gt; { this.storeInput = input}} /&gt;</code></pre>
 }
 goToStore(event) {
   console.log(this); /*is now the correct &#39;this&#39;*/
-}</code></pre>
+}
+</code></pre>
 <p>And call the event through</p>
-<pre><code class="language-javascript">&lt;form action=&#39;&#39; className=&#39;store-selector&#39; onSubmit={this.goToStore.bind(this)}&gt;</code></pre>
+<pre><code class="language-javascript">&lt;form action=&#39;&#39; className=&#39;store-selector&#39; onSubmit={this.goToStore.bind(this)}&gt;
+</code></pre>
 <p>OR</p>
-<pre><code class="language-javascript">&lt;form action=&#39;&#39; className=&#39;store-selector&#39; onSubmit={(e) =&gt; this.goToStore(e)}&gt;</code></pre>
+<pre><code class="language-javascript">&lt;form action=&#39;&#39; className=&#39;store-selector&#39; onSubmit={(e) =&gt; this.goToStore(e)}&gt;
+</code></pre>
 </li>
 <li><p>Altogether</p>
 <pre><code class="language-javascript">class StorePicker extends React.Component {
@@ -249,7 +268,8 @@ render () {
     &lt;/form&gt;
   );
 }
-}</code></pre>
+}
+</code></pre>
 </li>
 </ul>
 <h2>Module 12: All About React Router</h2><ul>
@@ -260,7 +280,8 @@ render () {
 <li>At the bottom:<pre><code class="language-javascript">/* Tells react that StorePicker wants router */
 StorePicker.contextTypes = {
 router: React.PropTypes.object
-}</code></pre>
+}
+</code></pre>
 </li>
 <li>Using transitionTo:<pre><code class="language-javascript">goToStore(event) {
   /*
@@ -269,7 +290,8 @@ router: React.PropTypes.object
   const storeId = this.storeInput.value;
   //transition from / to store/id
   this.context.router.transitionTo(`/store/${storeId}`);
-}</code></pre>
+}
+</code></pre>
 </li>
 <li>This is all client side so transitionTo uses HTML5 pushState</li>
 </ul>
@@ -312,11 +334,13 @@ render () {
   );
 }
 }
-export default App;</code></pre>
+export default App;
+</code></pre>
 </li>
 </ul>
 <p><code>Inventory.js</code></p>
-<pre><code class="language-javascript">        &lt;AddFishForm addFish={this.props.addFish} /&gt;</code></pre>
+<pre><code class="language-javascript">        &lt;AddFishForm addFish={this.props.addFish} /&gt;
+</code></pre>
 <p><code>AddFishForm.js</code></p>
 <pre><code class="language-javascript">class addFishForm extends React.Component {
   createFish (event) {
@@ -339,9 +363,11 @@ export default App;</code></pre>
     );
   }
 }
-export default addFishForm;</code></pre>
+export default addFishForm;
+</code></pre>
 <h2>Module 14: Loading data into state onClick</h2><ul>
-<li>On click of a button in <code>Inventory.js</code><pre><code class="language-javascript">&lt;button onClick={this.props.loadSamples}&gt;Load Samples&lt;/button&gt;</code></pre>
+<li>On click of a button in <code>Inventory.js</code><pre><code class="language-javascript">&lt;button onClick={this.props.loadSamples}&gt;Load Samples&lt;/button&gt;
+</code></pre>
 </li>
 </ul>
 <p>We load in a fishes object from <code>sample-fishes.js</code>
@@ -369,7 +395,8 @@ class App extends React.Component {
       &lt;/div&gt;
     );
   }
-}</code></pre>
+}
+</code></pre>
 <h2>Module 15: Displaying State with JSX</h2><ul>
 <li>No loops or login in JSX - if you want it, you use regular JavaScript</li>
 <li><code>Object.keys(object)</code> will map over object</li>
@@ -377,7 +404,8 @@ class App extends React.Component {
   Object
     .keys(this.state.fishes)
     .map(key =&gt; &lt;Fish key={key} details={this.state.fishes[key]}/&gt;)
-}</code></pre>
+}
+</code></pre>
 </li>
 </ul>
 <h2>Module 16: Updating Order State</h2><ul>
@@ -407,7 +435,8 @@ class App extends React.Component {
 
 componentWillUnmount () {
   base.removeBinding(this.ref);
-}</code></pre>
+}
+</code></pre>
 </li>
 </ul>
 <h2>Module 19: Persisting Order State with localstorage</h2><ul>
@@ -415,7 +444,8 @@ componentWillUnmount () {
 <li>Hook into <code>componentWillUpdate</code> - invoked before props or state changes</li>
 <li>information stored in Local Storage<pre><code class="language-javascript">componentWillUpdate (nextProps, nextState) {
   localStorage.setItem(&#39;order-${this.props.params.storeId}&#39;,JSON.stringify(nextState.order);
-}</code></pre>
+}
+</code></pre>
 </li>
 <li><code>JSON.stringify</code> to convert <code>object</code> to <code>string</code></li>
 <li>information to load from Local Storage<pre><code class="language-javascript">const localStorageRef = localStorage.getItem(`order-${this.props.params.storeId}`);
@@ -423,7 +453,8 @@ if (localStorageRef) {
   this.setState({
     order: JSON.parse(localStorageRef)
   });
-}</code></pre>
+}
+</code></pre>
 </li>
 <li><code>JSON.parse</code> to convert <code>string</code> to <code>object</code></li>
 </ul>

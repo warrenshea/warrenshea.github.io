@@ -80,13 +80,15 @@
 &lt;img src=&quot;dog2.jpg&quot; alt=&quot;&quot;&gt;
 &lt;img src=&quot;dog3.jpg&quot; alt=&quot;&quot;&gt;
 &lt;img src=&quot;dog4.jpg&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;dog5.jpg&quot; alt=&quot;&quot;&gt;</code></pre>
+&lt;img src=&quot;dog5.jpg&quot; alt=&quot;&quot;&gt;
+</code></pre>
 </li>
 <li><code>img[src=&quot;dog$$.jpg&quot;]*5</code> =<pre><code class="language-html">&lt;img src=&quot;dog01.jpg&quot; alt=&quot;&quot;&gt;
 &lt;img src=&quot;dog02.jpg&quot; alt=&quot;&quot;&gt;
 &lt;img src=&quot;dog03.jpg&quot; alt=&quot;&quot;&gt;
 &lt;img src=&quot;dog04.jpg&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;dog05.jpg&quot; alt=&quot;&quot;&gt;</code></pre>
+&lt;img src=&quot;dog05.jpg&quot; alt=&quot;&quot;&gt;
+</code></pre>
 </li>
 </ul>
 <h2>Module 11: Emmet - Tag Wrapping</h2><ul>

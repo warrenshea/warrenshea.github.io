@@ -30,63 +30,71 @@
 </ul>
 <h3>Module 01.02: <code>let</code> VS <code>const</code></h3><ul>
 <li><p><code>let</code> variables are block scoped</p>
-<pre><code class="language-javascript">  let x = 1;
-  if (x === 1) {
-    let x = 2;
-  }
-  console.log(x); //1...because the &quot;x&quot; variables are different, the &quot;x&quot; variables are scoped differently</code></pre>
+<pre><code class="language-javascript">let x = 1;
+if (x === 1) {
+  let x = 2;
+}
+console.log(x); //1...because the &quot;x&quot; variables are different, the &quot;x&quot; variables are scoped differently
+</code></pre>
 </li>
 <li><p><code>let</code> variables are made to be updated
 <code>const</code> variables are never to be updated</p>
 </li>
 <li><p><code>Object.freeze</code> (not ES6): used to freeze the variable from being changed</p>
-<pre><code class="language-javascript">  const person = {
-    name: &#39;warren&#39;,
-    age: 35
-  }
-  const warren = Object.freeze(person);
-  warren.age = 30;
-  console.log(warren.age); //35</code></pre>
+<pre><code class="language-javascript">const person = {
+  name: &#39;warren&#39;,
+  age: 35
+}
+const warren = Object.freeze(person);
+warren.age = 30;
+console.log(warren.age); //35
+</code></pre>
 </li>
 </ul>
 <h3>Module 01.03: <code>let</code> and <code>const</code> in Real World</h3><ul>
 <li><p>Immediately-invoked function expression - <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">iife</a></p>
-<pre><code class="language-javascript">  (function () { /* ... */ })();
-  (function () { /* ... */ }());
-  (() =&gt; { /* ... */ })(); // With ES6 arrow functions (though parentheses only allowed on outside)</code></pre>
+<pre><code class="language-javascript">(function () { /* ... */ })();
+(function () { /* ... */ }());
+(() =&gt; { /* ... */ })(); // With ES6 arrow functions (though parentheses only allowed on outside)
+</code></pre>
 <p>  What it does: a function that runs itself immediately and creates a scope where nothing is going to leak into the parent scope (e.g. global scope of the window)</p>
 </li>
 <li><p>with <code>let</code> and <code>const</code>, you don&#39;t need to do this because they&#39;re block scoped</p>
-<pre><code class="language-javascript">  {
-    const name = &#39;warren&#39;;
-    console.log(name); //warren
-  }</code></pre>
+<pre><code class="language-javascript">{
+  const name = &#39;warren&#39;;
+  console.log(name); //warren
+}
+</code></pre>
 </li>
 <li><p>also with <code>let</code> and <code>const</code>, you have an issue with <code>for</code> loops</p>
-<pre><code class="language-javascript">  for (var i = 0; i &lt; 10; i++) {
-    console.log(i); //returns 0, then 1, then 2, ... to 10 each loop
-    setTimeOut(function() {
-      console.log(&quot;The number is &quot; + i); //returns 10x 10 at the very end *
-    },1000);
-  }
-  //* this executes after 1 second, after the loop has finished</code></pre>
-<pre><code class="language-javascript">  for (let i = 0; i &lt; 10; i++) {
-    console.log(i); //returns 0, then 1, then 2, ... to 10 each loop
-    setTimeOut(function() {
-      console.log(&quot;The number is &quot; + i); //returns &quot;The number is 1&quot;, &quot;The number is 2&quot;, etc. **
-    },1000);
-  }
-  //** this i variable is now scoped to the loop</code></pre>
+<pre><code class="language-javascript">for (var i = 0; i &lt; 10; i++) {
+  console.log(i); //returns 0, then 1, then 2, ... to 10 each loop
+  setTimeOut(function() {
+    console.log(&quot;The number is &quot; + i); //returns 10x 10 at the very end *
+  },1000);
+}
+//* this executes after 1 second, after the loop has finished
+</code></pre>
+<pre><code class="language-javascript">for (let i = 0; i &lt; 10; i++) {
+  console.log(i); //returns 0, then 1, then 2, ... to 10 each loop
+  setTimeOut(function() {
+    console.log(&quot;The number is &quot; + i); //returns &quot;The number is 1&quot;, &quot;The number is 2&quot;, etc. **
+  },1000);
+}
+//** this i variable is now scoped to the loop
+</code></pre>
 </li>
 </ul>
 <h3>Module 01.04: Temporal Dead Zone</h3><ul>
 <li><p>Temporal Dead zone</p>
-<pre><code class="language-javascript">  var pizza = &quot;deep dish&quot;;
-  console.log(pizza); //returns undefined</code></pre>
+<pre><code class="language-javascript">var pizza = &quot;deep dish&quot;;
+console.log(pizza); //returns undefined
+</code></pre>
 <p>  The <code>var</code> variables can be access before it&#39;s defined
   You can&#39;t access the value, but you can access the variable</p>
-<pre><code class="language-javascript">  let/const pizza = &quot;deep dish&quot;;
-  console.log(pizza); //returns &quot;Uncaught ReferenceError: pizza is not defined&quot;</code></pre>
+<pre><code class="language-javascript">let/const pizza = &quot;deep dish&quot;;
+console.log(pizza); //returns &quot;Uncaught ReferenceError: pizza is not defined&quot;
+</code></pre>
 <p>  You can&#39;t access the variable (<code>let</code> / <code>const</code>) before it&#39;s defined</p>
 </li>
 </ul>
@@ -115,47 +123,49 @@
 </ul>
 </li>
 <li><p>Example</p>
-<pre><code class="language-javascript">  const name = [&#39;warren&#39;, &#39;will&#39;, &#39;wally&#39;];
-  const fullNames = names.map(function(name) {
-  // EQUALS   ... = names.map((name) =&gt; {
-  // EQUALS   ... = names.map(name =&gt; {
-      return `${name} shea`;
-  });
-  console.log(fullNames); //returns [&quot;warren shea&quot;, &quot;will shea&quot;, &quot;wally shea&quot;]</code></pre>
+<pre><code class="language-javascript">const name = [&#39;warren&#39;, &#39;will&#39;, &#39;wally&#39;];
+const fullNames = names.map(function(name) {
+// EQUALS   ... = names.map((name) =&gt; {
+// EQUALS   ... = names.map(name =&gt; {
+    return `${name} shea`;
+});
+console.log(fullNames); //returns [&quot;warren shea&quot;, &quot;will shea&quot;, &quot;wally shea&quot;]
+</code></pre>
 <p>  EQUALS</p>
-<pre><code class="language-javascript">  const name = [&#39;warren&#39;, &#39;will&#39;, &#39;wally&#39;];
-  const fullNames4 = names.map(name =&gt; `${name} shea`); //*
-  console.log(fullNames); //returns [&quot;warren shea&quot;, &quot;will shea&quot;, &quot;wally shea&quot;]
-  //* where { and } are removed to implicitly return
-  //and where `return` being used above is an explicit return</code></pre>
+<pre><code class="language-javascript">const name = [&#39;warren&#39;, &#39;will&#39;, &#39;wally&#39;];
+const fullNames4 = names.map(name =&gt; `${name} shea`); //*
+console.log(fullNames); //returns [&quot;warren shea&quot;, &quot;will shea&quot;, &quot;wally shea&quot;]
+//* where { and } are removed to implicitly return
+//and where `return` being used above is an explicit return
+</code></pre>
 </li>
 <li><p>If you had no parameter to return, you can take out the <code>name</code> parameter</p>
-<pre><code class="language-javascript">  const name = [&#39;warren&#39;, &#39;will&#39;, &#39;wally&#39;];
-  const fullNames5 = names.map(() =&gt; `two shea`);
-  console.log(fullNames); //returns [&quot;two shea&quot;, &quot;two shea&quot;, &quot;two shea&quot;]</code></pre>
+<pre><code class="language-javascript">const name = [&#39;warren&#39;, &#39;will&#39;, &#39;wally&#39;];
+const fullNames5 = names.map(() =&gt; `two shea`);
+console.log(fullNames); //returns [&quot;two shea&quot;, &quot;two shea&quot;, &quot;two shea&quot;]
+</code></pre>
 </li>
 <li><p>Named Function (REFERENCE only)</p>
-<pre><code class="language-javascript">  function thisIsANamedFunction(x) {
-    console.log(x);
-  }
-  //Useful for debugging, to see the function that might cause an error</code></pre>
+<pre><code class="language-javascript">function thisIsANamedFunction(x) {
+  console.log(x);
+}
+//Useful for debugging, to see the function that might cause an error
+</code></pre>
 </li>
 <li><p>Arrow Functions are not named functions (it is an anonymous function) but you can put it in a variable</p>
-<pre><code class="language-javascript">  //ES6
-  const sayMyName = (name) =&gt; {console.log(name)};
-  //EQUALS this for ES2015
-  var sayMyName = function sayMyName(name) {
-    console.log(name);
-  };
+<pre><code class="language-javascript">//ES6
+const sayMyName = (name) =&gt; {console.log(name)};
+//EQUALS this for ES2015
+var sayMyName = function sayMyName(name) {
+  console.log(name);
+};
 
-  sayMyName(&#39;warren&#39;); //returns &#39;warren&#39;</code></pre>
+sayMyName(&#39;warren&#39;); //returns &#39;warren&#39;
+</code></pre>
 </li>
 </ul>
 <h3>Module 02.07: More Arrow Function Examples</h3><p>*
-    <code>javascript
-    const race = &#39;100m Dash&#39;;
-    const winners = [&#39;Wally West&#39;,&#39;Barry Allen&#39;,&#39;Bart Allen&#39;];
-    const win = winners.map((winner,i) =&gt; ({name: winner, race: race, place: i + 1}))</code></p>
+    <code>javascript     const race = &#39;100m Dash&#39;;     const winners = [&#39;Wally West&#39;,&#39;Barry Allen&#39;,&#39;Bart Allen&#39;];     const win = winners.map((winner,i) =&gt; ({name: winner, race: race, place: i + 1}))     </code></p>
 <pre><code>```javascript
 const win2 = winners.map((winner,i) =&gt; ({name: winner, race, place: i + 1}))
 //just say &quot;race&quot;, and it will automatically mean &quot;race: race&quot;
@@ -165,7 +175,9 @@ const win2 = winners.map((winner,i) =&gt; ({name: winner, race, place: i + 1}))
 const ages = [3,34,62,31,25,15,46,76]
 //const old = ages.filter(age =&gt; (age &gt;= 60)); //returns [62,76]
 const old = ages.filter(age =&gt; age &gt;= 60); //returns [62,76] #BESTPRACTICE #FILTER
-```</code></pre><h3>Module 02.08: Arrow Functions and <code>this</code></h3><p>*
+```
+</code></pre>
+<h3>Module 02.08: Arrow Functions and <code>this</code></h3><p>*
     ```javascript
       var box = document.querySelector(&#39;.box&#39;); //equals $(&#39;.box&#39;);
       box.addEventListener(&#39;click&#39;, () =&gt; {
@@ -187,15 +199,10 @@ const old = ages.filter(age =&gt; age &gt;= 60); //returns [62,76] #BESTPRACTICE
   let second = &quot;second&quot;;
   [first,second] = [second,first];
   //use let because they will change
-```</code></pre><h3>Module 02.09: Default Function Arguments</h3><p>*
-    <code>javascript
-    //what if tax and tip are undefined?
-    function calculateBill(total, tax, tip) {
-      if (tax === undefined) { tax = 0.13; } //or tax = tax || 0.13;
-      if (tip === undefined) { tax = 0.15; } //or tip = tip || 0.15;
-      return total + (total * tax) + (total * tip);
-    }
-    calculateBill(100);</code></p>
+```
+</code></pre>
+<h3>Module 02.09: Default Function Arguments</h3><p>*
+    <code>javascript     //what if tax and tip are undefined?     function calculateBill(total, tax, tip) {       if (tax === undefined) { tax = 0.13; } //or tax = tax || 0.13;       if (tip === undefined) { tax = 0.15; } //or tip = tip || 0.15;       return total + (total * tax) + (total * tip);     }     calculateBill(100);     </code></p>
 <pre><code>```javascript
 //OR this, where tax and tip have defaults
 function calculateBill(total, tax = 0.13, tip = 0.15){
@@ -211,7 +218,9 @@ function calculateBill(total, tax = 0.13, tip = 0.15){
 }
 calculateBill(100,undefined,0.25);
 //assume tax=0.13, but the tip is 0.25
-```</code></pre><h3>Module 02.10: When NOT to use the Arrow Function</h3><p>*
+```
+</code></pre>
+<h3>Module 02.10: When NOT to use the Arrow Function</h3><p>*
     ```javascript
     // When you really need <code>this</code>
     const button = document.querySelector(&#39;#pushy&#39;);
@@ -239,7 +248,9 @@ class Car {
   }
 }
 const beemer = new Car(&#39;bmw&#39;, &#39;blue&#39;);
-const subie = new Car(&#39;Subaru&#39;, &#39;white&#39;);</code></pre><p>  //Car.prototype.summarize = () =&gt; { //bad, because <code>this</code> is window
+const subie = new Car(&#39;Subaru&#39;, &#39;white&#39;);
+</code></pre>
+<p>  //Car.prototype.summarize = () =&gt; { //bad, because <code>this</code> is window
     Car.prototype.summarize = function() { //good
        return <code>This car is a ${this.make} in the colour ${this.colour}</code>;
     };</p>
@@ -253,10 +264,10 @@ const orderChildren = function() { //good
   console.log(arguments);
 }
 orderChildren(&#39;alan&#39;,&#39;hal&#39;,&#39;guy&#39;,&#39;john&#39;,&#39;kyle&#39;);
-```</code></pre><h3>Module 02.11: Arrow Functions Exercises</h3><p>*
-    <code>javascript
-    //#REFERENCE Convert Node List to Array
-    Array.from(nodeList); //converts nodeList to Array</code></p>
+```
+</code></pre>
+<h3>Module 02.11: Arrow Functions Exercises</h3><p>*
+    <code>javascript     //#REFERENCE Convert Node List to Array     Array.from(nodeList); //converts nodeList to Array     </code></p>
 <pre><code>```javascript
 //#REFERENCE #FILTER Check if an array item includes a string
 items.filter(item =&gt; item.textContent.includes(str));
@@ -270,18 +281,15 @@ items.map(item =&gt; item.dataset.time); //gives you data-time attribute
 ```javascript
 //#REFERENCE #TODO #FILTER reduce
 items.reduce((value1,value2) =&gt; value1+value2,0); //I don&#39;t know how this works
-```</code></pre><h2>Module 03: Template Strings</h2><h3>Module 03.12: Template String Introduction</h3><ul>
-<li>Dropping variables in a string via Template Strings or Template Literals<pre><code class="language-javascript">  let sentence = `backtick ${variable} backtick`;</code></pre>
+```
+</code></pre>
+<h2>Module 03: Template Strings</h2><h3>Module 03.12: Template String Introduction</h3><ul>
+<li>Dropping variables in a string via Template Strings or Template Literals<pre><code class="language-javascript">let sentence = `backtick ${variable} backtick`;
+</code></pre>
 </li>
 </ul>
 <h3>Module 03.13: Creating HTML fragments with Template Literals</h3><p>*
-    <code>javascript
-    //#REFERENCE Multiline HTML string with backticks
-    let markup = `
-      &lt;div class=&quot;person&quot;&gt;
-        &lt;h1&gt;test&lt;/h1&gt;
-      &lt;/div&gt;
-    `;</code></p>
+    <code>javascript     //#REFERENCE Multiline HTML string with backticks     let markup = `       &lt;div class=&quot;person&quot;&gt;         &lt;h1&gt;test&lt;/h1&gt;       &lt;/div&gt;     `;     </code></p>
 <pre><code>```javascript
 //#REFERENCE Nest Template Strings
 const dogs = [
@@ -327,7 +335,9 @@ function renderFunction(keywords) {
   `;
 }
 ${renderFunction(beer.keywords)}
-```</code></pre><h3>Module 03.14: Tagged Template Literals/Strings</h3><p>*
+```
+</code></pre>
+<h3>Module 03.14: Tagged Template Literals/Strings</h3><p>*
     ```javascript
     //BASE EXAMPLE/UNDERSTANDING
     function highlight(strings, ...values) { //...values takes the rest of the arguments
@@ -353,7 +363,9 @@ ${renderFunction(beer.keywords)}
     // returns &quot;My dog&#39;s name is &lt;strong&gt;Loki&lt;/strong&gt; and he is &lt;strong&gt;3&lt;/strong&gt; years old&quot;
     //this is if you want to add formatting to the string
   });
-  return str;</code></pre><p>  //OR</p>
+  return str;
+</code></pre>
+<p>  //OR</p>
 <pre><code>  //OPTION B
   let str = &#39;&#39;;
   strings.map((string,i) =&gt; {
@@ -362,59 +374,67 @@ ${renderFunction(beer.keywords)}
   return str;
 
 }
-```</code></pre><h3>Module 03.15: Tagged Templates Exercise</h3><ul>
+```
+</code></pre>
+<h3>Module 03.15: Tagged Templates Exercise</h3><ul>
 <li><p>A good use of Template strings is a dictionary/abbreviations example</p>
-<pre><code class="language-javascript">  const dict = {
-    HTML: &#39;Hyper Text Markup Language&#39;,
-    CSS: &#39;Cascading Style Sheets&#39;,
-    JS: &#39;JavaScript&#39;
-  };
+<pre><code class="language-javascript">const dict = {
+  HTML: &#39;Hyper Text Markup Language&#39;,
+  CSS: &#39;Cascading Style Sheets&#39;,
+  JS: &#39;JavaScript&#39;
+};
 
-  function addAbbreviations(strings, ...values) {
-    const abbreviated = values.map(value =&gt; {
-      if(dict[value]) {
-        return `&lt;abbr title=&quot;${dict[value]}&quot;&gt;${value}&lt;/abbr&gt;`
-      }
-      return value;
-    });
+function addAbbreviations(strings, ...values) {
+  const abbreviated = values.map(value =&gt; {
+    if(dict[value]) {
+      return `&lt;abbr title=&quot;${dict[value]}&quot;&gt;${value}&lt;/abbr&gt;`
+    }
+    return value;
+  });
 
-    return strings.reduce((sentence, string, i) =&gt; {
-      return sentence + string + (abbreviated[i] || &#39;&#39;);
-    }, &#39;&#39;);
-  }
+  return strings.reduce((sentence, string, i) =&gt; {
+    return sentence + string + (abbreviated[i] || &#39;&#39;);
+  }, &#39;&#39;);
+}
 
-  const first = &#39;Wes&#39;;
-  const last = &#39;Bos&#39;;
-  const sentence = addAbbreviations`Hi my name is ${first} ${last} and I love to code ${&#39;JS&#39;}, ${&#39;HTML&#39;} and ${&#39;CSS&#39;} all day and all night long!`
+const first = &#39;Wes&#39;;
+const last = &#39;Bos&#39;;
+const sentence = addAbbreviations`Hi my name is ${first} ${last} and I love to code ${&#39;JS&#39;}, ${&#39;HTML&#39;} and ${&#39;CSS&#39;} all day and all night long!`
 
-  const bio = document.querySelector(&#39;.bio&#39;);
-  const p = document.createElement(&#39;p&#39;);
-  p.innerHTML = sentence;
-  bio.appendChild(p);</code></pre>
+const bio = document.querySelector(&#39;.bio&#39;);
+const p = document.createElement(&#39;p&#39;);
+p.innerHTML = sentence;
+bio.appendChild(p);
+</code></pre>
 </li>
 </ul>
 <h3>Module 03.16: Sanitizing User Data with Tagged Templates</h3><ul>
 <li>Any time you display data from a user, you need to sanitize it</li>
 <li>When you let someone else put malicious code/JavaScript in your site, that&#39;s XSS Scripting</li>
-<li>Loaded library called dompurify <a href="https://cdnjs.cloudlfare.com/ajax/libs/dompurify/0.8.2/purify.min.js%22">dompurify</a><pre><code class="language-javascript">  function sanitize (strings, ...values) {
-    const dirty = strings.reduce((prev,next,i =&gt; `${prev}${next}$values[i] || &#39;&#39;}`, &#39;&#39;));
-    return DOMpurify.sanitize(dirty)
-  }</code></pre>
+<li>Loaded library called dompurify <a href="https://cdnjs.cloudlfare.com/ajax/libs/dompurify/0.8.2/purify.min.js%22">dompurify</a><pre><code class="language-javascript">function sanitize (strings, ...values) {
+  const dirty = strings.reduce((prev,next,i =&gt; `${prev}${next}$values[i] || &#39;&#39;}`, &#39;&#39;));
+  return DOMpurify.sanitize(dirty)
+}
+</code></pre>
 </li>
 </ul>
 <h2>Module 04: Additional String Improvements</h2><h3>Module 04.17: New String Methods</h3><ul>
 <li><p>4 new methods that help reduce the need for Regex</p>
-<pre><code class="language-javascript">  //string.startsWith();
-  string.startsWith(&#39;subStringCheck&#39;); //returns true/false, not case sensitive
-  string.startsWith(&#39;subStringCheck&#39;,3); //returns true/false, starts after 3 characters</code></pre>
-<pre><code class="language-javascript">  //string.endsWith();
-  string.endsWith(&#39;subStringCheck&#39;);
-  string.endsWith(&#39;subStringCheck&#39;,3); //starts the first 3 charcters and checks if it wents with subStringCheck</code></pre>
-<pre><code class="language-javascript">  //string.includes() //used to be string.contains()</code></pre>
-<pre><code class="language-javascript">  //string.repeat()
-  function leftPad(string, length = 20) {
-    return `${&#39; &#39;.repeat(length - str.length)}${str}`;
-  }</code></pre>
+<pre><code class="language-javascript">//string.startsWith();
+string.startsWith(&#39;subStringCheck&#39;); //returns true/false, not case sensitive
+string.startsWith(&#39;subStringCheck&#39;,3); //returns true/false, starts after 3 characters
+</code></pre>
+<pre><code class="language-javascript">//string.endsWith();
+string.endsWith(&#39;subStringCheck&#39;);
+string.endsWith(&#39;subStringCheck&#39;,3); //starts the first 3 charcters and checks if it wents with subStringCheck
+</code></pre>
+<pre><code class="language-javascript">//string.includes() //used to be string.contains()
+</code></pre>
+<pre><code class="language-javascript">//string.repeat()
+function leftPad(string, length = 20) {
+  return `${&#39; &#39;.repeat(length - str.length)}${str}`;
+}
+</code></pre>
 </li>
 <li><p>&#35;REFERENCE Batman joke :D</p>
 </li>
@@ -423,48 +443,50 @@ ${renderFunction(beer.keywords)}
 <li><p>Destructuring: A JavaScript expression that allows us to extra data from arrays, objects, and #TODO(something sets)</p>
 </li>
 <li><p>Old way VS ES6 Way</p>
-<pre><code class="language-javascript">  const person = {
-    first: &#39;Clark&#39;,
-    last: &#39;Kent&#39;
-  };
+<pre><code class="language-javascript">const person = {
+  first: &#39;Clark&#39;,
+  last: &#39;Kent&#39;
+};
 
-  //OLD WAY
-  const first = person.first;
-  const last = person.last;
+//OLD WAY
+const first = person.first;
+const last = person.last;
 
-  //ES6 Way #BESTPRACTICE
-  const { first , last } = person;
-  //{ } is destructing syntax
-  //make a variable called first and take it from person</code></pre>
-<pre><code class="language-javascript">  const superhero = {
-    first: &#39;James&#39;,
-    last: &#39;Howlett&#39;,
-    links: {
-      social: {
-        twitter: &#39;https://twitter.com/wolverine&#39;,
-        facebook: &#39;https://facebook.com/wolverine&#39;,
-      }
+//ES6 Way #BESTPRACTICE
+const { first , last } = person;
+//{ } is destructing syntax
+//make a variable called first and take it from person
+</code></pre>
+<pre><code class="language-javascript">const superhero = {
+  first: &#39;James&#39;,
+  last: &#39;Howlett&#39;,
+  links: {
+    social: {
+      twitter: &#39;https://twitter.com/wolverine&#39;,
+      facebook: &#39;https://facebook.com/wolverine&#39;,
     }
-  };
+  }
+};
 
-  //OLD WAY
-  const twitter = superhero.links.social.twitter;
-  const facebook = superhero.links.social.facebook;
+//OLD WAY
+const twitter = superhero.links.social.twitter;
+const facebook = superhero.links.social.facebook;
 
-  //ES6 Way ##BESTPRACTICE
-  const { twitter , facebook } = wes.links.social;
-  //Renaming variables
-  const { twitter: tweet, facebook: fb } = wes.links.social;
+//ES6 Way ##BESTPRACTICE
+const { twitter , facebook } = wes.links.social;
+//Renaming variables
+const { twitter: tweet, facebook: fb } = wes.links.social;
 
-  //Set Defaults
-  const settings = { width: 300, color: &#39;black&#39; }  // height, fontSize
-  const { width = 100, height = 100, color = &#39;blue&#39;, fontSize = 25} = settings;
-  //^ is: sets defaults = overrides
-  //settings = { width: 300, color: &#39;black&#39;};
-  //width = 300
-  //height = 100
-  //color = &#39;black&#39;
-  //fontSize = 25</code></pre>
+//Set Defaults
+const settings = { width: 300, color: &#39;black&#39; }  // height, fontSize
+const { width = 100, height = 100, color = &#39;blue&#39;, fontSize = 25} = settings;
+//^ is: sets defaults = overrides
+//settings = { width: 300, color: &#39;black&#39;};
+//width = 300
+//height = 100
+//color = &#39;black&#39;
+//fontSize = 25
+</code></pre>
 </li>
 </ul>
 <h3>Module 05.19: Destructing Arrays</h3><p>*
@@ -493,7 +515,9 @@ const [captain, assistant, ...players] = team;
 //assistant = &quot;Harry&quot;
 //players = [&quot;Sarah,&quot;Keegan&quot;,&quot;Riker&quot;]
 //...variable is &quot;the rest&quot; operator. We have the captain, assistant and the rest
-```</code></pre><h3>Module 05.20: Swapping Variables with Destructuring</h3><ul>
+```
+</code></pre>
+<h3>Module 05.20: Swapping Variables with Destructuring</h3><ul>
 <li>Switching variables (see <a href="#module-28-arrow-functions-and-this">2.8</a>)</li>
 </ul>
 <h3>Module 05.21: Destructuring Functions - Multiple returns and named defaults</h3><p>*
@@ -530,26 +554,33 @@ function tipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
 const bill = tipCalc({ tip: 0.20, total: 200 });
 //the order can be placed in any way we want
 console.log(bill);
-```</code></pre><h2>Module 06: Iterables &amp; Looping</h2><h3>Module 06.22: The for of loop</h3><ul>
+```
+</code></pre>
+<h2>Module 06: Iterables &amp; Looping</h2><h3>Module 06.22: The for of loop</h3><ul>
 <li><p>The for of loop loops over iterables (anything that can be looped over like a DOM collection, arguments, array, string, map, set)</p>
-<pre><code class="language-javascript">  const cuts = [&#39;chuck&#39;,&#39;brisket&#39;,&#39;shank&#39;,&#39;short rib&#39;];</code></pre>
-<pre><code class="language-javascript">  //ugly and confusing
-  for (let i = 0;i &lt; cuts.length; i++) {
-    console.log(cuts[i]);
-  }</code></pre>
-<pre><code class="language-javascript">  //can&#39;t use break; or continue;
-  cuts.forEach((cut,i) =&gt; {
-    console.log(cuts[i]);
-  });</code></pre>
-<pre><code class="language-javascript">  //&#39;for in&#39;, iterates of item + anything added (which is bad)
-  for (const index in cuts) {
-    console.log(cuts[index]);
-  }</code></pre>
-<pre><code class="language-javascript">  //for of - the best of all 3 worlds and can use it for everything except object #BESTPRACTICE
-  for (const cut of cuts) {
-    console.log(cut);
-    //can you break/continue
-  }</code></pre>
+<pre><code class="language-javascript">const cuts = [&#39;chuck&#39;,&#39;brisket&#39;,&#39;shank&#39;,&#39;short rib&#39;];
+</code></pre>
+<pre><code class="language-javascript">//ugly and confusing
+for (let i = 0;i &lt; cuts.length; i++) {
+  console.log(cuts[i]);
+}
+</code></pre>
+<pre><code class="language-javascript">//can&#39;t use break; or continue;
+cuts.forEach((cut,i) =&gt; {
+  console.log(cuts[i]);
+});
+</code></pre>
+<pre><code class="language-javascript">//&#39;for in&#39;, iterates of item + anything added (which is bad)
+for (const index in cuts) {
+  console.log(cuts[index]);
+}
+</code></pre>
+<pre><code class="language-javascript">//for of - the best of all 3 worlds and can use it for everything except object #BESTPRACTICE
+for (const cut of cuts) {
+  console.log(cut);
+  //can you break/continue
+}
+</code></pre>
 </li>
 </ul>
 <h3>Module 06.23: The for of Loop in Action</h3><p>*
@@ -591,41 +622,47 @@ const name = &#39;Warren Shea&#39;;
 for (char of name) {
   console.log(char); //returns W, then a, then r, etc. etc.
 }
-```</code></pre><h3>Module 06.24: Using for of with Objects</h3><ul>
+```
+</code></pre>
+<h3>Module 06.24: Using for of with Objects</h3><ul>
 <li><p>object.entries() will be available later (in ES2017 and can be polyfilled)</p>
 </li>
 <li><p>Alternatives to <code>for of</code> with Objects:</p>
-<pre><code class="language-javascript">  const cuts = [&#39;chuck&#39;,&#39;brisket&#39;,&#39;shank&#39;,&#39;short rib&#39;];
+<pre><code class="language-javascript">const cuts = [&#39;chuck&#39;,&#39;brisket&#39;,&#39;shank&#39;,&#39;short rib&#39;];
 
-  for const cut of Object.keys(cuts)) {
-    const value = cuts[cut];
-    console.log(value, cut);
-  }
+for const cut of Object.keys(cuts)) {
+  const value = cuts[cut];
+  console.log(value, cut);
+}
 
-  for (const index in cuts) {
-    console.log(cuts[index]);
-  }</code></pre>
+for (const index in cuts) {
+  console.log(cuts[index]);
+}
+</code></pre>
 </li>
 </ul>
 <h2>Module 07: An Array of Array Improvements</h2><h3>Module 07.25: Array.from() and Array.of()</h3><ul>
 <li><p>New array method</p>
 </li>
 <li><p>Array.from() -&gt; turns something Array-ish (e.g. NodeList) and turn it into an Array</p>
-<pre><code class="language-javascript">  const peopleArray = Array.from(arrayIsh);
+<pre><code class="language-javascript">const peopleArray = Array.from(arrayIsh);
 
-  const peopleArray = Array.from(arrayIsh, domNode =&gt; {
-    return domNode.textContent;
-  });</code></pre>
-<pre><code class="language-javascript">  function sumAll() {
-    //arguments is array-ish
-    return arguments.reduce((prev,next) =&gt; prev + next, 0); //fails
-  }
-  sumAll(3,3,56353,34343,3,32,34,323,3)</code></pre>
-<pre><code class="language-javascript">  function sumAll() {
-    const nums = Array.from(arguments);
-    return nums.reduce((prev,next) =&gt; prev + next, 0); //success
-  }
-  sumAll(3,3,56353,34343,3,32,34,323,3)</code></pre>
+const peopleArray = Array.from(arrayIsh, domNode =&gt; {
+  return domNode.textContent;
+});
+</code></pre>
+<pre><code class="language-javascript">function sumAll() {
+  //arguments is array-ish
+  return arguments.reduce((prev,next) =&gt; prev + next, 0); //fails
+}
+sumAll(3,3,56353,34343,3,32,34,323,3)
+</code></pre>
+<pre><code class="language-javascript">function sumAll() {
+  const nums = Array.from(arguments);
+  return nums.reduce((prev,next) =&gt; prev + next, 0); //success
+}
+sumAll(3,3,56353,34343,3,32,34,323,3)
+</code></pre>
 </li>
 <li><p>Array.of(arguments) -&gt; pass it as many arguments that you want, creates array for every argument that you pass it</p>
 </li>
@@ -634,68 +671,74 @@ for (char of name) {
 <li><p>nice utility - might not need to add lodash because of this</p>
 </li>
 <li><p>Array.find()</p>
-<pre><code class="language-javascript">  const apiObjectItem = apiObject.find(apiObjectItem =&gt; {
-    if(apiObjectItem === &#39;some value&#39;) {
-      return true;
-    }
-    return false;
-  });
+<pre><code class="language-javascript">const apiObjectItem = apiObject.find(apiObjectItem =&gt; {
+  if(apiObjectItem === &#39;some value&#39;) {
+    return true;
+  }
+  return false;
+});
 
-  //OR
+//OR
 
-  const value = &#39;someValue&#39;;
-  const apiObjectItem = apiObject.find(apiObjectItem =&gt; apiObjectItem.key === value);</code></pre>
+const value = &#39;someValue&#39;;
+const apiObjectItem = apiObject.find(apiObjectItem =&gt; apiObjectItem.key === value);
+</code></pre>
 </li>
 <li><p>Array.findIndex()</p>
-<pre><code class="language-javascript">  const value = &#39;someValue&#39;;
-  const apiObjectItemIndex = apiObject.findIndex((apiObjectItem) =&gt; {
-    if (apiObjectItem.key === value) {
-      return true;
-    }
-    return false;
-  });
+<pre><code class="language-javascript">const value = &#39;someValue&#39;;
+const apiObjectItemIndex = apiObject.findIndex((apiObjectItem) =&gt; {
+  if (apiObjectItem.key === value) {
+    return true;
+  }
+  return false;
+});
 
-  //OR
+//OR
 
-  const apiObjectItemIndex = apiObject.findIndex(apiObjectItem =&gt; apiObjectItem.key === value);</code></pre>
+const apiObjectItemIndex = apiObject.findIndex(apiObjectItem =&gt; apiObjectItem.key === value);
+</code></pre>
 </li>
 </ul>
 <h3>Module 07.26: Array.some() and Array.every()</h3><ul>
 <li><p>Array.some(): check items in array to see if some of the items meet the criteria you&#39;re looking for</p>
-<pre><code class="language-javascript">  const ages = [32,15,19,12]
+<pre><code class="language-javascript">const ages = [32,15,19,12]
 
-  //are there any adults?
-  const adultPresent = ages.some(ages =&gt; age &gt;= 18);
-  //returns true as soon as it succeed (it will return at 32)</code></pre>
+//are there any adults?
+const adultPresent = ages.some(ages =&gt; age &gt;= 18);
+//returns true as soon as it succeed (it will return at 32)
+</code></pre>
 </li>
 <li><p>Array.every(): check items in array to see if all of the items meet the criteria you&#39;re looking for</p>
-<pre><code class="language-javascript">  const ages = [32,15,19,12]
+<pre><code class="language-javascript">const ages = [32,15,19,12]
 
-  //is everyone old enough to drink?
-  const allOldEnough = ages.every(ages =&gt; age &gt;= 19);
-  //returns false</code></pre>
+//is everyone old enough to drink?
+const allOldEnough = ages.every(ages =&gt; age &gt;= 19);
+//returns false
+</code></pre>
 </li>
 </ul>
 <h2>Module 08: Say Hello to ...Spread and ...Rest</h2><h3>Module 08.28: Spread Operator Introduction</h3><ul>
 <li><p>...The Spread Operator: Takes every single item from an iterable (anything that can be looped over like a DOM collection, arguments, array, string, map, set) and apply it to the containing Array</p>
-<pre><code class="language-javascript">  [&#39;warren&#39;] //an array with the string &quot;warren&quot;
-  //what if I want each character to be an iterable?
-  [...&#39;warren&#39;] //=&gt; [&quot;w&quot;,&quot;a&quot;,&quot;r&quot;,&quot;r&quot;,&quot;e&quot;,&quot;n&quot;]
+<pre><code class="language-javascript">[&#39;warren&#39;] //an array with the string &quot;warren&quot;
+//what if I want each character to be an iterable?
+[...&#39;warren&#39;] //=&gt; [&quot;w&quot;,&quot;a&quot;,&quot;r&quot;,&quot;r&quot;,&quot;e&quot;,&quot;n&quot;]
 </code></pre>
-<pre><code class="language-javascript">  const featured = [&#39;Deep Dish&#39;, &#39;Pepperoni&#39;, &#39;Hawaiian&#39;];
-  const specialty = [&#39;Meatzza&#39;, &#39;Spicy Mama&#39;, &#39;Margherita&#39;];
+<pre><code class="language-javascript">const featured = [&#39;Deep Dish&#39;, &#39;Pepperoni&#39;, &#39;Hawaiian&#39;];
+const specialty = [&#39;Meatzza&#39;, &#39;Spicy Mama&#39;, &#39;Margherita&#39;];
 
-  //ES6 way of making an array of featured, &#39;veg&#39;, specialty
-  const pizzas = [...featured, &#39;veg&#39;, ...specialty];</code></pre>
-<pre><code class="language-javascript">  //if we wanted to make a duplicate of pizzas,
-  const fridayPizzas = pizzas;
-  //if you changed fridayPizzas, pizzas would also be changed too! Uh oh!
-  //const fridayPizzas = pizzas; is not a COPY, but a reference
+//ES6 way of making an array of featured, &#39;veg&#39;, specialty
+const pizzas = [...featured, &#39;veg&#39;, ...specialty];
+</code></pre>
+<pre><code class="language-javascript">//if we wanted to make a duplicate of pizzas,
+const fridayPizzas = pizzas;
+//if you changed fridayPizzas, pizzas would also be changed too! Uh oh!
+//const fridayPizzas = pizzas; is not a COPY, but a reference
 
-  //OLD way to duplicate and array
-  cost fridayPizzas = [].concat(pizzas);
-  //ES6 way
-  const fridayPizzas = [...pizzas];</code></pre>
+//OLD way to duplicate and array
+cost fridayPizzas = [].concat(pizzas);
+//ES6 way
+const fridayPizzas = [...pizzas];
+</code></pre>
 </li>
 </ul>
 <h3>Module 08.29: Spread Exercise</h3><ul>
@@ -704,77 +747,69 @@ for (char of name) {
 <h3>Module 08.30: More Spread Examples</h3><ul>
 <li><p>Spread is an alternative to <code>Array.from(arrayIsh);</code></p>
 </li>
-<li><pre><code class="language-javascript">   const people = document.querySelectorAll(&#39;p&#39;); //return nodeList
+<li><pre><code class="language-javascript">const people = document.querySelectorAll(&#39;p&#39;); //return nodeList
 
-   //if you want it to be an array
-   const people = Array.from(document.querySelectorAll(&#39;p&#39;)); //return Array
-   //OR
-   const people = [...document.querySelectorAll(&#39;p&#39;)]; //return Array</code></pre>
+//if you want it to be an array
+const people = Array.from(document.querySelectorAll(&#39;p&#39;)); //return Array
+//OR
+const people = [...document.querySelectorAll(&#39;p&#39;)]; //return Array
+</code></pre>
 </li>
 <li><p>If you wanted to remove an item from an array, but all you have is one reference...then you can do a findIndex and get everything until the index and add it to everything after the index</p>
-<pre><code class="language-javascript">  const comments = [
-    { id: 209384, text: &#39;I love your dog!&#39; },
-    { id: 523423, text: &#39;Cuuute! 🐐&#39; },
-    { id: 632429, text: &#39;You are so dumb&#39; },
-    { id: 192834, text: &#39;Nice work on this wes!&#39; },
-  ];
-  const id = 632429;
-  const commentIndex = comments.findIndex(comment =&gt; comment.id === id);
-  const newComments = [...comments.slice(0,commentIndex), ...comments.slice(commentIndex + 1)];</code></pre>
+<pre><code class="language-javascript">const comments = [
+  { id: 209384, text: &#39;I love your dog!&#39; },
+  { id: 523423, text: &#39;Cuuute! 🐐&#39; },
+  { id: 632429, text: &#39;You are so dumb&#39; },
+  { id: 192834, text: &#39;Nice work on this wes!&#39; },
+];
+const id = 632429;
+const commentIndex = comments.findIndex(comment =&gt; comment.id === id);
+const newComments = [...comments.slice(0,commentIndex), ...comments.slice(commentIndex + 1)];
+</code></pre>
 </li>
 </ul>
 <h3>Module 08.31: Spreading into a function</h3><ul>
 <li><p>Combining arrays</p>
-<pre><code class="language-javascript">  const inventors = [&#39;Einstein&#39;, &#39;Newton&#39;, &#39;Galileo&#39;];
-  const newInventors = [&#39;Musk&#39;, &#39;Jobs&#39;];
+<pre><code class="language-javascript">const inventors = [&#39;Einstein&#39;, &#39;Newton&#39;, &#39;Galileo&#39;];
+const newInventors = [&#39;Musk&#39;, &#39;Jobs&#39;];
 
-  //if you wanted to merge arrays
+//if you wanted to merge arrays
 
-  //this will not work
-  investors.push(newInvestors); //returns [&#39;Einstein&#39;, &#39;Newton&#39;, &#39;Galileo&#39;, [&#39;Musk&#39;, &#39;Jobs&#39;]] which is not what you want
+//this will not work
+investors.push(newInvestors); //returns [&#39;Einstein&#39;, &#39;Newton&#39;, &#39;Galileo&#39;, [&#39;Musk&#39;, &#39;Jobs&#39;]] which is not what you want
 
-  //Old way - weird/hard to understand
-  inventors.push.apply(investors, newInvestors);
+//Old way - weird/hard to understand
+inventors.push.apply(investors, newInvestors);
 
-  //ES6 way #BESTPRACTICE
-  inventors.push(...newInventors);</code></pre>
-<pre><code class="language-javascript">  const name = [&#39;Wes&#39;, &#39;Bos&#39;];
+//ES6 way #BESTPRACTICE
+inventors.push(...newInventors);
+</code></pre>
+<pre><code class="language-javascript">const name = [&#39;Wes&#39;, &#39;Bos&#39;];
 
-  function sayHi(first, last) {
-    alert(`Hey there ${first} ${last}`);
-  }
+function sayHi(first, last) {
+  alert(`Hey there ${first} ${last}`);
+}
 
-  sayHi(...name);</code></pre>
+sayHi(...name);
+</code></pre>
 </li>
 </ul>
 <h3>Module 08.32: The ...Rest param in Functions and destructuring</h3><ul>
 <li><p>... for a Spread takes one array and unpacks it into items</p>
 </li>
 <li><p>... for a Rest takes multiple things and packs it into a single array</p>
-<pre><code class="language-javascript">  function convertCurrency(rate, tax, tip, ...amounts) {
-    return amounts.map(amount =&gt; amount * rate);
-  }
-  const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);</code></pre>
-<pre><code class="language-javascript">  const runner = [&#39;Wes Bos&#39;, 123, 5.5, 5, 3, 6, 35];
-  const [name, id, ...runs] = runner; //runs is [5,3,6,35]</code></pre>
+<pre><code class="language-javascript">function convertCurrency(rate, tax, tip, ...amounts) {
+  return amounts.map(amount =&gt; amount * rate);
+}
+const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
+</code></pre>
+<pre><code class="language-javascript">const runner = [&#39;Wes Bos&#39;, 123, 5.5, 5, 3, 6, 35];
+const [name, id, ...runs] = runner; //runs is [5,3,6,35]
+</code></pre>
 </li>
 </ul>
 <h2>Module 09: Object Literal Upgrades</h2><h3>Module 09.33: Object Literal Upgrades</h3><p>*
-    <code>javascript
-    //OLD WAY
-    const dog = {
-      first: first,
-      last: last,
-      age: age,
-      breed: breed,
-    };
-    //EQUALS (#BESTPRACTICE)
-    const dog = {
-      first,
-      last,
-      age,
-      breed,
-    };</code></p>
+    <code>javascript     //OLD WAY     const dog = {       first: first,       last: last,       age: age,       breed: breed,     };     //EQUALS (#BESTPRACTICE)     const dog = {       first,       last,       age,       breed,     };     </code></p>
 <pre><code>```javascript
 const modal = {
   create: function() {},
@@ -820,19 +855,22 @@ const shirt = {
   [keys.shift()]: values.shift(),
   [keys.shift()]: values.shift(),
 };
-```</code></pre><h2>Module 10: Promises</h2><h3>Module 10.34: Promises</h3><ul>
+```
+</code></pre>
+<h2>Module 10: Promises</h2><h3>Module 10.34: Promises</h3><ul>
 <li><p>Promises are often used when you&#39;re fetching a JSON or have an API</p>
 </li>
 <li><p>Promises is something that will happen in the future but probably not immediately</p>
-<pre><code class="language-javascript">  //equal $.getJSON or $.ajax
-  const posts = fetch(url);
-  //^queues up the search immediately but doesn&#39;t store it in variable, stores a promise
+<pre><code class="language-javascript">//equal $.getJSON or $.ajax
+const posts = fetch(url);
+//^queues up the search immediately but doesn&#39;t store it in variable, stores a promise
 
-  posts
-    .then(data =&gt; data.json())
-    .then(data =&gt; { console.log(data.)})
-    .catch((err) = &gt; { console.error(err)})
-  //^ chaining format #REFERENCE #BESTPRACTICE</code></pre>
+posts
+  .then(data =&gt; data.json())
+  .then(data =&gt; { console.log(data.)})
+  .catch((err) = &gt; { console.error(err)})
+//^ chaining format #REFERENCE #BESTPRACTICE
+</code></pre>
 </li>
 </ul>
 <h3>Module 10.35: Building your own Promises</h3><p>*
@@ -851,61 +889,64 @@ p
   .catch(err =&gt; {
     console.error(err);
   })
-```</code></pre><h3>Module 10.36: Chaining Promises + Flow Control</h3><ul>
+```
+</code></pre>
+<h3>Module 10.36: Chaining Promises + Flow Control</h3><ul>
 <li><p>Simulate a posts and authors database and chain them together</p>
-<pre><code class="language-javascript">    const posts = [
-      { title: &#39;I love JavaScript&#39;, author: &#39;Wes Bos&#39;, id: 1 },
-      { title: &#39;CSS!&#39;, author: &#39;Chris Coyier&#39;, id: 2 },
-      { title: &#39;Dev tools tricks&#39;, author: &#39;Addy Osmani&#39;, id: 3 },
-    ];
+<pre><code class="language-javascript">  const posts = [
+    { title: &#39;I love JavaScript&#39;, author: &#39;Wes Bos&#39;, id: 1 },
+    { title: &#39;CSS!&#39;, author: &#39;Chris Coyier&#39;, id: 2 },
+    { title: &#39;Dev tools tricks&#39;, author: &#39;Addy Osmani&#39;, id: 3 },
+  ];
 
-    const authors = [
-      { name: &#39;Wes Bos&#39;, twitter: &#39;@wesbos&#39;, bio: &#39;Canadian Developer&#39; },
-      { name: &#39;Chris Coyier&#39;, twitter: &#39;@chriscoyier&#39;, bio: &#39;CSS Tricks and CodePen&#39; },
-      { name: &#39;Addy Osmani&#39;, twitter: &#39;@addyosmani&#39;, bio: &#39;Googler&#39; },
-    ];
+  const authors = [
+    { name: &#39;Wes Bos&#39;, twitter: &#39;@wesbos&#39;, bio: &#39;Canadian Developer&#39; },
+    { name: &#39;Chris Coyier&#39;, twitter: &#39;@chriscoyier&#39;, bio: &#39;CSS Tricks and CodePen&#39; },
+    { name: &#39;Addy Osmani&#39;, twitter: &#39;@addyosmani&#39;, bio: &#39;Googler&#39; },
+  ];
 
-    function getPostById(id) {
-      // create a new promise
-      return new Promise((resolve, reject) =&gt; {
-        // using a setTimeout to mimick a database
-        setTimeout(() =&gt; {
-          // find the post we want
-          const post = posts.find(post =&gt; post.id === id);
-          if(post) {
-            resolve(post); // send the post back
-          } else {
-            reject(Error(&#39;No Post Was Found!&#39;));
-          }
-        }, 200);
-      });
-    }
-
-    function hydrateAuthor(post) {
-      // create a new promise
-      return new Promise((resolve, reject) =&gt; {
-        // find the author
-        const authorDetails = authors.find(person =&gt; person.name === post.author);
-        if(authorDetails) {
-          // &quot;hydrate&quot; the post object with the author object
-          post.author = authorDetails;
-          resolve(post);
+  function getPostById(id) {
+    // create a new promise
+    return new Promise((resolve, reject) =&gt; {
+      // using a setTimeout to mimick a database
+      setTimeout(() =&gt; {
+        // find the post we want
+        const post = posts.find(post =&gt; post.id === id);
+        if(post) {
+          resolve(post); // send the post back
         } else {
-          reject(Error(&#39;Can not find the author&#39;));
+          reject(Error(&#39;No Post Was Found!&#39;));
         }
-      });
-    }
+      }, 200);
+    });
+  }
 
-    getPostById(3)
-      .then(post =&gt; { //first promise from getPostById
-        return hydrateAuthor(post); //second promise from hydrateAuthor
-      })
-      .then(post =&gt; { //when both promises are complete, output post
-        console.log(post);
-      })
-      .catch(err =&gt; {
-        console.error(err);
-      });</code></pre>
+  function hydrateAuthor(post) {
+    // create a new promise
+    return new Promise((resolve, reject) =&gt; {
+      // find the author
+      const authorDetails = authors.find(person =&gt; person.name === post.author);
+      if(authorDetails) {
+        // &quot;hydrate&quot; the post object with the author object
+        post.author = authorDetails;
+        resolve(post);
+      } else {
+        reject(Error(&#39;Can not find the author&#39;));
+      }
+    });
+  }
+
+  getPostById(3)
+    .then(post =&gt; { //first promise from getPostById
+      return hydrateAuthor(post); //second promise from hydrateAuthor
+    })
+    .then(post =&gt; { //when both promises are complete, output post
+      console.log(post);
+    })
+    .catch(err =&gt; {
+      console.error(err);
+    });
+</code></pre>
 </li>
 </ul>
 <h3>Module 10.37: Working with Multiple Promises</h3><p>*
@@ -943,42 +984,47 @@ Promise
   .then(responses =&gt; {
     console.log(responses);
   });
-```</code></pre><h2>Module 11: Symbols</h2><h3>Module 11.38: All About Symbols</h3><ul>
+```
+</code></pre>
+<h2>Module 11: Symbols</h2><h3>Module 11.38: All About Symbols</h3><ul>
 <li><p>7th Primitive type added to JavaScript</p>
 </li>
 <li><p>6 primitive types: number, string, object, boolean, null, undefined</p>
 </li>
 <li><p>Symbol is a unique identifier to avoid naming collision</p>
-<pre><code class="language-javascript">  const wes = Symbol(&#39;Wes&#39;); //where &#39;Wes&#39; is the discriptor
-  const person = Symbol(&#39;Wes&#39;);
-  //(wes === person) returns false
-  //(wes == person) returns false</code></pre>
+<pre><code class="language-javascript">const wes = Symbol(&#39;Wes&#39;); //where &#39;Wes&#39; is the discriptor
+const person = Symbol(&#39;Wes&#39;);
+//(wes === person) returns false
+//(wes == person) returns false
+</code></pre>
 </li>
 <li><p>Symbols are innumerable so sometimes you store private data in a symbol</p>
-<pre><code class="language-javascript">  const wes = Symbol(&#39;Wes&#39;);
-  const person = Symbol(&#39;Wes&#39;);
+<pre><code class="language-javascript">const wes = Symbol(&#39;Wes&#39;);
+const person = Symbol(&#39;Wes&#39;);
 
-  const classRoom = {
-    [Symbol(&#39;Mark&#39;)] : { grade: 50, gender: &#39;male&#39; },
-    [Symbol(&#39;olivia&#39;)]: { grade: 80, gender: &#39;female&#39; },
-    [Symbol(&#39;olivia&#39;)]: { grade: 80, gender: &#39;female&#39; },
-  };
+const classRoom = {
+  [Symbol(&#39;Mark&#39;)] : { grade: 50, gender: &#39;male&#39; },
+  [Symbol(&#39;olivia&#39;)]: { grade: 80, gender: &#39;female&#39; },
+  [Symbol(&#39;olivia&#39;)]: { grade: 80, gender: &#39;female&#39; },
+};
 
-  for (const person in classRoom) {
-    console.log(person);
-  }
+for (const person in classRoom) {
+  console.log(person);
+}
 
-  const syms = Object.getOwnPropertySymbols(classRoom);
-  const data = syms.map(sym =&gt; classRoom[sym]);
-  console.log(data);</code></pre>
+const syms = Object.getOwnPropertySymbols(classRoom);
+const data = syms.map(sym =&gt; classRoom[sym]);
+console.log(data);
+</code></pre>
 </li>
 <li><p>&#35;TODO I didn&#39;t really understand this but I don&#39;t think it matters/I don&#39;t think it&#39;s that important</p>
 </li>
 </ul>
 <h2>Module 12: Code Quality with ESLint</h2><h3>Module 12.39: Getting Started with ESLint</h3><ul>
-<li>ESLint is one of the best linters and has support for all of the new ES6 features<pre><code class="language-shell">  npm install npm@latest -g #install latest npm, -g for global
-  npm install eslint -g     #install eslint, -g for global
-  eslint file.js            #to eslint a file through command line (file.js)</code></pre>
+<li>ESLint is one of the best linters and has support for all of the new ES6 features<pre><code class="language-shell">npm install npm@latest -g #install latest npm, -g for global
+npm install eslint -g     #install eslint, -g for global
+eslint file.js            #to eslint a file through command line (file.js)
+</code></pre>
 </li>
 <li>different eslint settings for project</li>
 <li><code>.eslintrc</code> is your settings<ul>
@@ -986,20 +1032,21 @@ Promise
 <li>must use double quotes</li>
 </ul>
 </li>
-<li>Example:<pre><code class="language-javascript">  {
-    &quot;env&quot;: {
-      &quot;es6&quot;: true,
-      &quot;browser&quot;: true
-    },
-    /*&quot;extends&quot;: &quot;eslint:recommended&quot;, */
-    &quot;extends&quot;: &quot;airbnb&quot;, /*need to install module first (see Module 12.40)*/
-    /*https://eslint.org/docs/rules/*/
-    &quot;rules&quot;: {
-      &quot;no-console&quot;: 0,
-      &quot;no-unused-vars&quot;: 1
-    },
-    &quot;plugins&quot;: [&quot;html&quot;, &quot;markdown&quot;]
-  }</code></pre>
+<li>Example:<pre><code class="language-javascript">{
+  &quot;env&quot;: {
+    &quot;es6&quot;: true,
+    &quot;browser&quot;: true
+  },
+  /*&quot;extends&quot;: &quot;eslint:recommended&quot;, */
+  &quot;extends&quot;: &quot;airbnb&quot;, /*need to install module first (see Module 12.40)*/
+  /*https://eslint.org/docs/rules/*/
+  &quot;rules&quot;: {
+    &quot;no-console&quot;: 0,
+    &quot;no-unused-vars&quot;: 1
+  },
+  &quot;plugins&quot;: [&quot;html&quot;, &quot;markdown&quot;]
+}
+</code></pre>
 </li>
 <li>rules can be Off (&quot;off&quot;/0), Warning (&quot;warn&quot;/1), or Error (&quot;error&quot;/2)</li>
 <li>can have 0/1/2,{} where the ,{} is for options</li>
@@ -1008,36 +1055,43 @@ Promise
 <li><a href="https://github.com/airbnb/javascript">Airbnb ESLint JavaScript Styleguide</a></li>
 <li><a href="https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb">Airbnb ESLint ESLint Config</a></li>
 <li><a href="https://www.npmjs.com/package/eslint-config-airbnb">Airbnb ESLint npm</a></li>
-<li>To install, use something like this (up to date one on github)<pre><code class="language-shell">  npm install -g eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react</code></pre>
+<li>To install, use something like this (up to date one on github)<pre><code class="language-shell">npm install -g eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react
+</code></pre>
 </li>
-<li>to automagically fix spacing and other minor items<pre><code class="language-shell">  eslint file.js --fix</code></pre>
+<li>to automagically fix spacing and other minor items<pre><code class="language-shell">eslint file.js --fix
+</code></pre>
 </li>
 <li>your global .eslint file is in your home directory (e.g. ~ or the foldername with your user, e.g. c:\users\username)</li>
 <li>should have trailing comma for the last key in objects</li>
 </ul>
 <h3>Module 12.41: Line and File Specific Settings</h3><ul>
 <li>set globals in file so your eslint won&#39;t fire on them (e.g. <code>ga.track()</code> or <code>twttr.trackConversion()</code>)</li>
-<li>At the top of the file, write this to ignore<pre><code class="language-javascript"> /* globals twttr ga */</code></pre>
+<li>At the top of the file, write this to ignore<pre><code class="language-javascript">/* globals twttr ga */
+</code></pre>
 </li>
-<li>To turn off the linting for something in the file<pre><code class="language-javascript">  /* eslint-disable no-extend-native */</code></pre>
+<li>To turn off the linting for something in the file<pre><code class="language-javascript">/* eslint-disable no-extend-native */
+</code></pre>
 OR</li>
-<li>Turn off the linting just for the line<pre><code class="language-javascript">  /* eslint-disable no-extend-native */
-  //offending line
-  /* eslint-enable no-extend-native */</code></pre>
+<li>Turn off the linting just for the line<pre><code class="language-javascript">/* eslint-disable no-extend-native */
+//offending line
+/* eslint-enable no-extend-native */
+</code></pre>
 OR</li>
-<li>Turn off the linting for a chunk of code<pre><code class="language-javascript">  /* eslint-disable */
-  //offending chunk of code
-  /* eslint-enable  */</code></pre>
+<li>Turn off the linting for a chunk of code<pre><code class="language-javascript">/* eslint-disable */
+//offending chunk of code
+/* eslint-enable  */
+</code></pre>
 </li>
 </ul>
 <h3>Module 12.42: ESLint Plugins</h3><ul>
 <li><a href="https://github.com/dustinspecker/awesome-eslint">dustinspecker</a></li>
-<li>Install html and markdown<pre><code class="language-json">  {
-    &quot;plugins&quot; : [
-      &quot;html&quot;,
-      &quot;markdown&quot;
-    ]
-  }</code></pre>
+<li>Install html and markdown<pre><code class="language-json">{
+  &quot;plugins&quot; : [
+    &quot;html&quot;,
+    &quot;markdown&quot;
+  ]
+}
+</code></pre>
 </li>
 <li><code>--fix</code> only works for pure JS files, not HTML or Markdown</li>
 </ul>
@@ -1065,63 +1119,73 @@ OR</li>
 <li>look into: <code>insane</code>, <code>jsonp</code>, <code>lodash</code>, <code>slug</code> ?</li>
 <li><code>babel</code> will take your ES6 code and convert it to ES5 and make it work in all browsers</li>
 <li><code>webpack.config.js</code> in root folder (with <code>package.json</code>) - see <code>\es6.io\13 - JavaScript Modules and Using npm\es6modules-FINISHED</code> on local computer</li>
-<li><code>npm run build</code> where, in <code>package.json</code><pre><code class="language-json">  &quot;scripts&quot;: {
-    &quot;build&quot;: &quot;webpack --progress --watch&quot;
-  }</code></pre>
+<li><code>npm run build</code> where, in <code>package.json</code><pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;build&quot;: &quot;webpack --progress --watch&quot;
+}
+</code></pre>
 </li>
 </ul>
 <h3>Module 13.46: Creating your own Modules</h3><ul>
 <li><p>how to get config.js&#39; variable? in app.js</p>
-<pre><code class="language-javascript">  //app.js
-  import apiKey from &#39;./src/config&#39;;</code></pre>
+<pre><code class="language-javascript">//app.js
+import apiKey from &#39;./src/config&#39;;
+</code></pre>
 <p>but this only imports, we need to export</p>
 </li>
 <li><p>in <code>config.js</code></p>
-<pre><code class="language-javascript">  //config.js
-  const apiKey = &#39;abc123&#39;;
-  export default apiKey; //don&#39;t use this, use what&#39;s below</code></pre>
+<pre><code class="language-javascript">//config.js
+const apiKey = &#39;abc123&#39;;
+export default apiKey; //don&#39;t use this, use what&#39;s below
+</code></pre>
 </li>
 <li><p>don&#39;t use the above, this (below) is better</p>
 </li>
 <li><p>any file can only have 1 default export, but you can have multiple named exports</p>
-<pre><code class="language-javascript">  //app.js
-  //Named export - must import it the way it&#39;s exported
-  export const apiKey = &#39;abc123&#39;;
-  //OR
-  const age = 3
-  const dog = &#39;Loki&#39;;
-  export { age, dog };</code></pre>
+<pre><code class="language-javascript">//app.js
+//Named export - must import it the way it&#39;s exported
+export const apiKey = &#39;abc123&#39;;
+//OR
+const age = 3
+const dog = &#39;Loki&#39;;
+export { age, dog };
+</code></pre>
 </li>
 <li><p>if you want to import Named export,</p>
-<pre><code class="language-javascript">  //config.js
-  import { apiKey, age, dog } from &#39;./src/config&#39;;</code></pre>
+<pre><code class="language-javascript">//config.js
+import { apiKey, age, dog } from &#39;./src/config&#39;;
+</code></pre>
 </li>
 <li><p>Can also export functions:</p>
-<pre><code class="language-javascript">  //app.js
-  export function sayHi(name) {
-    console.log(&quot;Hello there ${name}&quot;);
-  }</code></pre>
-<pre><code class="language-javascript">  //config.js
-  import { apiKey, age, dog, sayHi } from &#39;./src/config&#39;;</code></pre>
+<pre><code class="language-javascript">//app.js
+export function sayHi(name) {
+  console.log(&quot;Hello there ${name}&quot;);
+}
+</code></pre>
+<pre><code class="language-javascript">//config.js
+import { apiKey, age, dog, sayHi } from &#39;./src/config&#39;;
+</code></pre>
 </li>
 <li><p>Further Reading: <a href="https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export">Mozilla export</a></p>
 </li>
 <li><p>Renaming variables</p>
-<pre><code class="language-javascript">  //config.js
-  import { apiKey as key, age, dog, sayHi } from &#39;./src/config&#39;;</code></pre>
-<pre><code class="language-javascript">  //app.js
-  const age = 3
-  const dog = &#39;Loki&#39;;
-  export { age as old, dog };</code></pre>
+<pre><code class="language-javascript">//config.js
+import { apiKey as key, age, dog, sayHi } from &#39;./src/config&#39;;
+</code></pre>
+<pre><code class="language-javascript">//app.js
+const age = 3
+const dog = &#39;Loki&#39;;
+export { age as old, dog };
+</code></pre>
 </li>
 <li><p>Readability</p>
-<pre><code class="language-javascript">  //config.js
-  import {
-    apiKey as key,
-    age,
-    dog,
-    sayHi
-  } from &#39;./src/config&#39;;</code></pre>
+<pre><code class="language-javascript">//config.js
+import {
+  apiKey as key,
+  age,
+  dog,
+  sayHi
+} from &#39;./src/config&#39;;
+</code></pre>
 </li>
 </ul>
 <h3>Module 13.47: More ES6 Module Practice</h3><ul>
@@ -1136,90 +1200,95 @@ OR</li>
 <li><p>jspm can run in the browser</p>
 </li>
 <li><p>install BrowserSync</p>
-<pre><code class="language-shell">  npm install --save-dev browser-sync</code></pre>
+<pre><code class="language-shell">npm install --save-dev browser-sync
+</code></pre>
 <pre><code class="language-javascript">//package.json
 &quot;scripts&quot;: {
-  &quot;server&quot;: &quot;browser-sync start --director --server --files &#39;*.js, *.html, *.css&#39;&quot;
-}</code></pre>
+&quot;server&quot;: &quot;browser-sync start --director --server --files &#39;*.js, *.html, *.css&#39;&quot;
+}
+</code></pre>
 </li>
 </ul>
 <h3>Module 14.49: All About Babel + npm scripts</h3><ul>
 <li>Babel is a JavaScript compiler/transpiler, converts to ES5 to ensure ES6 code can be interpreted by older browsers</li>
-<li><code>npm install --save-dev babel-cli@next</code> if it&#39;s version 7+, you don&#39;t need @next<pre><code class="language-javascript">  //package.json
-  &quot;scripts&quot;: {
-    &quot;babel&quot;: &quot;babel app.jst--watch --out-file app-compiled.js&quot;
-  }</code></pre>
+<li><code>npm install --save-dev babel-cli@next</code> if it&#39;s version 7+, you don&#39;t need @next<pre><code class="language-javascript">//package.json
+&quot;scripts&quot;: {
+  &quot;babel&quot;: &quot;babel app.jst--watch --out-file app-compiled.js&quot;
+}
+</code></pre>
 </li>
 <li><code>npm install --save-dev babel-preset-env@next</code> works like auto-prefixer in CSS. Tell it what browsers you want to support</li>
-<li>You can have a <code>.babelrc</code> file but Wes Bos likes the config in package.json...AND SO DO I NOW!<pre><code class="language-javascript">  &quot;dependencies&quot;: {
-  },
-  &quot;babel&quot;: {
-    /*takes all options the .babelrc file has*/
-    &quot;presets&quot;: [
-      [&quot;env&quot;, {
-        &quot;targets&quot;: {
-          &quot;browsers&quot;: [
-            &quot;last 2 versions&quot;,
-            &quot;safari &gt;= 7&quot;
-          ]
-        }
-      }]
-    ],
-    &quot;plugins&quot;: [
-      &quot;pluginExample&quot;
-    ]
-  }</code></pre>
+<li>You can have a <code>.babelrc</code> file but Wes Bos likes the config in package.json...AND SO DO I NOW!<pre><code class="language-javascript">&quot;dependencies&quot;: {
+},
+&quot;babel&quot;: {
+  /*takes all options the .babelrc file has*/
+  &quot;presets&quot;: [
+    [&quot;env&quot;, {
+      &quot;targets&quot;: {
+        &quot;browsers&quot;: [
+          &quot;last 2 versions&quot;,
+          &quot;safari &gt;= 7&quot;
+        ]
+      }
+    }]
+  ],
+  &quot;plugins&quot;: [
+    &quot;pluginExample&quot;
+  ]
+}
+</code></pre>
 </li>
 </ul>
 <h3>Module 14.50: Polyfilling ES6 for Older Browsers</h3><ul>
 <li>Babel won&#39;t confirm Array.from() so you do a Polyfill</li>
 <li>Polyfill: If the browser does not have it, we must recreate it with regular JavaScript</li>
-<li>Babel has a polyfill<pre><code class="language-javascript">  import &#39;babel-polyfill&#39;;</code></pre>
+<li>Babel has a polyfill<pre><code class="language-javascript">import &#39;babel-polyfill&#39;;
+</code></pre>
 </li>
-<li>Polyfill.io - dynamically generates JavaScript file based on browser<pre><code class="language-html">  &lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<li>Polyfill.io - dynamically generates JavaScript file based on browser<pre><code class="language-html">&lt;script src=&quot;https://cdn.polyfill.io/v2/polyfill.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
 </li>
 <li>Polyfill.io - you can tailor your own polyfill</li>
 </ul>
 <h2>Module 15: Classes</h2><h3>Module 15.51: Prototypal Inheritance Review</h3><p>*
-    <code>javascript
-    function Dog(name,breed) { //capital D means Constructor function
-      this.name = name;
-      this.breed = breed;
-    }
-    const loki = new Dog(&#39;Loki&#39;,&quot;Pomeranian&quot;);</code></p>
+    <code>javascript     function Dog(name,breed) { //capital D means Constructor function       this.name = name;       this.breed = breed;     }     const loki = new Dog(&#39;Loki&#39;,&quot;Pomeranian&quot;);     </code></p>
 <ul>
-<li>Prototypal Inheritance is when you put a method on the original constructor, it will be inherited by the rest<pre><code class="language-javascript">  function Dog(name,breed) { //capital D means Constructor function
-    this.name = name;
-    this.breed = breed;
-  }
-  const loki = new Dog(&#39;Loki&#39;,&quot;Pomeranian&quot;);</code></pre>
+<li>Prototypal Inheritance is when you put a method on the original constructor, it will be inherited by the rest<pre><code class="language-javascript">function Dog(name,breed) { //capital D means Constructor function
+  this.name = name;
+  this.breed = breed;
+}
+const loki = new Dog(&#39;Loki&#39;,&quot;Pomeranian&quot;);
+</code></pre>
 </li>
 </ul>
 <h3>Module 15.52: Say Hello to Classes</h3><ul>
-<li>Class Delcaration<pre><code class="language-javascript">  class Dog {
-  }</code></pre>
+<li>Class Delcaration<pre><code class="language-javascript">class Dog {
+}
+</code></pre>
 </li>
-<li>Class Expression (Wes Bos preferred!)<pre><code class="language-javascript">  cost Dog = class {
-  }</code></pre>
+<li>Class Expression (Wes Bos preferred!)<pre><code class="language-javascript">cost Dog = class {
+}
+</code></pre>
 </li>
-<li>Expanding on the Class Declaration<pre><code class="language-javascript">  class Dog {
-    constructor(name,freed) { //when someone creates a new version
-      this.name = name;
-      this.breed = breed;
-    } //NOTE: NO COMMA!
-    bark() {}
-    cuddle() {}
-    static info() {} //static method - can only call it on Dog directly - useful as factor methods, conversion methods, and general class helper methods
-    get description() { //not a method, a property
-      return `${name} is a ${breed}`;
-    }
-    set nickname(value) {
-      this.nick = value.trim();
-    }
-    get nicknames() {
-      return this.nick;
-    }
-  }</code></pre>
+<li>Expanding on the Class Declaration<pre><code class="language-javascript">class Dog {
+  constructor(name,freed) { //when someone creates a new version
+    this.name = name;
+    this.breed = breed;
+  } //NOTE: NO COMMA!
+  bark() {}
+  cuddle() {}
+  static info() {} //static method - can only call it on Dog directly - useful as factor methods, conversion methods, and general class helper methods
+  get description() { //not a method, a property
+    return `${name} is a ${breed}`;
+  }
+  set nickname(value) {
+    this.nick = value.trim();
+  }
+  get nicknames() {
+    return this.nick;
+  }
+}
+</code></pre>
 </li>
 </ul>
 <h3>Module 15.53: Extending Classes and using super()</h3><p>*
@@ -1252,7 +1321,9 @@ OR</li>
 
 const rhino = new Animal(&#39;Rhiney&#39;);
 const snickers = new Dog(&#39;Snickers&#39;, &#39;King Charles&#39;);
-```</code></pre><h3>Module 15.54: Extending Arrays with Classes for Custom Collections</h3><p>*
+```
+</code></pre>
+<h3>Module 15.54: Extending Arrays with Classes for Custom Collections</h3><p>*
     ```javascript
     class MovieCollection extends Array {
       constructor(name, ...items) { //name of MovieCollect, then items
@@ -1274,7 +1345,9 @@ const snickers = new Dog(&#39;Snickers&#39;, &#39;King Charles&#39;);
 );
 
 movies.add({ name: &#39;Titanic&#39;, stars: 5 });
-```</code></pre><ul>
+```
+</code></pre>
+<ul>
 <li>for in will iterate over everything (it will iterate name, then the movies)</li>
 <li>for of will only iterate over the iterables (it will only iterate over the movies)</li>
 </ul>
@@ -1286,63 +1359,65 @@ movies.add({ name: &#39;Titanic&#39;, stars: 5 });
 <li><p><code>function*</code> to make a generator function, <code>yield</code> is a return - it will return the item until the function is called again</p>
 </li>
 <li><p>function will need to be</p>
-<pre><code class="language-javascript">  function* listPeople() {
-    yield &#39;Wes&#39;;
-    yield &#39;Kait&#39;;
-    yield &#39;Snickers&#39;;
+<pre><code class="language-javascript">function* listPeople() {
+  yield &#39;Wes&#39;;
+  yield &#39;Kait&#39;;
+  yield &#39;Snickers&#39;;
+}
+
+const people = listPeople();
+
+console.log(people); //tells us nothing
+people.next(); //returns value: &quot;Wes&quot;, done: false
+people.next(); //returns value: &quot;Kai&quot;, done: false
+</code></pre>
+<pre><code class="language-javascript">const inventors = [
+  { first: &#39;Albert&#39;, last: &#39;Einstein&#39;, year: 1879 },
+  { first: &#39;Isaac&#39;, last: &#39;Newton&#39;, year: 1643 },
+  { first: &#39;Galileo&#39;, last: &#39;Galilei&#39;, year: 1564 },
+  { first: &#39;Marie&#39;, last: &#39;Curie&#39;, year: 1867 },
+  { first: &#39;Johannes&#39;, last: &#39;Kepler&#39;, year: 1571 },
+  { first: &#39;Nicolaus&#39;, last: &#39;Copernicus&#39;, year: 1473 },
+  { first: &#39;Max&#39;, last: &#39;Planck&#39;, year: 1858 },
+];
+
+function* loop(arr) {
+  console.log(inventors);
+  for (const item of arr) {
+    yield item;
   }
+}
 
-  const people = listPeople();
-
-  console.log(people); //tells us nothing
-  people.next(); //returns value: &quot;Wes&quot;, done: false
-  people.next(); //returns value: &quot;Kai&quot;, done: false</code></pre>
-<pre><code class="language-javascript">  const inventors = [
-    { first: &#39;Albert&#39;, last: &#39;Einstein&#39;, year: 1879 },
-    { first: &#39;Isaac&#39;, last: &#39;Newton&#39;, year: 1643 },
-    { first: &#39;Galileo&#39;, last: &#39;Galilei&#39;, year: 1564 },
-    { first: &#39;Marie&#39;, last: &#39;Curie&#39;, year: 1867 },
-    { first: &#39;Johannes&#39;, last: &#39;Kepler&#39;, year: 1571 },
-    { first: &#39;Nicolaus&#39;, last: &#39;Copernicus&#39;, year: 1473 },
-    { first: &#39;Max&#39;, last: &#39;Planck&#39;, year: 1858 },
-  ];
-
-  function* loop(arr) {
-    console.log(inventors);
-    for (const item of arr) {
-      yield item;
-    }
-  }
-
-  const inventorGen = loop(inventors);
-  //investorGen won&#39;t return anything
-  investorGen.next().value; //returns { first: &#39;Albert&#39;, last: &#39;Einstein&#39;, year: 1879 }
+const inventorGen = loop(inventors);
+//investorGen won&#39;t return anything
+investorGen.next().value; //returns { first: &#39;Albert&#39;, last: &#39;Einstein&#39;, year: 1879 }
 </code></pre>
 </li>
 </ul>
 <h3>Module 16.56: Using Generators for Ajax Flow Control</h3><ul>
 <li><p>use case for Generators is waterfall-like AJAX request (e.g. /search/wes -&gt; /user/1223 -&gt; /photo/456)</p>
-<pre><code class="language-javascript">  function ajax(url) {
-    fetch(url).then(data =&gt; data.json()).then(data =&gt; dataGen.next(data))
-  }
+<pre><code class="language-javascript">function ajax(url) {
+  fetch(url).then(data =&gt; data.json()).then(data =&gt; dataGen.next(data))
+}
 
-  function* steps() {
-    console.log(&#39;fetching beers&#39;);
-    const beers = yield ajax(&#39;http://api.react.beer/v2/search?q=hops&amp;type=beer&#39;);
-    console.log(beers);
+function* steps() {
+  console.log(&#39;fetching beers&#39;);
+  const beers = yield ajax(&#39;http://api.react.beer/v2/search?q=hops&amp;type=beer&#39;);
+  console.log(beers);
 
-    console.log(&#39;fetching wes&#39;);
-    const wes = yield ajax(&#39;https://api.github.com/users/&#39;);
-    console.log(wes);
+  console.log(&#39;fetching wes&#39;);
+  const wes = yield ajax(&#39;https://api.github.com/users/&#39;);
+  console.log(wes);
 
-    console.log(&#39;fetching fat joe&#39;);
-    const fatJoe = yield ajax(&#39;https://api.discogs.com/artists/51988&#39;);
-    console.log(fatJoe);
-  }
+  console.log(&#39;fetching fat joe&#39;);
+  const fatJoe = yield ajax(&#39;https://api.discogs.com/artists/51988&#39;);
+  console.log(fatJoe);
+}
 
-  const dataGen = steps(); //on page load, create dataGen
-  dataGen.next(); // kick it off
-  //after that, the ajax function continues the .next() and continues the steps() function</code></pre>
+const dataGen = steps(); //on page load, create dataGen
+dataGen.next(); // kick it off
+//after that, the ajax function continues the .next() and continues the steps() function
+</code></pre>
 </li>
 </ul>
 <h3>Module 16.57: Looping Generators with for of</h3><p>*
@@ -1359,22 +1434,25 @@ movies.add({ name: &#39;Titanic&#39;, stars: 5 });
 for (const line of achy) {
   console.log(line);
 }
-```</code></pre><h2>Module 17: Proxies</h2><h3>Module 17.58: What are Proxies?</h3><ul>
+```
+</code></pre>
+<h2>Module 17: Proxies</h2><h3>Module 17.58: What are Proxies?</h3><ul>
 <li><p>Proxies allow you to overwrite default behavior for object&#39;s default behavior</p>
-<pre><code class="language-javascript">  const person = { name: &#39;Wes&#39;, age: 100 };
-  const personProxy = new Proxy(person, {} //proxy takes 2 arguments (target, which object you want to proxy - and then handler, which operations you wish to rewrite)
-    get(target, name) { //&quot;a trap&quot; - rewrites the operation
-      // console.log(&#39;someone is asking for &#39;, target, name);
-      return target[name].toUpperCase();
-    },
-    set(target, name, value) { //&quot;a trap&quot; - rewrites the operation
-      if(typeof value === &#39;string&#39;) {
-        target[name] = value.trim().toUpperCase() + &#39;✂️&#39;;
-      }
+<pre><code class="language-javascript">const person = { name: &#39;Wes&#39;, age: 100 };
+const personProxy = new Proxy(person, {} //proxy takes 2 arguments (target, which object you want to proxy - and then handler, which operations you wish to rewrite)
+  get(target, name) { //&quot;a trap&quot; - rewrites the operation
+    // console.log(&#39;someone is asking for &#39;, target, name);
+    return target[name].toUpperCase();
+  },
+  set(target, name, value) { //&quot;a trap&quot; - rewrites the operation
+    if(typeof value === &#39;string&#39;) {
+      target[name] = value.trim().toUpperCase() + &#39;✂️&#39;;
     }
-  });
+  }
+});
 
-  personProxy.name = &#39;Wesley&#39;;</code></pre>
+personProxy.name = &#39;Wesley&#39;;
+</code></pre>
 </li>
 </ul>
 <h3>Module 17.59: Another Proxy Example</h3><p>*
@@ -1388,59 +1466,47 @@ for (const line of achy) {
       }
     }</p>
 <pre><code>const phoneNumbers = new Proxy({}, phoneHandler);
-```</code></pre><h3>Module 17.60: Using Proxies to combat silly errors</h3><ul>
+```
+</code></pre>
+<h3>Module 17.60: Using Proxies to combat silly errors</h3><ul>
 <li>example to fix issues with incorrect variable names (e.g. normalize them all the lowercase)</li>
 </ul>
 <h2>Module 18: Sets and WeakSets</h2><h3>Module 18.61: Sets</h3><ul>
 <li><p>Set is a unique array (can only add the same item once) with a nice API for managing the items inside</p>
 </li>
 <li><p>Different from array because you can&#39;t access items individually and not index-based. It&#39;s a list of items you can add to/remove from.</p>
-<pre><code class="language-javascript">  const people = new Set();
-  people.add(&#39;Wes&#39;);
-  people.add(&#39;Snickers&#39;);
-  people.add(&#39;Kait&#39;);
-  console.log(people.size); //returns 3
-  console.log(people); //returns Set {&quot;Wes&quot;,&quot;Snickers&quot;,&quot;Kait&quot;}
-  console.log(people.delete(&#39;Wes&#39;)); //deletes &#39;Wes&#39;
-  console.log(people.size); //returns 2
-  console.log(people.clear()); //gives us empty set
-  console.log(people.values()); //SetIterator {&quot;Wes, &quot;Snickers&quot;, &quot;Kait&quot;} (a Generator)
-  const it = people.values()
-  it.next() //returns Object {values: &quot;Snickers&quot;, done:false}
-  it.next() //returns Object {values: &quot;Kait&quot;, done:false}
-  it.next() //returns Object {values: undefined, done:true}
-  //can put it in a for of loop
-  for (const person of people) {
-    console.log(person);
-  }
-  people.keys(); // = people.values()
-  people.entries(); //returns {[&quot;Snickers&quot;,&quot;Snickers&quot;],[&quot;Kait&quot;,&quot;Kait&quot;],}
+<pre><code class="language-javascript">const people = new Set();
+people.add(&#39;Wes&#39;);
+people.add(&#39;Snickers&#39;);
+people.add(&#39;Kait&#39;);
+console.log(people.size); //returns 3
+console.log(people); //returns Set {&quot;Wes&quot;,&quot;Snickers&quot;,&quot;Kait&quot;}
+console.log(people.delete(&#39;Wes&#39;)); //deletes &#39;Wes&#39;
+console.log(people.size); //returns 2
+console.log(people.clear()); //gives us empty set
+console.log(people.values()); //SetIterator {&quot;Wes, &quot;Snickers&quot;, &quot;Kait&quot;} (a Generator)
+const it = people.values()
+it.next() //returns Object {values: &quot;Snickers&quot;, done:false}
+it.next() //returns Object {values: &quot;Kait&quot;, done:false}
+it.next() //returns Object {values: undefined, done:true}
+//can put it in a for of loop
+for (const person of people) {
+  console.log(person);
+}
+people.keys(); // = people.values()
+people.entries(); //returns {[&quot;Snickers&quot;,&quot;Snickers&quot;],[&quot;Kait&quot;,&quot;Kait&quot;],}
 
-  const students = new Set([&#39;Wes&#39;, &#39;Kara&#39;, &#39;Tony&#39;]);
-  students.has(&#39;Tony&#39;); //returns true
-  students.has(&#39;Wess&#39;); //returns false
+const students = new Set([&#39;Wes&#39;, &#39;Kara&#39;, &#39;Tony&#39;]);
+students.has(&#39;Tony&#39;); //returns true
+students.has(&#39;Wess&#39;); //returns false
 
-  const dogs = [&#39;Snickers&#39;, &#39;Sunny&#39;];
-  const dogSet = new Set(dogs);</code></pre>
+const dogs = [&#39;Snickers&#39;, &#39;Sunny&#39;];
+const dogSet = new Set(dogs);
+</code></pre>
 </li>
 </ul>
 <h3>Module 18.62: Understanding Sets with Brunch</h3><p>*
-    <code>javascript
-    const brunch = new Set();
-    // as people start coming in
-    brunch.add(&#39;wes&#39;);
-    brunch.add(&#39;Sarah&#39;);
-    brunch.add(&#39;Simone&#39;);
-    // ready to open!
-    const line = brunch.values(); //SetIterator {&quot;Wes, &quot;Sarah&quot;, &quot;Simone&quot;} (a Generator)
-    console.log(line.next().value); //Wes
-    console.log(line.next().value); //Sarah
-    //.next will remove it from the iterator
-    brunch.add(&#39;Heather&#39;);
-    brunch.add(&#39;Snickers&#39;);
-    console.log(line.next().value); //Simone
-    console.log(line.next().value); //Heather
-    console.log(line.next().value); //Snicker</code></p>
+    <code>javascript     const brunch = new Set();     // as people start coming in     brunch.add(&#39;wes&#39;);     brunch.add(&#39;Sarah&#39;);     brunch.add(&#39;Simone&#39;);     // ready to open!     const line = brunch.values(); //SetIterator {&quot;Wes, &quot;Sarah&quot;, &quot;Simone&quot;} (a Generator)     console.log(line.next().value); //Wes     console.log(line.next().value); //Sarah     //.next will remove it from the iterator     brunch.add(&#39;Heather&#39;);     brunch.add(&#39;Snickers&#39;);     console.log(line.next().value); //Simone     console.log(line.next().value); //Heather     console.log(line.next().value); //Snicker     </code></p>
 <h3>Module 18.63: WeakSets</h3><ul>
 <li>Like a set but there are some limitations</li>
 <li>WeakSet can only contain objects</li>
@@ -1452,21 +1518,22 @@ for (const line of achy) {
 <li><p>If Sets are to Arrays, Maps are to Objects</p>
 </li>
 <li><p>Maps are like sets but it has a key and value</p>
-<pre><code class="language-javascript">  const dogs = new Map();
+<pre><code class="language-javascript">const dogs = new Map();
 
-  dogs.set(&#39;Snickers&#39;, 3);
-  dogs.set(&#39;Sunny&#39;, 2);
-  dogs.set(&#39;Hugo&#39;, 10);
-  console.log(dogs.has(&quot;Snickers&quot;)); //returns true
-  console.log(dogs.get(&quot;Snickers&quot;)); //returns 3
-  console.log(dogs.delete(&quot;Hugo&quot;)); //returns true
-  console.log(dogs); //Map {&quot;Snickers&quot; =&gt; 3, &quot;Sunny&quot; =&gt; 2}
+dogs.set(&#39;Snickers&#39;, 3);
+dogs.set(&#39;Sunny&#39;, 2);
+dogs.set(&#39;Hugo&#39;, 10);
+console.log(dogs.has(&quot;Snickers&quot;)); //returns true
+console.log(dogs.get(&quot;Snickers&quot;)); //returns 3
+console.log(dogs.delete(&quot;Hugo&quot;)); //returns true
+console.log(dogs); //Map {&quot;Snickers&quot; =&gt; 3, &quot;Sunny&quot; =&gt; 2}
 
-  dogs.forEach((val, key) =&gt; console.log(val, key)); //to loop over a map, use forEach
-  //OR
-  for (const [key, val] of dogs) { //to loop over a map, use for of
-    console.log(key, val);
-  }</code></pre>
+dogs.forEach((val, key) =&gt; console.log(val, key)); //to loop over a map, use forEach
+//OR
+for (const [key, val] of dogs) { //to loop over a map, use for of
+  console.log(key, val);
+}
+</code></pre>
 </li>
 </ul>
 <h3>Module 19.65: Map Metadata with DOM Node Keys</h3><ul>
@@ -1478,48 +1545,52 @@ for (const line of achy) {
 </ul>
 <h2>Module 20: Async + Await Flow Control</h2><h3>Module 20.67: Async Await - Native Promises Review</h3><ul>
 <li><p>A lot of APIs nowadays use Promises, not callbacks.</p>
-<pre><code class="language-html">  &lt;video controls class=&quot;handsome&quot;&gt;&lt;/video&gt;</code></pre>
-<pre><code class="language-javascript">  fetch(&#39;API URL&#39;).then(response =&gt; {
-    return response.json(); //this returns a promise, hence the next line
-  }).then(response =&gt; {
-    console.log(response);
-  }).catch(err =&gt; {
-    console.error(err);
-  })</code></pre>
-<pre><code class="language-javascript">  //Asks for access to the webcam, displays it in the video tag
-  const video = document.querySelector(&#39;.handsome&#39;);
+<pre><code class="language-html">&lt;video controls class=&quot;handsome&quot;&gt;&lt;/video&gt;
+</code></pre>
+<pre><code class="language-javascript">fetch(&#39;API URL&#39;).then(response =&gt; {
+  return response.json(); //this returns a promise, hence the next line
+}).then(response =&gt; {
+  console.log(response);
+}).catch(err =&gt; {
+  console.error(err);
+})
+</code></pre>
+<pre><code class="language-javascript">//Asks for access to the webcam, displays it in the video tag
+const video = document.querySelector(&#39;.handsome&#39;);
 
-  navigator.mediaDevices.getUserMedia({ video: true }).then(mediaStream =&gt; {
-    video.srcObject = mediaStream;
-    video.load();
-    video.play();
-  }).catch(err =&gt; {
-    console.error(err);
-  })</code></pre>
+navigator.mediaDevices.getUserMedia({ video: true }).then(mediaStream =&gt; {
+  video.srcObject = mediaStream;
+  video.load();
+  video.play();
+}).catch(err =&gt; {
+  console.error(err);
+})
+</code></pre>
 </li>
 </ul>
 <h3>Module 20.68: Async Await - Custom Promises Review</h3><ul>
-<li>Any function that returns a Promise has a Promise-based API<pre><code class="language-javascript">  function breathe(amount) { //amount we should breath
-    return new Promise((resolve, reject) =&gt; {
-      if (amount &lt; 500) {
-        reject(&#39;That is too small of a value&#39;);
-      }
-      setTimeout(() =&gt; resolve(`Done for ${amount} ms`), amount);
-    });
-  }
-  breathe(1000).then(res =&gt; {
-    console.log(res);
-    return breathe(500);
-  }).then(res =&gt; {
-    console.log(res);
-    return breathe(300);
-  }).then(res =&gt; {
-    console.log(res);
-    return breathe(600);
-  }).catch(err =&gt; {
-    console.error(err);
-    console.error(&#39;YOU SCREWED UP&#39;);
-  })</code></pre>
+<li>Any function that returns a Promise has a Promise-based API<pre><code class="language-javascript">function breathe(amount) { //amount we should breath
+  return new Promise((resolve, reject) =&gt; {
+    if (amount &lt; 500) {
+      reject(&#39;That is too small of a value&#39;);
+    }
+    setTimeout(() =&gt; resolve(`Done for ${amount} ms`), amount);
+  });
+}
+breathe(1000).then(res =&gt; {
+  console.log(res);
+  return breathe(500);
+}).then(res =&gt; {
+  console.log(res);
+  return breathe(300);
+}).then(res =&gt; {
+  console.log(res);
+  return breathe(600);
+}).catch(err =&gt; {
+  console.error(err);
+  console.error(&#39;YOU SCREWED UP&#39;);
+})
+</code></pre>
 </li>
 </ul>
 <h3>Module 20.69: All About Async + Await</h3><ul>
@@ -1532,154 +1603,160 @@ for (const line of achy) {
 <li><p>Make an Async and then Await values</p>
 </li>
 <li><p>Async + Await is built on top of Promises, it doesn&#39;t replace it</p>
-<pre><code class="language-javascript">  function breathe(amount) {
-    return new Promise((resolve, reject) =&gt; {
-      if (amount &lt; 500) {
-        reject(&#39;That is too small of a value&#39;);
-      }
-      setTimeout(() =&gt; resolve(`Done for ${amount} ms`), amount);
-    });
-  }
+<pre><code class="language-javascript">function breathe(amount) {
+  return new Promise((resolve, reject) =&gt; {
+    if (amount &lt; 500) {
+      reject(&#39;That is too small of a value&#39;);
+    }
+    setTimeout(() =&gt; resolve(`Done for ${amount} ms`), amount);
+  });
+}
 
-  //await needs to be in an async function
-  async function go(name, last) {
-    console.log(`Starting for ${name} ${last}!`);
-  //const res = breathe(1000); //breath would return promise
-    const res = await breathe(1000); //with &quot;await&quot;, breath will return promise but await will say &quot;everyone, hold on until this function resolves or rejects!&quot;
-    console.log(res);
-    const res2 = await breathe(300);
-    console.log(res2);
-    const res3 = await breathe(750);
-    console.log(res3);
-    const res4 = await breathe(900);
-    console.log(res4);
-    console.log(&#39;end&#39;);
-  }
+//await needs to be in an async function
+async function go(name, last) {
+  console.log(`Starting for ${name} ${last}!`);
+//const res = breathe(1000); //breath would return promise
+  const res = await breathe(1000); //with &quot;await&quot;, breath will return promise but await will say &quot;everyone, hold on until this function resolves or rejects!&quot;
+  console.log(res);
+  const res2 = await breathe(300);
+  console.log(res2);
+  const res3 = await breathe(750);
+  console.log(res3);
+  const res4 = await breathe(900);
+  console.log(res4);
+  console.log(&#39;end&#39;);
+}
  //OR
-  //another way of writing it
-  /*const go = async () =&gt; {
-  }*/</code></pre>
+//another way of writing it
+/*const go = async () =&gt; {
+}*/
+</code></pre>
 </li>
 </ul>
 <h3>Module 20.70: Async + Await Error Handling</h3><ul>
 <li><p>There&#39;s no &quot;then&quot;</p>
-<pre><code class="language-javascript">  function breathe(amount) {
-    return new Promise((resolve, reject) =&gt; {
-      if (amount &lt; 500) {
-        reject(&#39;That is too small of a value&#39;);
-      }
-      setTimeout(() =&gt; resolve(`Done for ${amount} ms`), amount);
-    });
-  }</code></pre>
-<pre><code class="language-javascript">  async function go(name, last) {
-    try {
-      console.log(`Starting for ${name} ${last}!`);
-      const res = await breathe(1000);
-      console.log(res);
-      const res2 = await breathe(300);
-      console.log(res2);
-      const res3 = await breathe(750);
-      console.log(res3);
-      const res4 = await breathe(900);
-      console.log(res4);
-      console.log(&#39;end&#39;);
-    } catch (err) {
+<pre><code class="language-javascript">function breathe(amount) {
+  return new Promise((resolve, reject) =&gt; {
+    if (amount &lt; 500) {
+      reject(&#39;That is too small of a value&#39;);
+    }
+    setTimeout(() =&gt; resolve(`Done for ${amount} ms`), amount);
+  });
+}
+</code></pre>
+<pre><code class="language-javascript">async function go(name, last) {
+  try {
+    console.log(`Starting for ${name} ${last}!`);
+    const res = await breathe(1000);
+    console.log(res);
+    const res2 = await breathe(300);
+    console.log(res2);
+    const res3 = await breathe(750);
+    console.log(res3);
+    const res4 = await breathe(900);
+    console.log(res4);
+    console.log(&#39;end&#39;);
+  } catch (err) {
+    console.error(err);
+  }
+}
+//OR
+//HIGH ORDER FUNCTION WAY
+async function go() {
+  console.log(`Starting for ${name} ${last}!`);
+  const res = await breathe(1000);
+  console.log(res);
+  const res2 = await breathe(300);
+  console.log(res2);
+  const res3 = await breathe(750);
+  console.log(res3);
+  const res4 = await breathe(900);
+  console.log(res4);
+  console.log(&#39;end&#39;);
+}
+
+//high order function
+function catchErrors(fn) { //fn = function
+  return function () {
+    return fn(...args).catch((err) =&gt; {
+      console.error(&#39;Ohhhh nooo!!!!!&#39;);
       console.error(err);
-    }
+    });
   }
+}
+const wrappedFunction = catchErrors(go);
+wrappedFunction();
 //OR
-  //HIGH ORDER FUNCTION WAY
-  async function go() {
-    console.log(`Starting for ${name} ${last}!`);
-    const res = await breathe(1000);
-    console.log(res);
-    const res2 = await breathe(300);
-    console.log(res2);
-    const res3 = await breathe(750);
-    console.log(res3);
-    const res4 = await breathe(900);
-    console.log(res4);
-    console.log(&#39;end&#39;);
-  }
+//HIGH ORDER FUNCTION WAY, with parameters
+async function go(name, last) {
+  console.log(`Starting for ${name} ${last}!`);
+  const res = await breathe(1000);
+  console.log(res);
+  const res2 = await breathe(300);
+  console.log(res2);
+  const res3 = await breathe(750);
+  console.log(res3);
+  const res4 = await breathe(900);
+  console.log(res4);
+  console.log(&#39;end&#39;);
+}
 
-  //high order function
-  function catchErrors(fn) { //fn = function
-    return function () {
-      return fn(...args).catch((err) =&gt; {
-        console.error(&#39;Ohhhh nooo!!!!!&#39;);
-        console.error(err);
-      });
-    }
+//high order function
+function catchErrors(fn) { //fn = function
+  return function (...args) {
+    return fn(...args).catch((err) =&gt; {
+      console.error(&#39;Ohhhh nooo!!!!!&#39;);
+      console.error(err);
+    });
   }
-  const wrappedFunction = catchErrors(go);
-  wrappedFunction();
-//OR
-  //HIGH ORDER FUNCTION WAY, with parameters
-  async function go(name, last) {
-    console.log(`Starting for ${name} ${last}!`);
-    const res = await breathe(1000);
-    console.log(res);
-    const res2 = await breathe(300);
-    console.log(res2);
-    const res3 = await breathe(750);
-    console.log(res3);
-    const res4 = await breathe(900);
-    console.log(res4);
-    console.log(&#39;end&#39;);
-  }
-
-  //high order function
-  function catchErrors(fn) { //fn = function
-    return function (...args) {
-      return fn(...args).catch((err) =&gt; {
-        console.error(&#39;Ohhhh nooo!!!!!&#39;);
-        console.error(err);
-      });
-    }
-  }
-  const wrappedFunction = catchErrors(go);
-  wrappedFunction(&quot;FirstName&quot;,&quot;LastName&quot;);</code></pre>
+}
+const wrappedFunction = catchErrors(go);
+wrappedFunction(&quot;FirstName&quot;,&quot;LastName&quot;);
+</code></pre>
 </li>
 </ul>
 <h3>Module 20.71: Waiting on Multiple Promises</h3><ul>
 <li><p>fire multiple things at the same time, but wait for them to all come back</p>
-<pre><code class="language-javascript">  async function go() {
-    const p1 = fetch(&#39;https://api.github.com/users/wesbos&#39;);
-    const p2 = fetch(&#39;https://api.github.com/users/stolinski&#39;);
-    // Wait for both of them to come back
-    const res = await Promise.all([p1, p2]);
-    const dataPromises = res.map(r =&gt; r.json());
-    const [wes, scott] = await Promise.all(dataPromises);
-    console.log(wes, scott);
-  }
-  go();</code></pre>
+<pre><code class="language-javascript">async function go() {
+  const p1 = fetch(&#39;https://api.github.com/users/wesbos&#39;);
+  const p2 = fetch(&#39;https://api.github.com/users/stolinski&#39;);
+  // Wait for both of them to come back
+  const res = await Promise.all([p1, p2]);
+  const dataPromises = res.map(r =&gt; r.json());
+  const [wes, scott] = await Promise.all(dataPromises);
+  console.log(wes, scott);
+}
+go();
+</code></pre>
 </li>
 <li><p>in this case, get various jsons from github array, just by passing userid</p>
-<pre><code class="language-javascript">  async function getData(names) {
-    const promises = names.map(name =&gt; fetch(`https://api.github.com/users/${name}`).then(r =&gt; r.json()));
-    const people = await Promise.all(promises);
-    console.log(people);
-  }
+<pre><code class="language-javascript">async function getData(names) {
+  const promises = names.map(name =&gt; fetch(`https://api.github.com/users/${name}`).then(r =&gt; r.json()));
+  const people = await Promise.all(promises);
+  console.log(people);
+}
 
-  getData([&#39;wesbos&#39;, &#39;stolinski&#39;, &#39;darcyclarke&#39;]);</code></pre>
+getData([&#39;wesbos&#39;, &#39;stolinski&#39;, &#39;darcyclarke&#39;]);
+</code></pre>
 </li>
 </ul>
 <h3>Module 20.72: Promisifying Callback Based Functions</h3><ul>
 <li><p>Promises are great but still lots of existing JS/APIs/libraries that are still callback based</p>
 </li>
 <li><p>Promisifying without a library example</p>
-<pre><code class="language-javascript">  function getCurrentPosition(...args) {
-    return new Promise((resolve, reject) =&gt; {
-      navigator.geolocation.getCurrentPosition(...args, resolve, reject);
-    });
-  }
+<pre><code class="language-javascript">function getCurrentPosition(...args) {
+  return new Promise((resolve, reject) =&gt; {
+    navigator.geolocation.getCurrentPosition(...args, resolve, reject);
+  });
+}
 
-  async function go() {
-    console.log(&#39;starting&#39;);
-    const pos = await getCurrentPosition();
-    console.log(pos);
-    console.log(&#39;finished&#39;);
-  }</code></pre>
+async function go() {
+  console.log(&#39;starting&#39;);
+  const pos = await getCurrentPosition();
+  console.log(pos);
+  console.log(&#39;finished&#39;);
+}
+</code></pre>
 </li>
 </ul>
 <h2>Module 21: ES7, ES8, + Beyond</h2><h3>Module 21.73: Class Properties</h3><ul>
@@ -1696,7 +1773,9 @@ for (const line of achy) {
 const longestString = strings.sort(str =&gt; str.length).map(str =&gt; str.length)[0];
 
 strings.forEach(str =&gt; console.log(str.padStart(longestString)));
-```</code></pre><h3>Module 21.75: ES7 Exponential Operator</h3><p>*
+```
+</code></pre>
+<h3>Module 21.75: ES7 Exponential Operator</h3><p>*
     ```javascript
     //OLD WAY
     Math.pow(3,3)
@@ -1706,9 +1785,12 @@ strings.forEach(str =&gt; console.log(str.padStart(longestString)));
 Math.pow(Math.pow(2,2),2)
 //ES7 WAY #BESTPRACTICE
 2 ** 2 ** 2; //returns 16;
-```</code></pre><h3>Module 21.76: Function Arguments Trailing Comma</h3><ul>
-<li>Comma dangle is okay! Use extra comma for next person adding something<pre><code class="language-javascript">  function family(mom,dad,) {
-  }</code></pre>
+```
+</code></pre>
+<h3>Module 21.76: Function Arguments Trailing Comma</h3><ul>
+<li>Comma dangle is okay! Use extra comma for next person adding something<pre><code class="language-javascript">function family(mom,dad,) {
+}
+</code></pre>
 </li>
 </ul>
 <h3>Module 21.77: Object.entries() and Object.values()</h3><p>*
@@ -1736,4 +1818,5 @@ for (const [key, val] of Object.entries(inventory)) {
   console.log(key);
   if (key === &#39;jeans&#39;) break;
 }
-```</code></pre>
+```
+</code></pre>
