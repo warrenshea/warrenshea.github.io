@@ -1,0 +1,101 @@
+/* glitch CSS */
+/* all non-pixel values must be in "em", parent font-size is 16px */
+#glitch-container * {margin:0;padding:0;float:none;height:inherit;height:auto;width:auto;font-size:inherit;line-height:inherit;box-sizing:border-box;}
+#glitch-container.glitch__short {width:120px;}
+#glitch-container.glitch__short #glitch__header {text-align:left;padding-left:10px;}
+#glitch-container :after, #glitch-container :before { box-sizing:border-box; }
+#glitch-container p,
+#glitch-container div,
+#glitch-container ul,
+#glitch-container ol,
+#glitch-container li,
+#glitch-container table,
+#glitch-container label {background:transparent;color:white;font-family:Arial,Sans Serif}
+
+#glitch-container a,
+#glitch-container a:visited {border:none;background:none}
+#glitch-container a:hover {background:none}
+#glitch-container strong {font-weight:bold}
+
+#glitch-container {font-size:14px !important;-moz-transition-timing-function:ease;-webkit-transition-timing-function:ease;position:fixed;top:36px;right:3em;width:450px;overflow:hidden;background-color:#2B2B2B;border:1px solid #2B2B2B;box-shadow:0 0 15px rgba(0, 0, 0, 0.7), 0 1px 0 #555555 inset;color:#2B2B2B;text-shadow:0 1px 0 #FFFFFF;border-radius:0.8em 0.8em 0.8em 0.8em;font-family:Arial,Sans Serif;z-index:100000}
+
+#glitch-container .glitch__header {color:#fff;text-shadow:0 -1px 0 #000000;text-transform:uppercase;position:relative;width:100%;font-size:1em;line-height:2em;text-align:center;border-bottom:1px solid transparent;cursor:move;font-weight:bold;}
+
+#glitch-container .glitch__minimize,
+#glitch-container .glitch__maximize,
+#glitch-container .glitch__close {position:absolute;cursor:pointer;height:1.5em;right:0;top:0;width:2.2em}
+
+#glitch-container .glitch__minimize:hover {opacity:1;filter:none}
+#glitch-container .glitch__minimize:after {position:absolute;content:"\2212";display:block;height:10px;left:50%;margin:-9px 0 0 -30px;top:50%;width:10px;font-size:1.25em;}
+#glitch-container .glitch__maximize:hover {opacity:1;filter:none}
+#glitch-container .glitch__maximize:after {position:absolute;content:"\002B";display:block;height:10px;left:50%;margin:-9px 0 0 -30px;top:50%;width:10px;font-size:1.25em;}
+#glitch-container .glitch__close:hover {opacity:1;filter:none}
+#glitch-container .glitch__close:after {position:absolute;content:"\00D7";display:block;height:10px;left:50%;margin:-9px 0 0 -5px;top:50%;width:10px;font-size:1.25em;}
+
+#glitch-container .glitch__body {background:url(data:image/gif;base64,R0lGODdhFgAXAPIHAFdWXVFQV1ZVXFVUW1JRWFNSWVRTWlhXXiwAAAAAFgAXAEAD7FhiQQTmsGIAKWMQ84AAQ2AZQ/EQgfGpobINAHZsVyCYJLQIxDEshZRApBAYUwoDhpBRFiij0g8QKFhaEqZPUyrMBANfcsMAUMEQS8+2uDg87I8ILEEODByqzaO6KJJLYT4CEjEVMAc+NhpoJ0VGBGA4GVVZYU08NBcSYAsBd2Cbk1gcl1xPX00AB15tOBgeGUwxKA5KEFhUIBwOQRGsKFYQFJAlihIkrFwRFU83bSUVw4gxIkoisW8XHxRMQ17JFLA7vbsPpQdgdyk5JFw3Hqywegq4TxAbIBpv0TBGFSQCpENSAcUqEzDuGUsAADs=) repeat scroll 0 0 #54535A;color:#EEE;text-shadow:none;border-radius:0 0 0.75em 0.75em;padding:5px;position:relative;z-index:1;font-size:12px;}
+#glitch-container #glitch__description {margin-top:6px;}
+#glitch-container .glitch__body-inner-container {-moz-box-sizing:border-box;border:1px solid #393939;border-radius:0.4em;box-shadow:0 1px 2px rgba(0, 0, 0, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.1);color:#FFF;font-size:1em;margin:0 0 .5em;padding:0.7em 0.7em 0.8em;text-align:left;text-shadow:0 -1px rgba(0, 0, 0, 0.3)}
+#glitch-container .glitch__body-inner-container:after {clear:both;display:block}
+#glitch-container .glitch__body-inner-container .glitch__h2 {font-family:Arial,Sans Serif;font-size:1.25em;color:#fff;font-weight:bold;margin:0 0 0.5em}
+#glitch-container .glitch__body-inner-container .glitch__h3 {font-family:Arial,Sans Serif;font-size:1.10em;color:#fff;font-weight:bold;margin:0 0 0.5em}
+#glitch-container .glitch__module p {font-size:1.5em;color:#666;margin:0.5em 0 1.5em}
+#glitch-container .glitch__module button {font-size:14px;font-family:monospace,Sans Serif !important;cursor:pointer;color:lightblue;border:2px solid black;background:#2B2B2B;height:initial;border-radius:8px;padding:2px 12px;font-weight:bold;min-width:30px;text-transform:uppercase;vertical-align:initial;}
+#glitch-container .glitch__module button:hover {color:#2B2B2B;border:2px solid white;background:lightblue;box-shadow:2px 2px 2px 0 black;}
+#glitch-container .glitch__module button.copy-reference { padding-left:0;padding-right:0;border-radius:0;margin-right:-4px;text-transform: none;}
+#glitch-container .glitch__module button.active {background-color:darkgreen}
+#glitch-container .glitch__module button.w\:100\% {width:100%;}
+#glitch-container .glitch__module button.w\:50\% {width:50%;}
+#glitch-container .glitch__module label {color:#FFF;display:inline;}
+#glitch-container .glitch__module label:hover {cursor:pointer;}
+#glitch-container .glitch__module > select {float:right;margin-top:-0.1em}
+#glitch-container .glitch__module input,
+#glitch-container .glitch__module textarea { background-color:#e6e6e6;color:#000;border:initial;font-weight:bold;font-size:14px;padding:0;display:inline;font-family:courier !important;-moz-appearance: textfield; }
+#glitch-container .glitch__module input:focus,
+#glitch-container .glitch__module textarea:focus { border: 0; box-shadow: none; }
+#glitch-container .glitch__module input[type="checkbox"],
+#glitch-container .glitch__module input[type="radio"] {width:18px;height:18px}
+#glitch-container .glitch__module table,
+#glitch-container .glitch__module th,
+#glitch-container .glitch__module td {border:0px !important;text-align:left;}
+#glitch-container .glitch__module .glitch__description__details {font-size:1em;padding-bottom:8px;white-space:nowrap;}
+
+#glitch-container input[type="radio"][id="glitch_tab_id_2"]:checked ~ #glitch__module_tests {max-height:200px;overflow-y:scroll;padding:0.25em;}
+
+#glitch-container .glitch__log__details {font-size:1em;padding-bottom:8px;white-space:nowrap;max-height:300px;}
+#glitch-container .glitch__log__details div.log_heading{ font-weight:bold;padding-top:8px;}
+#glitch-container .glitch__log__details > div:first-child > div.log_heading{padding-top:0;}
+#glitch-container .glitch__log__details div.log_heading span.underline{ text-decoration: underline;}
+#glitch-container .glitch__hide { display: none;}
+
+#glitch-container .overflow-x\:scroll {overflow-x:scroll !important;}
+#glitch-container .overflow-y\:scroll {overflow-y:scroll !important;}
+#glitch-container .nowrap {white-space:nowrap !important;}
+
+/* glitch Highlight Element */
+.glitch-highlight { box-shadow: 0 0 15px red, 0 0 15px red, red 0 0 10px inset; min-height: 20px; min-width: 20px; }
+
+/* glitch Highlight Element */
+.glitch-background { font-family:Arial,Sans Serif; background:url("texture-disabled.png") repeat scroll 0 0 #dfdfdf;  width:100%; height:1.5em; }
+
+#glitch-container .glitch__body-inner-container-tabs .tabs { overflow: hidden; display:block; border:none; }
+#glitch-container .glitch__body-inner-container-tabs .tab { width: 100%; display:block; color: white; overflow: hidden; border-bottom:1px solid #888; }
+#glitch-container .glitch__body-inner-container-tabs .tab input.radio + .tab-label { display: flex;font-size:14px;font-family:monospace,Sans Serif;cursor:pointer;color:lightblue;border:2px solid #2B2B2B;background:#2B2B2B;height:initial;padding:2px;font-weight:bold;min-width:30px;text-transform:uppercase;position:initial;}
+#glitch-container .glitch__body-inner-container-tabs .tab input.radio + .tab-label:hover { color:black;border:2px solid white;background:lightblue; }
+#glitch-container .glitch__body-inner-container-tabs .tab input.radio + .tab-label:before { content:""; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='650' height='650'%3E%3Cpath fill='%23ADD8E6' d='M622.667 183.83l-27.048-27.048c-6.421-6.42-16.803-6.42-23.224 0L325 403.631 77.604 156.781c-6.42-6.42-16.803-6.42-23.223 0L27.333 183.83c-6.42 6.42-6.42 16.803 0 23.223l286.055 286.056c6.421 6.42 16.803 6.42 23.223 0l286.056-286.056c6.421-6.421 6.421-16.803 0-23.223z'/%3E%3C/svg%3E") no-repeat scroll left center; background-size: contain; width: 10px; height: 10px; margin: 4px; }
+#glitch-container .glitch__body-inner-container-tabs .tab input.radio + .tab-label:hover:before { background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='650' height='650'%3E%3Cpath fill='%232b2b2b' d='M622.667 183.83l-27.048-27.048c-6.421-6.42-16.803-6.42-23.224 0L325 403.631 77.604 156.781c-6.42-6.42-16.803-6.42-23.223 0L27.333 183.83c-6.42 6.42-6.42 16.803 0 23.223l286.055 286.056c6.421 6.42 16.803 6.42 23.223 0l286.056-286.056c6.421-6.421 6.421-16.803 0-23.223z'/%3E%3C/svg%3E") no-repeat scroll left center; background-size: contain; }
+#glitch-container .glitch__body-inner-container-tabs .tab .tab-content { max-height: 0; padding: 0 1em;  }
+#glitch-container .glitch__body-inner-container-tabs .tab .tab-close { display: flex; justify-content: flex-end; padding: 1em; background: #444; cursor: pointer; }
+#glitch-container .glitch__body-inner-container-tabs .tab .tab-close:hover { background: #000; cursor:pointer; }
+#glitch-container .glitch__body-inner-container-tabs .tab input.radio { position: absolute; opacity: 0; z-index: -1; }
+#glitch-container .glitch__body-inner-container-tabs .tab input.radio:checked + .tab-label { color:#2B2B2B;border:2px solid white;background:lightblue; }
+#glitch-container .glitch__body-inner-container-tabs .tab input.radio:checked + .tab-label:before { content:""; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='650' height='650'%3E%3Cpath fill='%232B2B2B' d='M183.885 27.278l-27.048 27.048c-6.42 6.421-6.42 16.803 0 23.224l246.85 247.396-246.85 247.396c-6.42 6.42-6.42 16.803 0 23.223l27.048 27.049c6.42 6.42 16.803 6.42 23.223 0l286.056-286.056c6.42-6.421 6.42-16.803 0-23.223L207.108 27.278c-6.42-6.421-16.802-6.421-23.223 0z'/%3E%3C/svg%3E") no-repeat scroll center center; background-size: contain; }
+#glitch-container .glitch__body-inner-container-tabs .tab input.radio:checked ~ .tab-content { max-height: 100vh; padding: 1em; border-left: 1px solid #2b2b2b; border-right:1px solid #2b2b2b; }
+
+/*override bessa core.css overrides*/
+#glitch-container input[type="radio"],
+#glitch-container input[type="checkbox"] {position:initial;left:initial;}
+#glitch-container input[type="radio"] + label:before,
+#glitch-container input[type="checkbox"] + label:before {border:none;position:initial;height:initial;width:initial;}
+#glitch-container input[type="radio"]:checked + label:after,
+#glitch-container input[type="checkbox"]:checked + label:after {border:none;position:initial;height:initial;width:initial;}
+#glitch-container table tbody td:nth-child(odd) { background-color:initial; }
