@@ -87,7 +87,7 @@
       addFormSubmitListener: function () {
         document.getElementById("parent").addEventListener("submit", event => {
           event.preventDefault();
-          _CHILD_WINDOW.postMessage(document.getElementById("message").value, window.location.hostname);
+          _CHILD_WINDOW.postMessage(document.getElementById("message").value, window.location.origin);
         });
       },
       addMessageListener: function() {
@@ -137,7 +137,7 @@
       addFormSubmitListener: function () {
         document.getElementById("child").addEventListener("submit", event => {
           event.preventDefault();
-          window.opener.postMessage(document.getElementById("message").value, window.location.hostname);
+          window.opener.postMessage(document.getElementById("message").value, window.location.origin);
         });
       },
       addMessageListener: function() {
@@ -184,7 +184,7 @@
         document.getElementById("parent").addEventListener("submit", event => {
           event.preventDefault();
           event.stopPropagation();
-          _CHILD_WINDOW.postMessage(document.getElementById("message").value, window.location.hostname);
+          _CHILD_WINDOW.postMessage(document.getElementById("message").value, window.location.origin);
         });
       },
       addMessageListener: function() {
