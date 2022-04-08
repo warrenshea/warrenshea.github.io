@@ -1,6 +1,6 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 /* Define global constants and map */
 var keyboard = {};
@@ -760,15 +760,15 @@ storm_eagle.module('console_log', function () {
   };
 });
 /**
- * Allows the height of various divs to be the same by taking the biggest height and applying it to all items.
+ * Allows the height of various block level HTML elements to be the same by taking the largest height and applying it to all items.
  * This will occur for any item regardless of viewport. To affect medium size and up, see Options.
  *
  * How to use this:
- * Add 'data-equalize-height="(key)"' to any item where key is a value you input yourself, to link the items.
- * All the items with the same 'key' will have the same height
+ * Add the attribute 'data-equalize-height="(key)"' to any block level HTML element where key is a value you use to link the items you want to height equalize. All the items with the same 'key' will have the same height.
  *
  * Options:
- * If you only want this to occur on medium size up, add 'data-equalize-md-up' to the item as well
+ * If you only want height equalizing to occur on medium size up, add 'data-equalize-md-up' to the HTML element as well
+ * If you only want height equalizing to occur on small size only, add 'data-equalize-sm-only' to the HTML element as well
  */
 
 storm_eagle.module('equalize_heights', function () {
@@ -779,7 +779,7 @@ storm_eagle.module('equalize_heights', function () {
    * Sorts items in array from smallest to largest
    */
 
-  var sortNumber = function sortNumber(a, b) {
+  var sort_number = function sort_number(a, b) {
     return a - b;
   };
   /*
@@ -787,7 +787,7 @@ storm_eagle.module('equalize_heights', function () {
    */
 
 
-  var max_Height = function max_Height() {
+  var max_height = function max_height() {
     _data_equal_height_array.forEach(function (index, value) {
       var _highest = 0;
       var _heights = [];
@@ -797,7 +797,7 @@ storm_eagle.module('equalize_heights', function () {
 
         _heights.push(el.getBoundingClientRect().height);
       });
-      _heights = _heights.sort(sortNumber).reverse();
+      _heights = _heights.sort(sort_number).reverse();
       _highest = _heights[0];
       document.querySelectorAll("[data-equalize-height=".concat(index, "]")).forEach(function (el) {
         el.style.height = _highest + 'px';
@@ -849,7 +849,7 @@ storm_eagle.module('equalize_heights', function () {
     force_resize: function force_resize() {
       var self = this;
       self.get_data_equal_height_items();
-      max_Height();
+      max_height();
 
       if (storm_eagle.client.viewport.is_sm_only()) {
         document.querySelectorAll('[data-equalize-height][data-equalize-md-up]').forEach(function (el) {
