@@ -3,10 +3,11 @@
 storm_eagle.module("accordion", function () {
   "use strict";
 
+  var self;
   var accordion_state = [];
   return {
     initialize: function initialize() {
-      var self = this;
+      self = storm_eagle["accordion"];
       document.querySelectorAll("[data-module='accordion']").forEach(function (el) {
         var accordion_id = el.getAttribute("id");
         accordion_state[accordion_id] = {
@@ -16,9 +17,7 @@ storm_eagle.module("accordion", function () {
       });
     },
     open: function open(accordion_id) {
-      var self = this;
       /* updates accordion visuals */
-
       document.getElementById(accordion_id).classList.add('active');
       document.getElementById(accordion_id).classList.toggle('display:none');
       /* removes focus from elements except in accordion */
@@ -28,9 +27,7 @@ storm_eagle.module("accordion", function () {
       });
     },
     close: function close(accordion_id) {
-      var self = this;
       /* updates accordion visuals */
-
       document.getElementById(accordion_id).setAttribute('tabIndex', '-1');
       document.getElementById(accordion_id).setAttribute('aria-expanded', false);
       document.getElementById(accordion_id).classList.remove('active');
@@ -46,12 +43,10 @@ storm_eagle.module("accordion", function () {
       });
     },
     get_accordion_focusable_elements: function get_accordion_focusable_elements(accordion_id) {
-      var self = this;
       var accordion = document.getElementById(accordion_id);
       accordion_state[accordion_id]["focusable_elements"] = accordion.querySelectorAll(focus_trap_selector);
     },
     toggle: function toggle(accordion_trigger, accordion_id) {
-      var self = this;
       accordion_trigger.querySelector(".accordion\\:show-more-button").classList.toggle("display:none");
       accordion_trigger.querySelector(".accordion\\:show-less-button").classList.toggle("display:none");
 

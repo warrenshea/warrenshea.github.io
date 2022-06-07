@@ -1,7 +1,8 @@
 "use strict";
 
 storm_eagle.module('calendar_event_builder', function () {
-  //add 4 hours to event
+  var self; //add 4 hours to event
+
   var invite_details = {
     start_date: "2017-05-04",
     start_time: "13:00:00",
@@ -17,7 +18,7 @@ storm_eagle.module('calendar_event_builder', function () {
   };
   return {
     initialize: function initialize() {
-      var self = this;
+      self = storm_eagle["calendar_event_builder"];
       self.populate_form();
       self.populate_data_calendar_link();
       self.submit_listener();
@@ -50,8 +51,6 @@ storm_eagle.module('calendar_event_builder', function () {
       document.querySelector("#icalendar").innerHTML = icalendar_url;
     },
     submit_listener: function submit_listener() {
-      var self = this;
-
       function populate_json() {
         invite_details.start_date = document.querySelector("input[name=start_date]").value;
         invite_details.start_time = document.querySelector("input[name=start_time]").value;

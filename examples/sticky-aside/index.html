@@ -14,52 +14,13 @@
   </head>
   <body>
 
-<!--     <nav>
-      <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-        <button class="menu-icon" type="button" data-toggle></button>
-        <div class="title-bar-title">warrenshea.github.io</div>
-      </div>
-      <div class="top-bar" id="example-menu">
-        <div class="top-bar-left">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text hide-for-small-only">warrenshea.github.io</li>
-            <li>
-              <a tabindex="0">Code Examples</a>
-              <ul class="menu vertical">
-                <li><a href="#height-equalizer">Height Equalizer</a></li>
-                <li><a href="#form-validation">Form Validation</a></li>
-                <li><a href="#sticky-validation">Sticky Navigation</a></li>
-                <li><a href="#carousel">Carousel</a></li>
-              </ul>
-            </li>
-            <li>
-              <a>Sandbox</a>
-              <ul class="menu vertical">
-                <li><a href="#foundation-sandbox-example">Foundation Sandbox Example</a></li>
-                <li><a href="#javascript-framework-example-i">JavaScript Framework Example I</a></li>
-                <li><a href="#javascript-framework-example-ii">JavaScript Framework Example II</a></li>
-              </ul>
-            </li>
-            <li>
-              <a>Tools</a>
-              <ul class="menu vertical">
-                <li><a href="#add-to-calendar">Add to Calendar</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-    <main class="w:100% bgc:albicant" role="main" id="start-sticky">
-      <div class="row mw:1280px">
-        <div class="sm=:w:12">
-          <h1 class="play:bold fs:40px color:slate pb:16px">Sticky Aside</h1>
-          <p>This uses <a href="http://imakewebthings.com/waypoints/" class="fw:bold" target="_blank">Waypoint</a></p>
-        </div>
-          <br><br><br><br><br><br><br><br><br><br><br><br>
-          <br><br><br><br><br><br><br><br><br><br><br><br>
-          <br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
+    <main class="w:100% bgc:albicant" role="main">
+      <div class="mw:1280px align-self:centered sm+:px:8px xl+:px:0 pt:32px">
+        <h1 class="play:bold fs:40px color:slate pb:16px">Sticky Aside</h1>
+        <p>This uses <a class="anchor:primary" href="http://imakewebthings.com/waypoints/" target="_blank">Waypoint</a></p>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
       </div>
       <div class="row w:100% mw:1280px b-slate:1px">
         <div class="sm=:w:12 md+:w:9 bgc:light-grey">
@@ -69,7 +30,7 @@
         </div>
         <div class="sm=:w:12 md+:w:3 w:100% bgc:lilac position:relative">
 
-          <aside id="sticky-aside-50percent" class="bgc:azure p:16px" style="top:45%;">
+          <aside id="" class="bgc:azure p:16px" style="top:45%;" data-module="waypoint" data-waypoint-element="main" data-waypoint-toggle="position:sticky" data-waypoint-delay="0" data-waypoint-activate="45%">
             This box will get sticky as the user scrolls but stay around the middle of the screen (around 50%) but stay contained inside the box/wrapper
           </aside>
 
@@ -84,7 +45,7 @@
         </div>
         <div class="sm=:w:12 md+:w:3 w:100% bgc:lilac position:relative">
 
-          <aside id="sticky-aside-top" class="bgc:azure p:16px" style="top:0px">
+          <aside id="" class="bgc:azure p:16px" style="top:0px" data-module="waypoint" data-waypoint-element="main" data-waypoint-toggle="position:sticky" data-waypoint-delay="0" data-waypoint-activate="0">
             This box will get sticky as the user scrolls but stay at the top of the screen but stay contained inside the box/wrapper
           </aside>
 
@@ -97,33 +58,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.min.js"/></script>
     
+    <script src="/scripts/module.waypoints.js"/></script>
+    
   </body>
 </html>
-<script>
-  storm_eagle.module('sticky_aside', function () {
-    'use strict';
-    var _CHILD_WINDOW = null;
-    return {
-      initialize: function () {
-        const self = this;
-        self.initializeWaypoint();
-      },
-      initializeWaypoint: function () {
-        const waypointSticky50percent = new Waypoint({
-          element: document.getElementById('start-sticky'),
-          handler: function() {
-            document.getElementById("sticky-aside-50percent").classList.toggle("position:sticky");
-          },
-          offset:40
-        })
-        const waypointStickyTop = new Waypoint({
-          element: document.getElementById('start-sticky'),
-          handler: function() {
-            document.getElementById("sticky-aside-top").classList.toggle("position:sticky");
-          },
-          offset:40
-        })
-      }
-    };
-  })
-</script>

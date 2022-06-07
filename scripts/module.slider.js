@@ -3,10 +3,11 @@
 storm_eagle.module('slider', function () {
   "use strict";
 
+  var self;
   var slider_state = {};
   return {
     initialize: function initialize() {
-      var self = this;
+      self = storm_eagle["slider"];
       document.querySelectorAll("[data-module='slider']").forEach(function (el) {
         var slider_id = el.getAttribute("id");
         slider_state[slider_id] = {
@@ -18,7 +19,6 @@ storm_eagle.module('slider', function () {
       });
     },
     ready: function ready() {
-      var self = this;
       document.querySelectorAll("[data-module='slider']").forEach(function (el) {
         var slider_id = el.getAttribute("id");
         self.force_resize(slider_id);
@@ -33,9 +33,8 @@ storm_eagle.module('slider', function () {
       document.getElementById(slider_id).querySelector("[data-module='slider.labels']").style.left = 0 + slider_thumb_width / 2 - new_label_width / 2 + "px";
     },
     slider_listener: function slider_listener(slider_id) {
-      var self = this;
       var el = document.getElementById(slider_id).querySelector("[data-module='slider.input']");
-      el.addEventListener("input", function (e) {
+      el.addEventListener("input", function (event) {
         self.update_slider_track(slider_id);
       });
     },
@@ -45,8 +44,6 @@ storm_eagle.module('slider', function () {
       document.getElementById(slider_id).querySelector("[data-module='slider.fill']").style.width = percentage + "%";
     },
     resize_listener: function resize_listener(slider_id) {
-      var self = this;
-
       function force_resize() {
         return self.force_resize(slider_id);
       }

@@ -6,6 +6,7 @@
 storm_eagle.module('popover', function () {
   'use strict';
 
+  var self;
   var focus_placeholder;
   var popover_first_tab_stop;
   var popover_last_tab_stop;
@@ -33,7 +34,7 @@ storm_eagle.module('popover', function () {
 
   return {
     initialize: function initialize() {
-      var self = this;
+      self = storm_eagle["popover"];
       document.querySelectorAll("[data-module='popover']").forEach(function (el, index) {
         var popover_id = el.getAttribute("id");
         popover_state[popover_id] = {
@@ -45,9 +46,7 @@ storm_eagle.module('popover', function () {
       self.overlay_close_listener();
     },
     open: function open(popover_trigger, popover_id) {
-      var self = this;
       /* updates popover visuals */
-
       document.querySelector("[data-module='popover.overlay']").classList.add('active');
       popover_trigger.classList.add('active');
       document.getElementById(popover_id).classList.add('active');
@@ -70,9 +69,7 @@ storm_eagle.module('popover', function () {
       document.getElementById(popover_id).addEventListener('keydown', keyboard_popover_focus_trap);
     },
     close: function close() {
-      var self = this;
       /* updates popover visuals */
-
       document.querySelector("[data-module='popover.overlay'].active").classList.remove('active');
       document.querySelector("[data-module='popover'].active").setAttribute('tabIndex', '-1');
       document.querySelector("[data-module='popover'].active").setAttribute('aria-expanded', false);
@@ -97,12 +94,9 @@ storm_eagle.module('popover', function () {
       focus_placeholder.focus();
     },
     get_popover_focusable_elements: function get_popover_focusable_elements(popover_id) {
-      var self = this;
       popover_state[popover_id]["focusable_elements"] = document.getElementById(popover_id).querySelectorAll(focus_trap_selector); //console.log(popover_state[popover_id]["focusable_elements"]);
     },
     overlay_close_listener: function overlay_close_listener() {
-      var self = this;
-
       if (document.querySelector("[data-module='popover.overlay']")) {
         document.querySelector("[data-module='popover.overlay']").addEventListener('click', function () {
           self.close();
@@ -110,8 +104,6 @@ storm_eagle.module('popover', function () {
       }
     },
     resize_listener: function resize_listener() {
-      var self = this;
-
       function force_resize() {
         if (document.querySelector("[data-module='popover'].active")) {
           self.set_popover_location(document.querySelector("[data-module='popover'].active").getAttribute("id"));

@@ -3,9 +3,10 @@
 storm_eagle.module('prism', function () {
   'use strict';
 
+  var self;
   return {
     initialize: function initialize() {
-      var self = this;
+      self = storm_eagle["prism"];
 
       if (document.querySelectorAll("[data-code-reference]").length > 0) {
         self.link_code_with_prism_snippet();

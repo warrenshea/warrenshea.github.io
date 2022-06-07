@@ -22,7 +22,7 @@
     <div class="row">
       <div class="w:6 px:8px">
         <form id="child">
-          <div class="form:theme:maverick-a">
+          <div class="form:theme:gl0b3x">
             <div class="position:relative pt:4px pb:16px">
               <input id="message" name="message" type="text">
               <label for="message">
@@ -42,34 +42,36 @@
 
     <script src="/scripts/core.js"></script>
     
-    <script src="/scripts/module.form-theme-maverick-a.js"/></script>
+    <script src="/scripts/module.form-theme-gl0b3x.js"/></script>
     
     <script src="/scripts/vendor.prism.v.1.23.0.js"/></script>
     
     <script src="/scripts/prism.js"/></script>
     
+    <script>
+      storm_eagle.module('communicating_with_parent_window', () => {
+        'use strict';
+        let self;
+
+        return {
+          initialize: () => {
+            const self = storm_eagle["communicating_with_parent_window"];
+            self.add_form_submit_listener();
+            self.add_message_listener();
+          },
+          add_form_submit_listener: () => {
+            document.getElementById("child").addEventListener("submit", event => {
+              event.preventDefault();
+              window.opener.postMessage(document.getElementById("message").value, window.location.origin);
+            });
+          },
+          add_message_listener: () => {
+            window.addEventListener('message', event => {
+              document.getElementById("from-parent").innerHTML = event.data;
+            });
+          }
+        };
+      })
+    </script>
   </body>
 </html>
-<script>
-  storm_eagle.module('communicating_window_child', function () {
-    'use strict';
-    return {
-      initialize: function () {
-        const self = this;
-        self.addFormSubmitListener();
-        self.addMessageListener();
-      },
-      addFormSubmitListener: function () {
-        document.getElementById("child").addEventListener("submit", event => {
-          event.preventDefault();
-          window.opener.postMessage(document.getElementById("message").value, window.location.origin);
-        });
-      },
-      addMessageListener: function() {
-        window.addEventListener('message', event => {
-          document.getElementById("from-parent").innerHTML = event.data;
-        });
-      }
-    };
-  })
-</script>

@@ -1,5 +1,8 @@
 "use strict";
 
+var _arguments = typeof arguments === "undefined" ? void 0 : arguments,
+    _this = void 0;
+
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 /* Define global constants and map */
@@ -29,7 +32,7 @@ var breakpoints = {
   'xl_min': 1280
 };
 var focus_trap_selector = "a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled]), li[role=\"tab\"]:not([disabled]), div[role=\"tabpanel\"]:not([disabled]), label";
-var remove_focus_selector = ".form\\:theme\\:maverick-a input[type=\"radio\"]+label, .form\\:theme\\:maverick-a input[type=\"text\"]+label, .form\\:theme\\:maverick-a input[type=\"email\"]+label, .form\\:theme\\:maverick-b label, [data-module=\"popover\"] button, [data-module=\"popover\"] a";
+var remove_focus_selector = ".form\\:theme\\:gl0b3x input[type=\"radio\"]+label, .form\\:theme\\:gl0b3x input[type=\"text\"]+label, .form\\:theme\\:gl0b3x input[type=\"email\"]+label, [data-module=\"popover\"] button, [data-module=\"popover\"] a";
 /**
  * storm_eagle Object
  * storm_eagle.module()
@@ -46,15 +49,15 @@ var remove_focus_selector = ".form\\:theme\\:maverick-a input[type=\"radio\"]+la
  * storm_eagle.client.viewport.get_width()
  * storm_eagle.client.viewport.get_breakpoint()
  * storm_eagle.client.viewport.get_height()
- * storm_eagle.client.viewport.sm_only()
- * storm_eagle.client.viewport.sm_up()
- * storm_eagle.client.viewport.md_down()
- * storm_eagle.client.viewport.md_only()
- * storm_eagle.client.viewport.md_up()
- * storm_eagle.client.viewport.lg_down()
- * storm_eagle.client.viewport.lg_only()
- * storm_eagle.client.viewport.lg_up()
- * storm_eagle.client.viewport.xl_up()
+ * storm_eagle.client.viewport.is_sm_only()
+ * storm_eagle.client.viewport.is_sm_up()
+ * storm_eagle.client.viewport.is_md_down()
+ * storm_eagle.client.viewport.is_md_only()
+ * storm_eagle.client.viewport.is_md_up()
+ * storm_eagle.client.viewport.is_lg_down()
+ * storm_eagle.client.viewport.is_lg_only()
+ * storm_eagle.client.viewport.is_lg_up()
+ * storm_eagle.client.viewport.is_xl_up()
  * storm_eagle.client.get_user_agent()
  * storm_eagle.client.is_android()
  * storm_eagle.client.is_blackberry()
@@ -73,7 +76,7 @@ var remove_focus_selector = ".form\\:theme\\:maverick-a input[type=\"radio\"]+la
  * storm_eagle.resize_observer()
  **/
 
-var storm_eagle = function (window, document, undefined) {
+storm_eagle = function (window, document, undefined) {
   'use strict';
 
   return {
@@ -392,15 +395,15 @@ var storm_eagle = function (window, document, undefined) {
         },
 
         /**
-         * Checks if the viewport is within "sm_only" threshhold
-         * Checks if the viewport is within "sm_up" threshhold
-         * Checks if the viewport is within "md_down" threshhold
-         * Checks if the viewport is within "md_only" threshhold
-         * Checks if the viewport is within "md_up" threshhold
-         * Checks if the viewport is within "lg_down" threshhold
-         * Checks if the viewport is within "lg_only" threshhold
-         * Checks if the viewport is within "lg_up" threshhold
-         * Checks if the viewport is within "xl_up" threshhold
+         * Checks if the viewport is within "is_sm_only" threshhold
+         * Checks if the viewport is within "is_sm_up" threshhold
+         * Checks if the viewport is within "is_md_down" threshhold
+         * Checks if the viewport is within "is_md_only" threshhold
+         * Checks if the viewport is within "is_md_up" threshhold
+         * Checks if the viewport is within "is_lg_down" threshhold
+         * Checks if the viewport is within "is_lg_only" threshhold
+         * Checks if the viewport is within "is_lg_up" threshhold
+         * Checks if the viewport is within "is_xl_up" threshhold
          *
          * @return boolean
          * @scope public
@@ -618,9 +621,10 @@ var LANG = storm_eagle.page.get_language_code();
 storm_eagle.module('_temp_fill_ids', function () {
   'use strict';
 
+  var self;
   return {
     initialize: function initialize() {
-      var self = this;
+      self = storm_eagle["_temp_fill_ids"];
       self.fill_empty_ids();
     },
     fill_empty_ids: function fill_empty_ids() {
@@ -636,32 +640,6 @@ storm_eagle.module('_temp_fill_ids', function () {
     }
   };
 });
-storm_eagle.module('javascript_utility', function () {
-  return {
-    initialize: function initialize() {
-      var self = this;
-      self.add_class_prototype_functions();
-    },
-    add_class_prototype_functions: function add_class_prototype_functions() {
-      var element = HTMLElement.prototype;
-
-      element.addClass = function (cls) {
-        this.classList.add(cls);
-        return this;
-      };
-
-      element.removeClass = function (cls) {
-        this.classList.remove(cls);
-        return this;
-      };
-
-      element.toggleClass = function (cls) {
-        this.classList.toggle(cls);
-        return this;
-      };
-    }
-  };
-});
 storm_eagle.module('ie11_polyfill', function () {
   return {
     initialize: function initialize() {
@@ -673,8 +651,8 @@ storm_eagle.module('ie11_polyfill', function () {
           NodeList.prototype.forEach = function (callback, thisArg) {
             thisArg = thisArg || window;
 
-            for (var i = 0; i < this.length; i++) {
-              callback.call(thisArg, this[i], i, this);
+            for (var i = 0; i < _this.length; i++) {
+              callback.call(thisArg, _this[i], i, _this);
             }
           };
         } // https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
@@ -684,11 +662,11 @@ storm_eagle.module('ie11_polyfill', function () {
           Object.defineProperty(Array.prototype, 'findIndex', {
             value: function value(predicate) {
               // 1. Let O be ? ToObject(this value).
-              if (this == null) {
+              if (_this == null) {
                 throw new TypeError('"this" is null or not defined');
               }
 
-              var o = Object(this); // 2. Let len be ? ToLength(? Get(O, "length")).
+              var o = Object(_this); // 2. Let len be ? ToLength(? Get(O, "length")).
 
               var len = o.length >>> 0; // 3. If IsCallable(predicate) is false, throw a TypeError exception.
 
@@ -697,7 +675,7 @@ storm_eagle.module('ie11_polyfill', function () {
               } // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
 
 
-              var thisArg = arguments[1]; // 5. Let k be 0.
+              var thisArg = _arguments[1]; // 5. Let k be 0.
 
               var k = 0; // 6. Repeat, while k < len
 
@@ -726,8 +704,8 @@ storm_eagle.module('ie11_polyfill', function () {
 
         if (!('remove' in Element.prototype)) {
           Element.prototype.remove = function () {
-            if (this.parentNode) {
-              this.parentNode.removeChild(this);
+            if (_this.parentNode) {
+              _this.parentNode.removeChild(_this);
             }
           };
         }
@@ -774,6 +752,7 @@ storm_eagle.module('console_log', function () {
 storm_eagle.module('equalize_heights', function () {
   'use strict';
 
+  var self;
   var _data_equal_height_array = [];
   /*
    * Sorts items in array from smallest to largest
@@ -807,12 +786,11 @@ storm_eagle.module('equalize_heights', function () {
 
   return {
     initialize: function initialize() {
-      var self = this;
+      self = storm_eagle["equalize_heights"];
       self.get_data_equal_height_items();
       self.resize_listener();
     },
     ready: function ready() {
-      var self = this;
       self.force_resize();
     },
 
@@ -833,8 +811,6 @@ storm_eagle.module('equalize_heights', function () {
     * Re-evaluate the equalizing of the height when the page loads or is resized
     */
     resize_listener: function resize_listener() {
-      var self = this;
-
       function force_resize() {
         return self.force_resize();
       }
@@ -847,7 +823,6 @@ storm_eagle.module('equalize_heights', function () {
     * Do not equalize height for small size if the item contains [data-equalize-md-up] data attribute
     */
     force_resize: function force_resize() {
-      var self = this;
       self.get_data_equal_height_items();
       max_height();
 

@@ -15,6 +15,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 storm_eagle.module('modal', function () {
   'use strict';
 
+  var self;
   var focus_placeholder;
   var modal_first_tab_stop;
   var modal_last_tab_stop;
@@ -49,7 +50,7 @@ storm_eagle.module('modal', function () {
 
   return {
     initialize: function initialize() {
-      var self = this;
+      self = storm_eagle["modal"];
       document.querySelectorAll("[data-module='modal']").forEach(function (el) {
         var modal_id = el.getAttribute("id");
         modal_state[modal_id] = {
@@ -60,7 +61,6 @@ storm_eagle.module('modal', function () {
       });
     },
     open: function open(modal_trigger, modal_id) {
-      var self = this;
       document.addEventListener('mousedown', modal_close);
       /* updates modal visuals */
 
@@ -102,7 +102,6 @@ storm_eagle.module('modal', function () {
       document.getElementById(modal_id).addEventListener('keydown', keyboard_modal_focus_trap);
     },
     close: function close() {
-      var self = this;
       document.removeEventListener('mousedown', modal_close);
       document.querySelector("body").classList.remove("overflow:hidden");
       /* updates modal visuals */
@@ -135,11 +134,9 @@ storm_eagle.module('modal', function () {
       focus_placeholder.focus();
     },
     get_modal_focusable_elements: function get_modal_focusable_elements(modal_id) {
-      var self = this;
-      modal_state[modal_id]["focusable_elements"] = document.getElementById(modal_id).querySelectorAll(focus_trap_selector);
-      console.log(modal_state[modal_id]["focusable_elements"]);
-      modal_state[modal_id]["remove_focusable_elements"] = document.getElementById(modal_id).querySelectorAll(remove_focus_selector);
-      console.log(modal_state[modal_id]["remove_focusable_elements"]);
+      modal_state[modal_id]["focusable_elements"] = document.getElementById(modal_id).querySelectorAll(focus_trap_selector); //console.log(modal_state[modal_id]["focusable_elements"]);
+
+      modal_state[modal_id]["remove_focusable_elements"] = document.getElementById(modal_id).querySelectorAll(remove_focus_selector); //console.log(modal_state[modal_id]["remove_focusable_elements"]);
     }
   };
 });

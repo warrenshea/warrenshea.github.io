@@ -22,7 +22,7 @@
     <div class="row">
       <div class="w:6 px:8px">
         <form id="parent">
-          <div class="form:theme:maverick-a">
+          <div class="form:theme:gl0b3x">
             <div class="position:relative pt:4px pb:16px">
               <input id="message" name="message" type="text">
               <label for="message">
@@ -48,7 +48,7 @@
   <div class="row">
     <div class="w:6 px:8px">
       <form id="parent">
-        <div class="form:theme:maverick-a">
+        <div class="form:theme:gl0b3x">
           <div class="position:relative pt:4px pb:16px">
             <input id="message" name="message" type="text">
             <label for="message">
@@ -68,29 +68,32 @@
         <pre><code class="language-html" data-code-snippet="prism-code-parent-html"></code></pre>
         <h2 class="fs:32px play:bold pt:32px pb:8px">Parent Frame JavaScript</h2>
 <textarea data-code-reference="prism-code-parent-javascript" class="hide">
-  storm_eagle.module('communicating_window_parent', function () {
+  storm_eagle.module('communicating_with_child_window', () => {
     'use strict';
-    var _CHILD_WINDOW = null;
+    let self;
+    let _CHILD_WINDOW = null;
+
     return {
-      initialize: function () {
-        const self = this;
-        self.addOpenWindowListener();
-        self.addFormSubmitListener();
-        self.addMessageListener();
+      initialize: () => {
+        self = storm_eagle["communicating_with_child_window"];
+        self.add_open_window_listener();
+        self.add_form_submit_listener();
+        self.add_message_listener();
       },
-      addOpenWindowListener: function () {
+      add_open_window_listener: () => {
         document.getElementById("open-window-button").addEventListener("click", event => {
           let params = 'location=1, status=1, menubar=1, toolbar=1, width=650, height=800, left=900, top=200';
           _CHILD_WINDOW = window.open(`/examples/communicating-windows/child/`, `_blank`, params);
         });
       },
-      addFormSubmitListener: function () {
+      add_form_submit_listener: () => {
         document.getElementById("parent").addEventListener("submit", event => {
           event.preventDefault();
+          event.stopPropagation();
           _CHILD_WINDOW.postMessage(document.getElementById("message").value, window.location.origin);
         });
       },
-      addMessageListener: function() {
+      add_message_listener: () => {
         window.addEventListener('message', event => {
           document.getElementById("from-child").innerHTML = event.data;
         });
@@ -106,7 +109,7 @@
   <div class="row pt:32px">
     <div class="w:6 px:8px">
       <form id="child">
-        <div class="form:theme:maverick-a">
+        <div class="form:theme:gl0b3x">
           <div class="position:relative pt:4px pb:16px">
             <input id="message" name="message" type="text">
             <label for="message">
@@ -126,21 +129,23 @@
         <pre><code class="language-html" data-code-snippet="prism-code-child-html"></code></pre>
         <h2 class="fs:32px play:bold pt:32px pb:8px">Child Frame JavaScript</h2>
 <textarea data-code-reference="prism-code-child-javascript" class="hide">
-  storm_eagle.module('communicating_window_child', function () {
+  storm_eagle.module('communicating_with_parent_window', () => {
     'use strict';
+    let self;
+
     return {
-      initialize: function () {
-        const self = this;
-        self.addFormSubmitListener();
-        self.addMessageListener();
+      initialize: () => {
+        const self = storm_eagle["communicating_with_parent_window"];
+        self.add_form_submit_listener();
+        self.add_message_listener();
       },
-      addFormSubmitListener: function () {
+      add_form_submit_listener: () => {
         document.getElementById("child").addEventListener("submit", event => {
           event.preventDefault();
           window.opener.postMessage(document.getElementById("message").value, window.location.origin);
         });
       },
-      addMessageListener: function() {
+      add_message_listener: () => {
         window.addEventListener('message', event => {
           document.getElementById("from-parent").innerHTML = event.data;
         });
@@ -155,43 +160,45 @@
 
     <script src="/scripts/core.js"></script>
     
-    <script src="/scripts/module.form-theme-maverick-a.js"/></script>
+    <script src="/scripts/module.form-theme-gl0b3x.js"/></script>
     
     <script src="/scripts/vendor.prism.v.1.23.0.js"/></script>
     
     <script src="/scripts/prism.js"/></script>
     
+    <script>
+      storm_eagle.module('communicating_with_child_window', () => {
+        'use strict';
+        let self;
+        let _CHILD_WINDOW = null;
+
+        return {
+          initialize: () => {
+            self = storm_eagle["communicating_with_child_window"];
+            self.add_open_window_listener();
+            self.add_form_submit_listener();
+            self.add_message_listener();
+          },
+          add_open_window_listener: () => {
+            document.getElementById("open-window-button").addEventListener("click", event => {
+              let params = 'location=1, status=1, menubar=1, toolbar=1, width=650, height=800, left=900, top=200';
+              _CHILD_WINDOW = window.open(`/examples/communicating-windows/child/`, `_blank`, params);
+            });
+          },
+          add_form_submit_listener: () => {
+            document.getElementById("parent").addEventListener("submit", event => {
+              event.preventDefault();
+              event.stopPropagation();
+              _CHILD_WINDOW.postMessage(document.getElementById("message").value, window.location.origin);
+            });
+          },
+          add_message_listener: () => {
+            window.addEventListener('message', event => {
+              document.getElementById("from-child").innerHTML = event.data;
+            });
+          }
+        };
+      })
+    </script>
   </body>
 </html>
-<script>
-  storm_eagle.module('communicating_window_parent', function () {
-    'use strict';
-    var _CHILD_WINDOW = null;
-    return {
-      initialize: function () {
-        const self = this;
-        self.addOpenWindowListener();
-        self.addFormSubmitListener();
-        self.addMessageListener();
-      },
-      addOpenWindowListener: function () {
-        document.getElementById("open-window-button").addEventListener("click", event => {
-          let params = 'location=1, status=1, menubar=1, toolbar=1, width=650, height=800, left=900, top=200';
-          _CHILD_WINDOW = window.open(`/examples/communicating-windows/child/`, `_blank`, params);
-        });
-      },
-      addFormSubmitListener: function () {
-        document.getElementById("parent").addEventListener("submit", event => {
-          event.preventDefault();
-          event.stopPropagation();
-          _CHILD_WINDOW.postMessage(document.getElementById("message").value, window.location.origin);
-        });
-      },
-      addMessageListener: function() {
-        window.addEventListener('message', event => {
-          document.getElementById("from-child").innerHTML = event.data;
-        });
-      }
-    };
-  })
-</script>
