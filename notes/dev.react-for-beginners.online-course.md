@@ -33,6 +33,7 @@ https://courses.wesbos.com/ | https://reactforbeginners.com/
 * [Module 27: Deploying to Netlify]()
 * [Module 28: Deploying to an Apache Server]()
 * [Module 29: Ejecting from create-react-app]()
+
 ---
 
 ## Module 01: Introduction, Tooling and Editor Setup
@@ -50,6 +51,7 @@ https://courses.wesbos.com/ | https://reactforbeginners.com/
 * `<div id="main">` is the mounting point for React App
 * `import { render } from 'react-dom';` to render the code as DOM/HTML
 * An example of a simple component, rendered to a div (`<div id="#main">`)
+* `./components/StorePicker.js`
 ```jsx
 class StorePicker extends React.Component {
   render() {
@@ -270,7 +272,7 @@ class StorePicker extends React.Component {
       <form>
         <button onclick={this.handleClick}>Click</button> {/* don't use this.handleClick() or it will run on mount */}
         <input
-          tyupe="text"
+          type="text"
           placeholder="Store Name"
           defaultValue={getFunName()}
         />
@@ -284,20 +286,20 @@ export default StorePicker
 ```
 * submit form code and get text from input with `ref` to access an item, you don't wanna touch DOM. here are two deprecated ways:
 ```jsx
-        <input
-          tyupe="text"
-          placeholder="Store Name"
-          defaultValue={getFunName()}
-          ref={myInput} {/*this is deprecated, don't use that - FYI only*/
-        />
+<input
+  type="text"
+  placeholder="Store Name"
+  defaultValue={getFunName()}
+  ref={myInput} {/*this is deprecated, don't use that - FYI only*/
+/>
 ```
 ```jsx
-        <input
-          tyupe="text"
-          placeholder="Store Name"
-          defaultValue={getFunName()}
-          ref={(myInput) => this.myInput = myInput} {/*this is deprecated, don't use that - FYI only*/
-        />
+<input
+  type="text"
+  placeholder="Store Name"
+  defaultValue={getFunName()}
+  ref={(myInput) => this.myInput = myInput} {/*this is deprecated, don't use that - FYI only*/
+/>
 ```
 * This is an old way, for reference only and bad if there are a lot of methods
 ```jsx
@@ -319,7 +321,7 @@ class StorePicker extends React.Component {
     return (
       <form onSubmit={this.goToStore}>
         <input
-          tyupe="text"
+          type="text"
           placeholder="Store Name"
           defaultValue={getFunName()}
           ref={this.myInput}
@@ -610,16 +612,16 @@ Reduce takes in data and takes in a tally
 * Use firebase and these functions to maintain state across Firebase
 * In the App.js
 ```jsx
-  componentDidMount () {
-    const { params } = this.props.match
-    this.ref = base.syncState(`${params.storeId}/fishes`, {
-      context: this,
-      state: 'fishes'
-    });
-  }
-  componentWillUnmount () {
-    base.removeBinding(this.ref);
-  }
+componentDidMount () {
+  const { params } = this.props.match
+  this.ref = base.syncState(`${params.storeId}/fishes`, {
+    context: this,
+    state: 'fishes'
+  });
+}
+componentWillUnmount () {
+  base.removeBinding(this.ref);
+}
 ```
 
 ## Module 19: Persisting Order State with localstorage
@@ -627,25 +629,25 @@ Reduce takes in data and takes in a tally
 * Hook into `componentDidUpdate` - invoked before props or state changes
 * information stored in Local Storage
 ``` jsx
-  componentDidUpdate () {
-    localStorage.setItem(this.props.match.params.stordId,JSON.stringify(this.state.order);
-  }
+componentDidUpdate () {
+  localStorage.setItem(this.props.match.params.stordId,JSON.stringify(this.state.order);
+}
 ```
 * `JSON.stringify` to convert `object` to `string`
 * information to load from Local Storage
 ```jsx
-  componentDidMount () {
-    const { params } = this.props.match;
-    /* new */
-    const localStorageRef = localStorage.getItem(params.storeId);
-    if (localStorageRef) {
-      this.setState({ order: JSON.parse(localStorageRef) });
-    } /* new end */
-    this.ref = base.syncState(`${params.storeId}/fishes`, {
-      context: this,
-      state: 'fishes'
-    });
-  }
+componentDidMount () {
+  const { params } = this.props.match;
+  /* new */
+  const localStorageRef = localStorage.getItem(params.storeId);
+  if (localStorageRef) {
+    this.setState({ order: JSON.parse(localStorageRef) });
+  } /* new end */
+  this.ref = base.syncState(`${params.storeId}/fishes`, {
+    context: this,
+    state: 'fishes'
+  });
+}
 ```
 * `JSON.parse` to convert `string` to `object`
 
