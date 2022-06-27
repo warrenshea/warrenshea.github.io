@@ -91,37 +91,37 @@ export default StorePicker
 * JSX - write HTML inside JavaScript
 * Better way
 ```jsx
-  return (
-    All the HTML code you need
-  )
+return (
+  All the HTML code you need
+)
 ```
 * cannot use `class` because it is a reserved word/name in JavaScript - use `className`
 * Can only return 1 parent element. This is okay:
 ```jsx
-  return (
-    <form>
-    </form>
-  )
+return (
+  <form>
+  </form>
+)
 ```
 This is not:
 ```jsx
-  return (
-    <form>
-    </form>
-    <p>
-    </o>
-  )
+return (
+  <form>
+  </form>
+  <p>
+  </p>
+)
 ```
 * Now you can use Fragment, e.g.
 ```jsx
-  return (
-    <React.Fragment>
-      <form>
-      </form>
-      <p>
-      </p>
-    </React.Fragment>
-  )
+return (
+  <React.Fragment>
+    <form>
+    </form>
+    <p>
+    </p>
+  </React.Fragment>
+)
 ```
 or
 ```jsx
