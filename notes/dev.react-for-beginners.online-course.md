@@ -52,6 +52,7 @@ https://courses.wesbos.com/ | https://reactforbeginners.com/
 * `import { render } from 'react-dom';` to render the code as DOM/HTML
 * An example of a simple component, rendered to a div (`<div id="#main">`)
 * `./components/StorePicker.js`
+
 ```jsx
 class StorePicker extends React.Component {
   render() {
