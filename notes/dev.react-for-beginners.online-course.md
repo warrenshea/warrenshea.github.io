@@ -53,6 +53,7 @@ https://courses.wesbos.com/ | https://reactforbeginners.com/
 * An example of a simple component, rendered to a div (`<div id="#main">`)
 * `./components/StorePicker.js`
 
+
 ```jsx
 class StorePicker extends React.Component {
   render() {
@@ -66,6 +67,8 @@ render(<StorePicker/>,document.querySelector('#main'));
 * Each file in the `components` folder
 * The following two notes is to import the component (index.js) and export the compoonent (export default StorePicker)
 * `./index.js`
+
+
 ```jsx
 import React from 'react';
 import { render } from 'react-dom';
@@ -76,6 +79,8 @@ render(<StorePicker/>,document.querySelector('#main'));
 ```
 
 * `./components/StorePicker.js`
+
+
 ```jsx
 import React from 'react';
 
@@ -91,6 +96,7 @@ export default StorePicker
 ## Module 04: Writing HTML with JSX
 * JSX - write HTML inside JavaScript
 * Better way
+
 ```jsx
 return (
   All the HTML code you need
@@ -98,6 +104,7 @@ return (
 ```
 * cannot use `class` because it is a reserved word/name in JavaScript - use `className`
 * Can only return 1 parent element. This is okay:
+
 ```jsx
 return (
   <form>
@@ -105,6 +112,7 @@ return (
 )
 ```
 This is not:
+
 ```jsx
 return (
   <form>
@@ -114,6 +122,7 @@ return (
 )
 ```
 * Now you can use Fragment, e.g.
+
 ```jsx
 return (
   <React.Fragment>
@@ -125,6 +134,7 @@ return (
 )
 ```
 or
+
 ```jsx
   return (
     <>
@@ -145,6 +155,7 @@ or
 
 ## Module 06: Creating our application layout with components
 * Modified App component + Created 3 new components
+
 ```jsx
 import React from 'react';
 import Header from './Header';
@@ -171,6 +182,7 @@ export default App;
 
 ## Module 07: Passing Dynamic data with props
 * Pass data to component via `props`, with is like an attribute for a component
+
 ```jsx
 in `App.js`
 <Header tagline="Fresh Seafood Market"/>
@@ -186,6 +198,7 @@ in `Header.js`
 ## Module 08: Stateless Functional Components
 * Used for "simple" components that don't really do anything else/have no other methods expect render stuff
 * Instead of this React/Smart Component
+
 ```jsx
 class Header extends React.Component {
   render () {
@@ -196,6 +209,7 @@ class Header extends React.Component {
 }
 ```
 You can use Stateless/Dumb/Pure/Simple Component:
+
 ```jsx
 const Header = props = > {
     return (
@@ -216,6 +230,7 @@ const Header = ({tagline,age}) = > ( /* implicit return with destructuring */
 ## Module 09: Routing with React Router
 * React Router is not part of React
 * `index.js`
+
 ```jsx
 import React from 'react';
 import { render } from 'react-dom';
@@ -260,6 +275,7 @@ import { getFunName } from '../helpers';
 * `render` is bound to the component, so refering `this` references the component
 * In other functions, `this` does not reference the component
 * handleClick on button code:
+
 ```jsx
 import React from 'react';
 import { getFunName} from "../helpers";
@@ -286,6 +302,7 @@ class StorePicker extends React.Component {
 export default StorePicker
 ```
 * submit form code and get text from input with `ref` to access an item, you don't wanna touch DOM. here are two deprecated ways:
+
 ```jsx
 <input
   type="text"
@@ -294,6 +311,7 @@ export default StorePicker
   ref={myInput} {/*this is deprecated, don't use that - FYI only*/
 />
 ```
+
 ```jsx
 <input
   type="text"
@@ -303,6 +321,7 @@ export default StorePicker
 />
 ```
 * This is an old way, for reference only and bad if there are a lot of methods
+
 ```jsx
 import React from 'react';
 import { getFunName} from "../helpers";
@@ -336,6 +355,7 @@ class StorePicker extends React.Component {
 export default StorePicker
 ```
 * This is the proper way
+
 ```jsx
 import React from 'react';
 import { getFunName} from "../helpers";
@@ -368,6 +388,7 @@ export default StorePicker
 
 ## Module 12: Handling Event
 * Change URL of page without window.location
+
 ```jsx
 ...
   goToStore = event => {
@@ -389,6 +410,7 @@ export default StorePicker
 * Sometimes state needs to be shared among components (e.g. App w/ Order, Inventory) - so then we put State on App Component and pass it down
 * Don't forget that if you need to access the function that changes state (e.g. AddFish), you have to attach it to components and reference them as props in the component
 `App.js`
+
 ```jsx
 class App extends React.Component {
   state = { //set initial state
@@ -413,11 +435,13 @@ export default App;
 ```
 
 `Inventory.js`
+
 ```jsx
         <AddFishForm addFish={this.props.addFish} />
 ```
 
 `AddFishForm.js`
+
 ```jsx
 class addFishForm extends React.Component {
   nameRef = React.createRef();
@@ -447,12 +471,14 @@ export default addFishForm;
 
 ## Module 14: Loading data into state onClick
 * On click of a button in `Inventory.js`
+
 ```jsx
 <button onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
 ```
 
 We load in a fishes object from `sample-fishes.js`
 In `App.js`
+
 ```jsx
 import sampleFishes from '../sample-fishes'; //just an object with a lot of fishes
 
@@ -483,6 +509,7 @@ class App extends React.Component {
 * No loops or if or conditional in JSX - if you want it, you use regular JavaScript
 * `Object.keys(object)` will map over object
 * loop over object (`this.state.fishes`)
+
 ```jsx
 import sampleFishes from '../sample-fishes'; //just an object with a lot of fishes
 
@@ -518,6 +545,7 @@ class App extends React.Component {
 }
 ```
 `Fish.js` as Simple/Pure/Dumb/Stateless Component
+
 ```jsx
 import React from 'react';
 
@@ -539,6 +567,7 @@ export default Fish;
 * if you need to pass a key, use `index`. `key` is for the component, `index` is for you.
 
 `App.js`
+
 ```jsx
 import sampleFishes from '../sample-fishes'; //just an object with a lot of fishes
 
@@ -573,6 +602,7 @@ class App extends React.Component {
 }
 
 ```
+
 ```jsx
 import React from 'react';
 
@@ -599,6 +629,7 @@ export default Fish;
 
 ## Module 17: Displaying Order State with JSX
 * Not good practice to push state down, better to just pass down what you need e.g
+
 ```jsx
   <Order {...this.state}>
 ```
@@ -612,6 +643,7 @@ Reduce takes in data and takes in a tally
 * `componentWillMount` - when component is mounted, you can do ajax request/connect to rebase/sync component state with firebase state
 * Use firebase and these functions to maintain state across Firebase
 * In the App.js
+
 ```jsx
 componentDidMount () {
   const { params } = this.props.match
@@ -636,6 +668,7 @@ componentDidUpdate () {
 ```
 * `JSON.stringify` to convert `object` to `string`
 * information to load from Local Storage
+
 ```jsx
 componentDidMount () {
   const { params } = this.props.match;
@@ -660,6 +693,7 @@ componentDidMount () {
 
 ## Module 22: Animating React Components
 * Using library for animation
+
 ```jsx
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -671,6 +705,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 ## Module 23: Component Validation with PropTypes
 * React Prop Validation via PropTypes (or TypeScript)
 * React Component
+
 ```jsx
 import PropTypes from "prop-types";
 
@@ -686,6 +721,7 @@ class Fish extends React.Component {
   ...
 ```
 * Simple Component
+
 ```jsx
 import PropTypes from "prop-types";
 
