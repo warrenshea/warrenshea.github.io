@@ -40,13 +40,14 @@ storm_eagle.module('popover', function () {
         popover_state[popover_id] = {
           "focusable_elements": []
         };
-        self.get_popover_focusable_elements(popover_id);
       });
       self.resize_listener();
       self.overlay_close_listener();
     },
     open: function open(popover_trigger, popover_id) {
+      self.get_popover_focusable_elements(popover_id);
       /* updates popover visuals */
+
       document.querySelector("[data-module='popover.overlay']").classList.add('active');
       popover_trigger.classList.add('active');
       document.getElementById(popover_id).classList.add('active');
