@@ -79,7 +79,7 @@ glitch.module('tests', function () {
       let heading = `Tests`;
 
       let content =  `
-        <button style="margin-top:8px;" class="w:100%" onclick="glitch.core.reset();glitch.tests.all_tests();">Run all (31) tests</button>
+        <button style="margin-top:8px;" class="w:100%" onclick="glitch.core.reset();glitch.tests.all_tests();">Run all (30) tests</button>
         <button style="margin-top:2px;" class="w:100%" onclick="glitch.core.reset();">Reset glitch</button><br><br>
         <button style="margin-top:6px;" onclick="glitch.core.reset();glitch.tests.empty_ids();">Empty IDs</button><br>
         <button style="margin-top:6px;" onclick="glitch.core.reset();glitch.tests.duplicate_ids();">duplicate IDs</button><br>
@@ -108,7 +108,6 @@ glitch.module('tests', function () {
         <button style="margin-top:6px;" onclick="glitch.core.reset();glitch.tests.wem_stickynav_link_ref_heading();">[WEM] Stickynav link refs heading</button><br>
         <button style="margin-top:6px;" onclick="glitch.core.reset();glitch.tests.canvas_has_alt_text_or_aria_hidden();">Canvas has alt or aria-hidden</button><br>
         <button style="margin-top:6px;" onclick="glitch.core.reset();glitch.tests.a_button_aria_label_corret_a11y_copy();">&lt;a/button&gt; has a11y copy in aria-label</button><br>
-        <button style="margin-top:6px;" onclick="glitch.core.reset();glitch.tests.first_element_in_main_is_skipnav();">skipnav link in &lt;main&gt;</button><br>
         <button style="margin-top:6px;" onclick="glitch.core.reset();glitch.tests.video_player_proper_controllers();">video player has proper contollers</button>`;
       glitch.modules.initialize_ui(id,heading,content);
     },
@@ -142,7 +141,7 @@ glitch.module('tests', function () {
       glitch.tests.wem_stickynav_link_ref_heading();
       glitch.tests.canvas_has_alt_text_or_aria_hidden();
       glitch.tests.a_button_aria_label_corret_a11y_copy();
-      glitch.tests.first_element_in_main_is_skipnav();
+      //glitch.tests.first_element_in_main_is_skipnav();
       glitch.tests.video_player_proper_controllers();
       document.getElementById('all_tests').innerHTML = glitch.core.get_counter();
     },
@@ -984,6 +983,7 @@ glitch.module('tests', function () {
     },
    first_element_in_main_is_skipnav: function() {
       // checks first element of main for a span with id=skip-nav
+      // this is not a valid test in general, and was only an applicable test for my work's pages
       const errors = [];
       const allElements = document.body.querySelectorAll("main > *");
       if (allElements[0].getAttribute("id") === "skip-nav" && allElements[0].tagName === "SPAN") {
