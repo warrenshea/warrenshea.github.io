@@ -873,8 +873,7 @@ storm_eagle.module("responsive_dom_manipulator", function () {
       array_of_keys = [];
       document.querySelectorAll("[data-move]").forEach(function (el) {
         array_of_keys.push(el.dataset["move"]);
-      });
-      console.log(array_of_keys);
+      }); //console.log(array_of_keys);
 
       if (storm_eagle.client.viewport.is_sm_only()) {
         document.querySelectorAll("[data-move-container-sm]").forEach(function (el) {
