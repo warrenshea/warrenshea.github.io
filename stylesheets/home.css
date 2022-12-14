@@ -93,9 +93,24 @@
 }
 
 .a11y,
-.seo,
 .performance {
   background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+}
+
+.google-1 {
+  color: #4285F4;
+}
+
+.google-2 {
+  color: #EA4335;
+}
+
+.google-3 {
+  color: #34A853;
+}
+
+.seo {
+  background: linear-gradient(105deg, #f9f9f9 0, #f9f9f9 76%, #ea4335 76.5%, #ea4335 79.5%, #f65314 79.5%, #f65314 80%, #4285f4 80.5%, #4285f4 83.5%, #00a1f1 83.5%, #00a1f1 84%, #34a853 84.5%, #34a853 87.5%, #7cbb00 87.5%, #7cbb00 88%, #fbbc05 88.5%, #fbbc05 91.5%, #ffbb00 91.5%, #ffbb00 92%, #fff 92.5%, #fff 100%);
 }
 
 .power-of-habit {
