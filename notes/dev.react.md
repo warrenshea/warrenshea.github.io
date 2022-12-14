@@ -14,7 +14,6 @@ v20221114
 ```
 ### Hooks
 * useState: `const [piece of state, function of piece of state] = useState(initialValue)`
-
 ```javascript
 [count,setCount] = useState(count)
 onClick={() => setCount(count + 1)};
@@ -36,16 +35,22 @@ export default useToggle;
 ```
 * useEffect: runs after every render
 ```javascript
-useEffect = () => {
+useEffect(() => {
   document.title = `You clicked ${count} times`;
-}
+});
+```
+* useEffect: run once (on mount and unmount)
+```javascript
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+},[]);
 ```
 * Don't update state in useEffect
 * if you don't want useEffect to always run
 ```javascript
-useEffect = () => {
+useEffect(() => {
   //do something only when number or year is changed
-}, [number ,year];
+}, [number, year]);
 ```
 ___
 
