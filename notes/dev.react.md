@@ -13,7 +13,7 @@ v20221114
 }
 ```
 ### Hooks
-* useState: `const [piece of state, function of piece of state] = useState(initialValue)`
+* useState: `const [piece of state, function of piece of state] = useState(initialValue)`<br>
 ```javascript
 [count,setCount] = useState(count)
 onClick={() => setCount(count + 1)};
