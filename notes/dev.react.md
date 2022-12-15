@@ -15,7 +15,7 @@ v20221114
 ### Hooks
 * useState: `const [piece of state, function of piece of state] = useState(initialValue);`
 * Example:
-```javascript
+```
 const [count,setCount] = useState(count);
 onClick={() => setCount(count + 1)};
 
@@ -23,7 +23,7 @@ const [calculator,setCalculator] = useState({ count }); //if you wanted calculat
 onClick={() => setCalculator({...calculator,count:calculator.count + 1})};
 ```
 * useToggle: (from Udemy 248)
-```javascript
+```
 import { useState } from "react";
 function useToggle(initialVal = false) {
   const [state,setState] = useState(initialVal);
