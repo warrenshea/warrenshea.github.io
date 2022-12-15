@@ -17,6 +17,8 @@ v20221114
 ```javascript
 const [count,setCount] = useState(count);
 onClick={() => setCount(count + 1)};
+
+const [calculator,setCalculator] = useState({ count }); //if you wanted calculator.count to update
 ```
 * Test
 
@@ -25,7 +27,6 @@ onClick={() => setCount(count + 1)};
 
 
 
-const [calculator,setCalculator] = useState({ count }); //if you wanted calculator.count to update
 onClick={() => setCalculator({...calculator,count:calculator.count + 1})};
 ```
 * useToggle: (from Udemy 248)
