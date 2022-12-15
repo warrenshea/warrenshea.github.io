@@ -13,13 +13,12 @@ v20221114
 }
 ```
 ### Hooks
-* useState: `const [piece of state, function of piece of state] = useState(initialValue)`<br>
-Example:<br>
+* useState: `const [piece of state, function of piece of state] = useState(initialValue)`
 ```javascript
-[count,setCount] = useState(count)
+[count,setCount] = useState(count);
 onClick={() => setCount(count + 1)};
 
-[calculator,setCalculator] = useState({ count }) //if you wanted calculator.count to update
+[calculator,setCalculator] = useState({ count }); //if you wanted calculator.count to update
 onClick={() => setCalculator({...calculator,count:calculator.count + 1})};
 ```
 * useToggle: (from Udemy 248)
