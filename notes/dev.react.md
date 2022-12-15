@@ -16,10 +16,10 @@ v20221114
 * useState: `const [piece of state, function of piece of state] = useState(initialValue);`
 * Example:
 ```javascript
-[count,setCount] = useState(count);
+const [count,setCount] = useState(count);
 onClick={() => setCount(count + 1)};
 
-[calculator,setCalculator] = useState({ count }); //if you wanted calculator.count to update
+const [calculator,setCalculator] = useState({ count }); //if you wanted calculator.count to update
 onClick={() => setCalculator({...calculator,count:calculator.count + 1})};
 ```
 * useToggle: (from Udemy 248)
