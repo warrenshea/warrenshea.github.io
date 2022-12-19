@@ -36,12 +36,15 @@ There is one exception to this rule: if you use the !important rule, it will eve
 ___
 
 ## Flexbox (CSS Flexible Box Layout Module)
-* `flex:1;` will evenly distribute everything - at what proportion should the item scale myself up or down \
+* `flex:1;` will evenly distribute everything - at what proportion should the item scale myself up or down
+\
 * `flex` (short form) is `flex-grow`, `flex-shrink`, `flex-basis`
-* `flex-flow` (short form) is `flex-direction`, `flex-wrap` \
+* `flex-flow` (short form) is `flex-direction`, `flex-wrap`
+\
 * `flex-grow`: what do we do with the extra space
 * `flex-shrink`: what do we do with not enough space - how much do i give up
-* `order:0;` is default \
+* `order:0;` is default
+\
 * `align-items:baseline` is more useful than expected
 * `align-content` determines the spacing between lines. When there is only one line, align-content has no effect.
 * `align-items` determines how the items as a whole are aligned within the container.
