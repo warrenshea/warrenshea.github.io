@@ -46239,6 +46239,10 @@ ol.unstyle-pl\:0 {
   background-color: #d07704;
 }
 
+.icon-color\:black {
+  background-color: #000;
+}
+
 @media screen and (max-width: 47.9375rem) {
   .sm\=\:icon-color\:white {
     background-color: #fff;
@@ -46266,6 +46270,10 @@ ol.unstyle-pl\:0 {
 
   .sm\=\:icon-color\:warning {
     background-color: #d07704;
+  }
+
+  .sm\=\:icon-color\:black {
+    background-color: #000;
   }
 }
 .sm\+\:icon-color\:white {
@@ -46296,6 +46304,10 @@ ol.unstyle-pl\:0 {
   background-color: #d07704;
 }
 
+.sm\+\:icon-color\:black {
+  background-color: #000;
+}
+
 @media screen and (max-width: 63.9375rem) {
   .md-\:icon-color\:white {
     background-color: #fff;
@@ -46323,6 +46335,10 @@ ol.unstyle-pl\:0 {
 
   .md-\:icon-color\:warning {
     background-color: #d07704;
+  }
+
+  .md-\:icon-color\:black {
+    background-color: #000;
   }
 }
 @media screen and (min-width: 48rem) and (max-width: 63.9375rem) {
@@ -46353,6 +46369,10 @@ ol.unstyle-pl\:0 {
   .md\=\:icon-color\:warning {
     background-color: #d07704;
   }
+
+  .md\=\:icon-color\:black {
+    background-color: #000;
+  }
 }
 @media screen and (min-width: 48rem) {
   .md\+\:icon-color\:white {
@@ -46381,6 +46401,10 @@ ol.unstyle-pl\:0 {
 
   .md\+\:icon-color\:warning {
     background-color: #d07704;
+  }
+
+  .md\+\:icon-color\:black {
+    background-color: #000;
   }
 }
 @media screen and (max-width: 79.9375rem) {
@@ -46411,6 +46435,10 @@ ol.unstyle-pl\:0 {
   .lg-\:icon-color\:warning {
     background-color: #d07704;
   }
+
+  .lg-\:icon-color\:black {
+    background-color: #000;
+  }
 }
 @media screen and (min-width: 64rem) and (max-width: 79.9375rem) {
   .lg\=\:icon-color\:white {
@@ -46439,6 +46467,10 @@ ol.unstyle-pl\:0 {
 
   .lg\=\:icon-color\:warning {
     background-color: #d07704;
+  }
+
+  .lg\=\:icon-color\:black {
+    background-color: #000;
   }
 }
 @media screen and (min-width: 64rem) {
@@ -46469,6 +46501,10 @@ ol.unstyle-pl\:0 {
   .lg\+\:icon-color\:warning {
     background-color: #d07704;
   }
+
+  .lg\+\:icon-color\:black {
+    background-color: #000;
+  }
 }
 @media screen and (min-width: 80rem) {
   .xl\=\:icon-color\:white {
@@ -46498,6 +46534,10 @@ ol.unstyle-pl\:0 {
   .xl\=\:icon-color\:warning {
     background-color: #d07704;
   }
+
+  .xl\=\:icon-color\:black {
+    background-color: #000;
+  }
 }
 @media screen and (min-width: 80rem) {
   .xl\+\:icon-color\:white {
@@ -46526,6 +46566,10 @@ ol.unstyle-pl\:0 {
 
   .xl\+\:icon-color\:warning {
     background-color: #d07704;
+  }
+
+  .xl\+\:icon-color\:black {
+    background-color: #000;
   }
 }
 .icon-size\:16px {
