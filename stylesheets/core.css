@@ -400,6 +400,11 @@ a:hover {
   text-decoration: underline;
 }
 
+abbr[title] {
+  /* override */
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
@@ -45811,6 +45816,11 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/solid/calendar.svg");
 }
 
+.icon.icon-type\:brands.calendar {
+  -webkit-mask-image: url("../assets/icon/brands/calendar.svg");
+  mask-image: url("../assets/icon/brands/calendar.svg");
+}
+
 .icon.icon-type\:light.chevron-down {
   -webkit-mask-image: url("../assets/icon/light/chevron-down.svg");
   mask-image: url("../assets/icon/light/chevron-down.svg");
@@ -45819,6 +45829,11 @@ ol.unstyle-pl\:0 {
 .icon.icon-type\:solid.chevron-down {
   -webkit-mask-image: url("../assets/icon/solid/chevron-down.svg");
   mask-image: url("../assets/icon/solid/chevron-down.svg");
+}
+
+.icon.icon-type\:brands.chevron-down {
+  -webkit-mask-image: url("../assets/icon/brands/chevron-down.svg");
+  mask-image: url("../assets/icon/brands/chevron-down.svg");
 }
 
 .icon.icon-type\:light.chevron-circle-down {
@@ -45831,6 +45846,11 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/solid/chevron-circle-down.svg");
 }
 
+.icon.icon-type\:brands.chevron-circle-down {
+  -webkit-mask-image: url("../assets/icon/brands/chevron-circle-down.svg");
+  mask-image: url("../assets/icon/brands/chevron-circle-down.svg");
+}
+
 .icon.icon-type\:light.chevron-left {
   -webkit-mask-image: url("../assets/icon/light/chevron-left.svg");
   mask-image: url("../assets/icon/light/chevron-left.svg");
@@ -45839,6 +45859,11 @@ ol.unstyle-pl\:0 {
 .icon.icon-type\:solid.chevron-left {
   -webkit-mask-image: url("../assets/icon/solid/chevron-left.svg");
   mask-image: url("../assets/icon/solid/chevron-left.svg");
+}
+
+.icon.icon-type\:brands.chevron-left {
+  -webkit-mask-image: url("../assets/icon/brands/chevron-left.svg");
+  mask-image: url("../assets/icon/brands/chevron-left.svg");
 }
 
 .icon.icon-type\:light.chevron-circle-left {
@@ -45851,6 +45876,11 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/solid/chevron-circle-left.svg");
 }
 
+.icon.icon-type\:brands.chevron-circle-left {
+  -webkit-mask-image: url("../assets/icon/brands/chevron-circle-left.svg");
+  mask-image: url("../assets/icon/brands/chevron-circle-left.svg");
+}
+
 .icon.icon-type\:light.chevron-right {
   -webkit-mask-image: url("../assets/icon/light/chevron-right.svg");
   mask-image: url("../assets/icon/light/chevron-right.svg");
@@ -45859,6 +45889,11 @@ ol.unstyle-pl\:0 {
 .icon.icon-type\:solid.chevron-right {
   -webkit-mask-image: url("../assets/icon/solid/chevron-right.svg");
   mask-image: url("../assets/icon/solid/chevron-right.svg");
+}
+
+.icon.icon-type\:brands.chevron-right {
+  -webkit-mask-image: url("../assets/icon/brands/chevron-right.svg");
+  mask-image: url("../assets/icon/brands/chevron-right.svg");
 }
 
 .icon.icon-type\:light.chevron-circle-right {
@@ -45871,6 +45906,11 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/solid/chevron-circle-right.svg");
 }
 
+.icon.icon-type\:brands.chevron-circle-right {
+  -webkit-mask-image: url("../assets/icon/brands/chevron-circle-right.svg");
+  mask-image: url("../assets/icon/brands/chevron-circle-right.svg");
+}
+
 .icon.icon-type\:light.chevron-up {
   -webkit-mask-image: url("../assets/icon/light/chevron-up.svg");
   mask-image: url("../assets/icon/light/chevron-up.svg");
@@ -45879,6 +45919,11 @@ ol.unstyle-pl\:0 {
 .icon.icon-type\:solid.chevron-up {
   -webkit-mask-image: url("../assets/icon/solid/chevron-up.svg");
   mask-image: url("../assets/icon/solid/chevron-up.svg");
+}
+
+.icon.icon-type\:brands.chevron-up {
+  -webkit-mask-image: url("../assets/icon/brands/chevron-up.svg");
+  mask-image: url("../assets/icon/brands/chevron-up.svg");
 }
 
 .icon.icon-type\:light.chevron-circle-up {
@@ -45891,6 +45936,11 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/solid/chevron-circle-up.svg");
 }
 
+.icon.icon-type\:brands.chevron-circle-up {
+  -webkit-mask-image: url("../assets/icon/brands/chevron-circle-up.svg");
+  mask-image: url("../assets/icon/brands/chevron-circle-up.svg");
+}
+
 .icon.icon-type\:light.copy {
   -webkit-mask-image: url("../assets/icon/light/copy.svg");
   mask-image: url("../assets/icon/light/copy.svg");
@@ -45899,6 +45949,11 @@ ol.unstyle-pl\:0 {
 .icon.icon-type\:solid.copy {
   -webkit-mask-image: url("../assets/icon/solid/copy.svg");
   mask-image: url("../assets/icon/solid/copy.svg");
+}
+
+.icon.icon-type\:brands.copy {
+  -webkit-mask-image: url("../assets/icon/brands/copy.svg");
+  mask-image: url("../assets/icon/brands/copy.svg");
 }
 
 .icon.icon-type\:light.dragon {
@@ -45911,6 +45966,11 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/solid/dragon.svg");
 }
 
+.icon.icon-type\:brands.dragon {
+  -webkit-mask-image: url("../assets/icon/brands/dragon.svg");
+  mask-image: url("../assets/icon/brands/dragon.svg");
+}
+
 .icon.icon-type\:light.info-circle {
   -webkit-mask-image: url("../assets/icon/light/info-circle.svg");
   mask-image: url("../assets/icon/light/info-circle.svg");
@@ -45919,6 +45979,11 @@ ol.unstyle-pl\:0 {
 .icon.icon-type\:solid.info-circle {
   -webkit-mask-image: url("../assets/icon/solid/info-circle.svg");
   mask-image: url("../assets/icon/solid/info-circle.svg");
+}
+
+.icon.icon-type\:brands.info-circle {
+  -webkit-mask-image: url("../assets/icon/brands/info-circle.svg");
+  mask-image: url("../assets/icon/brands/info-circle.svg");
 }
 
 .icon.icon-type\:light.lock {
@@ -45931,6 +45996,11 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/solid/lock.svg");
 }
 
+.icon.icon-type\:brands.lock {
+  -webkit-mask-image: url("../assets/icon/brands/lock.svg");
+  mask-image: url("../assets/icon/brands/lock.svg");
+}
+
 .icon.icon-type\:light.phone-alt {
   -webkit-mask-image: url("../assets/icon/light/phone-alt.svg");
   mask-image: url("../assets/icon/light/phone-alt.svg");
@@ -45941,6 +46011,11 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/solid/phone-alt.svg");
 }
 
+.icon.icon-type\:brands.phone-alt {
+  -webkit-mask-image: url("../assets/icon/brands/phone-alt.svg");
+  mask-image: url("../assets/icon/brands/phone-alt.svg");
+}
+
 .icon.icon-type\:light.times {
   -webkit-mask-image: url("../assets/icon/light/times.svg");
   mask-image: url("../assets/icon/light/times.svg");
@@ -45949,6 +46024,191 @@ ol.unstyle-pl\:0 {
 .icon.icon-type\:solid.times {
   -webkit-mask-image: url("../assets/icon/solid/times.svg");
   mask-image: url("../assets/icon/solid/times.svg");
+}
+
+.icon.icon-type\:brands.times {
+  -webkit-mask-image: url("../assets/icon/brands/times.svg");
+  mask-image: url("../assets/icon/brands/times.svg");
+}
+
+.icon.icon-type\:light.github {
+  -webkit-mask-image: url("../assets/icon/light/github.svg");
+  mask-image: url("../assets/icon/light/github.svg");
+}
+
+.icon.icon-type\:solid.github {
+  -webkit-mask-image: url("../assets/icon/solid/github.svg");
+  mask-image: url("../assets/icon/solid/github.svg");
+}
+
+.icon.icon-type\:brands.github {
+  -webkit-mask-image: url("../assets/icon/brands/github.svg");
+  mask-image: url("../assets/icon/brands/github.svg");
+}
+
+.icon.icon-type\:light.instagram {
+  -webkit-mask-image: url("../assets/icon/light/instagram.svg");
+  mask-image: url("../assets/icon/light/instagram.svg");
+}
+
+.icon.icon-type\:solid.instagram {
+  -webkit-mask-image: url("../assets/icon/solid/instagram.svg");
+  mask-image: url("../assets/icon/solid/instagram.svg");
+}
+
+.icon.icon-type\:brands.instagram {
+  -webkit-mask-image: url("../assets/icon/brands/instagram.svg");
+  mask-image: url("../assets/icon/brands/instagram.svg");
+}
+
+.icon.icon-type\:light.linkedin {
+  -webkit-mask-image: url("../assets/icon/light/linkedin.svg");
+  mask-image: url("../assets/icon/light/linkedin.svg");
+}
+
+.icon.icon-type\:solid.linkedin {
+  -webkit-mask-image: url("../assets/icon/solid/linkedin.svg");
+  mask-image: url("../assets/icon/solid/linkedin.svg");
+}
+
+.icon.icon-type\:brands.linkedin {
+  -webkit-mask-image: url("../assets/icon/brands/linkedin.svg");
+  mask-image: url("../assets/icon/brands/linkedin.svg");
+}
+
+.icon.icon-type\:light.html5 {
+  -webkit-mask-image: url("../assets/icon/light/html5.svg");
+  mask-image: url("../assets/icon/light/html5.svg");
+}
+
+.icon.icon-type\:solid.html5 {
+  -webkit-mask-image: url("../assets/icon/solid/html5.svg");
+  mask-image: url("../assets/icon/solid/html5.svg");
+}
+
+.icon.icon-type\:brands.html5 {
+  -webkit-mask-image: url("../assets/icon/brands/html5.svg");
+  mask-image: url("../assets/icon/brands/html5.svg");
+}
+
+.icon.icon-type\:light.css3-alt {
+  -webkit-mask-image: url("../assets/icon/light/css3-alt.svg");
+  mask-image: url("../assets/icon/light/css3-alt.svg");
+}
+
+.icon.icon-type\:solid.css3-alt {
+  -webkit-mask-image: url("../assets/icon/solid/css3-alt.svg");
+  mask-image: url("../assets/icon/solid/css3-alt.svg");
+}
+
+.icon.icon-type\:brands.css3-alt {
+  -webkit-mask-image: url("../assets/icon/brands/css3-alt.svg");
+  mask-image: url("../assets/icon/brands/css3-alt.svg");
+}
+
+.icon.icon-type\:light.js {
+  -webkit-mask-image: url("../assets/icon/light/js.svg");
+  mask-image: url("../assets/icon/light/js.svg");
+}
+
+.icon.icon-type\:solid.js {
+  -webkit-mask-image: url("../assets/icon/solid/js.svg");
+  mask-image: url("../assets/icon/solid/js.svg");
+}
+
+.icon.icon-type\:brands.js {
+  -webkit-mask-image: url("../assets/icon/brands/js.svg");
+  mask-image: url("../assets/icon/brands/js.svg");
+}
+
+.icon.icon-type\:light.sass {
+  -webkit-mask-image: url("../assets/icon/light/sass.svg");
+  mask-image: url("../assets/icon/light/sass.svg");
+}
+
+.icon.icon-type\:solid.sass {
+  -webkit-mask-image: url("../assets/icon/solid/sass.svg");
+  mask-image: url("../assets/icon/solid/sass.svg");
+}
+
+.icon.icon-type\:brands.sass {
+  -webkit-mask-image: url("../assets/icon/brands/sass.svg");
+  mask-image: url("../assets/icon/brands/sass.svg");
+}
+
+.icon.icon-type\:light.react {
+  -webkit-mask-image: url("../assets/icon/light/react.svg");
+  mask-image: url("../assets/icon/light/react.svg");
+}
+
+.icon.icon-type\:solid.react {
+  -webkit-mask-image: url("../assets/icon/solid/react.svg");
+  mask-image: url("../assets/icon/solid/react.svg");
+}
+
+.icon.icon-type\:brands.react {
+  -webkit-mask-image: url("../assets/icon/brands/react.svg");
+  mask-image: url("../assets/icon/brands/react.svg");
+}
+
+.icon.icon-type\:light.node {
+  -webkit-mask-image: url("../assets/icon/light/node.svg");
+  mask-image: url("../assets/icon/light/node.svg");
+}
+
+.icon.icon-type\:solid.node {
+  -webkit-mask-image: url("../assets/icon/solid/node.svg");
+  mask-image: url("../assets/icon/solid/node.svg");
+}
+
+.icon.icon-type\:brands.node {
+  -webkit-mask-image: url("../assets/icon/brands/node.svg");
+  mask-image: url("../assets/icon/brands/node.svg");
+}
+
+.icon.icon-type\:light.python {
+  -webkit-mask-image: url("../assets/icon/light/python.svg");
+  mask-image: url("../assets/icon/light/python.svg");
+}
+
+.icon.icon-type\:solid.python {
+  -webkit-mask-image: url("../assets/icon/solid/python.svg");
+  mask-image: url("../assets/icon/solid/python.svg");
+}
+
+.icon.icon-type\:brands.python {
+  -webkit-mask-image: url("../assets/icon/brands/python.svg");
+  mask-image: url("../assets/icon/brands/python.svg");
+}
+
+.icon.icon-type\:light.vuejs {
+  -webkit-mask-image: url("../assets/icon/light/vuejs.svg");
+  mask-image: url("../assets/icon/light/vuejs.svg");
+}
+
+.icon.icon-type\:solid.vuejs {
+  -webkit-mask-image: url("../assets/icon/solid/vuejs.svg");
+  mask-image: url("../assets/icon/solid/vuejs.svg");
+}
+
+.icon.icon-type\:brands.vuejs {
+  -webkit-mask-image: url("../assets/icon/brands/vuejs.svg");
+  mask-image: url("../assets/icon/brands/vuejs.svg");
+}
+
+.icon.icon-type\:light.git-alt {
+  -webkit-mask-image: url("../assets/icon/light/git-alt.svg");
+  mask-image: url("../assets/icon/light/git-alt.svg");
+}
+
+.icon.icon-type\:solid.git-alt {
+  -webkit-mask-image: url("../assets/icon/solid/git-alt.svg");
+  mask-image: url("../assets/icon/solid/git-alt.svg");
+}
+
+.icon.icon-type\:brands.git-alt {
+  -webkit-mask-image: url("../assets/icon/brands/git-alt.svg");
+  mask-image: url("../assets/icon/brands/git-alt.svg");
 }
 
 .icon-color\:white {
