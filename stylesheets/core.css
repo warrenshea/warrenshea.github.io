@@ -46166,6 +46166,21 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/brands/node.svg");
 }
 
+.icon.icon-type\:light.node-js {
+  -webkit-mask-image: url("../assets/icon/light/node-js.svg");
+  mask-image: url("../assets/icon/light/node-js.svg");
+}
+
+.icon.icon-type\:solid.node-js {
+  -webkit-mask-image: url("../assets/icon/solid/node-js.svg");
+  mask-image: url("../assets/icon/solid/node-js.svg");
+}
+
+.icon.icon-type\:brands.node-js {
+  -webkit-mask-image: url("../assets/icon/brands/node-js.svg");
+  mask-image: url("../assets/icon/brands/node-js.svg");
+}
+
 .icon.icon-type\:light.python {
   -webkit-mask-image: url("../assets/icon/light/python.svg");
   mask-image: url("../assets/icon/light/python.svg");
@@ -46209,6 +46224,51 @@ ol.unstyle-pl\:0 {
 .icon.icon-type\:brands.git-alt {
   -webkit-mask-image: url("../assets/icon/brands/git-alt.svg");
   mask-image: url("../assets/icon/brands/git-alt.svg");
+}
+
+.icon.icon-type\:light.database {
+  -webkit-mask-image: url("../assets/icon/light/database.svg");
+  mask-image: url("../assets/icon/light/database.svg");
+}
+
+.icon.icon-type\:solid.database {
+  -webkit-mask-image: url("../assets/icon/solid/database.svg");
+  mask-image: url("../assets/icon/solid/database.svg");
+}
+
+.icon.icon-type\:brands.database {
+  -webkit-mask-image: url("../assets/icon/brands/database.svg");
+  mask-image: url("../assets/icon/brands/database.svg");
+}
+
+.icon.icon-type\:light.terminal {
+  -webkit-mask-image: url("../assets/icon/light/terminal.svg");
+  mask-image: url("../assets/icon/light/terminal.svg");
+}
+
+.icon.icon-type\:solid.terminal {
+  -webkit-mask-image: url("../assets/icon/solid/terminal.svg");
+  mask-image: url("../assets/icon/solid/terminal.svg");
+}
+
+.icon.icon-type\:brands.terminal {
+  -webkit-mask-image: url("../assets/icon/brands/terminal.svg");
+  mask-image: url("../assets/icon/brands/terminal.svg");
+}
+
+.icon.icon-type\:light.universal-access {
+  -webkit-mask-image: url("../assets/icon/light/universal-access.svg");
+  mask-image: url("../assets/icon/light/universal-access.svg");
+}
+
+.icon.icon-type\:solid.universal-access {
+  -webkit-mask-image: url("../assets/icon/solid/universal-access.svg");
+  mask-image: url("../assets/icon/solid/universal-access.svg");
+}
+
+.icon.icon-type\:brands.universal-access {
+  -webkit-mask-image: url("../assets/icon/brands/universal-access.svg");
+  mask-image: url("../assets/icon/brands/universal-access.svg");
 }
 
 .icon-color\:white {
