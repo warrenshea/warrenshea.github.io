@@ -61,7 +61,7 @@ In a conditional statement, these values are not true or false (boolean) but are
 * **filter** - loop over array and for each item, decide to keep or not. return `true` means keep it
 * **map** - loop over array and returns new array of same length,
 * **sort** - loop over array and returns new array of same length, return "1" if condition is true, and -1 if not
-* **reduce** - loop over array and count
+* **reduce** - loop over array and count \
 ```javascript
 const totalValue = arrayName.reduce((total,arrayItem) => {
   return total + arrayItem.doSomething;
@@ -78,7 +78,7 @@ const totalValue = arrayName.reduce((total,arrayItem) => {
 * Markup: Gatsby, Markdown, YAML, HTML
 
 ### Adding to the DOM via JavaScript
-* `document.getQuerySelector().insertAdjacentElement(position,element);`
+* `document.getQuerySelector().insertAdjacentElement(position,element);` \
 ```html
 <!-- beforebegin -->
 <p>
@@ -137,13 +137,13 @@ let variableName; //let variable declaration
  says: "functions can read or write variables “outside” of them. this works not only with top level variables, but with local variables too (from nested functions). that’s called closures."
 
 ### Adding Event Listeners to multiple items
-* One way (what I usually do):
+* One way (what I usually do): \
 ```javascript
 buyButtons.forEach(button => {
   button.addEventListeners('click', callbackFunction);
 });
 ```
-* Another way + the ability to unbind
+* Another way + the ability to unbind \
 ```javascript
 function handleClick(button) {
   button.addEventListeners('click', callbackFunction);
@@ -944,6 +944,7 @@ document.addEventListener("visibilitychange", () => {
 * [Front End Happy Hour](https://www.frontendhappyhour.com/){:target="_blank"}
 * [React Podcast](https://reactpodcast.simplecast.com/){:target="_blank"}
 * [Ladybug Podcast](https://www.ladybug.dev/){:target="_blank"}
+
 ___
 
 ## OLD STUFF: Vanilla JS IE11 Friendly AJAX Request
