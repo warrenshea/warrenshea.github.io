@@ -62,6 +62,7 @@ In a conditional statement, these values are not true or false (boolean) but are
 * **map** - loop over array and returns new array of same length,
 * **sort** - loop over array and returns new array of same length, return "1" if condition is true, and -1 if not
 * **reduce** - loop over array and count \
+
 ```javascript
 const totalValue = arrayName.reduce((total,arrayItem) => {
   return total + arrayItem.doSomething;
@@ -78,7 +79,8 @@ const totalValue = arrayName.reduce((total,arrayItem) => {
 * Markup: Gatsby, Markdown, YAML, HTML
 
 ### Adding to the DOM via JavaScript
-* `document.getQuerySelector().insertAdjacentElement(position,element);` \
+* `document.getQuerySelector().insertAdjacentElement(position,element);`
+
 ```html
 <!-- beforebegin -->
 <p>
