@@ -606,7 +606,7 @@ console.log(a.speed);
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment){:target="_blank"}
 
 #### Logical Assignment
-* The logical OR assignment (x ||= y) operator only assigns if x is `falsy`
+* The *logical OR assignment* `(x ||= y)` operator only assigns if x is `falsy`
 * Example:
 
 ```javascript
