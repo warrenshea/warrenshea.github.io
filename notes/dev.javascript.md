@@ -402,6 +402,7 @@ Here, I'll list some items and a brief description / info on what it is - mostly
 #### String.prototype.replaceAll()
 * The `replaceAll()` method returns a new string with all matches of a `pattern` replaced by a `replacement`
 * Example:
+
 ```javascript
 const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
 //
@@ -418,6 +419,7 @@ console.log(p.replaceAll(regex, 'ferret'));
 #### String.prototype.matchAll()
 * The `matchAll()` method returns an iterator of all results matching a string against a regular expression, including capturing groups.
 * Example:
+
 ```javascript
 const regexp = /t(e)(st(\d?))/g;
 const str = 'test1test2';
@@ -435,6 +437,7 @@ console.log(array[1]);
 #### Regexp Match Indices / String.prototype.match()
 * The match() method retrieves the result of matching a string against a regular expression.
 * Example:
+
 ```javascript
 const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
 const regex = /[A-Z]/g;
@@ -479,6 +482,7 @@ console.log(found);
 #### Object.hasOwn()
 * The `Object.hasOwn()` static method returns `true` if the specified object has the indicated property as its own property. If the property is inherited, or does not exist, the method returns `false`.
 * Example:
+
 ```javascript
 const object1 = {
   prop: 'exists'
@@ -587,6 +591,7 @@ console.log(baz);
 **Assignment** `??=`
 * The *nullish coalescing assignment* `x ??= y` operator only assigns if x is `nullish` (`null` or `undefined`).
 * For example:
+
 ```javascript
 const a = { duration: 50 };
 
