@@ -572,6 +572,7 @@ bye();
 **Operator** `??`
 * The *nullish coalescing* `??` operator is a logical operator that returns its right-hand side operand when its left-hand side operand is `null` or `undefined`, and otherwise returns its left-hand side operand.
 * For example:
+
 ```javascript
 const foo = null ?? 'default string';
 console.log(foo);
@@ -600,8 +601,9 @@ console.log(a.speed);
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment){:target="_blank"}
 
 #### Logical Assignment
-* The logical OR assignment (x ||= y) operator only assigns if x is `falsy`.
+* The logical OR assignment (x ||= y) operator only assigns if x is `falsy`
 * Example:
+
 ```javascript
 const a = { duration: 50, title: '' };
 //
@@ -621,6 +623,7 @@ console.log(a.title);
 
 #### Private Fields
 * ES2022 allows private fields for a class - you can prefix the field name with #, e.g.
+
 ```javascript
 class ClassWithPrivate {
   #privateField;
@@ -643,6 +646,7 @@ class ClassWithPrivate {
 #### Error.prototype.cause
 * The cause data property of an Error instance indicates the specific original cause of the error. It is used when catching and re-throwing an error with a more-specific or useful error message in order to still have access to the original error.
 * Example:
+
 ```javascript
 try {
   connectToDatabase();
@@ -744,27 +748,27 @@ document.addEventListener("visibilitychange", () => {
 * [MDN](https://developer.mozilla.org/en-US/docs/WebAssembly){:target="_blank"}
 
 ### Front end Frameworks (2022 version)
-* [React - https://reactjs.org/](https://reactjs.org/){:target="_blank"}
-* [Vue - https://vuejs.org/](https://vuejs.org/){:target="_blank"}
-* [Angular (currently at v15.0.4) - https://angular.io/](https://angular.io/){:target="_blank"}
-* [Preact - https://preactjs.com/](https://preactjs.com/){:target="_blank"}
-* [Ember - https://emberjs.com/](https://emberjs.com/){:target="_blank"}
-* [Svelte - https://svelte.dev/](https://svelte.dev/){:target="_blank"}
-* [Alpine - https://alpinejs.dev/](https://alpinejs.dev/){:target="_blank"}
-* [Lit - https://lit.dev/](https://lit.dev/){:target="_blank"}
-* [Solid - https://www.solidjs.com/](https://www.solidjs.com/){:target="_blank"}
-* [Qwik - https://qwik.builder.io/](https://qwik.builder.io/){:target="_blank"}
-* [Stencil - https://stenciljs.com/](https://stenciljs.com/){:target="_blank"}
+* [React](https://reactjs.org/){:target="_blank"}
+* [Vue](https://vuejs.org/){:target="_blank"}
+* [Angular (currently at v15.0.4)](https://angular.io/){:target="_blank"}
+* [Preact](https://preactjs.com/){:target="_blank"}
+* [Ember](https://emberjs.com/){:target="_blank"}
+* [Svelte](https://svelte.dev/){:target="_blank"}
+* [Alpine](https://alpinejs.dev/){:target="_blank"}
+* [Lit](https://lit.dev/){:target="_blank"}
+* [Solid](https://www.solidjs.com/){:target="_blank"}
+* [Qwik](https://qwik.builder.io/){:target="_blank"}
+* [Stencil](https://stenciljs.com/){:target="_blank"}
 
 ### Rendering Frameworks
-* [Next - https://nextjs.org/](https://nextjs.org/){:target="_blank"}
-* [Nuxt - https://nuxtjs.org/](https://nuxtjs.org/){:target="_blank"}
-* [Gatsby - https://www.gatsbyjs.com/](https://www.gatsbyjs.com/){:target="_blank"}
-* [Remix - https://remix.run/](https://remix.run/){:target="_blank"}
-* [Astro - https://astro.build/](https://astro.build/){:target="_blank"}
-* [Eleventy - https://www.11ty.dev/](https://www.11ty.dev/){:target="_blank"}
-* [SvelteKit - https://kit.svelte.dev/](https://kit.svelte.dev/){:target="_blank"}
-* [Docusaurus - https://docusaurus.io/](https://docusaurus.io/){:target="_blank"}
+* [Next](https://nextjs.org/){:target="_blank"}
+* [Nuxt](https://nuxtjs.org/){:target="_blank"}
+* [Gatsby](https://www.gatsbyjs.com/){:target="_blank"}
+* [Remix](https://remix.run/){:target="_blank"}
+* [Astro](https://astro.build/){:target="_blank"}
+* [Eleventy](https://www.11ty.dev/){:target="_blank"}
+* [SvelteKit](https://kit.svelte.dev/){:target="_blank"}
+* [Docusaurus](https://docusaurus.io/){:target="_blank"}
 
 ### Testing
 * [Jest](https://jestjs.io/){:target="_blank"}
