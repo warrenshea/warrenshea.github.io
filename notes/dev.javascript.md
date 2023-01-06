@@ -61,7 +61,7 @@ In a conditional statement, these values are not true or false (boolean) but are
 * **filter** - loop over array and for each item, decide to keep or not. return `true` means keep it
 * **map** - loop over array and returns new array of same length,
 * **sort** - loop over array and returns new array of same length, return "1" if condition is true, and -1 if not
-* **reduce** - loop over array and count \
+* **reduce** - loop over array and count
 
 ```javascript
 const totalValue = arrayName.reduce((total,arrayItem) => {
@@ -139,13 +139,15 @@ let variableName; //let variable declaration
  says: "functions can read or write variables “outside” of them. this works not only with top level variables, but with local variables too (from nested functions). that’s called closures."
 
 ### Adding Event Listeners to multiple items
-* One way (what I usually do): \
+* One way (what I usually do):
+
 ```javascript
 buyButtons.forEach(button => {
   button.addEventListeners('click', callbackFunction);
 });
 ```
-* Another way + the ability to unbind \
+* Another way + the ability to unbind
+
 ```javascript
 function handleClick(button) {
   button.addEventListeners('click', callbackFunction);
@@ -193,6 +195,7 @@ Don't pollute the global object, simple way to isolate variables declarations
 ### Async Await
 * A concept of asynchronous programming, a specific way to write asynchronous promise based code.
 * Example:
+
 ```javascript
 async function functionName() {
   const res = await fetch("url");
@@ -215,6 +218,7 @@ The console.log doesn't run until after the `await` is completed
 * call requires the parameters be listed explicitly.
 * [MDN - call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call){:target="_blank"}
 * Example:
+
 ```javascript
 function theFunction(name, profession) {
     console.log("My name is " + name + " and I am a " + profession +".");
@@ -227,7 +231,7 @@ theFunction.call(undefined, ...["Matthew", "physicist"]); // used with the sprea
 
 ### function.prototype.bind
 * Dan Abramov: a method that, when called, has its `this` keyword set to the provided value
-: `this` is a hidden argument to your function. "bind" wraps a function with the `this` you provide so that you don’t need to remember to pass the correct `this` every time
+* `this` is a hidden argument to your function. "bind" wraps a function with the `this` you provide so that you don’t need to remember to pass the correct `this` every time
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind){:target="_blank"}
 
 ### When would you use document.write()?
@@ -241,6 +245,7 @@ theFunction.call(undefined, ...["Matthew", "physicist"]); // used with the sprea
 
 ### Explain how JSONP works and why it's not really AJAX
 * JSONP is sending JSON data without cross domain issues, e.g. requesting an external script from another domain:
+
 Instead of
 ```javascript
 //alpha.com code
@@ -251,6 +256,7 @@ which would return a cross domain issue (CORS), you could do
 <!--alpha.com code-->
 <script src="https://beta.com/file.json"></script>
 ```
+
 ```javascript
 //https://beta.com/file.json
 myFunction({
@@ -273,6 +279,7 @@ where `myFunction` is defined on alpha.com code.
 
 ### Why is it called a Ternary expression, what does the word "Ternary" indicate?
 * Ternary operand accepts three parameters:
+
 ```javascript
 //conditional
 if(conditional) { // one
@@ -312,6 +319,7 @@ Disadvantages:
 * JavaScript's runtime model, responsible for executing the code, collecting and processing events, and executing queued sub-tasks
 * Dan Abramov: event loop is a set of rules for how the runtime (browser / Node) decides what code to run when it has finished running the current code. for example “okay we’ve exited all functions, so now, let’s run expired timeouts”. that includes code after “await” if the thing has resolved
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop){:target="_blank"}
+
 ___
 
 ## To Revisit
@@ -358,18 +366,22 @@ console.log( curriedSum(1)(2) ); // 3
 
 ### Use cases for WeakMap/WeakSet
 * Dan Abramov: associate some information with an object i don’t own. like a memoization cache. weakmap is good for this because it doesn’t hold onto it, so i’m not causing a memory leak. the tradeoff is i can’t iterate over the list of objects for which i hold information.
+
 ___
 
 ## TypeScript
 
 `if (typeof padding === "number") {`
 * Type Narrowing: the _process_ of refining types to more specific types
-* Type Guards: this code is a special form of code called _type guard_ \
+* Type Guards: this code is a special form of code called _type guard_
+
 
 * Implicit Types do not need to be declared. Examples can be private or local variables
-* Explicit Types should be declared: function inputs, outputs, anything exported or public \
+* Explicit Types should be declared: function inputs, outputs, anything exported or public
+
 
 * TC39 - Types //as Comments ECMAScript Proposal for TypeScript inside JavaScript
+
 ___
 
 ## The State of JS
