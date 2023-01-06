@@ -337,6 +337,7 @@ I've posted some questions I've seen online that I tried to look into but I stil
 * a transformation of functions that translates a function from callable as `function(a, b, c)` into callable as `functions(a)(b)(c)`
 * Dan Abramov: imagine functions only take one argument. how would we pass many? one way is to pass an object: `({ a, b, c }) => …` but we could also turn our function into a matryoshka of many functions where each takes one arg: `(a) => (b) => (c) => …` that’s currying. not very useful in js.
 * Example:
+
 ```javascript
 function curry(f) { // curry(f) does the currying transform
   return function(a) {
@@ -447,6 +448,7 @@ console.log(found);
 #### Array.prototype.at()
 * The at() method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.
 * Example:
+
 ```javascript
 const array1 = [5, 12, 8, 130, 44];
 let index = 2;
@@ -463,6 +465,7 @@ console.log(`Using an index of ${index} item returned is ${array1.at(index)}`);
 #### Array.findLast()
 * The `findLast()` method iterates the array in reverse order and returns the value of the first element that satisfies the provided testing function. If no elements satisfy the testing function, undefined is returned.
 * Example:
+
 ```javascript
 const array1 = [5, 12, 50, 130, 44];
 
@@ -493,6 +496,7 @@ console.log(Object.hasOwn(object1, 'undeclaredPropertyValue')); // expected outp
 #### Promise.any()
 * The Promise.any() method takes an iterable of promises as input and returns a single Promise. This returned promise fulfills when any of the input's promises fulfills, with this first fulfillment value. It rejects when all of the input's promises reject (including when an empty iterable is passed), with an AggregateError containing an array of rejection reasons.
 * Example:
+
 ```javascript
 const promise1 = Promise.reject(0);
 const promise2 = new Promise((resolve) => setTimeout(resolve, 100, 'quick'));
@@ -509,13 +513,16 @@ Promise.any(promises).then((value) => console.log(value));
 #### Top Level await()
 * Top-level await enables developers to use the await keyword outside of async functions. It acts like a big async function causing other modules who import them to wait before they start evaluating their body.
 * Old way:
+
 ```javascript
 (async function() {
   await Promise.resolve(console.log('🎉'));
   // → 🎉
 }());
 ```
+
 * New way:
+
 ```javascript
 await Promise.resolve(console.log('🎉'));
 // → 🎉
@@ -528,6 +535,7 @@ await Promise.resolve(console.log('🎉'));
 * The `import(module)` expression loads the module and retursn a promise that resolves into a module object.
 
 * [JavaScript.info](https://javascript.info/modules-dynamic-imports){:target="_blank"}
+
 ```javascript
 // say.js
 export function hi() {
