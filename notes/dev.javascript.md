@@ -375,10 +375,10 @@ ___
 `if (typeof padding === "number") {`
 * Type Narrowing: the _process_ of refining types to more specific types
 * Type Guards: this code is a special form of code called _type guard_
----
+--
 * Implicit Types do not need to be declared. Examples can be private or local variables
 * Explicit Types should be declared: function inputs, outputs, anything exported or public
----
+--
 * TC39 - Types //as Comments ECMAScript Proposal for TypeScript inside JavaScript
 
 ___
