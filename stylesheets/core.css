@@ -46271,6 +46271,21 @@ ol.unstyle-pl\:0 {
   mask-image: url("../assets/icon/brands/universal-access.svg");
 }
 
+.icon.icon-type\:light.php {
+  -webkit-mask-image: url("../assets/icon/light/php.svg");
+  mask-image: url("../assets/icon/light/php.svg");
+}
+
+.icon.icon-type\:solid.php {
+  -webkit-mask-image: url("../assets/icon/solid/php.svg");
+  mask-image: url("../assets/icon/solid/php.svg");
+}
+
+.icon.icon-type\:brands.php {
+  -webkit-mask-image: url("../assets/icon/brands/php.svg");
+  mask-image: url("../assets/icon/brands/php.svg");
+}
+
 .icon-color\:white {
   background-color: #fff;
 }
