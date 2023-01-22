@@ -216,3 +216,7 @@ h2 {
 .title-just-javascript {
   background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
 }
+
+.title-php {
+  background: linear-gradient(105deg, #4f5b90 0, #4f5b90 92%, #fff 92.5%, #fff 100%);
+}
