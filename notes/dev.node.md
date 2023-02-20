@@ -5,7 +5,7 @@ v20230108
 
 ## Express
 * Used with Node as a Framework
-* Can be used for routing:
+* Can be used for routing: \
 ```javascript
 //routes/index.js
 const router = express.Router();
@@ -19,6 +19,7 @@ router.get('/reverse/:name', (req, res) => {
   res.send(req.params.name); //e.g. /reverse/warren
 });
 ```
+
 * Middleware: A simple way to write and execute middleware before routes
 * Templating: Express works with Pug, EJS, Mustache
 * Static File serving
