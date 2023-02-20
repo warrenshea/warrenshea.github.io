@@ -7,17 +7,17 @@ v20230108
 * Used with Node as a Framework
 * Can be used for routing: \
 ```javascript
-//routes/index.js
-const router = express.Router();
-router.get('/', (req, res) => {
-  res.send('it works');
-  //res.json(something);
-  res.send(req.query.name); //for url /?name=warren&age=100
-});
+  //routes/index.js
+  const router = express.Router();
+  router.get('/', (req, res) => {
+    res.send('it works');
+    //res.json(something);
+    res.send(req.query.name); //for url /?name=warren&age=100
+  });
 
-router.get('/reverse/:name', (req, res) => {
-  res.send(req.params.name); //e.g. /reverse/warren
-});
+  router.get('/reverse/:name', (req, res) => {
+    res.send(req.params.name); //e.g. /reverse/warren
+  });
 ```
 
 * Middleware: A simple way to write and execute middleware before routes
