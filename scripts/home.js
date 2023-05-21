@@ -7,13 +7,13 @@ storm_eagle.module('homepage', function () {
         setTimeout(function () {
           el.classList.remove("opacity:0%");
           el.classList.add("opacity:100%");
-        }, index * 50);
+        }, index * 45);
       });
       document.querySelectorAll("h2,.heading,.description-line,.description-notes-line").forEach(function (el, index) {
         setTimeout(function () {
           el.classList.remove("opacity:0%");
           el.classList.add("opacity:100%");
-        }, index * 100);
+        }, index * 25);
       });
     }
   };
