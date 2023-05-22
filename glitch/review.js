@@ -11,6 +11,8 @@ glitch.module('review', function () {
       let content =  `
         <div style="display:flex;width:100%">
           <div style="width:50%">
+            <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.grida_1200px();">Grid (Design Language)</button><br>
+            <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.gridb_1200px();">Grid (Contentful)</button><br>
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.design();">Design Box Model</button><br>
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.tab_order();">Tab order</button><br>
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.aria_label();">ARIA-LABEL</button><br>
@@ -18,6 +20,9 @@ glitch.module('review', function () {
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.img_alt_tags();">IMG ALT tags</button><br>
           </div>
           <div style="width:50%">
+            <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.bg_1280px();">Background 1280px</button><br>
+            <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.bg_1200px();">Background 1200px</button><br>
+            <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.bg_hundred();">Background 100%</button><br>
             <button style="margin-top:8px;" onclick="function fnStartDesign(sUrl) {var nScript = document.createElement('script');nScript.setAttribute('language','JavaScript');nScript.setAttribute('src',sUrl);document.body.appendChild(nScript);}fnStartDesign('https://www.sprymedia.co.uk/design/design/media/js/design-loader.js');">Ruler</button><br>
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.headings();">Headings</button><br>
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.show_for_sr();">.show-for-sr</button><br>
@@ -27,9 +32,266 @@ glitch.module('review', function () {
         <br><button class="w:100%" onclick="glitch.core.reset();">Reset glitch</button>`;
       glitch.modules.initialize_ui(id,heading,content);
     },
+    grida_1200px : function() {
+      let module_ui = document.createElement("style");
+      let id = "glitch_review_grida_1200px";
+      module_ui.type = 'text/css';
+      module_ui.id = id;
+      module_ui.setAttribute("data-id","glitch-id-element");
+
+      let module_ui_content = `
+body.glitch-css-modificiation {
+  position: relative;
+}
+.glitch-grida-1200px {
+  position:absolute;
+  z-index:100000;
+  left:0;
+  right:0;
+  margin:0 auto;
+  max-width:1200px;
+  height:100%;
+}
+.glitch-grid-a-column {
+  position:absolute;top:0;width:0;border:1px solid #ff7777;opacity:.5;height:100%;display:inline-block;margin:0;
+}
+`
+      module_ui.appendChild(document.createTextNode(module_ui_content));
+      document.getElementsByTagName("head")[0].appendChild(module_ui);
+
+      let idDiv = document.createElement("div");
+      idDiv.setAttribute("data-id", "glitch-id-element");
+      idDiv.classList.add("glitch-grida-1200px");
+
+let module_grid_content = `
+<hr class="glitch-grid-a-column" style="left:calc(0/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(1/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(2/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(3/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(4/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(5/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(6/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(7/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(8/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(9/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(10/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(11/12 * 100%);">
+<hr class="glitch-grid-a-column" style="left:calc(12/12 * 100%);">
+`;
+      idDiv.innerHTML = module_grid_content;
+      document.body.prepend(idDiv);
+
+      document.querySelector("body").classList.add("glitch-css-modificiation");
+    },
+    gridb_1200px : function() {
+      let module_ui = document.createElement("style");
+      let id = "glitch_review_gridb_1200px";
+      module_ui.type = 'text/css';
+      module_ui.id = id;
+      module_ui.setAttribute("data-id","glitch-id-element");
+
+      let module_ui_content = `
+body.glitch-css-modificiation {
+  position: relative;
+}
+.glitch-gridb-1200px {
+  column-gap: 16px;
+  display:flex;
+  position:absolute;
+  z-index:100000;
+  left:0;
+  right:0;
+  margin:0 auto;
+  max-width:1200px;
+  height:100%;
+  padding-left:24px;
+  padding-right:24px;
+}
+@media screen and (min-width: 768px) {
+  .glitch-gridb-1200px {
+    column-gap: 24px;
+    padding-left:32px;
+    padding-right:32px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .glitch-gridb-1200px {
+    column-gap: 24px;
+    padding-left:0;
+    padding-right:0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .glitch-gridb-1200px {
+    column-gap: 32px;
+  }
+}
+.glitch-gridb-1200px > div {
+  width: 100%;
+}
+.glitch-grid-b-column {
+  height:100%;
+  background-color:#ff7777;opacity:.25;
+}
+.glitch-grid-b-column.glitch-first-four {
+  display:block;
+}
+.glitch-grid-b-column.glitch-next-eight {
+  display:none;
+}
+
+@media screen and (min-width: 768px) {
+  .glitch-grid-b-column.glitch-next-eight {
+    display:block;
+  }
+}
+`
+      module_ui.appendChild(document.createTextNode(module_ui_content));
+      document.getElementsByTagName("head")[0].appendChild(module_ui);
+
+      let idDiv = document.createElement("div");
+      idDiv.setAttribute("data-id", "glitch-id-element");
+      idDiv.classList.add("glitch-gridb-1200px");
+
+let module_grid_content = `
+<div class="glitch-grid-b-column glitch-first-four"></div>
+<div class="glitch-grid-b-column glitch-first-four"></div>
+<div class="glitch-grid-b-column glitch-first-four"></div>
+<div class="glitch-grid-b-column glitch-first-four"></div>
+<div class="glitch-grid-b-column glitch-next-eight"></div>
+<div class="glitch-grid-b-column glitch-next-eight"></div>
+<div class="glitch-grid-b-column glitch-next-eight"></div>
+<div class="glitch-grid-b-column glitch-next-eight"></div>
+<div class="glitch-grid-b-column glitch-next-eight"></div>
+<div class="glitch-grid-b-column glitch-next-eight"></div>
+<div class="glitch-grid-b-column glitch-next-eight"></div>
+<div class="glitch-grid-b-column glitch-next-eight"></div>
+`;
+      idDiv.innerHTML = module_grid_content;
+      document.body.prepend(idDiv);
+
+      document.querySelector("body").classList.add("glitch-css-modificiation");
+    },
+    bg_hundred : function() {
+      let module_ui = document.createElement("style");
+      let id = "glitch_review_bg_hundred";
+      module_ui.type = 'text/css';
+      module_ui.id = id;
+      module_ui.setAttribute("data-id","glitch-id-element");
+
+      let module_ui_content = `
+body.glitch-css-modificiation {
+  position: relative;
+}
+.glitch-bgc-one-hundred {
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0' xmlns='http://www.w3.org/2000/svg' style='width:100px; height: 40px;'%3E%3Ctext x='0' y='40' style='font-family:Arial;font-size:40px;font-weight:bold;fill:%23ddffdd;'%3E100%%3C/text%3E%3C/svg%3E");
+  background-size:120px 50px;
+  background-repeat: repeat;
+  background-color: transparent;
+  opacity:.75;
+  z-index:100000;
+  top:0;
+  left:0;
+  position: absolute;
+  width:100%;
+  height:100%;
+}`
+      module_ui.appendChild(document.createTextNode(module_ui_content));
+      document.getElementsByTagName("head")[0].appendChild(module_ui);
+
+      let idDiv = document.createElement("div");
+      idDiv.setAttribute("data-id", "glitch-id-element");
+      idDiv.classList.add("glitch-bgc-one-hundred");
+
+      document.body.prepend(idDiv);
+
+      document.querySelector("body").classList.add("glitch-css-modificiation");
+    },
+    bg_1280px : function() {
+      let module_ui = document.createElement("style");
+      let id = "glitch_review_bg_1280px";
+      module_ui.type = 'text/css';
+      module_ui.id = id;
+      module_ui.setAttribute("data-id","glitch-id-element");
+
+      let module_ui_content = `
+body.glitch-css-modificiation {
+  position: relative;
+}
+.glitch-bg-1280px {
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0' xmlns='http://www.w3.org/2000/svg' style='width:100px; height: 40px;'%3E%3Ctext x='0' y='40' style='font-family:Arial;font-size:24px;font-weight:bold;fill:%23ffdddd;'%3E1280px%3C/text%3E%3C/svg%3E");
+  background-size:120px 50px;
+  background-repeat: repeat;
+  background-color: transparent;
+  opacity:.75;
+  z-index:100000;
+  top:0;
+  left:0;
+  right:0;
+  height:100%;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  clear: both;
+  position: absolute;
+  max-width: 1280px;
+  border-right: 0.0625rem #929ba9 solid;
+  border-left: 0.0625rem #929ba9 solid;
+}`
+      module_ui.appendChild(document.createTextNode(module_ui_content));
+      document.getElementsByTagName("head")[0].appendChild(module_ui);
+
+      let idDiv = document.createElement("div");
+      idDiv.setAttribute("data-id", "glitch-id-element");
+      idDiv.classList.add("glitch-bg-1280px");
+      document.body.prepend(idDiv);
+
+      document.querySelector("body").classList.add("glitch-css-modificiation");
+    },
+    bg_1200px : function() {
+      let module_ui = document.createElement("style");
+      let id = "glitch_review_bg_1200px";
+      module_ui.type = 'text/css';
+      module_ui.id = id;
+      module_ui.setAttribute("data-id","glitch-id-element");
+
+      let module_ui_content = `
+body.glitch-css-modificiation {
+  position: relative;
+}
+.glitch-bg-1200px {
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0' xmlns='http://www.w3.org/2000/svg' style='width:100px; height: 40px;'%3E%3Ctext x='0' y='40' style='font-family:Arial;font-size:24px;font-weight:bold;fill:%23ddddff;'%3E1200px%3C/text%3E%3C/svg%3E");
+  background-size:120px 50px;
+  background-repeat: repeat;
+  background-color: transparent;
+  opacity:.75;
+  z-index:100000;
+  top:0;
+  left:0;
+  right:0;
+  height:100%;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  clear: both;
+  position: absolute;
+  max-width: 1200px;
+  border-right: 0.0625rem #929ba9 solid;
+  border-left: 0.0625rem #929ba9 solid;
+}`
+      module_ui.appendChild(document.createTextNode(module_ui_content));
+      document.getElementsByTagName("head")[0].appendChild(module_ui);
+
+      let idDiv = document.createElement("div");
+      idDiv.setAttribute("data-id", "glitch-id-element");
+      idDiv.classList.add("glitch-bg-1200px");
+      document.body.prepend(idDiv);
+
+      document.querySelector("body").classList.add("glitch-css-modificiation");
+    },
     design : function() {
       let module_ui = document.createElement("style");
-      let id = "glitch_check_for_design";
+      let id = "glitch_one_hundred_width";
       module_ui.type = 'text/css';
       module_ui.id = id;
       module_ui.setAttribute("data-id","glitch-id-element");
