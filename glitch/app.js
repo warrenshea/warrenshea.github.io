@@ -35,9 +35,9 @@ glitch =  (function(window, document, undefined) {
 
 glitch.module('core', function () {
   //local development
-  //let _path_prefix = (window.location.hostname === "http://localhost:3000") ? "" : "http://localhost:3000";
+  let _path_prefix = (window.location.hostname === "http://localhost:3000") ? "" : "http://localhost:3000";
   //production
-  let _path_prefix = (window.location.hostname === "https://warrenshea.github.io/glitch") ? "" : "https://warrenshea.github.io/glitch";
+  //let _path_prefix = (window.location.hostname === "https://warrenshea.github.io/glitch") ? "" : "https://warrenshea.github.io/glitch";
 
   let issue_counter = 0;
 
@@ -56,6 +56,10 @@ glitch.module('core', function () {
     clear_page_highlights: function () {
       const self = this;
       self.remove("css",".glitch-highlight");
+    },
+    clear_css_modifications: function () {
+      const self = this;
+      self.remove("css",".glitch-css-modificiation");
     },
     clear_headings_identifier_from_innerhtml: function() {
       const self = this;
@@ -86,7 +90,7 @@ glitch.module('core', function () {
       switch(type) {
         case "css":
           for (let i=0; i < elements_to_remove.length; i++){
-            elements_to_remove[i].classList.remove("glitch-highlight");
+            elements_to_remove[i].classList.remove(selector.substring(1));
           }
           break;
         case "element":
@@ -101,6 +105,7 @@ glitch.module('core', function () {
       const self = this;
       self.clear_log();
       self.clear_page_highlights();
+      self.clear_css_modifications();
       self.clear_headings_identifier_from_innerhtml();
       self.clear_counter();
       self.remove("element","[data-id='glitch-id-element']");
