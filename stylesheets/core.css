@@ -56178,6 +56178,10 @@ input[type=range].slider {
   appearance: none;
   background: none;
   z-index: 2;
+  cursor: grab;
+}
+input[type=range].slider:active {
+  cursor: grabbing;
 }
 input[type=range].slider::-webkit-slider-thumb {
   z-index: 2;
@@ -56186,7 +56190,6 @@ input[type=range].slider::-webkit-slider-thumb {
   width: 1.5rem;
   border-radius: 50%;
   background: #fff;
-  cursor: pointer;
   appearance: none;
 }
 
@@ -56208,6 +56211,44 @@ input[type=range].slider::-webkit-slider-thumb {
 
 ul.slider-labels li {
   flex-basis: 100%;
+}
+
+input[type=range].range-slider {
+  position: relative;
+  -webkit-appearance: none;
+  height: 1.5rem;
+  appearance: none;
+  background: none;
+  cursor: grab;
+  z-index: 2;
+}
+input[type=range].range-slider:not(:only-of-type) {
+  pointer-events: none;
+}
+input[type=range].range-slider:active {
+  cursor: grabbing;
+}
+input[type=range].range-slider::-webkit-slider-thumb {
+  z-index: 2;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0.125rem 0 rgba(0, 0, 0, 0.5), 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.25);
+  border: none;
+  pointer-events: auto;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+input[type=range].range-slider:nth-of-type(1) {
+  position: absolute;
+}
+
+input[type=range].range-slider + input[type=range].range-slider + .slider-background {
+  margin-top: -16px;
 }
 
 .modal-overlay {
