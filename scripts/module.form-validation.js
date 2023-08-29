@@ -262,6 +262,12 @@ storm_eagle.module('form_validation', function () {
           return regex.test(value);
           break;
 
+        case "is_css_hexcode":
+          //css hexcode
+          regex = /^#([0-9a-fA-F]{6})$/;
+          return regex.test(value);
+          break;
+
         case "has_min_8_characters":
           return value.length > 7;
           break;

@@ -1,13 +1,13 @@
 "use strict";
 
-storm_eagle.module('range-slider', function () {
+storm_eagle.module('range_slider', function () {
   "use strict";
 
   var self;
   var slider_state = {};
   return {
     initialize: function initialize() {
-      self = storm_eagle["range-slider"];
+      self = storm_eagle["range_slider"];
       document.querySelectorAll("[data-module='range-slider.input-container']").forEach(function (el) {
         var slider_id = el.querySelector("[data-module='range-slider.input-1']").getAttribute("id");
         slider_state[slider_id] = {

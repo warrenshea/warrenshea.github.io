@@ -1,6 +1,6 @@
 "use strict";
 
-chill_penguin.module("color_picker", function () {
+storm_eagle.module("color_picker", function () {
   "use strict";
 
   var self;
@@ -29,7 +29,7 @@ chill_penguin.module("color_picker", function () {
 
   return {
     initialize: function initialize() {
-      self = chill_penguin["color_picker"];
+      self = storm_eagle["color_picker"];
     },
     find_closest_color: function find_closest_color() {
       var color = document.getElementById("color-picker").value;

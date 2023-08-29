@@ -4,14 +4,14 @@
   @TODO: a11y keyboard functionality
   https://www.w3.org/WAI/ARIA/apg/patterns/menubar/examples/menubar-navigation/
 */
-chill_penguin.module("menu_submenu", function () {
+storm_eagle.module("menu_submenu", function () {
   "use strict";
 
   var self;
   var menu_state = {};
   return {
     initialize: function initialize() {
-      self = chill_penguin["menu_submenu"];
+      self = storm_eagle["menu_submenu"];
       document.querySelectorAll('[data-module="menu"]').forEach(function (el) {
         var menu_id = el.getAttribute("id");
         menu_state[menu_id] = {
@@ -60,10 +60,10 @@ chill_penguin.module("menu_submenu", function () {
           el.classList.add("display:none");
         });
         document.getElementById(id).classList.remove("display:none");
-        chill_penguin.equalize_heights.force_resize();
+        storm_eagle.equalize_heights.force_resize();
       } else if (menu_state[menu_id]["active_setting"] === "multiple") {
         document.getElementById(id).classList.toggle("display:none");
-        chill_penguin.equalize_heights.force_resize();
+        storm_eagle.equalize_heights.force_resize();
       }
     }
   };

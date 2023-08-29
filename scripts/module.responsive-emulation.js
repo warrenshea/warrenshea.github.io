@@ -1,13 +1,13 @@
 "use strict";
 
-chill_penguin.module('responsive_emulation', function () {
+storm_eagle.module('responsive_emulation', function () {
   'use strict';
 
   var self;
   var responsive_emulation_state = {};
   return {
     initialize: function initialize() {
-      self = chill_penguin["responsive_emulation"];
+      self = storm_eagle["responsive_emulation"];
       document.querySelectorAll("[data-module='responsive-emulation']").forEach(function (el) {
         var responsive_emulation_id = el.getAttribute("id");
         responsive_emulation_state[responsive_emulation_id] = {
@@ -29,7 +29,7 @@ chill_penguin.module('responsive_emulation', function () {
     //     // // console.log(responsive_emulation_state[responsive_emulation_id]["container_width"]);
     //     self.add_emulate_class(responsive_emulation_id);
     //   }
-    //   chill_penguin.resize_observer(document.getElementById(responsive_emulation_id), force_resize);
+    //   storm_eagle.resize_observer(document.getElementById(responsive_emulation_id), force_resize);
     // },
     add_emulate_class: function add_emulate_class(responsive_emulation_id) {
       responsive_emulation_state[responsive_emulation_id]["container"].classList.remove("emulate:sm=", "emulate:sm+", "emulate:md-", "emulate:md=", "emulate:md+", "emulate:lg-", "emulate:lg=", "emulate:lg+", "emulate:xl+");
