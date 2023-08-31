@@ -46,6 +46,8 @@ var remove_focus_selector = ".form\\:theme\\:gl0b3x input[type=\"radio\"]+label,
  * storm_eagle.format.currency()
  * storm_eagle.format.percentage()
  * storm_eagle.reverse_format.get_numeric_value()
+ * storm_eagle.checkbox.is_checked()
+ * storm_eagle.checkbox.set_checked()
  * storm_eagle.client.viewport.get_width()
  * storm_eagle.client.viewport.get_breakpoint()
  * storm_eagle.client.viewport.get_height()
@@ -70,6 +72,7 @@ var remove_focus_selector = ".form\\:theme\\:gl0b3x input[type=\"radio\"]+label,
  * storm_eagle.page.set_hash()
  * storm_eagle.page.get_language_code()
  * storm_eagle.util.replace_all()
+ * storm_eagle.util.index_in_parent()
  * storm_eagle.open_window()
  * storm_eagle.scroll_to()
  * storm_eagle.debounce()
@@ -342,6 +345,100 @@ var storm_eagle = function (window, document, undefined) {
         }
 
         return number;
+      }
+    },
+    checkbox: {
+      is_checked: function is_checked(element) {
+        if (typeof element.checked === 'boolean') {
+          return element.checked;
+        } // If ARIA checkbox widget
+
+
+        return element.getAttribute('aria-checked') === 'true';
+      },
+      set_checked: function set_checked(element, value) {
+        if (typeof element.checked === 'boolean') {
+          switch (value.toString()) {
+            case 'true':
+              element.checked = true;
+              break;
+
+            case 'false':
+              element.checked = false;
+              break;
+
+            default:
+              break;
+          }
+        } // If ARIA checkbox widget
+
+
+        switch (value.toString()) {
+          case 'true':
+          case 'false':
+            element.ariaChecked = value;
+            break;
+
+          default:
+            break;
+        }
+      },
+      get_values: function get_values(selector) {
+        var checkbox_values = [];
+        var elements = document.querySelectorAll(selector);
+        elements.forEach(function (el) {
+          if (storm_eagle.checkbox.is_checked(el)) {
+            checkbox_values.push(el.value);
+          }
+        });
+        return checkbox_values;
+      }
+    },
+    radio: {
+      is_checked: function is_checked(element) {
+        if (typeof element.checked === 'boolean') {
+          return element.checked;
+        } // If ARIA checkbox widget
+
+
+        return element.getAttribute('aria-checked') === 'true';
+      },
+      set_checked: function set_checked(element, value) {
+        if (typeof element.checked === 'boolean') {
+          switch (value.toString()) {
+            case 'true':
+              element.checked = true;
+              break;
+
+            case 'false':
+              element.checked = false;
+              break;
+
+            default:
+              break;
+          }
+        } // If ARIA checkbox widget
+
+
+        switch (value.toString()) {
+          case 'true':
+          case 'false':
+            element.ariaChecked = value;
+            break;
+
+          default:
+            break;
+        }
+      },
+      get_values: function get_values(selector) {
+        var radio_values = [];
+        var elements = document.querySelectorAll(selector);
+        elements.forEach(function (el) {
+          if (storm_eagle.radio.is_checked(el)) {
+            radio_values.push(el.value);
+          }
+        });
+        return radio_values;
       }
     },
     client: {
