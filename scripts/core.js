@@ -48,6 +48,10 @@ var remove_focus_selector = ".form\\:theme\\:gl0b3x input[type=\"radio\"]+label,
  * storm_eagle.reverse_format.get_numeric_value()
  * storm_eagle.checkbox.is_checked()
  * storm_eagle.checkbox.set_checked()
+ * storm_eagle.checkbox.get_values()
+ * storm_eagle.radiobutton.is_checked()
+ * storm_eagle.radiobutton.set_checked()
+ * storm_eagle.radiobutton.get_value()
  * storm_eagle.client.viewport.get_width()
  * storm_eagle.client.viewport.get_breakpoint()
  * storm_eagle.client.viewport.get_height()
@@ -79,7 +83,7 @@ var remove_focus_selector = ".form\\:theme\\:gl0b3x input[type=\"radio\"]+label,
  * storm_eagle.resize_observer()
  **/
 
-var storm_eagle = function (window, document, undefined) {
+var storm_eagle = function () {
   'use strict';
 
   return {
@@ -370,18 +374,12 @@ var storm_eagle = function (window, document, undefined) {
             default:
               break;
           }
-        } // If ARIA checkbox widget
-
-
-        switch (value.toString()) {
-          case 'true':
-          case 'false':
-            element.ariaChecked = value;
-            break;
-
-          default:
-            break;
         }
+      },
+
+      /* this is specifically helpful for 'parent' checkboxes where the aria-checked could be 'mixed' */
+      set_aria_checked: function set_aria_checked(element, value) {
+        element.setAttribute('aria-checked', value);
       },
       get_values: function get_values(selector) {
         var checkbox_values = [];
@@ -394,51 +392,29 @@ var storm_eagle = function (window, document, undefined) {
         return checkbox_values;
       }
     },
-    radio: {
+    radiobutton: {
       is_checked: function is_checked(element) {
         if (typeof element.checked === 'boolean') {
           return element.checked;
-        } // If ARIA checkbox widget
-
-
-        return element.getAttribute('aria-checked') === 'true';
-      },
-      set_checked: function set_checked(element, value) {
-        if (typeof element.checked === 'boolean') {
-          switch (value.toString()) {
-            case 'true':
-              element.checked = true;
-              break;
-
-            case 'false':
-              element.checked = false;
-              break;
-
-            default:
-              break;
-          }
-        } // If ARIA checkbox widget
-
-
-        switch (value.toString()) {
-          case 'true':
-          case 'false':
-            element.ariaChecked = value;
-            break;
-
-          default:
-            break;
         }
       },
-      get_values: function get_values(selector) {
-        var radio_values = [];
-        var elements = document.querySelectorAll(selector);
-        elements.forEach(function (el) {
-          if (storm_eagle.radio.is_checked(el)) {
-            radio_values.push(el.value);
+      set_checked: function set_checked(selector_or_element, value) {
+        if (typeof selector_or_element === "string") {
+          document.querySelector(selector_or_element).checked = value;
+        } else {
+          selector_or_element.checked = value;
+        }
+      },
+      set_checked_from_value: function set_checked_from_value(selector, value) {
+        document.querySelectorAll(selector).forEach(function (el) {
+          if (el.value === value) {
+            el.checked = true;
+            return;
           }
         });
-        return radio_values;
+      },
+      get_value: function get_value(selector) {
+        return document.querySelector("".concat(selector, ":checked")) ? document.querySelector("".concat(selector, ":checked")).value : null;
       }
     },
     client: {
@@ -712,16 +688,16 @@ var storm_eagle = function (window, document, undefined) {
       });
     }
   };
-}(window, document);
+}();
 
 var LANG = storm_eagle.page.get_language_code();
-storm_eagle.module('_temp_fill_ids', function () {
+storm_eagle.module('autopopulate_empty_ids', function () {
   'use strict';
 
   var self;
   return {
     initialize: function initialize() {
-      self = storm_eagle["_temp_fill_ids"];
+      self = storm_eagle["autopopulate_empty_ids"];
       self.fill_empty_ids();
     },
     fill_empty_ids: function fill_empty_ids() {
@@ -995,23 +971,6 @@ storm_eagle.module("responsive_dom_manipulator", function () {
           el.appendChild(document.querySelector("[data-move=".concat(el.dataset["moveContainer"], "]")));
         });
       }
-    }
-  };
-});
-/**
- * Disables the telephone number link from calling in medium and up
- */
-
-storm_eagle.module('disable_tel_medium_up', function () {
-  return {
-    initialize: function initialize() {
-      document.querySelectorAll('a[href^="tel"]').forEach(function (el) {
-        el.addEventListener("click", function (event) {
-          if (storm_eagle.client.viewport.is_md_up()) {
-            event.preventDefault();
-          }
-        });
-      });
     }
   };
 });
