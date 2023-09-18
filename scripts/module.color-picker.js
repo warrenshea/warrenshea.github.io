@@ -4,8 +4,8 @@ storm_eagle.module("color_picker", function () {
   "use strict";
 
   var self;
-  var baseColours = ["#3169b2", "#ab1e23", "#f4c026", "#1c3b65", "#27528c", "#789ccc", "#9bb6d9", "#becfe6", "#80171a", "#9b1b20", "#b63b3f", "#c0575a", "#d58f91", "#b7901d", "#fdf0c9", "#000", "#202020", "#404040", "#808080", "#c0c0c0", "#e0e0e0", "#fff", "#d08888", "#a01010", "#500808", "#84b48e", "#09681d", "#05340f", "#c0791d", "#eeeeec"];
-  var baseName = ["blue", "red", "yellow", "yale-blue", "yinmn-blue", "vista-blue", "powder-blue", "columbia-blue", "falu-red", "carmine", "auburn", "bittersweet-shimmer", "old-rose", "dark-goldenrod", "dutch-white", "black", "eerie-black", "onyx", "gray", "silver", "platinum", "white", "negative-light", "negative", "negative-dark", "positive-light", "positive", "positive-dark", "warning"];
+  var baseColours = ["#3169b2", "#ab1e23", "#f4c026", "#1c3b65", "#27528c", "#789ccc", "#9bb6d9", "#becfe6", "#80171a", "#9b1b20", "#b63b3f", "#c0575a", "#d58f91", "#b7901d", "#fdf0c9", "#000000", "#202020", "#404040", "#808080", "#c0c0c0", "#e0e0e0", "#f0f0f0", "#ffffff", "#d08888", "#a01010", "#500808", "#84b48e", "#09681d", "#05340f", "#c0791d", "#eeeeec"];
+  var baseName = ["blue", "red", "yellow", "yale-blue", "yinmn-blue", "vista-blue", "powder-blue", "columbia-blue", "falu-red", "carmine", "auburn", "bittersweet-shimmer", "old-rose", "dark-goldenrod", "dutch-white", "black", "eerie-black", "onyx", "gray", "silver", "platinum", "white-smoke", "white", "negative-light", "negative", "negative-dark", "positive-light", "positive", "positive-dark", "warning"];
   /**
    * Function to convert HEX to RGB
    * @param  {string} color to match
@@ -63,12 +63,22 @@ storm_eagle.module("color_picker", function () {
         document.getElementById("picked-color").style.backgroundColor = color;
         document.getElementById("picked-hex").innerHTML = "".concat(color);
         document.getElementById("suggested-color").style.backgroundColor = theColour;
-        document.getElementById("suggested-hex").innerHTML = theColour + " is already in the codebase";
+        document.getElementById("suggested-hex-error").classList.remove("display:none");
+        document.getElementById("suggested-hex-error").innerHTML = theColour + " is already in the codebase";
+        document.getElementById("suggested-hex-button").classList.add("display:none");
+        document.getElementById("suggested-hex").innerHTML = "";
+        document.getElementById("suggested-hex-name-button").classList.add("display:none");
+        document.getElementById("suggested-hex-name").innerHTML = "";
       } else {
         document.getElementById("picked-color").style.backgroundColor = color;
         document.getElementById("picked-hex").innerHTML = "".concat(color);
         document.getElementById("suggested-color").style.backgroundColor = baseColours[index];
-        document.getElementById("suggested-hex").innerHTML = "".concat(theColour, "<br>").concat(baseName[index]);
+        document.getElementById("suggested-hex-error").classList.add("display:none");
+        document.getElementById("suggested-hex-error").innerHTML = "";
+        document.getElementById("suggested-hex-button").classList.remove("display:none");
+        document.getElementById("suggested-hex").innerHTML = "".concat(theColour);
+        document.getElementById("suggested-hex-name-button").classList.remove("display:none");
+        document.getElementById("suggested-hex-name").innerHTML = "".concat(baseName[index]);
       }
 
       return false;
