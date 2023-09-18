@@ -132,7 +132,7 @@
     
     <script src="/scripts/module.form-theme-gl0b3x.js"/></script>
     
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"/></script>
+    <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"/></script>
     
 <script>
   storm_eagle.module('fa5dam', () => {
@@ -187,7 +187,7 @@
 
           //create each asset's html
           asset_html += `<div data-asset="${name}" class="asset ${all_isotope_keywords} type-${type} isotope-color:${color} isotope-size:48 align:center bgc:platinum">`;
-          asset_html += `  <span class="number">${index}</span>`;
+          asset_html += `  <span class="number">${parseInt(index)}</span>`;
           asset_html += `  <span class="name">${name}</span>`;
           asset_html += `  <img src="${pathname}" class="w:100% h:100% object-fit:contain">`;
           asset_html += `</div>`;
