@@ -217,6 +217,10 @@ h2 {
   background: linear-gradient(105deg, #017a9b 0, #017a9b 92%, #02b3e4 92.5%, #02b3e4 100%);
 }
 
+.title-unreasonable-hospitality {
+  background: linear-gradient(105deg, #ffe700 0, #ffe700 92%, #002b4b 92.5%, #002b4b 100%);
+}
+
 .title-vue {
   background: linear-gradient(105deg, #42b883 0, #42b883 92%, #35495e 92.5%, #35495e 100%);
 }
