@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -13,49 +13,47 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 storm_eagle.module('waypoint', function () {
-  "use strict";
-
   var self;
   var waypoint_state = {};
   return {
     initialize: function initialize() {
-      self = storm_eagle["waypoint"];
+      self = storm_eagle['waypoint'];
       document.querySelectorAll("[data-module='waypoint']").forEach(function (el) {
-        var waypoint_id = el.getAttribute("id");
+        var waypoint_id = el.getAttribute('id');
         waypoint_state[waypoint_id] = {
-          "element": el.getAttribute("data-waypoint-element"),
-          "add_class": el.getAttribute("data-waypoint-add"),
-          "remove_class": el.getAttribute("data-waypoint-remove"),
-          "toggle_class": el.getAttribute("data-waypoint-toggle"),
-          "delay": el.getAttribute("data-waypoint-delay"),
-          "activate": el.getAttribute("data-waypoint-activate"),
-          "new_waypoint_obj": {}
+          element: el.getAttribute('data-waypoint-element'),
+          add_class: el.getAttribute('data-waypoint-add'),
+          remove_class: el.getAttribute('data-waypoint-remove'),
+          toggle_class: el.getAttribute('data-waypoint-toggle'),
+          delay: el.getAttribute('data-waypoint-delay'),
+          activate: el.getAttribute('data-waypoint-activate'),
+          new_waypoint_obj: {}
         };
         self.add_waypoint_listeners(waypoint_id);
       });
     },
     add_waypoint_listeners: function add_waypoint_listeners(waypoint_id) {
-      waypoint_state[waypoint_id]["new_waypoint_obj"] = new Waypoint({
-        element: "this" ? document.getElementById(waypoint_id) : document.querySelector(waypoint_state[waypoint_id]["element"]),
+      waypoint_state[waypoint_id]['new_waypoint_obj'] = new Waypoint({
+        element: 'this' ? document.getElementById(waypoint_id) : document.querySelector(waypoint_state[waypoint_id]['element']),
         handler: function handler() {
-          var delay = waypoint_state[waypoint_id]["delay"] || 0;
+          var delay = waypoint_state[waypoint_id]['delay'] || 0;
           setTimeout(function () {
-            if (waypoint_state[waypoint_id]["remove_class"]) {
+            if (waypoint_state[waypoint_id]['remove_class']) {
               var _document$getElementB;
 
-              (_document$getElementB = document.getElementById(waypoint_id).classList).remove.apply(_document$getElementB, _toConsumableArray(waypoint_state[waypoint_id]["remove_class"].split(/[,]+/)));
+              (_document$getElementB = document.getElementById(waypoint_id).classList).remove.apply(_document$getElementB, _toConsumableArray(waypoint_state[waypoint_id]['remove_class'].split(/[,]+/)));
             }
 
-            if (waypoint_state[waypoint_id]["add_class"]) {
-              document.getElementById(waypoint_id).classList.add(waypoint_state[waypoint_id]["add_class"]);
+            if (waypoint_state[waypoint_id]['add_class']) {
+              document.getElementById(waypoint_id).classList.add(waypoint_state[waypoint_id]['add_class']);
             }
 
-            if (waypoint_state[waypoint_id]["toggle_class"]) {
-              document.getElementById(waypoint_id).classList.toggle(waypoint_state[waypoint_id]["toggle_class"]);
+            if (waypoint_state[waypoint_id]['toggle_class']) {
+              document.getElementById(waypoint_id).classList.toggle(waypoint_state[waypoint_id]['toggle_class']);
             }
           }, delay);
         },
-        offset: waypoint_state[waypoint_id]["activate"]
+        offset: waypoint_state[waypoint_id]['activate']
       });
     }
   };
