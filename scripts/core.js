@@ -1,32 +1,29 @@
-"use strict";
-
-var _arguments = typeof arguments === "undefined" ? void 0 : arguments,
-    _this = void 0;
+'use strict';
+/* Define global constants and map */
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-/* Define global constants and map */
 var keyboard = {};
 keyboard.keys = {
-  'backspace': 8,
-  'tab': 9,
-  'enter': 13,
-  'esc': 27,
-  'space': 32,
-  'delete': 46,
-  'left': 37,
-  'up': 38,
-  'right': 39,
-  'down': 40,
-  'end': 35,
-  'home': 36,
-  'shift': 16
+  backspace: 8,
+  tab: 9,
+  enter: 13,
+  esc: 27,
+  space: 32,
+  "delete": 46,
+  left: 37,
+  up: 38,
+  right: 39,
+  down: 40,
+  end: 35,
+  home: 36,
+  shift: 16
 };
 var breakpoints = {
-  'sm_min': 320,
-  'md_min': 768,
-  'lg_min': 1024,
-  'xl_min': 1280
+  sm_min: 320,
+  md_min: 768,
+  lg_min: 1024,
+  xl_min: 1280
 };
 var focus_trap_selector = "a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type=\"text\"]:not([disabled]), input[type=\"radio\"]:not([disabled]), input[type=\"checkbox\"]:not([disabled]), select:not([disabled]), li[role=\"tab\"]:not([disabled]), div[role=\"tabpanel\"]:not([disabled]), label";
 var remove_focus_selector = ".form\\:theme\\:gl0b3x input[type=\"radio\"]+label, .form\\:theme\\:gl0b3x input[type=\"text\"]+label, .form\\:theme\\:gl0b3x input[type=\"email\"]+label, [data-module=\"popover\"] button, [data-module=\"popover\"] a";
@@ -81,8 +78,6 @@ var remove_focus_selector = ".form\\:theme\\:gl0b3x input[type=\"radio\"]+label,
  **/
 
 var storm_eagle = function () {
-  'use strict';
-
   return {
     /**
      * Add module and module name_space to the storm_eagle object
@@ -136,21 +131,21 @@ var storm_eagle = function () {
     },
     document_ready: function document_ready(fn) {
       /* see if DOM is already available */
-      if (document.readyState === "complete" || document.readyState === "interactive") {
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
         setTimeout(fn, 1);
         /* call on next available tick */
       } else {
-        document.addEventListener("DOMContentLoaded", fn);
+        document.addEventListener('DOMContentLoaded', fn);
       }
     },
     cookie: {
       /**
-        * Gets a cookie value
-        *
-        * @param string name
-        * @return string
-        * @scope public
-        */
+       * Gets a cookie value
+       *
+       * @param string name
+       * @return string
+       * @scope public
+       */
       get: function get(name) {
         var start = document.cookie.indexOf(name + '=');
 
@@ -200,12 +195,12 @@ var storm_eagle = function () {
     },
     validation: {
       /**
-        * Checks if a value is of type Number
-        *
-        * @param mixed value
-        * @return boolean
-        * @scope public
-        */
+       * Checks if a value is of type Number
+       *
+       * @param mixed value
+       * @return boolean
+       * @scope public
+       */
       is_number: function is_number(value) {
         switch (_typeof(value)) {
           case 'number':
@@ -245,13 +240,13 @@ var storm_eagle = function () {
     },
     format: {
       /**
-        * Formats a number
-        *
-        * @param mixed number
-        * @param integer factor
-        * @return string
-        * @scope public
-        */
+       * Formats a number
+       *
+       * @param mixed number
+       * @param integer factor
+       * @return string
+       * @scope public
+       */
       number: function number(_number, factor) {
         var decimal_symbol;
         var thousands_symbol;
@@ -396,7 +391,7 @@ var storm_eagle = function () {
         }
       },
       set_checked: function set_checked(selector_or_element, value) {
-        if (typeof selector_or_element === "string") {
+        if (typeof selector_or_element === 'string') {
           document.querySelector(selector_or_element).checked = value;
         } else {
           selector_or_element.checked = value;
@@ -434,8 +429,8 @@ var storm_eagle = function () {
          */
         get_breakpoint: function get_breakpoint() {
           var viewportWidth = storm_eagle.client.viewport.get_width();
-          if (viewportWidth >= breakpoints["xl_min"]) return 'xl';else if (viewportWidth >= breakpoints["lg_min"]) return 'lg';else if (viewportWidth >= breakpoints["md_min"]) return 'md';else if (viewportWidth >= breakpoints["sm_min"]) return 'sm';else {
-            storm_eagle.throw_exception("smaller than sm");
+          if (viewportWidth >= breakpoints['xl_min']) return 'xl';else if (viewportWidth >= breakpoints['lg_min']) return 'lg';else if (viewportWidth >= breakpoints['md_min']) return 'md';else if (viewportWidth >= breakpoints['sm_min']) return 'sm';else {
+            storm_eagle.throw_exception('smaller than sm');
             return;
           }
         },
@@ -479,31 +474,31 @@ var storm_eagle = function () {
          * @scope public
          */
         is_sm_only: function is_sm_only() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["sm_min"] && storm_eagle.client.viewport.get_width() < breakpoints["md_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['sm_min'] && storm_eagle.client.viewport.get_width() < breakpoints['md_min'] ? true : false;
         },
         is_sm_up: function is_sm_up() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["sm_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['sm_min'] ? true : false;
         },
         is_md_down: function is_md_down() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["sm_min"] && storm_eagle.client.viewport.get_width() < breakpoints["lg_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['sm_min'] && storm_eagle.client.viewport.get_width() < breakpoints['lg_min'] ? true : false;
         },
         is_md_only: function is_md_only() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["md_min"] && storm_eagle.client.viewport.get_width() < breakpoints["lg_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['md_min'] && storm_eagle.client.viewport.get_width() < breakpoints['lg_min'] ? true : false;
         },
         is_md_up: function is_md_up() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["md_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['md_min'] ? true : false;
         },
         is_lg_down: function is_lg_down() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["sm_min"] && storm_eagle.client.viewport.get_width() < breakpoints["xl_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['sm_min'] && storm_eagle.client.viewport.get_width() < breakpoints['xl_min'] ? true : false;
         },
         is_lg_only: function is_lg_only() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["lg_min"] && storm_eagle.client.viewport.get_width() < breakpoints["xl_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['lg_min'] && storm_eagle.client.viewport.get_width() < breakpoints['xl_min'] ? true : false;
         },
         is_lg_up: function is_lg_up() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["lg_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['lg_min'] ? true : false;
         },
         is_xl_up: function is_xl_up() {
-          return storm_eagle.client.viewport.get_width() >= breakpoints["xl_min"] ? true : false;
+          return storm_eagle.client.viewport.get_width() >= breakpoints['xl_min'] ? true : false;
         }
       },
 
@@ -517,11 +512,11 @@ var storm_eagle = function () {
       },
 
       /**
-        * Check if device type is Mobile
-        * Verify mobile OS
-        * @return boolean
-        * @scope public
-        **/
+       * Check if device type is Mobile
+       * Verify mobile OS
+       * @return boolean
+       * @scope public
+       **/
       is_android: function is_android() {
         return storm_eagle.client.get_user_agent().match(/Android/i) ? true : false;
       },
@@ -543,12 +538,12 @@ var storm_eagle = function () {
     },
     page: {
       /**
-        * Gets a query parameter value from the query string
-        *
-        * @param string key
-        * @return string
-        * @scope public
-        */
+       * Gets a query parameter value from the query string
+       *
+       * @param string key
+       * @return string
+       * @scope public
+       */
       get_query_value: function get_query_value(key) {
         key = key.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + key + '=([^&#]*)'),
@@ -593,7 +588,7 @@ var storm_eagle = function () {
     },
     util: {
       replace_all: function replace_all(original_str, find_str, replace_str, ignore) {
-        return original_str.replace(new RegExp(find_str.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), ignore ? "gi" : "g"), typeof replace_str == "string" ? replace_str.replace(/\$/g, "$$$$") : replace_str);
+        return original_str.replace(new RegExp(find_str.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, '\\$&'), ignore ? 'gi' : 'g'), typeof replace_str == 'string' ? replace_str.replace(/\$/g, '$$$$') : replace_str);
       },
       index_in_parent: function index_in_parent(node) {
         var children = node.parentNode.childNodes;
@@ -619,8 +614,8 @@ var storm_eagle = function () {
      */
     open_window: function open_window(url, name, width, height) {
       name = name === undefined ? '_blank' : name;
-      width = width === undefined ? 800 : parseInt(width) + "";
-      height = height === undefined ? 600 : parseInt(height) + "";
+      width = width === undefined ? 800 : parseInt(width) + '';
+      height = height === undefined ? 600 : parseInt(height) + '';
       window.open(url, '_blank', 'scrollbars=1,resizable=1,width=' + width + ',height=' + height);
     },
 
@@ -634,22 +629,22 @@ var storm_eagle = function () {
      */
     scroll_to: function scroll_to(selector) {
       window.scrollTo({
-        'behavior': 'auto',
-        'left': 0,
-        'top': document.querySelector(selector).offsetTop
+        behavior: 'auto',
+        left: 0,
+        top: document.querySelector(selector).offsetTop
       });
     },
 
     /**
-      * Returns a function, that, as long as it continues to be invoked, will not
-      * be triggered. The function will be called after it stops being called for
-      * N milliseconds. If `immediate` is passed, trigger the function on the
-      * leading edge, instead of the trailing.
-      * @param  { function } func      callback function
-      * @param  { number } wait        time in ms
-      * @param  { boolean } immediate  flag to trigger function on the leading edge or trailing
-      * @return { function }           debounce function
-      */
+     * Returns a function, that, as long as it continues to be invoked, will not
+     * be triggered. The function will be called after it stops being called for
+     * N milliseconds. If `immediate` is passed, trigger the function on the
+     * leading edge, instead of the trailing.
+     * @param  { function } func      callback function
+     * @param  { number } wait        time in ms
+     * @param  { boolean } immediate  flag to trigger function on the leading edge or trailing
+     * @return { function }           debounce function
+     */
     debounce: function debounce(func, wait, immediate) {
       var timeout;
       return function () {
@@ -689,12 +684,10 @@ var storm_eagle = function () {
 
 var LANG = storm_eagle.page.get_language_code();
 storm_eagle.module('autopopulate_empty_ids', function () {
-  'use strict';
-
   var self;
   return {
     initialize: function initialize() {
-      self = storm_eagle["autopopulate_empty_ids"];
+      self = storm_eagle['autopopulate_empty_ids'];
       self.fill_empty_ids();
     },
     fill_empty_ids: function fill_empty_ids() {
@@ -703,83 +696,10 @@ storm_eagle.module('autopopulate_empty_ids', function () {
       }
 
       document.querySelectorAll('*[id]').forEach(function (el) {
-        if (el.id === "") {
+        if (el.id === '') {
           el.id = get_random_id();
         }
       });
-    }
-  };
-});
-storm_eagle.module('ie11_polyfill', function () {
-  return {
-    initialize: function initialize() {
-      if (window.document.documentMode) {
-        // missing forEach on NodeList for IE11
-        if ('NodeList' in window && !NodeList.prototype.forEach) {
-          console.info('polyfill for IE11');
-
-          NodeList.prototype.forEach = function (callback, thisArg) {
-            thisArg = thisArg || window;
-
-            for (var i = 0; i < _this.length; i++) {
-              callback.call(thisArg, _this[i], i, _this);
-            }
-          };
-        } // https://tc39.github.io/ecma262/#sec-array.prototype.findIndex
-
-
-        if (!Array.prototype.findIndex) {
-          Object.defineProperty(Array.prototype, 'findIndex', {
-            value: function value(predicate) {
-              // 1. Let O be ? ToObject(this value).
-              if (_this == null) {
-                throw new TypeError('"this" is null or not defined');
-              }
-
-              var o = Object(_this); // 2. Let len be ? ToLength(? Get(O, "length")).
-
-              var len = o.length >>> 0; // 3. If IsCallable(predicate) is false, throw a TypeError exception.
-
-              if (typeof predicate !== 'function') {
-                throw new TypeError('predicate must be a function');
-              } // 4. If thisArg was supplied, let T be thisArg; else let T be undefined.
-
-
-              var thisArg = _arguments[1]; // 5. Let k be 0.
-
-              var k = 0; // 6. Repeat, while k < len
-
-              while (k < len) {
-                // a. Let Pk be ! ToString(k).
-                // b. Let kValue be ? Get(O, Pk).
-                // c. Let testResult be ToBoolean(? Call(predicate, T, « kValue, k, O »)).
-                // d. If testResult is true, return k.
-                var kValue = o[k];
-
-                if (predicate.call(thisArg, kValue, k, o)) {
-                  return k;
-                } // e. Increase k by 1.
-
-
-                k++;
-              } // 7. Return -1.
-
-
-              return -1;
-            }
-          });
-        }
-        /* polyfill for DOMELEMENT.remove() */
-
-
-        if (!('remove' in Element.prototype)) {
-          Element.prototype.remove = function () {
-            if (_this.parentNode) {
-              _this.parentNode.removeChild(_this);
-            }
-          };
-        }
-      }
     }
   };
 });
@@ -789,14 +709,12 @@ storm_eagle.module('ie11_polyfill', function () {
  */
 
 storm_eagle.module('console_log', function () {
-  'use strict';
-
   return {
     initialize: function initialize() {
-      if (window.location.hostname.indexOf("poc") > -1 || window.location.hostname.indexOf("localhost") > -1) {
+      if (window.location.hostname.indexOf('localhost') > -1) {
         console.log('console.log() enabled');
       } else {
-        if (storm_eagle.page.get_query_value("consolelog") === "true") {
+        if (storm_eagle.page.get_query_value('consolelog') === 'true') {
           console.log('console.log() enabled');
         } else {
           console.log('console.log() disabled');
@@ -820,8 +738,6 @@ storm_eagle.module('console_log', function () {
  */
 
 storm_eagle.module('equalize_heights', function () {
-  'use strict';
-
   var self;
   var _data_equal_height_array = [];
   /*
@@ -842,7 +758,7 @@ storm_eagle.module('equalize_heights', function () {
       var _heights = [];
       document.querySelectorAll("[data-equalize-height=".concat(index, "]")).forEach(function (el) {
         /* get the height including the padding of an item */
-        el.style.height = "auto";
+        el.style.height = 'auto';
 
         _heights.push(el.getBoundingClientRect().height);
       });
@@ -856,7 +772,7 @@ storm_eagle.module('equalize_heights', function () {
 
   return {
     initialize: function initialize() {
-      self = storm_eagle["equalize_heights"];
+      self = storm_eagle['equalize_heights'];
       self.get_data_equal_height_items();
       self.resize_listener();
     },
@@ -865,8 +781,8 @@ storm_eagle.module('equalize_heights', function () {
     },
 
     /*
-    * Checks all the items that need to equalize height, and add keys to array
-    */
+     * Checks all the items that need to equalize height, and add keys to array
+     */
     get_data_equal_height_items: function get_data_equal_height_items() {
       document.querySelectorAll('[data-equalize-height]').forEach(function (el) {
         var newItem = el.dataset['equalizeHeight'];
@@ -878,46 +794,44 @@ storm_eagle.module('equalize_heights', function () {
     },
 
     /*
-    * Re-evaluate the equalizing of the height when the page loads or is resized
-    */
+     * Re-evaluate the equalizing of the height when the page loads or is resized
+     */
     resize_listener: function resize_listener() {
       function force_resize() {
         return self.force_resize();
       }
 
-      storm_eagle.resize_observer(document.querySelector("body"), force_resize);
+      storm_eagle.resize_observer(document.querySelector('body'), force_resize);
     },
 
     /*
-    * Check for any new items to equalize, and then equalize them
-    * Do not equalize height for small size if the item contains [data-equalize-md-up] data attribute
-    */
+     * Check for any new items to equalize, and then equalize them
+     * Do not equalize height for small size if the item contains [data-equalize-md-up] data attribute
+     */
     force_resize: function force_resize() {
       self.get_data_equal_height_items();
       max_height();
 
       if (storm_eagle.client.viewport.is_sm_only()) {
         document.querySelectorAll('[data-equalize-height][data-equalize-md-up]').forEach(function (el) {
-          el.style.height = "auto";
+          el.style.height = 'auto';
         });
       }
 
       if (storm_eagle.client.viewport.is_md_up()) {
         document.querySelectorAll('[data-equalize-height][data-equalize-sm-only]').forEach(function (el) {
-          el.style.height = "auto";
+          el.style.height = 'auto';
         });
       }
     }
   };
 });
-storm_eagle.module("responsive_dom_manipulator", function () {
-  "use strict";
-
+storm_eagle.module('responsive_dom_manipulator', function () {
   var self;
   var array_of_keys = [];
   return {
     initialize: function initialize() {
-      self = storm_eagle["responsive_dom_manipulator"];
+      self = storm_eagle['responsive_dom_manipulator'];
       self.resize_listener();
     },
     ready: function ready() {
@@ -932,7 +846,7 @@ storm_eagle.module("responsive_dom_manipulator", function () {
         return self.force_resize();
       }
 
-      storm_eagle.resize_observer(document.querySelector("body"), force_resize);
+      storm_eagle.resize_observer(document.querySelector('body'), force_resize);
     },
 
     /*
@@ -941,31 +855,31 @@ storm_eagle.module("responsive_dom_manipulator", function () {
      */
     force_resize: function force_resize() {
       array_of_keys = [];
-      document.querySelectorAll("[data-move]").forEach(function (el) {
-        array_of_keys.push(el.dataset["move"]);
+      document.querySelectorAll('[data-move]').forEach(function (el) {
+        array_of_keys.push(el.dataset['move']);
       }); //console.log(array_of_keys);
 
       if (storm_eagle.client.viewport.is_sm_only()) {
-        document.querySelectorAll("[data-move-container-sm]").forEach(function (el) {
-          el.appendChild(document.querySelector("[data-move=".concat(el.dataset["moveContainer"], "]")));
+        document.querySelectorAll('[data-move-container-sm]').forEach(function (el) {
+          el.appendChild(document.querySelector("[data-move=".concat(el.dataset['moveContainer'], "]")));
         });
       }
 
       if (storm_eagle.client.viewport.is_md_only()) {
-        document.querySelectorAll("[data-move-container-md]").forEach(function (el) {
-          el.appendChild(document.querySelector("[data-move=".concat(el.dataset["moveContainer"], "]")));
+        document.querySelectorAll('[data-move-container-md]').forEach(function (el) {
+          el.appendChild(document.querySelector("[data-move=".concat(el.dataset['moveContainer'], "]")));
         });
       }
 
       if (storm_eagle.client.viewport.is_lg_only()) {
-        document.querySelectorAll("[data-move-container-lg]").forEach(function (el) {
-          el.appendChild(document.querySelector("[data-move=".concat(el.dataset["moveContainer"], "]")));
+        document.querySelectorAll('[data-move-container-lg]').forEach(function (el) {
+          el.appendChild(document.querySelector("[data-move=".concat(el.dataset['moveContainer'], "]")));
         });
       }
 
       if (storm_eagle.client.viewport.is_xl_up()) {
-        document.querySelectorAll("[data-move-container-xl]").forEach(function (el) {
-          el.appendChild(document.querySelector("[data-move=".concat(el.dataset["moveContainer"], "]")));
+        document.querySelectorAll('[data-move-container-xl]').forEach(function (el) {
+          el.appendChild(document.querySelector("[data-move=".concat(el.dataset['moveContainer'], "]")));
         });
       }
     }
