@@ -1,8 +1,6 @@
-"use strict";
+'use strict';
 
 storm_eagle.module('prism', function () {
-  'use strict';
-
   var self;
 
   function html_encode(str) {
@@ -17,15 +15,15 @@ storm_eagle.module('prism', function () {
 
   return {
     initialize: function initialize() {
-      self = storm_eagle["prism"];
+      self = storm_eagle['prism'];
 
-      if (document.querySelectorAll("[data-code-reference]").length > 0) {
+      if (document.querySelectorAll('[data-code-reference]').length > 0) {
         self.link_code_with_prism_snippet();
       }
     },
     link_code_with_prism_snippet: function link_code_with_prism_snippet() {
-      document.querySelectorAll("[data-code-reference]").forEach(function (el, index) {
-        document.querySelector("code[data-code-snippet=".concat(el.getAttribute("data-code-reference"))).innerHTML = html_encode(el.value);
+      document.querySelectorAll('[data-code-reference]').forEach(function (el, index) {
+        document.querySelector("code[data-code-snippet=".concat(el.getAttribute('data-code-reference'))).innerHTML = html_encode(el.value);
       });
     },
     force_prism_reinit: function force_prism_reinit() {
