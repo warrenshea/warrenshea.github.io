@@ -40624,8 +40624,8 @@
   }
 }
 /*@media screen and (max-width: 47.9375rem) {*/
-.emulate\:sm\= .sm\=\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:sm\= .sm\=\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40635,8 +40635,8 @@
 }
 
 /*}*/
-.emulate\:sm\+ .sm\+\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:sm\+ .sm\+\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40646,8 +40646,8 @@
 }
 
 /*@media screen and (max-width: 63.9375rem) {*/
-.emulate\:md- .md-\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:md- .md-\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40658,8 +40658,8 @@
 
 /*}*/
 /*@media screen and (min-width: 48rem) and (max-width: 63.9375rem) {*/
-.emulate\:md\= .md\=\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:md\= .md\=\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40670,8 +40670,8 @@
 
 /*}*/
 /*@media screen and (min-width: 48rem) {*/
-.emulate\:md\+ .md\+\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:md\+ .md\+\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40682,8 +40682,8 @@
 
 /*}*/
 /*@media screen and (max-width: 79.9375rem) {*/
-.emulate\:lg- .lg-\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:lg- .lg-\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40694,8 +40694,8 @@
 
 /*}*/
 /*@media screen and (min-width: 64rem) and (max-width: 79.9375rem) {*/
-.emulate\:lg\= .lg\=\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:lg\= .lg\=\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40706,8 +40706,8 @@
 
 /*}*/
 /*@media screen and (min-width: 64rem) {*/
-.emulate\:lg\+ .lg\+\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:lg\+ .lg\+\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40718,8 +40718,8 @@
 
 /*}*/
 /*@media screen and (min-width: 80rem) {*/
-.emulate\:xl\+ .xl\+\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.emulate\:xl\+ .xl\+\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40734,8 +40734,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:sm\= .sm\=\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:sm\= .sm\=\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:sm\= .sm\=\:heebo\:medium {
@@ -40751,8 +40751,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:sm\+ .sm\+\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:sm\+ .sm\+\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:sm\+ .sm\+\:heebo\:medium {
@@ -40768,8 +40768,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:md- .md-\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:md- .md-\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:md- .md-\:heebo\:medium {
@@ -40786,8 +40786,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:md\= .md\=\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:md\= .md\=\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:md\= .md\=\:heebo\:medium {
@@ -40804,8 +40804,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:md\+ .md\+\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:md\+ .md\+\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:md\+ .md\+\:heebo\:medium {
@@ -40822,8 +40822,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:lg- .lg-\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:lg- .lg-\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:lg- .lg-\:heebo\:medium {
@@ -40840,8 +40840,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:lg\= .lg\=\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:lg\= .lg\=\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:lg\= .lg\=\:heebo\:medium {
@@ -40858,8 +40858,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:lg\+ .lg\+\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:lg\+ .lg\+\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:lg\+ .lg\+\:heebo\:medium {
@@ -40876,8 +40876,8 @@
   font-family: "heebo-light", Arial, Sans-Serif;
 }
 
-.emulate\:xl\+ .xl\+\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.emulate\:xl\+ .xl\+\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
 }
 
 .emulate\:xl\+ .xl\+\:heebo\:medium {
