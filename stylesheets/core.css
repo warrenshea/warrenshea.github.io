@@ -40265,7 +40265,7 @@ fieldset.unstyle {
 .form\:theme\:gl0b3x input[type=search] + label.valid:before,
 .form\:theme\:gl0b3x select + label.valid:before,
 .form\:theme\:gl0b3x textarea + label.valid:before {
-  background: #0B8224;
+  background: #0b8224;
 }
 .form\:theme\:gl0b3x input[type=text] + label.disabled,
 .form\:theme\:gl0b3x input[type=number] + label.disabled,
@@ -40766,6 +40766,11 @@ fieldset.unstyle {
   border: 2px solid #a01010;
 }
 
+[data-module="slider.input-container"].fit {
+  width: calc(100% - 1.5rem);
+  margin-left: 0.75rem;
+}
+
 input[type=range].slider {
   position: relative;
   height: 1.5rem;
@@ -40773,6 +40778,8 @@ input[type=range].slider {
   background: none;
   z-index: 2;
   cursor: grab;
+  width: calc(100% + 1.5rem);
+  margin-left: -0.75rem;
 }
 input[type=range].slider:active {
   cursor: grabbing;
@@ -40785,6 +40792,7 @@ input[type=range].slider::-webkit-slider-thumb {
   border-radius: 50%;
   background: #fff;
   appearance: none;
+  margin-top: 0.125rem;
 }
 
 .slider-background {
@@ -40793,7 +40801,7 @@ input[type=range].slider::-webkit-slider-thumb {
   height: 0.25rem;
   border-radius: 0.25rem;
   display: block;
-  margin: -0.8rem auto 0.75rem;
+  margin: -0.75rem auto 0.75rem;
 }
 .slider-background .slider-fill {
   z-index: 1;
@@ -40807,6 +40815,14 @@ ul.slider-labels li {
   flex-basis: 100%;
 }
 
+[data-module="range-slider.input-container"].range-slider-container {
+  position: relative;
+}
+[data-module="range-slider.input-container"].range-slider-container.fit {
+  width: calc(100% - 1.5rem);
+  margin-left: 0.75rem;
+}
+
 input[type=range].range-slider {
   position: relative;
   -webkit-appearance: none;
@@ -40815,6 +40831,8 @@ input[type=range].range-slider {
   background: none;
   cursor: grab;
   z-index: 2;
+  width: calc(100% + 1.5rem);
+  margin-left: -0.75rem;
 }
 input[type=range].range-slider:not(:only-of-type) {
   pointer-events: none;
@@ -40835,6 +40853,7 @@ input[type=range].range-slider::-webkit-slider-thumb {
   pointer-events: auto;
   -webkit-transition: 0.1s;
   transition: 0.1s;
+  margin-top: 0.125rem;
 }
 
 input[type=range].range-slider:nth-of-type(1) {
@@ -40842,63 +40861,23 @@ input[type=range].range-slider:nth-of-type(1) {
 }
 
 input[type=range].range-slider + input[type=range].range-slider + .slider-background {
-  margin-top: -16px;
+  margin-top: -1rem;
 }
 
-/*.form\:theme\:gl0b3x {
-  input[type="text"].custom-1 {
-    color: $blue;
-    width: 100%;
-    height: 36px;
-    white-space: nowrap;
-    padding: 4px 2px 0;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid $silver;
-  }
-
-  .error-message {
-    width: 100%;
-    min-width: 150px;
-    padding: 0 0 0 19px;
-    font-size: rem-calc(14);
-    font-family: 'heebo';
-    color: $negative;
-    background: url(../assets/icon/exclamation-circle.svg) no-repeat top left;
-    background-size: 16px 16px;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .3s ease;
-    margin-top: 4px;
-    display: none;
-    margin-bottom: 6px;
-    &.has-error {
-      visibility: visible;
-      opacity: 1;
-      display: block;
-      &.display\:inline {
-        display: inline;
-      }
-    }
-  }
-}
-*/
 @font-face {
-  font-family: "play";
+  font-family: "play-regular";
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/play/v12/6aez4K2oVqwIvtU2Hw.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url("../assets/font/play/play-regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "play-bold";
   font-style: normal;
   font-weight: 700;
-  src: url(https://fonts.gstatic.com/s/play/v12/6ae84K2oVqwItm4TCpAy2g.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url("../assets/font/play/play-bold.ttf") format("truetype");
 }
-.play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40908,8 +40887,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
 }
 
 @media screen and (max-width: 47.99rem) {
-  .sm\=\:play\:normal {
-    font-family: "play", Arial, Sans-Serif;
+  .sm\=\:play\:regular {
+    font-family: "play-regular", Arial, Sans-Serif;
     font-weight: 400;
   }
 
@@ -40918,8 +40897,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
     font-weight: 700;
   }
 }
-.sm\+\:play\:normal {
-  font-family: "play", Arial, Sans-Serif;
+.sm\+\:play\:regular {
+  font-family: "play-regular", Arial, Sans-Serif;
   font-weight: 400;
 }
 
@@ -40929,8 +40908,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
 }
 
 @media screen and (max-width: 63.99rem) {
-  .md-\:play\:normal {
-    font-family: "play", Arial, Sans-Serif;
+  .md-\:play\:regular {
+    font-family: "play-regular", Arial, Sans-Serif;
     font-weight: 400;
   }
 
@@ -40940,8 +40919,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
   }
 }
 @media screen and (min-width: 48rem) and (max-width: 63.99rem) {
-  .md\=\:play\:normal {
-    font-family: "play", Arial, Sans-Serif;
+  .md\=\:play\:regular {
+    font-family: "play-regular", Arial, Sans-Serif;
     font-weight: 400;
   }
 
@@ -40951,8 +40930,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
   }
 }
 @media screen and (min-width: 48rem) {
-  .md\+\:play\:normal {
-    font-family: "play", Arial, Sans-Serif;
+  .md\+\:play\:regular {
+    font-family: "play-regular", Arial, Sans-Serif;
     font-weight: 400;
   }
 
@@ -40962,8 +40941,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
   }
 }
 @media screen and (max-width: 79.99rem) {
-  .lg-\:play\:normal {
-    font-family: "play", Arial, Sans-Serif;
+  .lg-\:play\:regular {
+    font-family: "play-regular", Arial, Sans-Serif;
     font-weight: 400;
   }
 
@@ -40973,8 +40952,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
   }
 }
 @media screen and (min-width: 64rem) and (max-width: 79.99rem) {
-  .lg\=\:play\:normal {
-    font-family: "play", Arial, Sans-Serif;
+  .lg\=\:play\:regular {
+    font-family: "play-regular", Arial, Sans-Serif;
     font-weight: 400;
   }
 
@@ -40984,8 +40963,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
   }
 }
 @media screen and (min-width: 64rem) {
-  .lg\+\:play\:normal {
-    font-family: "play", Arial, Sans-Serif;
+  .lg\+\:play\:regular {
+    font-family: "play-regular", Arial, Sans-Serif;
     font-weight: 400;
   }
 
@@ -40995,8 +40974,8 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
   }
 }
 @media screen and (min-width: 80rem) {
-  .xl\+\:play\:normal {
-    font-family: "play", Arial, Sans-Serif;
+  .xl\+\:play\:regular {
+    font-family: "play-regular", Arial, Sans-Serif;
     font-weight: 400;
   }
 
@@ -41009,196 +40988,232 @@ input[type=range].range-slider + input[type=range].range-slider + .slider-backgr
   font-family: "heebo-light";
   font-style: normal;
   font-weight: 300;
-  src: local("Heebo Light"), local("Heebo-Light"), url("https://fonts.gstatic.com/s/heebo/v2/PBgOuZgb7GIoq5WdJf9cYPesZW2xOQ-xsNqO47m55DA.woff2") format("woff2"), url("/fonts/heebo-300.woff") format("woff");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  src: url("../assets/font/heebo/heebo.ttf") format("truetype");
 }
 @font-face {
-  font-family: "heebo";
+  font-family: "heebo-regular";
   font-style: normal;
   font-weight: 400;
-  src: local("Heebo"), local("Heebo-Regular"), url("https://fonts.gstatic.com/s/heebo/v2/Q66imbW5v9YuQMRLd0RXOA.woff2") format("woff2"), url("/fonts/heebo-400.woff") format("woff");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  src: url("../assets/font/heebo/heebo.ttf") format("truetype");
 }
 @font-face {
   font-family: "heebo-medium";
   font-style: normal;
   font-weight: 500;
-  src: local("Heebo Medium"), local("Heebo-Medium"), url("https://fonts.gstatic.com/s/heebo/v2/vd_gpifGyUkVAMtANh8LkvesZW2xOQ-xsNqO47m55DA.woff2") format("woff2"), url("/fonts/heebo-500.woff") format("woff");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  src: url("../assets/font/heebo/heebo.ttf") format("truetype");
 }
 @font-face {
   font-family: "heebo-bold";
   font-style: normal;
   font-weight: 700;
-  src: local("Heebo Bold"), local("Heebo-Bold"), url("https://fonts.gstatic.com/s/heebo/v2/ci1Z5c9lWkHY3RNZSMtWUfesZW2xOQ-xsNqO47m55DA.woff2") format("woff2"), url("/fonts/heebo-700.woff") format("woff");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  src: url("../assets/font/heebo/heebo.ttf") format("truetype");
 }
 .heebo\:light {
   font-family: "heebo-light", Arial, Sans-Serif;
+  font-weight: 300;
 }
 
-.heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
+  font-weight: 400;
 }
 
 .heebo\:medium {
   font-family: "heebo-medium", Arial, Sans-Serif;
+  font-weight: 500;
 }
 
 .heebo\:bold {
   font-family: "heebo-bold", Arial, Sans-Serif;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 47.99rem) {
   .sm\=\:heebo\:light {
     font-family: "heebo-light", Arial, Sans-Serif;
+    font-weight: 300;
   }
 
-  .sm\=\:heebo\:normal {
-    font-family: "heebo", Arial, Sans-Serif;
+  .sm\=\:heebo\:regular {
+    font-family: "heebo-regular", Arial, Sans-Serif;
+    font-weight: 400;
   }
 
   .sm\=\:heebo\:medium {
     font-family: "heebo-medium", Arial, Sans-Serif;
+    font-weight: 500;
   }
 
   .sm\=\:heebo\:bold {
     font-family: "heebo-bold", Arial, Sans-Serif;
+    font-weight: 700;
   }
 }
 .sm\+\:heebo\:light {
   font-family: "heebo-light", Arial, Sans-Serif;
+  font-weight: 300;
 }
 
-.sm\+\:heebo\:normal {
-  font-family: "heebo", Arial, Sans-Serif;
+.sm\+\:heebo\:regular {
+  font-family: "heebo-regular", Arial, Sans-Serif;
+  font-weight: 400;
 }
 
 .sm\+\:heebo\:medium {
   font-family: "heebo-medium", Arial, Sans-Serif;
+  font-weight: 500;
 }
 
 .sm\+\:heebo\:bold {
   font-family: "heebo-bold", Arial, Sans-Serif;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 63.99rem) {
   .md-\:heebo\:light {
     font-family: "heebo-light", Arial, Sans-Serif;
+    font-weight: 300;
   }
 
-  .md-\:heebo\:normal {
-    font-family: "heebo", Arial, Sans-Serif;
+  .md-\:heebo\:regular {
+    font-family: "heebo-regular", Arial, Sans-Serif;
+    font-weight: 400;
   }
 
   .md-\:heebo\:medium {
     font-family: "heebo-medium", Arial, Sans-Serif;
+    font-weight: 500;
   }
 
   .md-\:heebo\:bold {
     font-family: "heebo-bold", Arial, Sans-Serif;
+    font-weight: 700;
   }
 }
 @media screen and (min-width: 48rem) and (max-width: 63.99rem) {
   .md\=\:heebo\:light {
     font-family: "heebo-light", Arial, Sans-Serif;
+    font-weight: 300;
   }
 
-  .md\=\:heebo\:normal {
-    font-family: "heebo", Arial, Sans-Serif;
+  .md\=\:heebo\:regular {
+    font-family: "heebo-regular", Arial, Sans-Serif;
+    font-weight: 400;
   }
 
   .md\=\:heebo\:medium {
     font-family: "heebo-medium", Arial, Sans-Serif;
+    font-weight: 500;
   }
 
   .md\=\:heebo\:bold {
     font-family: "heebo-bold", Arial, Sans-Serif;
+    font-weight: 700;
   }
 }
 @media screen and (min-width: 48rem) {
   .md\+\:heebo\:light {
     font-family: "heebo-light", Arial, Sans-Serif;
+    font-weight: 300;
   }
 
-  .md\+\:heebo\:normal {
-    font-family: "heebo", Arial, Sans-Serif;
+  .md\+\:heebo\:regular {
+    font-family: "heebo-regular", Arial, Sans-Serif;
+    font-weight: 400;
   }
 
   .md\+\:heebo\:medium {
     font-family: "heebo-medium", Arial, Sans-Serif;
+    font-weight: 500;
   }
 
   .md\+\:heebo\:bold {
     font-family: "heebo-bold", Arial, Sans-Serif;
+    font-weight: 700;
   }
 }
 @media screen and (max-width: 79.99rem) {
   .lg-\:heebo\:light {
     font-family: "heebo-light", Arial, Sans-Serif;
+    font-weight: 300;
   }
 
-  .lg-\:heebo\:normal {
-    font-family: "heebo", Arial, Sans-Serif;
+  .lg-\:heebo\:regular {
+    font-family: "heebo-regular", Arial, Sans-Serif;
+    font-weight: 400;
   }
 
   .lg-\:heebo\:medium {
     font-family: "heebo-medium", Arial, Sans-Serif;
+    font-weight: 500;
   }
 
   .lg-\:heebo\:bold {
     font-family: "heebo-bold", Arial, Sans-Serif;
+    font-weight: 700;
   }
 }
 @media screen and (min-width: 64rem) and (max-width: 79.99rem) {
   .lg\=\:heebo\:light {
     font-family: "heebo-light", Arial, Sans-Serif;
+    font-weight: 300;
   }
 
-  .lg\=\:heebo\:normal {
-    font-family: "heebo", Arial, Sans-Serif;
+  .lg\=\:heebo\:regular {
+    font-family: "heebo-regular", Arial, Sans-Serif;
+    font-weight: 400;
   }
 
   .lg\=\:heebo\:medium {
     font-family: "heebo-medium", Arial, Sans-Serif;
+    font-weight: 500;
   }
 
   .lg\=\:heebo\:bold {
     font-family: "heebo-bold", Arial, Sans-Serif;
+    font-weight: 700;
   }
 }
 @media screen and (min-width: 64rem) {
   .lg\+\:heebo\:light {
     font-family: "heebo-light", Arial, Sans-Serif;
+    font-weight: 300;
   }
 
-  .lg\+\:heebo\:normal {
-    font-family: "heebo", Arial, Sans-Serif;
+  .lg\+\:heebo\:regular {
+    font-family: "heebo-regular", Arial, Sans-Serif;
+    font-weight: 400;
   }
 
   .lg\+\:heebo\:medium {
     font-family: "heebo-medium", Arial, Sans-Serif;
+    font-weight: 500;
   }
 
   .lg\+\:heebo\:bold {
     font-family: "heebo-bold", Arial, Sans-Serif;
+    font-weight: 700;
   }
 }
 @media screen and (min-width: 80rem) {
   .xl\+\:heebo\:light {
     font-family: "heebo-light", Arial, Sans-Serif;
+    font-weight: 300;
   }
 
-  .xl\+\:heebo\:normal {
-    font-family: "heebo", Arial, Sans-Serif;
+  .xl\+\:heebo\:regular {
+    font-family: "heebo-regular", Arial, Sans-Serif;
+    font-weight: 400;
   }
 
   .xl\+\:heebo\:medium {
     font-family: "heebo-medium", Arial, Sans-Serif;
+    font-weight: 500;
   }
 
   .xl\+\:heebo\:bold {
     font-family: "heebo-bold", Arial, Sans-Serif;
+    font-weight: 700;
   }
 }
 /* use this to remove phantom space */
