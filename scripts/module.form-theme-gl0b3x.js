@@ -1,86 +1,64 @@
-"use strict";
+'use strict';
+storm_eagle.module('form_theme_gl0b3x', () => {
+  let self;
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-storm_eagle.module('form_theme_gl0b3x', function () {
-  "use strict";
-
-  var self;
   return {
-    initialize: function initialize() {
-      self = storm_eagle["form_theme_gl0b3x"];
+    initialize: () => {
+      self = storm_eagle['form_theme_gl0b3x'];
       self.input_listener();
       self.textarea_autoexpand_listener();
     },
-    ready: function ready() {
-      document.querySelectorAll('.form\\:theme\\:gl0b3x input, .form\\:theme\\:gl0b3x select, .form\\:theme\\:gl0b3x textarea').forEach(function (element) {
+    ready: () => {
+      document.querySelectorAll('.form\\:theme\\:gl0b3x input, .form\\:theme\\:gl0b3x select, .form\\:theme\\:gl0b3x textarea').forEach((element) => {
         if (element.type !== 'radio' || element.type !== 'range') {
           self.force_set_active_label(element);
         }
       });
-      document.querySelectorAll(".form\\:theme\\:gl0b3x textarea").forEach(function (element) {
+      document.querySelectorAll('.form\\:theme\\:gl0b3x textarea').forEach((element) => {
         self.force_textarea_autoexpand(element);
       });
     },
-    force_set_active_label: function force_set_active_label(element) {
+    force_set_active_label: (element) => {
       element.nextElementSibling.classList[element.value.length ? 'add' : 'remove']('active-label');
     },
-    input_listener: function input_listener() {
-      document.querySelectorAll('.form\\:theme\\:gl0b3x input, .form\\:theme\\:gl0b3x select, .form\\:theme\\:gl0b3x textarea').forEach(function (element) {
+    input_listener: () => {
+      document.querySelectorAll('.form\\:theme\\:gl0b3x input, .form\\:theme\\:gl0b3x select, .form\\:theme\\:gl0b3x textarea').forEach((element) => {
         if (element.type !== 'radio' || element.type !== 'range') {
-          element.addEventListener('change', function () {
+          element.addEventListener('change', () => {
             self.force_set_active_label(element);
           });
         }
       });
     },
-    force_textarea_autoexpand: function force_textarea_autoexpand(element) {
+    force_textarea_autoexpand: (element) => {
       element.style.height = 'inherit';
       element.style.height = element.scrollHeight + 'px';
     },
-    textarea_autoexpand_listener: function textarea_autoexpand_listener() {
-      document.querySelectorAll(".form\\:theme\\:gl0b3x textarea").forEach(function (element) {
-        element.addEventListener('input', function () {
+    textarea_autoexpand_listener: () => {
+      document.querySelectorAll('.form\\:theme\\:gl0b3x textarea').forEach((element) => {
+        element.addEventListener('input', () => {
           self.force_textarea_autoexpand(element);
         });
       });
-    }
+    },
   };
 });
-storm_eagle.module('form_parent_checkbox', function () {
-  "use strict";
 
-  var self;
-  var parent_checkbox_state = {};
+storm_eagle.module('form_parent_checkbox', () => {
+  let self;
+  let parent_checkbox_state = {};
 
   function _update_parent(parent_id) {
-    var num_child_checkboxes_checked = 0;
-    var num_checkboxes = 0;
-
-    for (var _i = 0, _Object$entries = Object.entries(parent_checkbox_state[parent_id]); _i < _Object$entries.length; _i++) {
-      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
-          key = _Object$entries$_i[0],
-          value = _Object$entries$_i[1];
-
+    let num_child_checkboxes_checked = 0;
+    let num_checkboxes = 0;
+    for (const [key, value] of Object.entries(parent_checkbox_state[parent_id])) {
       if (num_checkboxes > 0) {
         if (storm_eagle.checkbox.is_checked(document.getElementById(key))) {
           num_child_checkboxes_checked += 1;
         }
       }
-
       num_checkboxes += 1;
     }
-
     if (num_child_checkboxes_checked === 0) {
       document.getElementById(parent_id).setAttribute('aria-checked', 'false');
       document.getElementById(parent_id).checked = false;
@@ -94,26 +72,17 @@ storm_eagle.module('form_parent_checkbox', function () {
       }
     }
   }
-
   function _update_state(parent_id, id_clicked) {
     if (parent_id === id_clicked) {
       if (storm_eagle.checkbox.is_checked(document.getElementById(parent_id)) === false) {
-        for (var _i2 = 0, _Object$entries2 = Object.entries(parent_checkbox_state[parent_id]); _i2 < _Object$entries2.length; _i2++) {
-          var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
-              key = _Object$entries2$_i[0],
-              value = _Object$entries2$_i[1];
-
+        for (const [key, value] of Object.entries(parent_checkbox_state[parent_id])) {
           parent_checkbox_state[parent_id][key] = false;
           storm_eagle.checkbox.set_checked(document.getElementById(key), false);
         }
       } else if (storm_eagle.checkbox.is_checked(document.getElementById(parent_id)) === true) {
-        for (var _i3 = 0, _Object$entries3 = Object.entries(parent_checkbox_state[parent_id]); _i3 < _Object$entries3.length; _i3++) {
-          var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i3], 2),
-              _key = _Object$entries3$_i[0],
-              _value = _Object$entries3$_i[1];
-
-          parent_checkbox_state[parent_id][_key] = true;
-          storm_eagle.checkbox.set_checked(document.getElementById(_key), true);
+        for (const [key, value] of Object.entries(parent_checkbox_state[parent_id])) {
+          parent_checkbox_state[parent_id][key] = true;
+          storm_eagle.checkbox.set_checked(document.getElementById(key), true);
         }
       }
     } else {
@@ -125,27 +94,28 @@ storm_eagle.module('form_parent_checkbox', function () {
         storm_eagle.checkbox.set_checked(document.getElementById(id_clicked), true);
       }
     }
-
     _update_parent(parent_id);
   }
 
   return {
-    initialize: function initialize() {
-      self = storm_eagle["form_parent_checkbox"];
-      document.querySelectorAll("[data-module='parent-checkbox']").forEach(function (el, num_child_checkboxes) {
-        var parent_checkbox_id = el.getAttribute("id");
-        var checkbox_ids = el.getAttribute('aria-controls').split(' ');
+    initialize: () => {
+      self = storm_eagle['form_parent_checkbox'];
+      document.querySelectorAll("[data-module='parent-checkbox']").forEach((el, num_child_checkboxes) => {
+        let parent_checkbox_id = el.getAttribute('id');
+        let checkbox_ids = el.getAttribute('aria-controls').split(' ');
+
         parent_checkbox_state[parent_checkbox_id] = {};
         parent_checkbox_state[parent_checkbox_id][parent_checkbox_id] = storm_eagle.checkbox.is_checked(document.getElementById(parent_checkbox_id));
+
         self.add_parent_event_listeners(parent_checkbox_id);
 
-        for (var i = 0; i < checkbox_ids.length; i++) {
+        for (let i = 0; i < checkbox_ids.length; i++) {
           parent_checkbox_state[parent_checkbox_id][checkbox_ids[i]] = storm_eagle.checkbox.is_checked(document.getElementById(checkbox_ids[i]));
           self.add_child_event_listeners(parent_checkbox_id, document.getElementById(checkbox_ids[i]));
         }
       });
     },
-    add_parent_event_listeners: function add_parent_event_listeners(parent_checkbox_id) {
+    add_parent_event_listeners: (parent_checkbox_id) => {
       document.getElementById(parent_checkbox_id).addEventListener('keydown', function (event) {
         _update_state(parent_checkbox_id, parent_checkbox_id);
       });
@@ -153,16 +123,16 @@ storm_eagle.module('form_parent_checkbox', function () {
         _update_state(parent_checkbox_id, parent_checkbox_id);
       });
     },
-    add_child_event_listeners: function add_child_event_listeners(parent_checkbox_id, el) {
+    add_child_event_listeners: (parent_checkbox_id, el) => {
       el.addEventListener('change', function (event) {
-        _update_state(parent_checkbox_id, el.getAttribute("id"));
+        _update_state(parent_checkbox_id, el.getAttribute('id'));
       });
       el.addEventListener('keydown', function (event) {
-        _update_state(parent_checkbox_id, el.getAttribute("id"));
+        _update_state(parent_checkbox_id, el.getAttribute('id'));
       });
       el.addEventListener('click', function (event) {
-        _update_state(parent_checkbox_id, el.getAttribute("id"));
+        _update_state(parent_checkbox_id, el.getAttribute('id'));
       });
-    }
+    },
   };
 });
