@@ -82,7 +82,7 @@ const remove_focus_selector = `.form\\:theme\\:gl0b3x input[type="radio"]+label,
  * storm_eagle.resize_observer()
  **/
 
-var storm_eagle = (function () {
+var storm_eagle = (() => {
   return {
     /**
      * Add module and module name_space to the storm_eagle object
@@ -640,6 +640,12 @@ var storm_eagle = (function () {
         return '_' + Math.random().toString(36).substr(2, 9);
       },
 
+      event_disable: (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+      },
+
       index_in_parent: (node) => {
         let children = node.parentNode.childNodes;
         let num = 0;
@@ -796,15 +802,25 @@ var storm_eagle = (function () {
      */
     resize_observer: (elements, func, params_obj) => {
       let param_values = (params_obj) ? Object.values(params_obj) : [];
+      const has_resize_observer = (element) => {
+        return element.__resize_observer__ instanceof ResizeObserver;
+      };
+
       let resize_observer = new ResizeObserver((el) => {
         func(...param_values);
       });
-      //@TODO: write cleaner way to iterate through one DOM Element OR NodeList
-      elements instanceof HTMLElement
-        ? resize_observer.observe(elements)
-        : elements.forEach((el) => {
-            resize_observer.observe(el);
-          });
+
+      // Utility function to observe an element if not already observed
+      const observe_element = (el) => {
+        !has_resize_observer(el) && resize_observer.observe(el);
+      };
+
+      // Use the utility function for iteration
+      if (elements instanceof HTMLElement) {
+        observe_element(elements);
+      } else if (elements instanceof NodeList || Array.isArray(elements)) {
+        elements.forEach(observe_element);
+      }
     },
   };
 })();
@@ -916,7 +932,7 @@ storm_eagle.module('equalize_heights', () => {
      * Re-evaluate the equalizing of the height when the page loads or is resized
      */
     resize_listener: () => {
-      function force_resize() {
+      const force_resize = () => {
         return self.force_resize();
       }
       storm_eagle.resize_observer(document.querySelector('body'), force_resize);
@@ -958,7 +974,7 @@ storm_eagle.module('responsive_dom_manipulator', () => {
      * Re-evaluate moving the dom when the page loads or is resized
      */
     resize_listener: () => {
-      function force_resize() {
+      const force_resize = () => {
         return self.force_resize();
       }
       storm_eagle.resize_observer(document.querySelector('body'), force_resize);
