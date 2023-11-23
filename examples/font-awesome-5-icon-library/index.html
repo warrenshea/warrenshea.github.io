@@ -209,7 +209,7 @@
       },
       add_event_listeners: () => {
 
-        _find_object_with_param = (object_array,param,val) => {
+        const _find_object_with_param = (object_array,param,val) => {
           let result = object_array.filter(obj => {
             return obj[param] === val;
           })
