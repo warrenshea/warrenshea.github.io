@@ -254,7 +254,7 @@
         });
       },
       get_icon_list: (query, input_id, results_id, autocomplete_id, results_max_results) => {
-        _helper_tags_database = (database_temp) => {
+        const _helper_tags_database = (database_temp) => {
           let new_database = [];
           let database_temp_keyword;
           let isQueryIn_database_temp_keyword;
@@ -311,7 +311,7 @@
         return `\n        <li role="option" id="autocomplete-suggestion-${index}" class="unstyle w:100% display:flex align:middle" data-sr-description="${tag}" onclick="storm_eagle.fa5dam.autocomplete_fill('${input_id}','${tag}');storm_eagle.autocomplete.close('${autocomplete_id}');">${tag_string}</li>`;
       },
       autocomplete_fill: (input_id, name) => {
-        _load_keyword = (keyword) => {
+        const _load_keyword = (keyword) => {
           filter_group = "keyword";
           //console.log("filter_group",filter_group);
           //console.log("filters",filters);
