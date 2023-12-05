@@ -17235,6 +17235,17 @@ ol.unstyle-pl\:0 {
 [data-module=accordion] [data-module="accordion.header"][aria-expanded=true] > span > [data-module="accordion.inactive"] {
   display: block;
 }
+[data-module=accordion] [data-module="accordion.panel"] {
+  opacity: 1;
+  transition: 0.25s opacity ease;
+  overflow: hidden;
+}
+[data-module=accordion] [data-module="accordion.panel"][data-accordion-panel=hide] {
+  opacity: 0;
+  transition: 0.25s opacity ease;
+  overflow: hidden;
+  height: 0px;
+}
 
 [data-module="tabs-v.blue"] {
   display: flex;
