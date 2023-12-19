@@ -4,17 +4,23 @@
 /* @TODO: Autoplay */
 storm_eagle.module('carousel', () => {
   let self;
-  let carousel_state = {};
+  let module_state = {};
 
   return {
     initialize: () => {
-      self = storm_eagle['carousel'];
+      self = storm_eagle.carousel;
+      module_state = {};
       document.querySelectorAll('[data-module="carousel"]').forEach((el) => {
-        let carousel_id = el.getAttribute('id');
-        carousel_state[carousel_id] = {
+        let id = el.getAttribute('id');
+        module_state[id] = {
+          id,
+          el,
           item_group: el.querySelector('[data-module="carousel.item-group"]'),
           item: el.querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)'),
           total_children: el.querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)').length,
+          indicators_group: el.querySelector('[data-module="carousel.indicators-group"]'),
+          controls_prev: el.querySelector('[data-module="carousel.controls-prev"]'),
+          controls_next: el.querySelector('[data-module="carousel.controls-next"]'),
           item_height_variable: el.getAttribute('data-carousel-item-height-variable'),
           breakpoint: el.getAttribute('data-carousel-breakpoint'),
           transition_duration_array: JSON.parse(el.getAttribute('data-carousel-transition-duration')),
@@ -26,363 +32,355 @@ storm_eagle.module('carousel', () => {
           carousel_item_width: '',
           current_active_carousel_item: '',
         };
-        self.init_ui(carousel_id);
-        self.update_carousel_state(carousel_id);
-
-        //self.tab_carousel_id_listener(carousel_id);
+        self.state.initialize(id);
+        self.event_listeners.initialize(id);
       });
     },
-    ready: () => {
-      document.querySelectorAll('[data-module="carousel"]').forEach((el, index) => {
-        let carousel_id = el.getAttribute('id');
-        self.swipe_listener(carousel_id);
-        self.control_buttons_listener(carousel_id);
-        self.resize_listener(carousel_id);
-      });
-    },
-    init_ui: (carousel_id) => {
-      /* adds a carousel id attribute to the carousel for debugging only */
-      //document.getElementById(carousel_id).setAttribute("data-carousel-id", carousel_id);
-
-      /* set the active item state property based on which DOM element has the 'active-item' class */
-      document
-        .getElementById(carousel_id)
-        .querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)')
-        .forEach((el, index) => {
+    state: {
+      initialize: (id) => {
+        self.state.set_current_active_carousel_item(id);
+        self.state.set_offset_left(id);
+        self.state.set_number_of_active(id);
+        self.state.set_transition_duration(id);
+      },
+      set_current_active_carousel_item: (id) => {
+        /* set the active item state property based on which DOM element has the 'active-item' class */
+        const { item } = module_state[id];
+        item.forEach((el, index) => {
           if (el.classList.contains('active-item')) {
-            carousel_state[carousel_id]['current_active_carousel_item'] = index; //set current_active_carousel_item as the carousel item control set as "active" in the HTML code
+            module_state[id]["current_active_carousel_item"] = index; //set current_active_carousel_item as the carousel item control set as "active" in the HTML code
           }
         });
-    },
-    update_carousel: (carousel_id) => {
-      const set_active_items = (carousel_id) => {
-        /* resets the active classes on the carousel items and adds the proper active classes */
-        document
-          .getElementById(carousel_id)
-          .querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)')
-          .forEach((el) => {
-            el.classList.remove('active-item', 'active');
-          });
-        document.getElementById(carousel_id).querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)')[carousel_state[carousel_id]['current_active_carousel_item']].classList.add('active-item');
-        for (let i = 0; i < carousel_state[carousel_id]['number_of_active']; i++) {
-          document.getElementById(carousel_id).querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)')[carousel_state[carousel_id]['current_active_carousel_item'] + i].classList.add('active');
+      },
+      set_offset_left: (id) => {
+        const { el, offset_left_array } = module_state[id];
+        /* if the value is > 1, then use a pixel value for the offset */
+        /* if the value is > 0 and < 1, use the value as a percentage (e.g. 1/4 = .25) */
+        const calculate_pixel_value = (id, offsetValue) => {
+          if (offsetValue > 1) {
+            return offsetValue;
+          } else if (offsetValue > 0 && offsetValue < 1) {
+            return el.offsetWidth * offsetValue;
+          } else {
+            return 0;
+          }
         }
-
-        /* resets the active classes on the carousel control and adds the proper active classes */
-        document
-          .getElementById(carousel_id)
-          .querySelectorAll('[data-module="carousel.indicators-group"] .control')
-          .forEach((el) => {
-            el.classList.remove('active-item');
+        if (storm_eagle.client.viewport.is_sm_only()) {
+          module_state[id]['offset_left'] = calculate_pixel_value(id, offset_left_array[0]);
+        } else if (storm_eagle.client.viewport.is_md_only()) {
+          module_state[id]['offset_left'] = calculate_pixel_value(id, offset_left_array[1]);
+        } else if (storm_eagle.client.viewport.is_lg_only()) {
+          module_state[id]['offset_left'] = calculate_pixel_value(id, offset_left_array[2]);
+        } else if (storm_eagle.client.viewport.is_xl_up()) {
+          module_state[id]['offset_left'] = calculate_pixel_value(id, offset_left_array[3]);
+        }
+      },
+      set_number_of_active: (id) => {
+        const { number_of_active_array } = module_state[id];
+        if (storm_eagle.client.viewport.is_sm_only()) {
+          module_state[id]['number_of_active'] = number_of_active_array[0];
+        } else if (storm_eagle.client.viewport.is_md_only()) {
+          module_state[id]['number_of_active'] = number_of_active_array[1];
+        } else if (storm_eagle.client.viewport.is_lg_only()) {
+          module_state[id]['number_of_active'] = number_of_active_array[2];
+        } else if (storm_eagle.client.viewport.is_xl_up()) {
+          module_state[id]['number_of_active'] = number_of_active_array[3];
+        }
+      },
+      set_transition_duration: (id) => {
+        const { transition_duration_array } = module_state[id];
+        if (storm_eagle.client.viewport.is_sm_only()) {
+          module_state[id]['transition_duration'] = transition_duration_array[0];
+        } else if (storm_eagle.client.viewport.is_md_only()) {
+          module_state[id]['transition_duration'] = transition_duration_array[1];
+        } else if (storm_eagle.client.viewport.is_lg_only()) {
+          module_state[id]['transition_duration'] = transition_duration_array[2];
+        } else if (storm_eagle.client.viewport.is_xl_up()) {
+          module_state[id]['transition_duration'] = transition_duration_array[3];
+        }
+      },
+    },
+    event_listeners: {
+      initialize: (id) => {
+        self.event_listeners.indicator.initialize(id);
+        self.event_listeners.control_buttons.initialize(id);
+        self.event_listeners.swipe.initialize(id);
+        self.event_listeners.resize.initialize(id);
+      },
+      indicator: {
+        initialize: (id) => {
+          const { el } = module_state[id];
+          el.querySelectorAll('[data-module="carousel.indicators-group"] .control').forEach((el) => {
+            el.removeEventListener('click', self.event_listeners.indicator.handle_change);
+            el.addEventListener('click', self.event_listeners.indicator.handle_change);
           });
-        document.getElementById(carousel_id).querySelectorAll('[data-module="carousel.indicators-group"] .control')[carousel_state[carousel_id]['current_active_carousel_item']].classList.add('active-item');
+        },
+        handle_change: (event) => {
+          event.preventDefault();
+          const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
+          const { el, item_group, transition_duration } = module_state[id];
+          item_group.style.transitionDuration = `${transition_duration}s`;
+          module_state[id]['current_active_carousel_item'] = storm_eagle.util.index_in_parent(event.currentTarget);
+          self.update_carousel(id);
+        },
+      },
+      control_buttons: {
+        initialize: (id) => {
+          const { el, controls_next, controls_prev } = module_state[id];
+          controls_next.removeEventListener('click', self.event_listeners.control_buttons.handle_swipe_left);
+          controls_next.addEventListener('click', self.event_listeners.control_buttons.handle_swipe_left);
+          controls_prev.removeEventListener('click', self.event_listeners.control_buttons.handle_swipe_right);
+          controls_prev.addEventListener('click', self.event_listeners.control_buttons.handle_swipe_right);
+        },
+        handle_swipe_left: (event) => {
+          event.preventDefault();
+          const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
+          const { el, item_group } = module_state[id];
+          /* console.log("left"); */
+          item_group.dispatchEvent(new Event('swiped-left'));
+        },
+        handle_swipe_right: (event) => {
+          event.preventDefault();
+          const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
+          const { el, item_group } = module_state[id];
+          /* console.log("right"); */
+          item_group.dispatchEvent(new Event('swiped-right'));
+        },
+      },
+      resize: {
+        initialize: (id) => {
+          const { el } = module_state[id];
+          const force_resize = () => {
+            return self.force_resize(id);
+          }
+          storm_eagle.resize_observer(el, force_resize);
+        }
+      },
+      swipe: {
+        initialize: (id) => {
+          const { el, item_group } = module_state[id];
+          /* if a coursel is swiped left */
+          item_group.removeEventListener('swiped-left', self.event_listeners.swipe.handle_swiped_left);
+          item_group.addEventListener('swiped-left', self.event_listeners.swipe.handle_swiped_left);
+
+          /* if a coursel is swiped right */
+          item_group.removeEventListener('swiped-right', self.event_listeners.swipe.handle_swiped_right);
+          item_group.addEventListener('swiped-right', self.event_listeners.swipe.handle_swiped_right);
+        },
+        handle_swiped_left: (event) => {
+          //go -> in the carousel
+          const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
+          const { el, item_group, total_children, transition_duration, number_of_active, current_active_carousel_item } = module_state[id];
+          item_group.style.transitionDuration = `${transition_duration}s`;
+          if (module_state[id]['current_active_carousel_item'] !== total_children - number_of_active) {
+            module_state[id]['current_active_carousel_item']++;
+            self.update_carousel(id);
+          }
+        },
+        handle_swiped_right: (event) => {
+          //go <- in the carousel
+          const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
+          const { el, item_group, transition_duration } = module_state[id];
+          item_group.style.transitionDuration = `${transition_duration}s`;
+          if (module_state[id]['current_active_carousel_item'] !== 0) {
+            module_state[id]['current_active_carousel_item']--;
+            self.update_carousel(id);
+          }
+        },
+      },
+    },
+    update_carousel: (id) => {
+      const { el, item_group, item, total_children, number_of_active, offset_left, carousel_item_width, current_active_carousel_item } = module_state[id];
+      const set_active_items = (id) => {
+        /* resets the active classes on the carousel items and adds the proper active classes */
+        item.forEach((el) => {
+          el.classList.remove('active-item', 'active');
+        });
+        item[current_active_carousel_item].classList.add('active-item');
+        for (let i = 0; i < number_of_active; i++) {
+          item[current_active_carousel_item + i].classList.add('active');
+        }
+        /* resets the active classes on the carousel control and adds the proper active classes */
+        el.querySelectorAll('[data-module="carousel.indicators-group"] .control').forEach((el) => {
+          el.classList.remove('active-item');
+        });
+        el.querySelectorAll('[data-module="carousel.indicators-group"] .control')[current_active_carousel_item].classList.add('active-item');
       }
 
-      const update_controls = (carousel_id) => {
+      const update_controls = (id) => {
+        const { controls_next, controls_prev } = module_state[id];
         /* show both chevrons */
-        if (carousel_state[carousel_id]['total_children'] !== 1) {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.remove('display:none');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('display:block');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.remove('display:none');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('display:block');
+        if (total_children !== 1) {
+          controls_prev.classList.remove('display:none');
+          controls_prev.classList.add('display:block');
+          controls_next.classList.remove('display:none');
+          controls_next.classList.add('display:block');
         }
         /* hide chevrons */
-        if (carousel_state[carousel_id]['current_active_carousel_item'] === 0) {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('display:none');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.remove('display:block');
-        } else if (carousel_state[carousel_id]['current_active_carousel_item'] === carousel_state[carousel_id]['total_children'] - carousel_state[carousel_id]['number_of_active']) {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('display:none');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.remove('display:block');
+        if (current_active_carousel_item === 0) {
+          controls_prev.classList.add('display:none');
+          controls_prev.classList.remove('display:block');
+        } else if (current_active_carousel_item === total_children - number_of_active) {
+          controls_next.classList.add('display:none');
+          controls_next.classList.remove('display:block');
         }
       }
 
-      set_active_items(carousel_id);
-      update_controls(carousel_id);
+      set_active_items(id);
+      update_controls(id);
 
       /* ensures only links in the active carousel or tab-able */
-      document
-        .getElementById(carousel_id)
-        .querySelectorAll('[data-module="carousel.item-group"] .item a')
-        .forEach((el) => {
-          el.setAttribute('tabindex', '-1');
-        });
-      document
-        .getElementById(carousel_id)
-        .querySelectorAll('[data-module="carousel.item-group"] .item.active-item a')
-        .forEach((el) => {
-          el.setAttribute('tabindex', '0');
-        });
+      el.querySelectorAll('[data-module="carousel.item-group"] .item a').forEach((el) => {
+        el.setAttribute('tabindex', '-1');
+      });
+      el.querySelectorAll('[data-module="carousel.item-group"] .item.active-item a').forEach((el) => {
+        el.setAttribute('tabindex', '0');
+      });
 
       /* changes the left offset */
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.left = `${carousel_state[carousel_id]['offset_left'] - carousel_state[carousel_id]['current_active_carousel_item'] * carousel_state[carousel_id]['carousel_item_width']}px`;
+      item_group.style.left = `${offset_left - current_active_carousel_item * carousel_item_width}px`;
 
       /* ensures there's no transition duration except when we want the transition to occcur */
       setTimeout(() => {
-        document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.transitionDuration = '0s';
-      }, carousel_state[carousel_id]['transition_duration'] * 1000);
+        item_group.style.transitionDuration = '0s';
+      }, module_state[id]['transition_duration'] * 1000);
     },
-    indicators_listener: (carousel_id) => {
-      /* reset the listeners */
-      document
-        .getElementById(carousel_id)
-        .querySelectorAll('[data-module="carousel.indicators-group"] .control')
-        .forEach((el) => {
-          el.removeEventListener('click', () => {});
-        });
-
-      /* if a carousel control button is clicked, update the carousel and change the active state */
-      document
-        .getElementById(carousel_id)
-        .querySelectorAll('[data-module="carousel.indicators-group"] .control')
-        .forEach((el) => {
-          el.addEventListener('click', (event) => {
-            event.preventDefault();
-            document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.transitionDuration = `${carousel_state[carousel_id]['transition_duration']}s`;
-            carousel_state[carousel_id]['current_active_carousel_item'] = storm_eagle.util.index_in_parent(this);
-            self.update_carousel(carousel_id);
-          });
-        });
-    },
-    control_buttons_listener: (carousel_id) => {
-      const swipe_left = (event) => {
-        event.preventDefault();
-        /* console.log("left"); */
-        document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').dispatchEvent(new Event('swiped-left'));
-      }
-
-      const swipe_right = (event) => {
-        event.preventDefault();
-        /* console.log("right"); */
-        document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').dispatchEvent(new Event('swiped-right'));
-      }
-
-      /* reset the listeners */
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').removeEventListener('click', swipe_left);
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').removeEventListener('click', swipe_right);
-
-      /* if a carousel chevron is clicked, swipe the carousel */
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').addEventListener('click', swipe_left);
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').addEventListener('click', swipe_right);
-    },
-    swipe_listener: (carousel_id) => {
-      /* if a coursel is swiped left */
-      document
-        .getElementById(carousel_id)
-        .querySelector('[data-module="carousel.item-group"]')
-        .addEventListener('swiped-left', (event) => {
-          //go -> in the carousel
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.transitionDuration = `${carousel_state[carousel_id]['transition_duration']}s`;
-          if (carousel_state[carousel_id]['current_active_carousel_item'] !== carousel_state[carousel_id]['total_children'] - carousel_state[carousel_id]['number_of_active']) {
-            carousel_state[carousel_id]['current_active_carousel_item']++;
-            self.update_carousel(carousel_id);
-          }
-        });
-
-      /* if a coursel is swiped right */
-      document
-        .getElementById(carousel_id)
-        .querySelector('[data-module="carousel.item-group"]')
-        .addEventListener('swiped-right', (event) => {
-          //go <- in the carousel
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.transitionDuration = `${carousel_state[carousel_id]['transition_duration']}s`;
-          if (carousel_state[carousel_id]['current_active_carousel_item'] !== 0) {
-            carousel_state[carousel_id]['current_active_carousel_item']--;
-            self.update_carousel(carousel_id);
-          }
-        });
-    },
-    // tab_carousel_id_listener: (carousel_id) => {
-
-    //   /* iterate through data-tabable and, on focus, move carousel */
-    //   document.getElementById(carousel_id).querySelectorAll('[data-tabable]").forEach(el => {
-    //     el.addEventListener("focus", e => {
-    //       if (document.getElementById(carousel_id).classList.contains("carousel-is-active")) {
-    //         document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.transitionDuration = `${carousel_state[carousel_id]["transition_duration"]}s`;
-    //         carousel_state[carousel_id]["current_active_carousel_item"] = el;
-    //         self.update_carousel(carousel_id);
-    //       }
-    //     });
-    //   });
-    // },
-    resize_listener: (carousel_id) => {
-      const force_resize = () => {
-        return self.force_resize(carousel_id);
-      }
-      storm_eagle.resize_observer(document.querySelector('body'), force_resize);
-    },
-    reinitialize_carousel: (carousel_id) => {
+    reinitialize_carousel: (id) => {
+      const { el, item_group, item, total_children, item_height_variable, indicators_group, number_of_active, offset_left, carousel_item_width, current_active_carousel_item } = module_state[id];
       /* indicate that the carousel is currently active, rather than disabled */
-      document.getElementById(carousel_id).classList.add('carousel-is-active');
+      el.classList.add('carousel-is-active');
 
       /* dynamically create the control buttons */
-      // document.getElementById(carousel_id).querySelectorAll('[data-module="carousel.controls"]').forEach(el => {
+      // el.querySelectorAll('[data-module="carousel.controls"]').forEach(el => {
       //   el.remove();
       // });
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').innerHTML = '';
-      for (let i = 0; i <= carousel_state[carousel_id]['total_children'] - carousel_state[carousel_id]['number_of_active']; i++) {
-        document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').innerHTML += `<button name="carousel-control-button" class="control cursor:pointer"><span class="show-for-sr">Go to slide #${i + 1}</button>`;
+      indicators_group.innerHTML = '';
+      for (let i = 0; i <= total_children - number_of_active; i++) {
+        indicators_group.innerHTML += `<button name="carousel-control-button" class="control cursor:pointer"><span class="show-for-sr">Go to slide #${i + 1}</button>`;
       }
-      self.indicators_listener(carousel_id);
+      self.event_listeners.indicator.initialize(id);
 
       /* set the active item class on the control buttons */
-      document.getElementById(carousel_id).querySelectorAll('[data-module="carousel.indicators-group"] .control')[carousel_state[carousel_id]['current_active_carousel_item']].classList.add('active-item');
-      //console.log(document.getElementById(carousel_id).querySelectorAll('[data-module="carousel.indicators-group'] .control"));
-      //console.log([carousel_state[carousel_id]["current_active_carousel_item"]]);
+      el.querySelectorAll('[data-module="carousel.indicators-group"] .control')[current_active_carousel_item].classList.add('active-item');
+      //console.log(el.querySelectorAll('[data-module="carousel.indicators-group'] .control"));
+      //console.log([module_state[id]["current_active_carousel_item"]]);
 
       /* updates the carousel width state property and updates the carousel container */
-      carousel_state[carousel_id]['carousel_item_width'] = (document.getElementById(carousel_id).offsetWidth - 2 * carousel_state[carousel_id]['offset_left']) / carousel_state[carousel_id]['number_of_active'];
-      document
-        .getElementById(carousel_id)
-        .querySelectorAll('[data-module="carousel.item"]')
-        .forEach((el) => {
-          el.style.width = `${carousel_state[carousel_id]['carousel_item_width']}px`;
-        });
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.width = `${carousel_state[carousel_id]['offset_left'] + carousel_state[carousel_id]['carousel_item_width'] * carousel_state[carousel_id]['total_children']}px`;
+      module_state[id]['carousel_item_width'] = (el.offsetWidth - 2 * offset_left) / number_of_active;
+      item.forEach((el) => {
+        el.style.width = `${carousel_item_width}px`;
+      });
+      item_group.style.width = `${offset_left + carousel_item_width * total_children}px`;
 
       /* if the carousel item height changes, a height needs to be set for the container */
-      if (carousel_state[carousel_id]['item_height_variable'] === 'true') {
-        document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.height = `${document.getElementById(carousel_id).querySelector('.items-group .item.active-item').offsetHeight + parseInt(document.getElementById(carousel_id).style.paddingBottom || 0)}px`;
+      if (item_height_variable === 'true') {
+        item_group.style.height = `${el.querySelector('.items-group .item.active-item').offsetHeight + parseInt(el.style.paddingBottom || 0)}px`;
       }
-      self.update_carousel(carousel_id);
+      self.update_carousel(id);
     },
-    disable_carousel: (carousel_id) => {
+    disable: (id) => {
+      const { el, item_group } = module_state[id];
       /* re-enables all links to be tab-able */
-      document
-        .getElementById(carousel_id)
-        .querySelectorAll('.items-group .item a')
-        .forEach((el) => {
-          el.setAttribute('tabindex', '0');
-        });
+      el.querySelectorAll('.items-group .item a').forEach((el) => {
+        el.setAttribute('tabindex', '0');
+      });
 
       /* disable the carousel at this viewport */
-      document.getElementById(carousel_id).classList.remove('carousel-is-active');
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.left = 0;
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.width = '100%';
-      document.getElementById(carousel_id).querySelector('[data-module="carousel.item-group"]').style.height = 'auto';
-      document
-        .getElementById(carousel_id)
-        .querySelectorAll('[data-module="carousel.item"]')
-        .forEach((el) => {
-          el.style.width = 100 / document.getElementById(carousel_id).querySelector('[data-module="carousel.item"]').length + '%';
-        });
+      el.classList.remove('carousel-is-active');
+      item_group.style.left = 0;
+      item_group.style.width = '100%';
+      item_group.style.height = 'auto';
+      el.querySelectorAll('[data-module="carousel.item"]').forEach((el2) => {
+        el2.style.width = 100 / el.querySelector('[data-module="carousel.item"]').length + '%';
+      });
     },
-    update_carousel_state: (carousel_id) => {
-      /* if the value is > 1, then use a pixel value for the offset */
-      /* if the value is > 0 and < 1, use the value as a percentage (e.g. 1/4 = .25) */
-      const calculate_pixel_value = (carousel_id, offsetValue) => {
-        if (offsetValue > 1) {
-          return offsetValue;
-        } else if (offsetValue > 0 && offsetValue < 1) {
-          return document.getElementById(carousel_id).offsetWidth * offsetValue;
-        } else {
-          return 0;
-        }
-      }
-
-      if (storm_eagle.client.viewport.is_sm_only()) {
-        carousel_state[carousel_id]['offset_left'] = calculate_pixel_value(carousel_id, carousel_state[carousel_id]['offset_left_array'][0]);
-        carousel_state[carousel_id]['number_of_active'] = carousel_state[carousel_id]['number_of_active_array'][0];
-        carousel_state[carousel_id]['transition_duration'] = carousel_state[carousel_id]['transition_duration_array'][0];
-      } else if (storm_eagle.client.viewport.is_md_only()) {
-        carousel_state[carousel_id]['offset_left'] = calculate_pixel_value(carousel_id, carousel_state[carousel_id]['offset_left_array'][1]);
-        carousel_state[carousel_id]['number_of_active'] = carousel_state[carousel_id]['number_of_active_array'][1];
-        carousel_state[carousel_id]['transition_duration'] = carousel_state[carousel_id]['transition_duration_array'][1];
-      } else if (storm_eagle.client.viewport.is_lg_only()) {
-        carousel_state[carousel_id]['offset_left'] = calculate_pixel_value(carousel_id, carousel_state[carousel_id]['offset_left_array'][2]);
-        carousel_state[carousel_id]['number_of_active'] = carousel_state[carousel_id]['number_of_active_array'][2];
-        carousel_state[carousel_id]['transition_duration'] = carousel_state[carousel_id]['transition_duration_array'][2];
-      } else if (storm_eagle.client.viewport.is_xl_up()) {
-        carousel_state[carousel_id]['offset_left'] = calculate_pixel_value(carousel_id, carousel_state[carousel_id]['offset_left_array'][3]);
-        carousel_state[carousel_id]['number_of_active'] = carousel_state[carousel_id]['number_of_active_array'][3];
-        carousel_state[carousel_id]['transition_duration'] = carousel_state[carousel_id]['transition_duration_array'][3];
-      }
-    },
-    force_resize: (carousel_id) => {
-      self.update_carousel_state(carousel_id);
-      if (carousel_state[carousel_id]['breakpoint'] === 'sm-only') {
+    force_resize: (id) => {
+      const { el, indicators_group, controls_prev, controls_next, breakpoint } = module_state[id];
+      self.state.initialize(id);
+      if (breakpoint === 'sm-only') {
         if (storm_eagle.client.viewport.is_sm_only()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         } else {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('md+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('md+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('md+:hide');
-          self.disable_carousel(carousel_id);
+          indicators_group.classList.add('md+:hide');
+          controls_prev.classList.add('md+:hide');
+          controls_next.classList.add('md+:hide');
+          self.disable(id);
         }
-      } else if (carousel_state[carousel_id]['breakpoint'] === 'sm-up') {
+      } else if (breakpoint === 'sm-up') {
         if (storm_eagle.client.viewport.is_sm_up()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         }
-      } else if (carousel_state[carousel_id]['breakpoint'] === 'md-down') {
+      } else if (breakpoint === 'md-down') {
         if (storm_eagle.client.viewport.is_md_down()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         } else {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('lg+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('lg+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('lg+:hide');
-          self.disable_carousel(carousel_id);
+          indicators_group.classList.add('lg+:hide');
+          controls_prev.classList.add('lg+:hide');
+          controls_next.classList.add('lg+:hide');
+          self.disable(id);
         }
-      } else if (carousel_state[carousel_id]['breakpoint'] === 'md-only') {
+      } else if (breakpoint === 'md-only') {
         if (storm_eagle.client.viewport.is_md_only()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         } else {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('sm=:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('lg+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('sm=:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('lg+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('sm=:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('lg+:hide');
-          self.disable_carousel(carousel_id);
+          indicators_group.classList.add('sm=:hide');
+          indicators_group.classList.add('lg+:hide');
+          controls_prev.classList.add('sm=:hide');
+          controls_prev.classList.add('lg+:hide');
+          controls_next.classList.add('sm=:hide');
+          controls_next.classList.add('lg+:hide');
+          self.disable(id);
         }
-      } else if (carousel_state[carousel_id]['breakpoint'] === 'md-up') {
+      } else if (breakpoint === 'md-up') {
         if (storm_eagle.client.viewport.is_md_up()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         } else {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('sm=:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('sm=:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('sm=:hide');
-          self.disable_carousel(carousel_id);
+          indicators_group.classList.add('sm=:hide');
+          controls_prev.classList.add('sm=:hide');
+          controls_next.classList.add('sm=:hide');
+          self.disable(id);
         }
-      } else if (carousel_state[carousel_id]['breakpoint'] === 'lg-down') {
+      } else if (breakpoint === 'lg-down') {
         if (storm_eagle.client.viewport.is_lg_down()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         } else {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('xl+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('xl+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('xl+:hide');
-          self.disable_carousel(carousel_id);
+          indicators_group.classList.add('xl+:hide');
+          controls_prev.classList.add('xl+:hide');
+          controls_next.classList.add('xl+:hide');
+          self.disable(id);
         }
-      } else if (carousel_state[carousel_id]['breakpoint'] === 'lg-only') {
+      } else if (breakpoint === 'lg-only') {
         if (storm_eagle.client.viewport.is_lg_only()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         } else {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('md-:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('xl+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('md-:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('xl+:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('md-:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('xl+:hide');
-          self.disable_carousel(carousel_id);
+          indicators_group.classList.add('md-:hide');
+          indicators_group.classList.add('xl+:hide');
+          controls_prev.classList.add('md-:hide');
+          controls_prev.classList.add('xl+:hide');
+          controls_next.classList.add('md-:hide');
+          controls_next.classList.add('xl+:hide');
+          self.disable(id);
         }
-      } else if (carousel_state[carousel_id]['breakpoint'] === 'lg-up') {
+      } else if (breakpoint === 'lg-up') {
         if (storm_eagle.client.viewport.is_lg_up()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         } else {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('md-:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('md-:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('md-:hide');
-          self.disable_carousel(carousel_id);
+          indicators_group.classList.add('md-:hide');
+          controls_prev.classList.add('md-:hide');
+          controls_next.classList.add('md-:hide');
+          self.disable(id);
         }
-      } else if (carousel_state[carousel_id]['breakpoint'] === 'xl-up') {
+      } else if (breakpoint === 'xl-up') {
         if (storm_eagle.client.viewport.is_xl_up()) {
-          self.reinitialize_carousel(carousel_id);
+          self.reinitialize_carousel(id);
         } else {
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.indicators-group"]').classList.add('lg-:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-prev"]').classList.add('lg-:hide');
-          document.getElementById(carousel_id).querySelector('[data-module="carousel.controls-next"]').classList.add('lg-:hide');
-          self.disable_carousel(carousel_id);
+          indicators_group.classList.add('lg-:hide');
+          controls_prev.classList.add('lg-:hide');
+          controls_next.classList.add('lg-:hide');
+          self.disable(id);
         }
       } else {
-        self.reinitialize_carousel(carousel_id);
+        self.reinitialize_carousel(id);
       }
     },
   };
