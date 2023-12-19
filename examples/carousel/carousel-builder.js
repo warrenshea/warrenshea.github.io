@@ -80,7 +80,7 @@ storm_eagle.module('carousel_builder', () => {
       }
       document.querySelectorAll("[data-module='carousel']").forEach((el) => {
         let carousel_id = el.getAttribute('id');
-        storm_eagle.carousel.disable_carousel(carousel_id);
+        storm_eagle.carousel.disable(carousel_id);
       });
       storm_eagle.carousel.initialize();
     },
