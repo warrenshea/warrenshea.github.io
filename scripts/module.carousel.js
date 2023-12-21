@@ -1,7 +1,6 @@
 'use strict';
 
 /* @TODO: Infinite Scroll */
-/* @TODO: Autoplay */
 storm_eagle.module('carousel', () => {
   let self;
   let module_state = {};
@@ -16,12 +15,16 @@ storm_eagle.module('carousel', () => {
           id,
           el,
           item_group: el.querySelector('[data-module="carousel.item-group"]'),
-          item: el.querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)'),
+          items: el.querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)'),
           total_children: el.querySelectorAll('[data-module="carousel.item"]:not(.display\\:none)').length,
           indicators_group: el.querySelector('[data-module="carousel.indicators-group"]'),
-          controls_prev: el.querySelector('[data-module="carousel.controls-prev"]'),
-          controls_next: el.querySelector('[data-module="carousel.controls-next"]'),
-          item_height_variable: el.getAttribute('data-carousel-item-height-variable'),
+          indicators_group_controls: el.querySelectorAll('[data-module="carousel.indicators-group"] > [data-carousel-indicator-control]'),
+          controls: el.querySelectorAll('[data-module="carousel.controls"]'),
+          controls_prev: el.querySelector('[data-module="carousel.controls"][data-carousel-control-prev]'),
+          controls_next: el.querySelector('[data-module="carousel.controls"][data-carousel-control-next]'),
+          control_active_classes: el.getAttribute('data-carousel-control-active-classes') ? el.getAttribute('data-carousel-control-active-classes').split(',') : '',
+          control_inactive_classes: el.getAttribute('data-carousel-control-inactive-classes') ? el.getAttribute('data-carousel-control-inactive-classes').split(',') : '',
+          control_class_queryselector: el.getAttribute('data-carousel-control-class-selector') || '',
           breakpoint: el.getAttribute('data-carousel-breakpoint'),
           transition_duration_array: JSON.parse(el.getAttribute('data-carousel-transition-duration')),
           transition_duration: '',
@@ -30,37 +33,31 @@ storm_eagle.module('carousel', () => {
           offset_left_array: JSON.parse(el.getAttribute('data-carousel-offset')),
           offset_left: '',
           carousel_item_width: '',
-          current_active_carousel_item: '',
+          current_active_carousel_item: parseInt(el.getAttribute('data-carousel-item-active')) || 0,
         };
-        self.state.initialize(id);
-        self.event_listeners.initialize(id);
+        self.ui.update(id);
+        self.event_listeners.resize.initialize(id);
       });
     },
     state: {
       initialize: (id) => {
-        self.state.set_current_active_carousel_item(id);
+        //console.log("initialize");
         self.state.set_offset_left(id);
         self.state.set_number_of_active(id);
         self.state.set_transition_duration(id);
-      },
-      set_current_active_carousel_item: (id) => {
-        /* set the active item state property based on which DOM element has the 'active-item' class */
-        const { item } = module_state[id];
-        item.forEach((el, index) => {
-          if (el.classList.contains('active-item')) {
-            module_state[id]["current_active_carousel_item"] = index; //set current_active_carousel_item as the carousel item control set as "active" in the HTML code
-          }
-        });
+        self.state.set_indicators(id);
+        self.state.set_carousel_item_width(id);
       },
       set_offset_left: (id) => {
+        //console.log("set_offset_left");
         const { el, offset_left_array } = module_state[id];
         /* if the value is > 1, then use a pixel value for the offset */
         /* if the value is > 0 and < 1, use the value as a percentage (e.g. 1/4 = .25) */
-        const calculate_pixel_value = (id, offsetValue) => {
-          if (offsetValue > 1) {
-            return offsetValue;
-          } else if (offsetValue > 0 && offsetValue < 1) {
-            return el.offsetWidth * offsetValue;
+        const calculate_pixel_value = (id, offset_value) => {
+          if (offset_value > 1) {
+            return offset_value;
+          } else if (offset_value > 0 && offset_value < 1) {
+            return el.offsetWidth * offset_value;
           } else {
             return 0;
           }
@@ -76,6 +73,7 @@ storm_eagle.module('carousel', () => {
         }
       },
       set_number_of_active: (id) => {
+        //console.log("set_number_of_active");
         const { number_of_active_array } = module_state[id];
         if (storm_eagle.client.viewport.is_sm_only()) {
           module_state[id]['number_of_active'] = number_of_active_array[0];
@@ -88,6 +86,7 @@ storm_eagle.module('carousel', () => {
         }
       },
       set_transition_duration: (id) => {
+        //console.log("set_transition_duration");
         const { transition_duration_array } = module_state[id];
         if (storm_eagle.client.viewport.is_sm_only()) {
           module_state[id]['transition_duration'] = transition_duration_array[0];
@@ -99,33 +98,227 @@ storm_eagle.module('carousel', () => {
           module_state[id]['transition_duration'] = transition_duration_array[3];
         }
       },
+      set_indicators: (id) => {
+        //console.log("set_indicators");
+        const { el, indicators_group, total_children, number_of_active, current_active_carousel_item } = module_state[id];
+        indicators_group.innerHTML = '';
+        for (let i = 0; i <= total_children - number_of_active; i++) {
+          indicators_group.innerHTML += `<button name="carousel-control-button" data-carousel-indicator-control class="cursor:pointer"><span class="show-for-sr">Go to slide #${i + 1}</button>`;
+        }
+        module_state[id]['indicators_group_controls'] = el.querySelectorAll('[data-module="carousel.indicators-group"] > [data-carousel-indicator-control]');
+        module_state[id]['indicators_group_controls'][current_active_carousel_item].setAttribute("data-carousel-indicator-active","true");
+      },
+      set_carousel_item_width: (id) => {
+        // console.log("set_carousel_item_width");
+        const { el, item_group, items, total_children, offset_left, number_of_active } = module_state[id];
+        const carousel_item_width = (el.offsetWidth - 2 * offset_left) / number_of_active;
+        module_state[id]['carousel_item_width'] = carousel_item_width;
+        items.forEach((item) => {
+          item.style.width = `${carousel_item_width}px`;
+        });
+        item_group.style.width = `${offset_left + carousel_item_width * total_children}px`;
+      },
+    },
+    ui: {
+      is_active: (id) => {
+        //console.log("is_active");
+        const { breakpoint, indicators_group, controls_prev, controls_next } = module_state[id];
+        switch (breakpoint) {
+          case 'sm=':
+            return storm_eagle.client.viewport.is_sm_only();
+          case 'sm+':
+            return storm_eagle.client.viewport.is_sm_up();
+          case 'md-':
+            return storm_eagle.client.viewport.is_md_down();
+          case 'md=':
+            return storm_eagle.client.viewport.is_md_only();
+          case 'md+':
+            return storm_eagle.client.viewport.is_md_up();
+          case 'lg-':
+            return storm_eagle.client.viewport.is_lg_down();
+          case 'lg=':
+            return storm_eagle.client.viewport.is_lg_only();
+          case 'lg+':
+            return storm_eagle.client.viewport.is_lg_up();
+          case 'xl+':
+            return storm_eagle.client.viewport.is_xl_up();
+          default:
+            return false; // Default case, handle as needed
+        }
+      },
+      update: (id) => {
+        if (self.ui.is_active(id)) {
+          self.state.initialize(id);
+          self.ui.activate(id);
+        } else {
+          self.ui.disable(id);
+        }
+      },
+      activate: (id) => {
+        self.event_listeners.initialize(id);
+        self.ui.active_items.enable(id);
+        self.ui.indicators_group.enable(id);
+        self.ui.controls.enable(id);
+        self.ui.focusable_elements.enable(id);
+        self.ui.item_group_position.enable(id);
+        self.ui.transition.enable(id);
+      },
+      disable: (id) => {
+        self.ui.active_items.disable(id);
+        self.ui.indicators_group.disable(id);
+        self.ui.controls.disable(id);
+        self.ui.focusable_elements.disable(id);
+        self.ui.item_group_position.disable(id);
+      },
+      active_items: {
+        enable: (id) => {
+          const { el, item_group, items, total_children, indicators_group_controls, number_of_active, offset_left, carousel_item_width, current_active_carousel_item, transition_duration } = module_state[id];
+          el.setAttribute("data-carousel-active","true");
+          /* resets the active classes on the carousel items and adds the proper active classes */
+          items.forEach((item) => {
+            item.setAttribute("data-carousel-item-active","");
+            item.setAttribute("data-carousel-item-secondary-active","");
+          });
+          items[current_active_carousel_item].setAttribute("data-carousel-item-active","true");
+          items[current_active_carousel_item].setAttribute("data-carousel-item-secondary-active","true");
+          for (let i = 0; i < number_of_active; i++) {
+            items[current_active_carousel_item + i].setAttribute("data-carousel-item-secondary-active","true");
+          }
+          /* resets the active classes on the carousel control and adds the proper active classes */
+          indicators_group_controls.forEach((indicator_group_control) => {
+            indicator_group_control.setAttribute("data-carousel-indicator-active","");
+          });
+          indicators_group_controls[current_active_carousel_item].setAttribute("data-carousel-indicator-active","true");
+        },
+        disable: (id) => {
+          const { el } = module_state[id];
+          el.setAttribute("data-carousel-active","");
+        },
+      },
+      indicators_group: {
+        enable: (id) => {
+        },
+        disable: (id) => {
+        }
+      },
+      controls: {
+        enable: (id) => {
+          const { controls_next, controls_prev, control_active_classes, total_children, control_inactive_classes, control_class_queryselector, breakpoint, current_active_carousel_item, number_of_active } = module_state[id];
+
+          let temp_controls_prev, temp_controls_next;
+          if (control_class_queryselector) {
+            temp_controls_prev = controls_prev.querySelector(control_class_queryselector);
+            temp_controls_next = controls_next.querySelector(control_class_queryselector);
+          } else {
+            temp_controls_prev = controls_prev;
+            temp_controls_next = controls_next;
+          }
+
+          /* show both chevrons */
+          if (total_children !== 1) {
+            controls_prev.removeAttribute("disabled");
+            controls_next.removeAttribute("disabled");
+            temp_controls_prev.classList.remove(...control_inactive_classes);
+            temp_controls_next.classList.remove(...control_inactive_classes);
+            temp_controls_prev.classList.add(...control_active_classes);
+            temp_controls_next.classList.add(...control_active_classes);
+          }
+          /* hide chevrons */
+          if (current_active_carousel_item === 0) {
+            controls_prev.setAttribute("disabled","");
+            temp_controls_prev.classList.add(...control_inactive_classes);
+            temp_controls_prev.classList.remove(...control_active_classes);
+          } else if (current_active_carousel_item === total_children - number_of_active) {
+            controls_next.setAttribute("disabled","");
+            temp_controls_next.classList.add(...control_inactive_classes);
+            temp_controls_next.classList.remove(...control_active_classes);
+          }
+        },
+        disable: (id) => {
+        },
+      },
+      focusable_elements: {
+        enable: (id) => {
+          const { el, items, focusable_element } = module_state[id];
+          /* ensures only links in the active carousel or tab-able */
+          items.forEach((item) => {
+            item.querySelectorAll(focus_trap_selector).forEach((focusable_element) => {
+              focusable_element.setAttribute('tabindex', '-1');
+              //focusable_element.setAttribute('disabled',"true");
+            });
+          });
+          el.querySelectorAll('[data-carousel-item-secondary-active="true"]').forEach((item) => {
+            item.querySelectorAll(focus_trap_selector).forEach((focusable_element) => {
+              focusable_element.setAttribute('tabindex', '0');
+              focusable_element.removeAttribute('disabled');
+            });
+          });
+        },
+        disable: (id) => {
+          const { items, focusable_element } = module_state[id];
+          items.forEach((item) => {
+            item.querySelectorAll(focus_trap_selector).forEach((focusable_element) => {
+              focusable_element.setAttribute('tabindex', '0');
+              focusable_element.removeAttribute('disabled');
+            });
+          });
+        },
+      },
+      item_group_position: {
+        enable: (id) => {
+          const { item_group, offset_left, current_active_carousel_item, carousel_item_width } = module_state[id];
+          /* changes the left offset */
+          item_group.style.left = `${offset_left - current_active_carousel_item * carousel_item_width}px`;
+        },
+        disable: (id) => {
+          const { item_group, items } = module_state[id];
+          item_group.style.left = 0;
+          item_group.style.width = '100%';
+          item_group.style.height = 'auto';
+          items.forEach((item) => {
+            item.style.removeProperty("width");
+          });
+        },
+      },
+      transition: {
+        enable: (id) => {
+          const { item_group, transition_duration } = module_state[id];
+          /* ensures there's no transition duration except when we want the transition to occcur */
+          setTimeout(() => {
+            item_group.style.transitionDuration = '0s';
+          }, transition_duration * 1000);
+        }
+      },
     },
     event_listeners: {
       initialize: (id) => {
+        //console.log("event_listners initialize");
         self.event_listeners.indicator.initialize(id);
         self.event_listeners.control_buttons.initialize(id);
         self.event_listeners.swipe.initialize(id);
-        self.event_listeners.resize.initialize(id);
       },
       indicator: {
         initialize: (id) => {
-          const { el } = module_state[id];
-          el.querySelectorAll('[data-module="carousel.indicators-group"] .control').forEach((el) => {
+          //console.log("indicator initialize");
+          const { indicators_group_controls } = module_state[id];
+          indicators_group_controls.forEach((el) => {
             el.removeEventListener('click', self.event_listeners.indicator.handle_change);
             el.addEventListener('click', self.event_listeners.indicator.handle_change);
           });
         },
         handle_change: (event) => {
+          // console.log("indicator change");
           event.preventDefault();
           const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
-          const { el, item_group, transition_duration } = module_state[id];
+          const { item_group, transition_duration } = module_state[id];
           item_group.style.transitionDuration = `${transition_duration}s`;
           module_state[id]['current_active_carousel_item'] = storm_eagle.util.index_in_parent(event.currentTarget);
-          self.update_carousel(id);
+          self.ui.update(id);
         },
       },
       control_buttons: {
         initialize: (id) => {
+          //console.log("control_buttons initialize");
           const { el, controls_next, controls_prev } = module_state[id];
           controls_next.removeEventListener('click', self.event_listeners.control_buttons.handle_swipe_left);
           controls_next.addEventListener('click', self.event_listeners.control_buttons.handle_swipe_left);
@@ -133,255 +326,61 @@ storm_eagle.module('carousel', () => {
           controls_prev.addEventListener('click', self.event_listeners.control_buttons.handle_swipe_right);
         },
         handle_swipe_left: (event) => {
+          //console.log("handle_swipe_left");
           event.preventDefault();
           const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
           const { el, item_group } = module_state[id];
-          /* console.log("left"); */
           item_group.dispatchEvent(new Event('swiped-left'));
         },
         handle_swipe_right: (event) => {
+          //console.log("handle_swipe_right");
           event.preventDefault();
           const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
           const { el, item_group } = module_state[id];
-          /* console.log("right"); */
           item_group.dispatchEvent(new Event('swiped-right'));
         },
       },
       resize: {
         initialize: (id) => {
+          //console.log("resize initialize");
           const { el } = module_state[id];
           const force_resize = () => {
-            return self.force_resize(id);
+            return self.ui.update(id);
           }
           storm_eagle.resize_observer(el, force_resize);
         }
       },
       swipe: {
         initialize: (id) => {
+          //console.log("swipe initialize");
           const { el, item_group } = module_state[id];
-          /* if a coursel is swiped left */
           item_group.removeEventListener('swiped-left', self.event_listeners.swipe.handle_swiped_left);
           item_group.addEventListener('swiped-left', self.event_listeners.swipe.handle_swiped_left);
-
-          /* if a coursel is swiped right */
           item_group.removeEventListener('swiped-right', self.event_listeners.swipe.handle_swiped_right);
           item_group.addEventListener('swiped-right', self.event_listeners.swipe.handle_swiped_right);
         },
         handle_swiped_left: (event) => {
-          //go -> in the carousel
+          //console.log('go -> in the carousel');
           const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
           const { el, item_group, total_children, transition_duration, number_of_active, current_active_carousel_item } = module_state[id];
           item_group.style.transitionDuration = `${transition_duration}s`;
           if (module_state[id]['current_active_carousel_item'] !== total_children - number_of_active) {
             module_state[id]['current_active_carousel_item']++;
-            self.update_carousel(id);
+            self.ui.update(id);
           }
         },
         handle_swiped_right: (event) => {
-          //go <- in the carousel
+          //console.log('go <- in the carousel');
           const id = storm_eagle.util.closest_parent(event.currentTarget, '[data-module="carousel"]').getAttribute('id');
           const { el, item_group, transition_duration } = module_state[id];
           item_group.style.transitionDuration = `${transition_duration}s`;
           if (module_state[id]['current_active_carousel_item'] !== 0) {
             module_state[id]['current_active_carousel_item']--;
-            self.update_carousel(id);
+            self.ui.update(id);
           }
         },
       },
     },
-    update_carousel: (id) => {
-      const { el, item_group, item, total_children, number_of_active, offset_left, carousel_item_width, current_active_carousel_item } = module_state[id];
-      const set_active_items = (id) => {
-        /* resets the active classes on the carousel items and adds the proper active classes */
-        item.forEach((el) => {
-          el.classList.remove('active-item', 'active');
-        });
-        item[current_active_carousel_item].classList.add('active-item');
-        for (let i = 0; i < number_of_active; i++) {
-          item[current_active_carousel_item + i].classList.add('active');
-        }
-        /* resets the active classes on the carousel control and adds the proper active classes */
-        el.querySelectorAll('[data-module="carousel.indicators-group"] .control').forEach((el) => {
-          el.classList.remove('active-item');
-        });
-        el.querySelectorAll('[data-module="carousel.indicators-group"] .control')[current_active_carousel_item].classList.add('active-item');
-      }
 
-      const update_controls = (id) => {
-        const { controls_next, controls_prev } = module_state[id];
-        /* show both chevrons */
-        if (total_children !== 1) {
-          controls_prev.classList.remove('display:none');
-          controls_prev.classList.add('display:block');
-          controls_next.classList.remove('display:none');
-          controls_next.classList.add('display:block');
-        }
-        /* hide chevrons */
-        if (current_active_carousel_item === 0) {
-          controls_prev.classList.add('display:none');
-          controls_prev.classList.remove('display:block');
-        } else if (current_active_carousel_item === total_children - number_of_active) {
-          controls_next.classList.add('display:none');
-          controls_next.classList.remove('display:block');
-        }
-      }
-
-      set_active_items(id);
-      update_controls(id);
-
-      /* ensures only links in the active carousel or tab-able */
-      el.querySelectorAll('[data-module="carousel.item-group"] .item a').forEach((el) => {
-        el.setAttribute('tabindex', '-1');
-      });
-      el.querySelectorAll('[data-module="carousel.item-group"] .item.active-item a').forEach((el) => {
-        el.setAttribute('tabindex', '0');
-      });
-
-      /* changes the left offset */
-      item_group.style.left = `${offset_left - current_active_carousel_item * carousel_item_width}px`;
-
-      /* ensures there's no transition duration except when we want the transition to occcur */
-      setTimeout(() => {
-        item_group.style.transitionDuration = '0s';
-      }, module_state[id]['transition_duration'] * 1000);
-    },
-    reinitialize_carousel: (id) => {
-      const { el, item_group, item, total_children, item_height_variable, indicators_group, number_of_active, offset_left, carousel_item_width, current_active_carousel_item } = module_state[id];
-      /* indicate that the carousel is currently active, rather than disabled */
-      el.classList.add('carousel-is-active');
-
-      /* dynamically create the control buttons */
-      // el.querySelectorAll('[data-module="carousel.controls"]').forEach(el => {
-      //   el.remove();
-      // });
-      indicators_group.innerHTML = '';
-      for (let i = 0; i <= total_children - number_of_active; i++) {
-        indicators_group.innerHTML += `<button name="carousel-control-button" class="control cursor:pointer"><span class="show-for-sr">Go to slide #${i + 1}</button>`;
-      }
-      self.event_listeners.indicator.initialize(id);
-
-      /* set the active item class on the control buttons */
-      el.querySelectorAll('[data-module="carousel.indicators-group"] .control')[current_active_carousel_item].classList.add('active-item');
-      //console.log(el.querySelectorAll('[data-module="carousel.indicators-group'] .control"));
-      //console.log([module_state[id]["current_active_carousel_item"]]);
-
-      /* updates the carousel width state property and updates the carousel container */
-      module_state[id]['carousel_item_width'] = (el.offsetWidth - 2 * offset_left) / number_of_active;
-      item.forEach((el) => {
-        el.style.width = `${carousel_item_width}px`;
-      });
-      item_group.style.width = `${offset_left + carousel_item_width * total_children}px`;
-
-      /* if the carousel item height changes, a height needs to be set for the container */
-      if (item_height_variable === 'true') {
-        item_group.style.height = `${el.querySelector('.items-group .item.active-item').offsetHeight + parseInt(el.style.paddingBottom || 0)}px`;
-      }
-      self.update_carousel(id);
-    },
-    disable: (id) => {
-      const { el, item_group } = module_state[id];
-      /* re-enables all links to be tab-able */
-      el.querySelectorAll('.items-group .item a').forEach((el) => {
-        el.setAttribute('tabindex', '0');
-      });
-
-      /* disable the carousel at this viewport */
-      el.classList.remove('carousel-is-active');
-      item_group.style.left = 0;
-      item_group.style.width = '100%';
-      item_group.style.height = 'auto';
-      el.querySelectorAll('[data-module="carousel.item"]').forEach((el2) => {
-        el2.style.width = 100 / el.querySelector('[data-module="carousel.item"]').length + '%';
-      });
-    },
-    force_resize: (id) => {
-      const { el, indicators_group, controls_prev, controls_next, breakpoint } = module_state[id];
-      self.state.initialize(id);
-      if (breakpoint === 'sm-only') {
-        if (storm_eagle.client.viewport.is_sm_only()) {
-          self.reinitialize_carousel(id);
-        } else {
-          indicators_group.classList.add('md+:hide');
-          controls_prev.classList.add('md+:hide');
-          controls_next.classList.add('md+:hide');
-          self.disable(id);
-        }
-      } else if (breakpoint === 'sm-up') {
-        if (storm_eagle.client.viewport.is_sm_up()) {
-          self.reinitialize_carousel(id);
-        }
-      } else if (breakpoint === 'md-down') {
-        if (storm_eagle.client.viewport.is_md_down()) {
-          self.reinitialize_carousel(id);
-        } else {
-          indicators_group.classList.add('lg+:hide');
-          controls_prev.classList.add('lg+:hide');
-          controls_next.classList.add('lg+:hide');
-          self.disable(id);
-        }
-      } else if (breakpoint === 'md-only') {
-        if (storm_eagle.client.viewport.is_md_only()) {
-          self.reinitialize_carousel(id);
-        } else {
-          indicators_group.classList.add('sm=:hide');
-          indicators_group.classList.add('lg+:hide');
-          controls_prev.classList.add('sm=:hide');
-          controls_prev.classList.add('lg+:hide');
-          controls_next.classList.add('sm=:hide');
-          controls_next.classList.add('lg+:hide');
-          self.disable(id);
-        }
-      } else if (breakpoint === 'md-up') {
-        if (storm_eagle.client.viewport.is_md_up()) {
-          self.reinitialize_carousel(id);
-        } else {
-          indicators_group.classList.add('sm=:hide');
-          controls_prev.classList.add('sm=:hide');
-          controls_next.classList.add('sm=:hide');
-          self.disable(id);
-        }
-      } else if (breakpoint === 'lg-down') {
-        if (storm_eagle.client.viewport.is_lg_down()) {
-          self.reinitialize_carousel(id);
-        } else {
-          indicators_group.classList.add('xl+:hide');
-          controls_prev.classList.add('xl+:hide');
-          controls_next.classList.add('xl+:hide');
-          self.disable(id);
-        }
-      } else if (breakpoint === 'lg-only') {
-        if (storm_eagle.client.viewport.is_lg_only()) {
-          self.reinitialize_carousel(id);
-        } else {
-          indicators_group.classList.add('md-:hide');
-          indicators_group.classList.add('xl+:hide');
-          controls_prev.classList.add('md-:hide');
-          controls_prev.classList.add('xl+:hide');
-          controls_next.classList.add('md-:hide');
-          controls_next.classList.add('xl+:hide');
-          self.disable(id);
-        }
-      } else if (breakpoint === 'lg-up') {
-        if (storm_eagle.client.viewport.is_lg_up()) {
-          self.reinitialize_carousel(id);
-        } else {
-          indicators_group.classList.add('md-:hide');
-          controls_prev.classList.add('md-:hide');
-          controls_next.classList.add('md-:hide');
-          self.disable(id);
-        }
-      } else if (breakpoint === 'xl-up') {
-        if (storm_eagle.client.viewport.is_xl_up()) {
-          self.reinitialize_carousel(id);
-        } else {
-          indicators_group.classList.add('lg-:hide');
-          controls_prev.classList.add('lg-:hide');
-          controls_next.classList.add('lg-:hide');
-          self.disable(id);
-        }
-      } else {
-        self.reinitialize_carousel(id);
-      }
-    },
   };
 });
