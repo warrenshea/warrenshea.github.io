@@ -25,8 +25,27 @@ const breakpoints = {
   xl_min: 1280,
 };
 
-const focus_trap_selector = `a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled]), li[role="tab"]:not([disabled]), div[role="tabpanel"]:not([disabled]), label`;
-const remove_focus_selector = `.form\\:theme\\:gl0b3x input[type="radio"]+label, .form\\:theme\\:gl0b3x input[type="text"]+label, .form\\:theme\\:gl0b3x input[type="email"]+label, [data-module="popover"] button, [data-module="popover"] a`;
+//turns everything to tabindex=0
+const focus_trap_selector = [
+  `a[href]:not([disabled])`,
+  `button:not([disabled])`,
+  `textarea:not([disabled])`,
+  `input[type="text"]:not([disabled])`,
+  `input[type="radio"]:not([disabled])`,
+  `input[type="checkbox"]:not([disabled])`,
+  `select:not([disabled])`,
+  `li[role="tab"]:not([disabled])`,
+  `div[role="tabpanel"]:not([disabled])`,
+  `label`,
+]
+//except these
+const remove_focus_selector = [
+  `.form\\:theme\\:gl0b3x input[type="radio"]+label`,
+  `.form\\:theme\\:gl0b3x input[type="text"]+label`,
+  `.form\\:theme\\:gl0b3x input[type="email"]+label`,
+  `[data-module="popover"] button`,
+  `[data-module="popover"] a`
+]
 
 /**
  * storm_eagle Object
@@ -820,7 +839,7 @@ var storm_eagle = (() => {
         return element.__resize_observer__ instanceof ResizeObserver;
       };
 
-      let resize_observer = new ResizeObserver((el) => {
+      const resize_observer = new ResizeObserver((el) => {
         func(...param_values);
       });
 
@@ -832,6 +851,54 @@ var storm_eagle = (() => {
       };
 
       // Use the utility function for iteration
+      if (elements instanceof HTMLElement) {
+        observe_element(elements);
+      } else if (elements instanceof NodeList || Array.isArray(elements)) {
+        elements.forEach(observe_element);
+      }
+    },
+
+    /**
+     * Observes an element and runs a function when the element is resized
+     * Replaces window.addEventListener("resize", event = { function(); }) as it performs better
+     *
+     * @param  { array } elements     elements we want to observe
+     * @param  { function } func      callback function
+     */
+    breakpoint_observer: (elements, func, params_obj) => {
+      const get_breakpoint = () => {
+        const viewport_width = window.innerWidth;
+
+        if (viewport_width < breakpoints.md_min) {
+          return 'sm';
+        } else if (viewport_width < breakpoints.lg_min) {
+          return 'md';
+        } else if (viewport_width < breakpoints.xl_min) {
+          return 'lg';
+        } else {
+          return 'xl';
+        }
+      };
+
+      let current_breakpoint = get_breakpoint();
+      let param_values = (params_obj) ? Object.values(params_obj) : [];
+      const has_resize_observer = (element) => {
+        return element.__resize_observer__ instanceof ResizeObserver;
+      };
+
+      const resize_observer_instance = new ResizeObserver(() => {
+        const new_breakpoint = get_breakpoint();
+        console.log(new_breakpoint);
+        if (new_breakpoint !== current_breakpoint) {
+          current_breakpoint = new_breakpoint;
+          func(...param_values, current_breakpoint);
+        }
+      });
+
+      const observe_element = (el) => {
+        !has_resize_observer(el) && resize_observer_instance.observe(el);
+      };
+
       if (elements instanceof HTMLElement) {
         observe_element(elements);
       } else if (elements instanceof NodeList || Array.isArray(elements)) {
