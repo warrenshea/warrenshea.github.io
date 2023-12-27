@@ -10216,15 +10216,15 @@ fieldset.unstyle {
   background-image: url("../assets/icon/check.white.svg");
   border: 0.125rem solid #404040;
 }
-.form\:theme\:gl0b3x .parent-checkbox > input[type=checkbox][aria-checked=mixed] + label:before {
+.form\:theme\:gl0b3x [data-module="parent-checkbox.container"] > input[type=checkbox][aria-checked=mixed] + label:before {
   background-color: #3169b2;
   background-image: url("../assets/icon/dash.white.svg");
 }
-.form\:theme\:gl0b3x .parent-checkbox > input[type=checkbox][aria-checked=false] + label:before {
+.form\:theme\:gl0b3x [data-module="parent-checkbox.container"] > input[type=checkbox][aria-checked=false] + label:before {
   background-color: none;
   background-image: none;
 }
-.form\:theme\:gl0b3x .parent-checkbox > input[type=checkbox][aria-checked=true] + label:before {
+.form\:theme\:gl0b3x [data-module="parent-checkbox.container"] > input[type=checkbox][aria-checked=true] + label:before {
   background-color: #3169b2;
   background-image: url("../assets/icon/check.white.svg");
 }
@@ -17396,7 +17396,10 @@ ol.unstyle-pl\:0 {
   visibility: visible;
 }
 
-[data-module=dialog]::backdrop {
+[data-module=dialog][data-dialog-overlay=false]::backdrop {
+  background-color: transparent;
+}
+[data-module=dialog][data-dialog-overlay=true]::backdrop {
   background-color: #00000075;
 }
 [data-module=dialog] button[data-dialog-close] {
@@ -17405,13 +17408,13 @@ ol.unstyle-pl\:0 {
   right: 20px;
 }
 
-.popover {
+[data-module=popover] {
   position: fixed;
   left: 0;
   right: 0;
   visibility: hidden;
 }
-.popover:before {
+[data-module=popover]:before {
   position: absolute;
   display: block;
   width: 0;
@@ -17421,7 +17424,7 @@ ol.unstyle-pl\:0 {
   content: "";
   top: 50%;
 }
-.popover:after {
+[data-module=popover]:after {
   position: absolute;
   display: block;
   width: 0;
@@ -17431,32 +17434,32 @@ ol.unstyle-pl\:0 {
   content: "";
   top: 50%;
 }
-.popover.right:before {
+[data-module=popover].right:before {
   border-width: 11px;
   left: -11px;
   margin-top: -11px;
   border-left-width: 0;
   border-right-color: #bbb;
 }
-.popover.right:after {
+[data-module=popover].right:after {
   border-width: 10px;
   left: -10px;
   margin-top: -10px;
   border-left-width: 0;
   border-right-color: #fff;
 }
-.popover button.close {
+[data-module=popover] button[data-popover-close] {
   position: absolute;
   top: 10px;
   right: 10px;
 }
 @media screen and (min-width: 64rem) {
-  .popover button.close {
+  [data-module=popover] button[data-popover-close] {
     top: 20px;
     right: 20px;
   }
 }
-.popover.active {
+[data-module=popover][data-popover=active] {
   box-shadow: 0 0.125rem 0.5rem 0 rgba(32, 32, 32, 0.04), 0 0.25rem 1.5rem 0 rgba(32, 32, 32, 0.1);
   display: block;
   bottom: 0;
@@ -17464,7 +17467,7 @@ ol.unstyle-pl\:0 {
   visibility: visible;
 }
 @media screen and (min-width: 64rem) {
-  .popover.active {
+  [data-module=popover][data-popover=active] {
     box-shadow: 0 0 0.125rem 0 rgba(32, 32, 32, 0.12), 0 0.125rem 0.125rem 0 rgba(32, 32, 32, 0.07);
     position: absolute;
     bottom: auto;
@@ -17475,12 +17478,12 @@ ol.unstyle-pl\:0 {
   }
 }
 
-_:-ms-fullscreen, :root .popover.active {
+_:-ms-fullscreen, :root [data-module=popover][data-popover=active] {
   -ms-transform: translateY(-50%) translateY(12px);
   transform: translateY(-50%) translateY(12px);
 }
 
-.popover-overlay {
+[data-module="popover.overlay"] {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -17488,7 +17491,7 @@ _:-ms-fullscreen, :root .popover.active {
   left: 0;
   display: none;
 }
-.popover-overlay.active {
+[data-module="popover.overlay"][data-popover=active] {
   z-index: 1050;
   display: block;
 }
@@ -17524,12 +17527,12 @@ _:-ms-fullscreen, :root .popover.active {
   padding: 0;
   border: 0.125rem solid #808080;
   background-color: #ffffff;
-  margin: 0 0.25rem;
+  margin: 0 0.75rem;
 }
 [data-module=carousel] [data-module="carousel.indicators-group"] [data-carousel-indicator-control][data-carousel-indicator-active=true] {
   background-color: #3169b2;
   border-color: #3169b2;
-  margin: 0 0.1875rem;
+  margin: 0 0.6875rem;
   height: 1rem;
   width: 1rem;
 }
