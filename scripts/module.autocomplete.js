@@ -3,11 +3,13 @@ storm_eagle.module('autocomplete', () => {
   let self;
   let autocomplete_state = {};
   let query;
-  const notify = {
-    en: 'As you start typing the application might suggest similar search terms. Use tab, up, or down arrow keys to select a suggested search string. Use Enter key to confirm that value. Use ESC key to exit the results and return focus to the input.',
-    fr: '',
-  };
   return {
+    i18n: {
+      notify: {
+        "en-CA": 'As you start typing the application might suggest similar search terms. Use tab, up, or down arrow keys to select a suggested search string. Use Enter key to confirm that value. Use ESC key to exit the results and return focus to the input.',
+        "fr-CA": "",
+      }
+    },
     initialize: () => {
       self = storm_eagle.autocomplete;
       document.querySelectorAll("[data-module='autocomplete']").forEach((el) => {
@@ -27,11 +29,7 @@ storm_eagle.module('autocomplete', () => {
     },
     update_sr_description: (autocomplete_id, value) => {
       let sr_description_id = autocomplete_state[autocomplete_id]['sr_description_id'];
-      if (value === '') {
-        document.getElementById(sr_description_id).innerHTML = notify[LANG];
-      } else {
-        document.getElementById(sr_description_id).innerHTML = value;
-      }
+      document.getElementById(sr_description_id).innerHTML = (value === '') ? self.i18n.notify[LANG] : value;
     },
     close: (autocomplete_id, reset_results) => {
       const results_id = autocomplete_state[autocomplete_id]['results_id'];
@@ -43,9 +41,6 @@ storm_eagle.module('autocomplete', () => {
       if (reset_results) {
         document.getElementById(results_id).innerHTML = '';
       }
-      // if (document.activeElement !== document.getElementById(input_id)) {
-      //   document.getElementById(input_id).focus();
-      // }
     },
     execute_search: (autocomplete_id) => {
       const search_function = autocomplete_state[autocomplete_id]['search_function'];
