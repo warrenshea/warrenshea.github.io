@@ -1,5 +1,4 @@
 'use strict';
-
 storm_eagle.module('toast', () => {
   return {
     add: (message,text_color="color:white",background="bgc:onyx") => {
@@ -13,7 +12,7 @@ storm_eagle.module('toast', () => {
       }
 
       let toast_container = document.querySelector('[data-module="module.toast"]');
-      toast_container = toast_container || create_toast_container();
+      toast_container ||= create_toast_container();
 
       const toast = document.createElement('span');
       toast.className = `toast bxs:5 heebo:bold ${text_color} ${background}`;
