@@ -73,7 +73,7 @@ storm_eagle.module('popover', () => {
         }
       },
     },
-    open: (trigger, id) => {
+    open: (id, trigger) => {
       const { el, focusable_elements, remove_focusable_elements } = state[id];
       document.removeEventListener('mousedown', self.event_listeners.mousedown_close);
       document.addEventListener('mousedown', self.event_listeners.mousedown_close);
