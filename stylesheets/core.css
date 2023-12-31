@@ -17347,6 +17347,9 @@ ol.unstyle-pl\:0 {
 [data-module=dialog][data-dialog-overlay=true]::backdrop {
   background-color: #00000075;
 }
+[data-module=dialog][open] {
+  position: fixed;
+}
 [data-module=dialog] button[data-dialog-close] {
   position: absolute;
   top: 20px;
