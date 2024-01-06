@@ -35,9 +35,9 @@ glitch =  (function(window, document, undefined) {
 
 glitch.module('core', function () {
   //local development
-  let _path_prefix = (window.location.hostname === "http://localhost:3000") ? "" : "http://localhost:3000";
+  //let _path_prefix = (window.location.hostname === "http://localhost:3000") ? "" : "http://localhost:3000";
   //production
-  //let _path_prefix = (window.location.hostname === "https://warrenshea.github.io/glitch") ? "" : "https://warrenshea.github.io/glitch";
+  let _path_prefix = (window.location.hostname === "https://warrenshea.github.io/glitch") ? "" : "https://warrenshea.github.io/glitch";
 
   let issue_counter = 0;
 
