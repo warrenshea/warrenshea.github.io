@@ -12,8 +12,15 @@ storm_eagle.module('tinymce', () => {
   let self;
   let state = {};
 
+  const tinymce_string = {
+    height: 125,
+    forced_root_block: 'faketag', //prevents a wrapping <p> tag as these should have no wrapper
+    plugins: 'anchor casechange charmap checklist code codesample editimage emoticons export formatpainter fullscreen help image insertdatetime link lists media mergetags nonbreaking pagebreak pageembed permanentpen preview save searchreplace table tableofcontents typography visualblocks visualchars wordcount',
+    toolbar: "undo redo | charmap",
+  };
+
   const tinymce_basic = {
-    height: 150,
+    height: 125,
     forced_root_block: 'faketag', //prevents a wrapping <p> tag as these should have no wrapper
     plugins: 'anchor casechange charmap checklist code codesample editimage emoticons export formatpainter fullscreen help image insertdatetime link lists media mergetags nonbreaking pagebreak pageembed permanentpen preview save searchreplace table tableofcontents typography visualblocks visualchars wordcount',
     toolbar: "undo redo | italic superscript | link openlink unlink | charmap | visualblocks | advanced",
@@ -380,6 +387,9 @@ storm_eagle.module('tinymce', () => {
           },
         };
         switch (type) {
+          case 'string':
+            config = { ...config, ...tinymce_common, ...tinymce_string };
+            break;
           case 'basic':
             config = { ...config, ...tinymce_common, ...tinymce_basic };
             break;
