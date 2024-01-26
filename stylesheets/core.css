@@ -10149,7 +10149,7 @@ fieldset.unstyle {
 .form\:theme\:gl0b3x input[type=radio] + label {
   cursor: pointer;
   position: relative;
-  padding-left: 2.25rem;
+  padding-left: 1.5rem;
   letter-spacing: 0.15px;
   line-height: 1.5rem;
 }
@@ -12600,6 +12600,21 @@ dl.unstyle > dd {
 .ic.ic-type\:brands.ic-name\:plus {
   -webkit-mask-image: url("../assets/icon/brands/plus.svg");
   mask-image: url("../assets/icon/brands/plus.svg");
+}
+
+.ic.ic-type\:light.ic-name\:python {
+  -webkit-mask-image: url("../assets/icon/light/python.svg");
+  mask-image: url("../assets/icon/light/python.svg");
+}
+
+.ic.ic-type\:solid.ic-name\:python {
+  -webkit-mask-image: url("../assets/icon/solid/python.svg");
+  mask-image: url("../assets/icon/solid/python.svg");
+}
+
+.ic.ic-type\:brands.ic-name\:python {
+  -webkit-mask-image: url("../assets/icon/brands/python.svg");
+  mask-image: url("../assets/icon/brands/python.svg");
 }
 
 .ic.ic-type\:light.ic-name\:react {
