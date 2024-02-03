@@ -11,6 +11,8 @@
 
     <link href="/stylesheets/core.css" rel="stylesheet" type="text/css">
 
+    <link href="/stylesheets/grid-overlay.css" rel="stylesheet" type="text/css">
+
   </head>
   <body>
     <main class="w:100%" role="main">
@@ -73,45 +75,6 @@
           <h3 class="play text-align:center">Standard Grid resizing</h3>
         </div>
       </div>
-
-<style>
-
-  .grid-overlay-standard {
-    column-gap: 16px;
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .grid-overlay-standard.md {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-standard.lg {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-standard.xl {
-    column-gap: 32px;
-    padding-left:0;
-    padding-right:0;
-  }
-  .grid-overlay-standard > div {
-    width: 100%;
-    height:100%;
-    background-color:#7777ff;
-    opacity:.25;
-  }
-
-</style>
 
 <section id="grid-overlay-standard" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -183,7 +146,7 @@
       </div>
     </div>
     <div id="grid-overlay-standard-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-standard xl">
+      <div class="grid-overlay-standard grid-type-gap xl">
         <div></div>
         <div></div>
         <div></div>
@@ -207,45 +170,6 @@
           <h3 class="play text-align:center">Standard Grid (Wrap) resizing</h3>
         </div>
       </div>
-
-<style>
-
-  .grid-overlay-standard-wrap {
-    column-gap: 16px;
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .grid-overlay-standard-wrap.md {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-standard-wrap.lg {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-standard-wrap.xl {
-    column-gap: 32px;
-    padding-left:0;
-    padding-right:0;
-  }
-  .grid-overlay-standard-wrap > div {
-    width: 100%;
-    height:100%;
-    background-color:#7777ff;
-    opacity:.25;
-  }
-
-</style>
 
 <section id="grid-overlay-standard-wrap" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -317,7 +241,7 @@
       </div>
     </div>
     <div id="grid-overlay-standard-wrap-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-standard-wrap xl">
+      <div class="grid-overlay-standard-wrap grid-type-gap xl">
         <div></div>
         <div></div>
         <div></div>
@@ -341,45 +265,6 @@
           <h3 class="play text-align:center">Standard Grid (Centered) resizing</h3>
         </div>
       </div>
-
-<style>
-
-  .grid-overlay-standard-centered {
-    column-gap: 16px;
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .grid-overlay-standard-centered.md {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-standard-centered.lg {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-standard-centered.xl {
-    column-gap: 32px;
-    padding-left:0;
-    padding-right:0;
-  }
-  .grid-overlay-standard-centered > div {
-    width: 100%;
-    height:100%;
-    background-color:#7777ff;
-    opacity:.25;
-  }
-
-</style>
 
 <section id="grid-overlay-standard-centered" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -451,7 +336,7 @@
       </div>
     </div>
     <div id="grid-overlay-standard-centered-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-standard-centered xl">
+      <div class="grid-overlay-standard-centered grid-type-gap xl">
         <div></div>
         <div></div>
         <div></div>
@@ -475,45 +360,6 @@
           <h3 class="play text-align:center">Rare Grid resizing</h3>
         </div>
       </div>
-
-<style>
-
-  .grid-overlay-rare {
-    column-gap: 16px;
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .grid-overlay-rare.md {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-rare.lg {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-rare.xl {
-    column-gap: 32px;
-    padding-left:0;
-    padding-right:0;
-  }
-  .grid-overlay-rare > div {
-    width: 100%;
-    height:100%;
-    background-color:#7777ff;
-    opacity:.25;
-  }
-
-</style>
 
 <section id="grid-overlay-rare" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -585,7 +431,7 @@
       </div>
     </div>
     <div id="grid-overlay-rare-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-rare xl">
+      <div class="grid-overlay-rare grid-type-gap xl">
         <div></div>
         <div></div>
         <div></div>
@@ -629,45 +475,6 @@
           </div>
         </div>
       </div>
-
-<style>
-
-  .grid-overlay-flexible {
-    column-gap: 16px;
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .grid-overlay-flexible.md {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-flexible.lg {
-    column-gap: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  .grid-overlay-flexible.xl {
-    column-gap: 32px;
-    padding-left:0;
-    padding-right:0;
-  }
-  .grid-overlay-flexible > div {
-    width: 100%;
-    height:100%;
-    background-color:#7777ff;
-    opacity:.25;
-  }
-
-</style>
 
 <section id="grid-overlay-flexible" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -739,7 +546,7 @@
       </div>
     </div>
     <div id="grid-overlay-flexible-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-flexible xl">
+      <div class="grid-overlay-flexible grid-type-gap xl">
         <div></div>
         <div></div>
         <div></div>
@@ -779,29 +586,6 @@
             <h3 class="play text-align:center">Standard Grid resizing (Legacy Grid)</h3>
           </div>
         </div>
-
-<style>
-
-  .grid-overlay-legacy-standard {
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-  }
-  .grid-overlay-legacy-standard > div:first-child {
-    border-left:1px solid red;
-  }
-  .grid-overlay-legacy-standard > div {
-    height:100%;
-    border-right:1px solid red;
-    width: 100%;
-  }
-
-</style>
 
 <section id="grid-overlay-legacy-standard" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -873,7 +657,7 @@
       </div>
     </div>
     <div id="grid-overlay-legacy-standard-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-legacy-standard xl">
+      <div class="grid-overlay-legacy-standard grid-type-legacy xl">
         <div></div>
         <div></div>
         <div></div>
@@ -897,29 +681,6 @@
             <h3 class="play text-align:center">Standard Grid (Wrap) resizing (Legacy Grid)</h3>
           </div>
         </div>
-
-<style>
-
-  .grid-overlay-legacy-standard-wrap {
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-  }
-  .grid-overlay-legacy-standard-wrap > div:first-child {
-    border-left:1px solid red;
-  }
-  .grid-overlay-legacy-standard-wrap > div {
-    height:100%;
-    border-right:1px solid red;
-    width: 100%;
-  }
-
-</style>
 
 <section id="grid-overlay-legacy-standard-wrap" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -991,7 +752,7 @@
       </div>
     </div>
     <div id="grid-overlay-legacy-standard-wrap-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-legacy-standard-wrap xl">
+      <div class="grid-overlay-legacy-standard-wrap grid-type-legacy xl">
         <div></div>
         <div></div>
         <div></div>
@@ -1015,29 +776,6 @@
             <h3 class="play text-align:center">Standard Grid (Centered) resizing (Legacy Grid)</h3>
           </div>
         </div>
-
-<style>
-
-  .grid-overlay-legacy-standard-centered {
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-  }
-  .grid-overlay-legacy-standard-centered > div:first-child {
-    border-left:1px solid red;
-  }
-  .grid-overlay-legacy-standard-centered > div {
-    height:100%;
-    border-right:1px solid red;
-    width: 100%;
-  }
-
-</style>
 
 <section id="grid-overlay-legacy-standard-centered" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -1109,7 +847,7 @@
       </div>
     </div>
     <div id="grid-overlay-legacy-standard-centered-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-legacy-standard-centered xl">
+      <div class="grid-overlay-legacy-standard-centered grid-type-legacy xl">
         <div></div>
         <div></div>
         <div></div>
@@ -1133,29 +871,6 @@
             <h3 class="play text-align:center">Rare Grid resizing (Legacy Grid)</h3>
           </div>
         </div>
-
-<style>
-
-  .grid-overlay-legacy-rare {
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-  }
-  .grid-overlay-legacy-rare > div:first-child {
-    border-left:1px solid red;
-  }
-  .grid-overlay-legacy-rare > div {
-    height:100%;
-    border-right:1px solid red;
-    width: 100%;
-  }
-
-</style>
 
 <section id="grid-overlay-legacy-rare" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -1227,7 +942,7 @@
       </div>
     </div>
     <div id="grid-overlay-legacy-rare-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-legacy-rare xl">
+      <div class="grid-overlay-legacy-rare grid-type-legacy xl">
         <div></div>
         <div></div>
         <div></div>
@@ -1271,29 +986,6 @@
             </div>
           </div>
         </div>
-
-<style>
-
-  .grid-overlay-legacy-flexible {
-    display:flex;
-    position:absolute;
-    z-index:0;
-    left:0;
-    right:0;
-    margin:0 auto;
-    max-width:1280px;
-    height:100%;
-  }
-  .grid-overlay-legacy-flexible > div:first-child {
-    border-left:1px solid red;
-  }
-  .grid-overlay-legacy-flexible > div {
-    height:100%;
-    border-right:1px solid red;
-    width: 100%;
-  }
-
-</style>
 
 <section id="grid-overlay-legacy-flexible" data-module="iframe-grid-sliders">
   <div class="w:100% align-self:centered overflow:hidden" data-module="iframe-grid-container">
@@ -1365,7 +1057,7 @@
       </div>
     </div>
     <div id="grid-overlay-legacy-flexible-background" class="w:100% position:relative grid-background">
-      <div class="grid-overlay-legacy-flexible xl">
+      <div class="grid-overlay-legacy-flexible grid-type-legacy xl">
         <div></div>
         <div></div>
         <div></div>
