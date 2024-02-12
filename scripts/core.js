@@ -96,6 +96,7 @@ const remove_focus_selector = [
  * storm_eagle.util.index_in_parent()
  * storm_eagle.util.closest_parent()
  * storm_eagle.util.run_str_func()
+ * storm_eagle.util.fetch()
  * storm_eagle.open_window()
  * storm_eagle.scroll_to()
  * storm_eagle.debounce()
@@ -821,7 +822,27 @@ var storm_eagle = (() => {
           return false;
         }
       },
-
+      fetch: (url) => {
+        if (!url) {
+          console.error('Fetch called without a URL');
+          return Promise.reject('No URL provided');
+        }
+        return fetch(url)
+          .then(response => {
+            // Check if the response was successful
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .catch(err => {
+            // Handle errors more specifically
+            console.error('Fetch error:', err);
+            // Depending on your application's needs, you might want to handle this differently,
+            // e.g., re-throw the error, return a default value, or return a specific error object.
+            return Promise.reject(err);
+          });
+      }
     },
 
     /**
