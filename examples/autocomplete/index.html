@@ -46,7 +46,7 @@
           <div class="display:flex w:100% align-self:centered">
             <div class="w:100%" data-module="autocomplete" id="autocomplete-digimon" data-autocomplete-filter="name" data-autocomplete-source-type="fetch" data-autocomplete-source="/examples/autocomplete/digimon.json" data-autocomplete-type="multiselect">
               <div data-module="autocomplete.multiselect" id class="br:4px w:100%">
-                <span class="display:flex flex-flow:row-wrap pl:4px pb:12px" data-module="autocomplete.multiselect-tags" id></span>
+                <span class="display:flex flex-flow:row-wrap pl:4px pb:12px" data-module="autocomplete.multiselect-tags"></span>
                 <input type="text" onfocus="storm_eagle.autocomplete.a11y.update_sr_description('autocomplete-digimon',this.value);" data-module="autocomplete.input" data-autocomplete-input-format='["digivolution","-","name"]' id="digimon" name="digimon" role="combobox" aria-autocomplete="both" aria-owns="autocomplete-digimon-results" aria-activedescendant="" autocomplete="off" aria-expanded="false" aria-required="true" aria-describedby="autocomplete-error" class="b-silver:1px w:100% p:4px" placeholder="Please enter a digimon">
                 <label for="digimon" id="autocomplete-digimon-label" class="sr-only"><span class="description">Find a Digimon</span></label>
               </div>
@@ -65,9 +65,9 @@
         <div class="w:12">
           <h2 class="play:bold fs:32px color:eerie-black pb:32px">Config: Multiselect with pre-selected/default options</h2>
           <div class="display:flex w:100% align-self:centered">
-            <div class="w:100%" data-module="autocomplete" id="autocomplete-digimon-with-defaults" data-autocomplete-filter="name" data-autocomplete-defaults='["War Greymon", "Omnimon", "Metal Garurumon"]' data-autocomplete-source-type="fetch" data-autocomplete-source="/examples/autocomplete/digimon.json" data-autocomplete-type="multiselect">
+            <div class="w:100%" data-module="autocomplete" id="autocomplete-digimon-with-defaults" data-autocomplete-filter="name" data-autocomplete-values='["War Greymon", "Omnimon", "Metal Garurumon"]' data-autocomplete-source-type="fetch" data-autocomplete-source="/examples/autocomplete/digimon.json" data-autocomplete-type="multiselect">
               <div data-module="autocomplete.multiselect" id class="br:4px w:100%">
-                <span class="display:flex flex-flow:row-wrap pl:4px pb:12px" data-module="autocomplete.multiselect-tags" id></span>
+                <span class="display:flex flex-flow:row-wrap pl:4px pb:12px" data-module="autocomplete.multiselect-tags"></span>
                 <input type="text" onfocus="storm_eagle.autocomplete.a11y.update_sr_description('autocomplete-digimon-with-defaults',this.value);" data-module="autocomplete.input" data-autocomplete-input-format='["digivolution","-","name"]' id="digimon-with-defaults" name="digimon-with-defaults" role="combobox" aria-autocomplete="both" aria-owns="autocomplete-digimon-with-defaults-results" aria-activedescendant="" autocomplete="off" aria-expanded="false" aria-required="true" aria-describedby="autocomplete-error" class="b-silver:1px w:100% p:4px" placeholder="Please enter a digimon">
                 <label for="digimon-with-defaults" id="autocomplete-digimon-with-defaults-label" class="sr-only"><span class="description">Find a Digimon</span></label>
               </div>
