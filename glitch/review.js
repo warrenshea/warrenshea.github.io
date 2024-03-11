@@ -11,6 +11,7 @@ glitch.module('review', function () {
       let content =  `
         <div style="display:flex;width:100%">
           <div style="width:50%">
+            <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.grid_1280px();">Grid (Zero System)</button><br>
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.grida_1200px();">Grid (Design Language)</button><br>
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.gridb_1200px();">Grid (Contentful)</button><br>
             <button style="margin-top:8px;" onclick="glitch.core.reset();glitch.review.design();">Design Box Model</button><br>
@@ -31,6 +32,97 @@ glitch.module('review', function () {
         </div>
         <br><button class="w:100%" onclick="glitch.core.reset();">Reset glitch</button>`;
       glitch.modules.initialize_ui(id,heading,content);
+    },
+    grid_1280px : function() {
+      let module_ui = document.createElement("style");
+      let id = "glitch_review_grid_1280px";
+      module_ui.type = 'text/css';
+      module_ui.id = id;
+      module_ui.setAttribute("data-id","glitch-id-element");
+
+      let module_ui_content = `
+body.glitch-css-modificiation {
+  position: relative;
+}
+.glitch-grid-1280px {
+  column-gap: 16px;
+  display:flex;
+  position:absolute;
+  z-index:100000;
+  left:0;
+  right:0;
+  margin:0 auto;
+  max-width:1280px;
+  height:100%;
+  padding-left:24px;
+  padding-right:24px;
+}
+@media screen and (min-width: 768px) {
+  .glitch-grid-1280px {
+    column-gap: 24px;
+    padding-left:32px;
+    padding-right:32px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .glitch-grid-1280px {
+    column-gap: 24px;
+    padding-left:32px;
+    padding-right:32px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .glitch-grid-1280px {
+    column-gap: 32px;
+    padding-left:0;
+    padding-right:0;
+  }
+}
+.glitch-grid-1280px > div {
+  width: 100%;
+}
+.glitch-grid-column {
+  height:100%;
+  background-color:#ff7777;opacity:.25;
+}
+.glitch-grid-column.glitch-first-four {
+  display:block;
+}
+.glitch-grid-column.glitch-next-eight {
+  display:none;
+}
+
+@media screen and (min-width: 768px) {
+  .glitch-grid-column.glitch-next-eight {
+    display:block;
+  }
+}
+`
+      module_ui.appendChild(document.createTextNode(module_ui_content));
+      document.getElementsByTagName("head")[0].appendChild(module_ui);
+
+      let idDiv = document.createElement("div");
+      idDiv.setAttribute("data-id", "glitch-id-element");
+      idDiv.classList.add("glitch-grid-1280px");
+
+let module_grid_content = `
+<div class="glitch-grid-column glitch-first-four"></div>
+<div class="glitch-grid-column glitch-first-four"></div>
+<div class="glitch-grid-column glitch-first-four"></div>
+<div class="glitch-grid-column glitch-first-four"></div>
+<div class="glitch-grid-column glitch-next-eight"></div>
+<div class="glitch-grid-column glitch-next-eight"></div>
+<div class="glitch-grid-column glitch-next-eight"></div>
+<div class="glitch-grid-column glitch-next-eight"></div>
+<div class="glitch-grid-column glitch-next-eight"></div>
+<div class="glitch-grid-column glitch-next-eight"></div>
+<div class="glitch-grid-column glitch-next-eight"></div>
+<div class="glitch-grid-column glitch-next-eight"></div>
+`;
+      idDiv.innerHTML = module_grid_content;
+      document.body.prepend(idDiv);
+
+      document.querySelector("body").classList.add("glitch-css-modificiation");
     },
     grida_1200px : function() {
       let module_ui = document.createElement("style");
@@ -117,13 +209,15 @@ body.glitch-css-modificiation {
 @media screen and (min-width: 1024px) {
   .glitch-gridb-1200px {
     column-gap: 24px;
-    padding-left:0;
-    padding-right:0;
+    padding-left:32px;
+    padding-right:32px;
   }
 }
 @media screen and (min-width: 1280px) {
   .glitch-gridb-1200px {
     column-gap: 32px;
+    padding-left:0;
+    padding-right:0;
   }
 }
 .glitch-gridb-1200px > div {
