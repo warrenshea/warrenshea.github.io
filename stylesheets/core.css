@@ -16067,11 +16067,7 @@ fieldset.unstyle {
   box-shadow: 0 0 0.25rem 0.1875rem rgba(120, 156, 204, 0.65);
 }
 .form\:theme\:gl0b3x [data-module="autocomplete.multiselect"] input[type=text][data-module="autocomplete.input"] {
-  height: auto;
   margin-top: 0;
-}
-.form\:theme\:gl0b3x [data-module="autocomplete.multiselect"] input[type=text][data-module="autocomplete.input"] + label.sr-only {
-  position: absolute;
 }
 .form\:theme\:gl0b3x [data-module="slider.input-container"] [data-module="slider.background"],
 .form\:theme\:gl0b3x [data-module="range-slider.input-container"] [data-module="slider.background"] {
@@ -23602,6 +23598,9 @@ _:-ms-fullscreen, :root [data-module=popover][data-popover=active] {
   max-width: 400px;
 }
 
+[data-module="autocomplete.results"] {
+  z-index: 4;
+}
 [data-module="autocomplete.results"] li {
   display: flex;
   font-size: 0.875rem;
