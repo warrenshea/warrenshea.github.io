@@ -693,12 +693,12 @@ strong {
   }
 }
 .row {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80rem;
   display: flex;
   flex-flow: row wrap;
   column-gap: var(--column-gap);
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
@@ -727,12 +727,12 @@ strong {
 }
 
 .row0 {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80rem;
   display: flex;
   flex-flow: row wrap;
   column-gap: 0;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .column,
@@ -11971,6 +11971,7 @@ button.button\:yale-blue {
   height: 3.375rem;
   transition: none;
   /* all .2s ease;*/
+  border-radius: 0.25rem;
   line-height: 2rem;
   box-sizing: border-box;
   white-space: nowrap;
@@ -12294,6 +12295,7 @@ button.sm\=\:button\:yale-blue {
     height: 3.375rem;
     transition: none;
     /* all .2s ease;*/
+    border-radius: 0.25rem;
     line-height: 2rem;
     box-sizing: border-box;
     white-space: nowrap;
@@ -12616,6 +12618,7 @@ button.sm\+\:button\:yale-blue {
   height: 3.375rem;
   transition: none;
   /* all .2s ease;*/
+  border-radius: 0.25rem;
   line-height: 2rem;
   box-sizing: border-box;
   white-space: nowrap;
@@ -12939,6 +12942,7 @@ button.md-\:button\:yale-blue {
     height: 3.375rem;
     transition: none;
     /* all .2s ease;*/
+    border-radius: 0.25rem;
     line-height: 2rem;
     box-sizing: border-box;
     white-space: nowrap;
@@ -13262,6 +13266,7 @@ button.md\=\:button\:yale-blue {
     height: 3.375rem;
     transition: none;
     /* all .2s ease;*/
+    border-radius: 0.25rem;
     line-height: 2rem;
     box-sizing: border-box;
     white-space: nowrap;
@@ -13585,6 +13590,7 @@ button.md\+\:button\:yale-blue {
     height: 3.375rem;
     transition: none;
     /* all .2s ease;*/
+    border-radius: 0.25rem;
     line-height: 2rem;
     box-sizing: border-box;
     white-space: nowrap;
@@ -13908,6 +13914,7 @@ button.lg-\:button\:yale-blue {
     height: 3.375rem;
     transition: none;
     /* all .2s ease;*/
+    border-radius: 0.25rem;
     line-height: 2rem;
     box-sizing: border-box;
     white-space: nowrap;
@@ -14231,6 +14238,7 @@ button.lg\=\:button\:yale-blue {
     height: 3.375rem;
     transition: none;
     /* all .2s ease;*/
+    border-radius: 0.25rem;
     line-height: 2rem;
     box-sizing: border-box;
     white-space: nowrap;
@@ -14554,6 +14562,7 @@ button.lg\+\:button\:yale-blue {
     height: 3.375rem;
     transition: none;
     /* all .2s ease;*/
+    border-radius: 0.25rem;
     line-height: 2rem;
     box-sizing: border-box;
     white-space: nowrap;
@@ -14877,6 +14886,7 @@ button.xl\+\:button\:yale-blue {
     height: 3.375rem;
     transition: none;
     /* all .2s ease;*/
+    border-radius: 0.25rem;
     line-height: 2rem;
     box-sizing: border-box;
     white-space: nowrap;
@@ -15947,7 +15957,7 @@ fieldset.unstyle {
   left: 0;
   width: 1.5rem;
   height: 1.5rem;
-  border: 0.125rem solid #404040;
+  border: 0.125rem solid #808080;
 }
 .form\:theme\:gl0b3x input[type=checkbox] + label:before:hover,
 .form\:theme\:gl0b3x input[type=radio] + label:before:hover {
@@ -15990,6 +16000,9 @@ fieldset.unstyle {
 .form\:theme\:gl0b3x input[type=radio]:disabled + label:before {
   background-color: #c0c0c0;
   border: 0.125rem solid #404040;
+}
+.form\:theme\:gl0b3x input[type=checkbox] + label:before {
+  border-radius: 0.25rem;
 }
 .form\:theme\:gl0b3x input[type=checkbox]:checked + label:before {
   background-color: #3169b2;
@@ -16048,8 +16061,9 @@ fieldset.unstyle {
   color: #3169b2;
   background-color: #ffffff;
   width: 100%;
-  border: 0.125rem solid #404040;
+  border: 0.125rem solid #808080;
   line-height: 2.25rem;
+  border-radius: 0.25rem;
   transition: all 0.3s ease;
   box-shadow: 0 0 0 0 rgba(120, 156, 204, 0.65);
   white-space: nowrap;
@@ -16340,6 +16354,7 @@ fieldset.unstyle {
   /* - Fix for IE11 - keep -1px, not 0px */
   width: 1.5rem;
   height: 1.5rem;
+  border-radius: 0 0 0 0.125rem;
   background-image: url("../assets/icon/chevron-down.blue.svg");
   background-repeat: no-repeat;
   background-color: #68bbe8;
