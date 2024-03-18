@@ -82,21 +82,19 @@ storm_eagle.module('autocomplete', () => {
               });
             }
           }
-
         } catch (error) {
           console.error('Failed to initialize data:', error);
         }
       },
       update_input_value: (id, selected_values) => {
         const { el, type, onupdate } = state[id];
-        if (onupdate) {
-          storm_eagle.util.run_str_func( onupdate, { id } );
-        }
         if (type === "multiselect") {
           state[id].input_values = selected_values;
           el.setAttribute('data-autocomplete-values', JSON.stringify(selected_values));
         }
-
+        if (onupdate) {
+          storm_eagle.util.run_str_func( onupdate, { id } );
+        }
       }
     },
     a11y: {
@@ -313,7 +311,7 @@ storm_eagle.module('autocomplete', () => {
     },
     util: {
       create_tag_html: (id, index, result_string) => {
-        return `<div class='bgc:blue color:white heebo:bold py:2px px:8px brr:4px mr:4px my:2px b-silver:1px' data-autocomplete-tag='${index}'>${result_string} <button data-module='autocomplete.tag.button' class='heebo:bold fs:20px color:white' onclick='storm_eagle.autocomplete.ui.remove_selected("${id}", ${index});'>&times;</button></div>`;
+        return `<div class='heebo:bold py:2px px:8px brr:4px mr:4px my:2px b-silver:1px' data-autocomplete-tag='${index}'>${result_string} <button data-module='autocomplete.tag.button' class='heebo:bold fs:20px color:white' onclick='storm_eagle.autocomplete.ui.remove_selected("${id}", ${index});'>&times;</button></div>`;
       }
     }
   };
