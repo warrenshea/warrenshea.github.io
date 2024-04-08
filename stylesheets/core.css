@@ -1,3 +1,4 @@
+/* Variables, utility functions */
 /* file: variables-colors.scss------------------------------------------------ */
 /* PRIMARY COLOURS */
 /* BLUE COLOURS */
@@ -23526,14 +23527,11 @@ dl.unstyle > dd {
   box-shadow: 0 0 0 0.0625rem #1c3b65, inset 0 0 0 0.0625rem #1c3b65;
 }
 [data-module=accordion] [data-module="accordion.panel"] {
-  opacity: 1;
-  transition: 0.25s opacity ease;
+  transition: 0.25s height ease;
   overflow: hidden;
 }
 [data-module=accordion] [data-module="accordion.panel"][data-accordion-panel=hide] {
-  opacity: 0;
-  transition: 0.25s opacity ease;
-  overflow: hidden;
+  transition: 0.25s height ease;
   height: 0px;
 }
 
@@ -23823,6 +23821,7 @@ _:-ms-fullscreen, :root [data-module=popover][data-popover=active] {
   background-color: #e0e0e0;
 }
 
+/* Utility classes always go last, as they should always trump other pre-defined classes/styles. In general, we should never trump a utility class */
 /* file: helper-margin-padding.scss------------------------------------------------ */
 .m\:1px {
   margin: 0.0625rem;
