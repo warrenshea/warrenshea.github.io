@@ -19,32 +19,79 @@
         <h1 class="w:12 play:bold fs:40px color:eerie-black">Popover</h1>
       </section>
 
-      <section class="row py:32px">
-        <div class="w:12 position:relative pb:48px lh:0">
-          <button class="flex-grow:0 ml:4px" aria-haspopup="true" aria-expanded="false" data-module="popover.trigger" onclick="storm_eagle.popover.open('focused-item',this);" aria-label="Popover information, opens in a new pop-up"><span class="ic ic-type:solid display:block ic-color:blue ic-size:32px ic-name:info-circle" aria-hidden="true"></span></button>
-          <div class="right" data-module="popover" role="dialog" aria-modal="true" id="focused-item" aria-labelledby="focused-item-id">
-            <div class="bgc:white w:100% md-:brrtx:4px lg+:brr:4px">
-              <button data-popover-close onclick="storm_eagle.popover.close();" aria-label="Close information pop-up"><span class="ic ic-type:solid display:block ic-color:blue ic-size:24px ic-name:times" aria-hidden="true"></span></button>
-              <div class="lh:24 md-:py:16px md-:pl:16px md-:pr:48px lg+:py:24px lg+:pl:32px lg+:pr:56px">
-                <p id="focused-item-id">A <a class="anchor:blue" href="https://en.wikipedia.org/wiki/Popover" target="_blank" class="heebo:bold">popover</a> is a light roll made from an egg batter similar to that of Yorkshire pudding, typically baked in muffin tins or dedicated popover pans, which have straight-walled sides rather than angled.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section class="grid">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Popover_API</a>
+      </section>
 
-        <div class="w:12 position:relative pb:48px lh:0">
-          <button class="flex-grow:0 ml:4px" aria-haspopup="true" aria-expanded="false" data-module="popover.trigger" onclick="storm_eagle.popover.open('focused-item2',this);" aria-label="More popover information, opens in a new pop-up"><span class="ic ic-type:solid display:block ic-color:blue ic-size:32px ic-name:info-circle" aria-hidden="true"></span></button>
-          <div class="right" data-module="popover" role="dialog" aria-modal="true" id="focused-item2" aria-labelledby="focused-item-id2">
-            <div class="bgc:white w:100% md-:brrtx:4px lg+:brr:4px">
+      <section class="row0 py:32px">
+        
+        <span class="lh:0 position:relative vertical-align:middle">
+          <button class="flex-grow:0 ml:4px" popovertarget="popover-1" data-module="popover.trigger" onclick="storm_eagle.popover.open('popover-1',this);" aria-label="Popover information, opens in a new pop-up">
+            <span class="ic ic-type:solid display:block ic-color:blue ic-size:16px ic-name:info-circle" aria-hidden="true"></span>
+          </button>
+          <span popover class="right" data-module="popover" id="popover-1" aria-labelledby="popover-1-id">
+            <span class="bgc:white w:100% md-:brrtx:4px lg+:brr:4px">
               <button data-popover-close onclick="storm_eagle.popover.close();" aria-label="Close information pop-up"><span class="ic ic-type:solid display:block ic-color:blue ic-size:24px ic-name:times" aria-hidden="true"></span></button>
-              <div class="lh:24 md-:py:16px md-:pl:16px md-:pr:48px lg+:py:24px lg+:pl:32px lg+:pr:56px">
-                <p id="focused-item-id2">Popovers may be served either as a sweet, topped with fruit and whipped cream; or, butter and jam for breakfast; or, with afternoon tea; or, with meats at lunch and dinner.</p>
-              </div>
-            </div>
-          </div>
+              <span class="display:block lh:24 md-:py:16px md-:pl:16px md-:pr:48px lg+:py:24px lg+:pl:32px lg+:pr:56px">
+                <p id="popover-1-id">A <a class="anchor:blue heebo:bold" href="https://en.wikipedia.org/wiki/Popover" target="_blank">popover</a> is a light roll made from an egg batter similar to that of Yorkshire pudding, typically baked in muffin tins or dedicated popover pans, which have straight-walled sides rather than angled.</p>
+              </span>
+            </span>
+          </span>
+        </span>
+      </section>
+
+      <section class="row0 py:32px">
+        
+        <span class="lh:0 position:relative vertical-align:middle">
+          <button class="flex-grow:0 ml:4px" popovertarget="popover-2" data-module="popover.trigger" onclick="storm_eagle.popover.open('popover-2',this);" aria-label="More popover information, opens in a new pop-up">
+            <span class="ic ic-type:solid display:block ic-color:blue ic-size:32px ic-name:info-circle" aria-hidden="true"></span>
+          </button>
+          <span popover class="right" data-module="popover" id="popover-2" aria-labelledby="popover-2-id">
+            <span class="display:block bgc:white w:100% md-:brrtx:4px lg+:brr:4px">
+              <button data-popover-close onclick="storm_eagle.popover.close();" aria-label="Close information pop-up"><span class="ic ic-type:solid display:block ic-color:blue ic-size:24px ic-name:times" aria-hidden="true"></span></button>
+              <span class="display:block lh:24 md-:py:16px md-:pl:16px md-:pr:48px lg+:py:24px lg+:pl:32px lg+:pr:56px">
+                <p id="popover-2-id">Popovers may be served either as a sweet, topped with fruit and whipped cream; or, butter and jam for breakfast; or, with afternoon tea; or, with meats at lunch and dinner.</p>
+              </span>
+            </span>
+          </span>
         </div>
       </section>
-      <div data-module="popover.overlay"></div>
+
+      <section class="row0 py:32px">
+        Popover 3
+        
+        <span class="lh:0 position:relative vertical-align:middle">
+          <button class="flex-grow:0 ml:4px" popovertarget="popover-3" data-module="popover.trigger" onclick="storm_eagle.popover.open('popover-3',this);" aria-label="Popover information, opens in a new pop-up">
+            <span class="ic ic-type:solid display:block ic-color:blue ic-size:24px ic-name:info-circle" aria-hidden="true"></span>
+          </button>
+          <span popover class="right" data-module="popover" id="popover-3" aria-labelledby="popover-3-id">
+            <span class="display:block bgc:white w:100% md-:brrtx:4px lg+:brr:4px">
+              <button data-popover-close onclick="storm_eagle.popover.close();" aria-label="Close information pop-up"><span class="ic ic-type:solid display:block ic-color:blue ic-size:24px ic-name:times" aria-hidden="true"></span></button>
+              <span class="display:block lh:24 md-:py:16px md-:pl:16px md-:pr:48px lg+:py:24px lg+:pl:32px lg+:pr:56px">
+                <p id="popover-3-id">A <a class="anchor:blue heebo:bold" href="https://en.wikipedia.org/wiki/Popover" target="_blank">popover</a> is a light roll made from an egg batter similar to that of Yorkshire pudding, typically baked in muffin tins or dedicated popover pans, which have straight-walled sides rather than angled.</p>
+              </span>
+            </span>
+          </span>
+        </span>
+         &nbsp;and Popover 4
+        
+        <span class="lh:0 position:relative vertical-align:middle">
+          <button class="flex-grow:0 ml:4px" popovertarget="popover-4" data-module="popover.trigger" onclick="storm_eagle.popover.open('popover-4',this);" aria-label="More popover information, opens in a new pop-up">
+            <span class="ic ic-type:solid display:block ic-color:blue ic-size:24px ic-name:info-circle" aria-hidden="true"></span>
+          </button>
+          <span popover class="right" data-module="popover" id="popover-4" aria-labelledby="popover-4-id">
+            <span class="display:block bgc:white w:100% md-:brrtx:4px lg+:brr:4px">
+              <button data-popover-close onclick="storm_eagle.popover.close();" aria-label="Close information pop-up"><span class="ic ic-type:solid display:block ic-color:blue ic-size:24px ic-name:times" aria-hidden="true"></span></button>
+              <span class="display:block lh:24 md-:py:16px md-:pl:16px md-:pr:48px lg+:py:24px lg+:pl:32px lg+:pr:56px">
+                <p id="popover-4-id">Popovers may be served either as a sweet, topped with fruit and whipped cream; or, butter and jam for breakfast; or, with afternoon tea; or, with meats at lunch and dinner.</p>
+              </span>
+            </span>
+          </span>
+        </span>
+      </section>
+
+      <div style="height:3000px"></div>
     </main>
     <script src="/scripts/core.js"></script>
     
