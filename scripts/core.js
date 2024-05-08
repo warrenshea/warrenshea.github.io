@@ -1033,6 +1033,29 @@ var storm_eagle = (() => {
 
 const LANG = storm_eagle.page.get_language_code();
 
+storm_eagle.module('image_default_dimensions', () => {
+  return {
+    initialize: () => {
+      const set_image_attribute = (image) => {
+        image.setAttribute("height",image.offsetHeight);
+        image.setAttribute("width",image.offsetWidth);
+        if (image.getAttribute("loading") !== "eager") {
+          image.setAttribute("loading","lazy");
+        }
+      }
+      document.querySelectorAll(`img`).forEach((image) => {
+        if (image.complete) {
+          set_image_attribute(image);
+        } else {
+          image.onload = () => {
+            set_image_attribute(image);
+          };
+        }
+      })
+    },
+  };
+});
+
 storm_eagle.module('autopopulate_empty_ids', () => {
   let self;
 
@@ -1225,21 +1248,21 @@ storm_eagle.module('zs_highlighter', () => {
     initialize: () => {
       if (storm_eagle.page.get_query_value('zs-highlight-mid')) {
         storm_eagle.page.get_query_value('zs-highlight-mid').split(",").forEach((mid_id) => {
-          document.querySelectorAll(`[data-zs*=mid\\:${mid_id}]`).forEach((element) => {
-            element.classList.add("b-yellow:4px","p:4px");
+          document.querySelectorAll(`[data-zs*='mid\\:${mid_id},']`).forEach((element) => {
+            element.classList.add("zs-hightlight-yellow","p:4px");
           })
         });
       }
       if (storm_eagle.page.get_query_value('zs-highlight-cid')) {
         storm_eagle.page.get_query_value('zs-highlight-cid').split(",").forEach((cid_id) => {
-          document.querySelectorAll(`[data-zs*=cid\\:${cid_id}]`).forEach((element) => {
-            element.classList.add("b-red:4px","p:4px");
+          document.querySelectorAll(`[data-zs*='cid\\:${cid_id},']`).forEach((element) => {
+            element.classList.add("zs-hightlight-red","p:4px");
           })
         });
       }
       if (storm_eagle.page.get_query_value('zs-highlight-branch')) {
         document.querySelectorAll(`[data-zs-branch=${storm_eagle.page.get_query_value('zs-highlight-branch')}]`).forEach((element) => {
-          element.classList.add("b-blue:4px","p:4px");
+          element.classList.add("zs-hightlight-blue","p:4px");
         })
       }
     },
