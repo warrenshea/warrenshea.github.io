@@ -13,10 +13,10 @@
 "We are not just our behaviour. We are the person managing our behaviour." \
 "Goals begin behaviours. Consequences maintain behaviours."
 
-**The First Secret: One Minute Goals**  \
-* Instead of setting goals for us, he works with us to develop them  \
-* Each goal should take no more than a paragraph to express, so it can be read in a minute.  \
-* 80/20 - 80% of your results will come from your 20% goals (3-5 goals)  \
+**The First Secret: One Minute Goals**
+* Instead of setting goals for us, he works with us to develop them
+* Each goal should take no more than a paragraph to express, so it can be read in a minute.
+* 80/20 - 80% of your results will come from your 20% goals (3-5 goals)
 * Anything that is done should be towards the goals
 
 If you can't tell me what you'd like to be happening, you don't have a problem yet - you're just complaining.  \
@@ -27,11 +27,11 @@ A problem only exists if there's a difference between what is actually happening
 What's the descrepency between the actual and what you want to happen?
 
 ***One Minute Goals: Summary***  \
-One Minute Goals work well when you:  \
-* Plan the goals together and describe them briefly and clearly. Show people what good performance looks like. \
-* Have people write out each of their goals, with due dates, on a single page. \
-* Ask them to review their most important goals each day, which takes only a few minutes to do. \
-* Encourage people to take a minute to look at what they're doing, and see if their behaviour matches their goals. \
+One Minute Goals work well when you:
+* Plan the goals together and describe them briefly and clearly. Show people what good performance looks like.
+* Have people write out each of their goals, with due dates, on a single page.
+* Ask them to review their most important goals each day, which takes only a few minutes to do.
+* Encourage people to take a minute to look at what they're doing, and see if their behaviour matches their goals.
 * If it doesn't, encourage them to re-think what they're doing so they can realise their goals sooner.
 
 ***One Minute Praisings: Summary*** \
