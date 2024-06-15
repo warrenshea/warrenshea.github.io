@@ -157,6 +157,14 @@ h2 {
   background: linear-gradient(105deg, #026e00 0, #026e00 92%, #233056 92.5%, #233056 100%);
 }
 
+.title-one-minute-manager {
+  background: linear-gradient(105deg, #2e467b 0, #2e467b 92%, #e02828 92.5%, #e02828 100%);
+}
+
+.title-qbq {
+  background: linear-gradient(105deg, #23408e 0, #23408e 92%, #f9d676 92.5%, #f9d676 100%);
+}
+
 .title-performance {
   background: linear-gradient(105deg, #cceeff 0, #cceeff 92%, #cc66ff 92.5%, #cc66ff 100%);
 }
