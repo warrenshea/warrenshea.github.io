@@ -8,7 +8,7 @@ h2 {
 }
 
 .description-line {
-  background: linear-gradient(-75deg, #f9f9f9 0, #f9f9f9 15%, #f9f9f9 15%, #f9f9f9 17%, #fff 17.5%, #fff 100%);
+  background: linear-gradient(-75deg, #f9f9f9 0, #f9f9f9 14%, #f9f9f9 14%, #f9f9f9 16%, #fff 16.5%, #fff 100%);
   transition: opacity 0.5s ease;
 }
 
