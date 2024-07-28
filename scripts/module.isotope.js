@@ -197,7 +197,7 @@ storm_eagle.module('isotope', () => {
     },
     ui : {
       initialize: (id) => {
-        const { layout_mode, filter_initial, sort_data_config, elements_container } = state[id];
+        const { layout_mode, filter_initial, sort_data_config, elements_container, onupdate } = state[id];
         self.config.state.set.sort_by(id);
         self.config.state.set.sort_ascending(id);
         self.config.state.set.filter(id);
@@ -213,9 +213,9 @@ storm_eagle.module('isotope', () => {
         state[id].isotope_object = new Isotope(elements_container, config);
         self.config.state.get.number_filtered_elements(id);
         self.ui.custom_styles(id);
-          if (onupdate) {
-            storm_eagle.util.run_str_func( onupdate, { id } );
-          }
+        if (onupdate) {
+          storm_eagle.util.run_str_func( onupdate, { id } );
+        }
         //console.log(state[id].isotope_object);
       },
       refresh: (id) => {
