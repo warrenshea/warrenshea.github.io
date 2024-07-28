@@ -76,6 +76,7 @@ storm_eagle.module('isotope', () => {
           filter_groups_types: filter_groups_ids.map(id => document.querySelector(`[data-isotope-filter-group][id="${id}"]`)?.getAttribute('data-isotope-filter-group-type') || null),
           filtered_elements_id: el.getAttribute('data-isotope-number-filtered-elements-bind-id') || null,
           custom_styles: JSON.parse(el.getAttribute('data-isotope-zebra-stripes')) || [],
+          onupdate: el.getAttribute('data-isotope-onupdate-func') || false,
         };
         self.event_listeners.initialize(id);
         self.ui.initialize(id);
@@ -150,15 +151,16 @@ storm_eagle.module('isotope', () => {
                       state[id].filters[filter_groups_key[index]] = storm_eagle.radiobutton.get_value(`#${filter_group_id} input`,'data-isotope-filter-value');
                       break;
                     case "input_autocomplete":
-                      if (document.querySelector(`#${filter_group_id}`).hasAttribute('data-autocomplete-values')) {
-                        if (document.querySelector(`#${filter_group_id}`).getAttribute('data-autocomplete-values') === '[]') {
-                          state[id].filters[filter_groups_key[index]] = filter_initial;
+                      const autocomplete_el = document.querySelector(`#${filter_group_id}`);
+                      if (autocomplete_el.hasAttribute('data-autocomplete-values')) {
+                        if (autocomplete_el.getAttribute('data-autocomplete-values') === '[]') {
+                          state[id].filters[filter_groups_key[index]] = autocomplete_el.getAttribute('data-isotope-filter-initial') || '*';
                         } else {
-                          state[id].filters[filter_groups_key[index]] = (JSON.parse(document.querySelector(`#${filter_group_id}`).getAttribute('data-autocomplete-values'))
+                          state[id].filters[filter_groups_key[index]] = (JSON.parse(autocomplete_el.getAttribute('data-autocomplete-values'))
                             .map(str => str.toLowerCase().replace(/ /g, '-')));
                         }
                       } else {
-                        state[id].filters[filter_groups_key[index]] = filter_initial;
+                        state[id].filters[filter_groups_key[index]] = autocomplete_el.getAttribute('data-isotope-filter-initial') || '*';
                       }
                       break;
                     case "switch":
@@ -211,10 +213,13 @@ storm_eagle.module('isotope', () => {
         state[id].isotope_object = new Isotope(elements_container, config);
         self.config.state.get.number_filtered_elements(id);
         self.ui.custom_styles(id);
+          if (onupdate) {
+            storm_eagle.util.run_str_func( onupdate, { id } );
+          }
         //console.log(state[id].isotope_object);
       },
       refresh: (id) => {
-        const { filter_no_results } = state[id];
+        const { filter_no_results, onupdate } = state[id];
         setTimeout(() => {
           //console.log(self.config.state.get.filter(id));
           const new_config = {
@@ -226,9 +231,12 @@ storm_eagle.module('isotope', () => {
           state[id].isotope_object.arrange(new_config);
           self.config.state.get.number_filtered_elements(id);
           self.ui.custom_styles(id);
+          if (onupdate) {
+            storm_eagle.util.run_str_func( onupdate, { id } );
+          }
           setTimeout(() => {
             storm_eagle.equalize_heights.force_resize();
-          },100);
+          },250);
         },100);
       },
       refresh_all: () => {
