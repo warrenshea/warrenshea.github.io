@@ -104,6 +104,7 @@ const remove_focus_selector = [
  * storm_eagle.util.closest_parent()
  * storm_eagle.util.run_str_func()
  * storm_eagle.util.fetch()
+ * storm_eagle.util.load_css()
  * storm_eagle.util.load_javascript()
  * storm_eagle.open_window()
  * storm_eagle.scroll_to()
@@ -265,6 +266,18 @@ var storm_eagle = (() => {
           default:
             return false;
         }
+      },
+
+
+      /**
+       * Checks if a value is an Array and is empty
+       *
+       * @param mixed value
+       * @return boolean
+       * @scope public
+       */
+      is_array: (value) => {
+        return Array.isArray(value) && value.length > 0;
       },
     },
 
@@ -909,6 +922,16 @@ var storm_eagle = (() => {
           document.head.appendChild(script_element);
         });
       },
+      load_css: (path) => {
+        return new Promise((resolve, reject) => {
+          const link_element = document.createElement('link');
+          link_element.rel = 'stylesheet';
+          link_element.href = path;
+          link_element.onload = resolve;
+          link_element.onerror = reject;
+          document.head.appendChild(link_element);
+        });
+      },
     },
 
     /**
@@ -1066,9 +1089,11 @@ storm_eagle.module('image_default_dimensions', () => {
   return {
     initialize: () => {
       const set_image_attribute = (image) => {
-        (!image.hasAttribute("height")) && image.setAttribute("height", image.offsetHeight);
-        (!image.hasAttribute("width")) && image.setAttribute("width", image.offsetWidth);
-        (image.getAttribute("loading") !== "eager") && image.setAttribute("loading","lazy");
+        if (image.offsetParent !== null) { // if the item isn't in a hidden
+          (!image.hasAttribute("height")) && image.setAttribute("height", image.offsetHeight);
+          (!image.hasAttribute("width")) && image.setAttribute("width", image.offsetWidth);
+          (image.getAttribute("loading") !== "eager") && image.setAttribute("loading","lazy");
+        }
       }
       document.querySelectorAll(`img`).forEach((image) => {
         if (image.complete) {
