@@ -1,32 +1,6 @@
 /* file: module.archived-popover.scss------------------------------------------------ */
 /* file: variables-colors.scss------------------------------------------------ */
-/* PRIMARY COLOURS */
-/* BLUE COLOURS */
-/* RED COLOURS */
-/* YELLOW COLOURS */
-/* GRAYSCALE COLOURS */
-/* FEEDBACK COLOURS */
-/* SECONDARY COLOURS */
 /* file: variables-dimensions.scss------------------------------------------------ */
-/*rem-calc(375);*/
-/*rem-calc(1280);*/
-/*rem-calc(768);*/
-/*rem-calc(1024);*/
-/*rem-calc(1280);*/
-/* $mediaqueries object : "breakpoint" "prefix"
-  small down      | sm- | //not used
-  small only      | sm= | 0-767.99
-  small up        | sm+ | 0+
-  medium and down | md- | 0-1023.99
-  medium only     | md= | 768-1023.99
-  medium up       | md+ | 768+
-  large and down  | lg- | 0-1279.99
-  large only      | lg= | 1024-1279.99
-  large up        | lg+ | 1024+
-  xlarge and down | xl- | //not used since xl has no upper bound, this is equivalent to sm+
-  xlarge only     | xl= | //not used since xl has no upper bound, this is equivalent to xl+
-  xlarge up       | xl+ | 1280+
-*/
 /* file: variables-box-shadow.scss------------------------------------------------ */
 [data-module=archived-popover] {
   position: fixed;
@@ -55,28 +29,28 @@
   top: 50%;
 }
 [data-module=archived-popover].right::before {
-  border-width: 11px;
-  left: -11px;
-  margin-top: -11px;
+  border-width: 0.6875rem;
+  left: -0.6875rem;
+  margin-top: -0.6875rem;
   border-left-width: 0;
   border-right-color: #bbb;
 }
 [data-module=archived-popover].right:after {
-  border-width: 10px;
-  left: -10px;
+  border-width: 0.625rem;
+  left: -0.625rem;
   transform: translate(0, -50%);
   border-left-width: 0;
   border-right-color: #fff;
 }
 [data-module=archived-popover] button[data-archived-popover-close] {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  right: 0.625rem;
 }
 @media screen and (min-width: 64rem) {
   [data-module=archived-popover] button[data-archived-popover-close] {
-    top: 20px;
-    right: 20px;
+    top: 1.25rem;
+    right: 1.25rem;
   }
 }
 [data-module=archived-popover][data-archived-popover=active] {
@@ -93,8 +67,8 @@
     top: 50%;
     bottom: auto;
     right: auto;
-    width: 300px;
-    max-width: 300px;
+    width: 18.75rem;
+    max-width: 18.75rem;
   }
 }
 
