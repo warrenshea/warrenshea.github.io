@@ -1,7 +1,4 @@
 /* file: module.archived-popover.scss------------------------------------------------ */
-/* file: variables-colors.scss------------------------------------------------ */
-/* file: variables-dimensions.scss------------------------------------------------ */
-/* file: variables-box-shadow.scss------------------------------------------------ */
 [data-module=archived-popover] {
   position: fixed;
   left: 0;
