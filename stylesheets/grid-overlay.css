@@ -1,89 +1,84 @@
 /* file: variables-dimensions.scss------------------------------------------------ */
-/*rem-calc(375);*/
-/*rem-calc(1280);*/
-/*rem-calc(768);*/
-/*rem-calc(1024);*/
-/*rem-calc(1280);*/
 .grid-background {
   background-size: 1rem 1rem;
-  background-image: radial-gradient(circle, #ddd 2px, #f9f9f9 0);
+  background-image: radial-gradient(circle, #ddd 0.125rem, #f9f9f9 0);
   background-position-x: center;
 }
 
 .sm-left {
   color: #999;
-  width: 198px;
+  width: 12.375rem;
   height: 1.25rem;
-  top: -2px;
+  top: -0.125rem;
   z-index: -1;
-  left: calc(50% - 385px);
+  left: calc(50% - 24.0625rem);
 }
 
 .sm-right {
   color: #999;
-  width: 198px;
+  width: 12.375rem;
   height: 1.25rem;
-  top: -2px;
+  top: -0.125rem;
   z-index: -1;
-  right: calc(50% - 385px);
+  right: calc(50% - 24.0625rem);
 }
 
 .md-left {
   color: #999;
-  width: 126px;
+  width: 7.875rem;
   height: 1.25rem;
-  top: -2px;
+  top: -0.125rem;
   z-index: -1;
-  left: calc(50% - 511px);
+  left: calc(50% - 31.9375rem);
 }
 
 .md-right {
   color: #999;
-  width: 126px;
+  width: 7.875rem;
   height: 1.25rem;
-  top: -2px;
+  top: -0.125rem;
   z-index: -1;
-  right: calc(50% - 511px);
+  right: calc(50% - 31.9375rem);
 }
 
 .lg-left {
   color: #999;
-  width: 127px;
+  width: 7.9375rem;
   height: 1.25rem;
-  top: -2px;
+  top: -0.125rem;
   z-index: -1;
-  left: calc(50% - 639px);
+  left: calc(50% - 39.9375rem);
 }
 
 .lg-right {
   color: #999;
-  width: 127px;
+  width: 7.9375rem;
   height: 1.25rem;
-  top: -2px;
+  top: -0.125rem;
   z-index: -1;
-  right: calc(50% - 639px);
+  right: calc(50% - 39.9375rem);
 }
 
 .xl-left {
   color: #999;
   width: 50%;
   height: 1.25rem;
-  top: -2px;
+  top: -0.125rem;
   z-index: -2;
   right: 50%;
   text-align: right;
-  padding-right: 670px;
+  padding-right: 41.875rem;
 }
 
 .xl-right {
   color: #999;
   width: 50%;
   height: 1.25rem;
-  top: -2px;
+  top: -0.125rem;
   z-index: -2;
   left: 50%;
   text-align: left;
-  padding-left: 670px;
+  padding-left: 41.875rem;
 }
 
 .grid-type-gap {
