@@ -1,6 +1,9 @@
 .grid-background {
   background-size: 1rem 1rem;
-  background-image: radial-gradient(circle, #ddd 0.125rem, #f9f9f9 0);
+  /*  background-color: #f9f9f9;
+    background-image: radial-gradient(circle, #ddd rem-calc(2), #f9f9f9 0);*/
+  /*  background-color: #c0c0c0;*/
+  background-image: radial-gradient(circle, #aaa 0.125rem, #c0c0c0 0);
   background-position-x: center;
 }
 
