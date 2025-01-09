@@ -28,15 +28,15 @@ There are evil managers \- run from them
    * e.g. Layoffs
 
 ### 3\. The Rands Test (/11)
-Do you have one-on-one meetings? (+1)
-Do you have team meeting? (+1)
-Do you have status reports? (-1)
-Can you say no to your boss? (+1)
-Can you explain the strategy of the company to a stranger? (+1)
-Can you explain the current state of business? (+1)
-Does your manager regularly tell you what he/she is thinking? (+1) Are you buying it? (+1)
-Can you explain your career trajectory? (+1) Can you boss? (+1)
-Do you have time to be strategic? (+1)
+Do you have one-on-one meetings? (+1)\
+Do you have team meeting? (+1)\
+Do you have status reports? (-1)\
+Can you say no to your boss? (+1)\
+Can you explain the strategy of the company to a stranger? (+1)\
+Can you explain the current state of business? (+1)\
+Does your manager regularly tell you what he/she is thinking? (+1) Are you buying it? (+1)\
+Can you explain your career trajectory? (+1) Can you boss? (+1)\
+Do you have time to be strategic? (+1)\
 Are you actively killing the grapevine (gossip) ? (+1)
 
 Growing rapidly teaches you how communication breaks down
