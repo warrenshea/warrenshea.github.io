@@ -76,26 +76,26 @@ Your team doesn’t work for you, you work for them.
 One-on-ones usually fall into the update (all clear), the vent (something’s up), or the disaster (oh dear…).
 
 The Update:\
-&nbsp;&nbsp;&nbsp;&nbsp;if the meat of the conversation doesn’t occur in 15min, then\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 3 prepared topics\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Mini performance review\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* My current disaster
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the meat of the conversation doesn’t occur in 15min, then\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 3 prepared topics\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Mini performance review\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* My current disaster
 
 The Vent:\
-&nbsp;&nbsp;&nbsp;&nbsp;Don’t interrupt it.\
-&nbsp;&nbsp;&nbsp;&nbsp;Based on emotion.\
-&nbsp;&nbsp;&nbsp;&nbsp;The end of the Vent:\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* It’s done \- the end of the vent\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* It’s a rant \- the vent becomes cyclical \- it’s a vent that wants no help.\
-&nbsp;&nbsp;&nbsp;&nbsp;Feels like a speech.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Don’t interrupt it.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Based on emotion.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The end of the Vent:\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* It’s done \- the end of the vent\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* It’s a rant \- the vent becomes cyclical \- it’s a vent that wants no help.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Feels like a speech.
 
 The Disaster:\
-&nbsp;&nbsp;&nbsp;&nbsp;Feels like an attack.\
-&nbsp;&nbsp;&nbsp;&nbsp;Tips to handling the disaster:\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* The person you’re talking to isn’t him/herself\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Shut up to defuse the moment because…\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* It’s not about the problem, but the emotional baggage\
-&nbsp;&nbsp;&nbsp;&nbsp;Is a result of poor management, when the employee believes it’s the only option to make change
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Feels like an attack.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tips to handling the disaster:\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* The person you’re talking to isn’t him/herself\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Shut up to defuse the moment because…\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* It’s not about the problem, but the emotional baggage\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is a result of poor management, when the employee believes it’s the only option to make change
 
 ## 7\. The Monday Freakout
 The more time doing work over the weekend, the more pissed off you are when Monday arrives.\
