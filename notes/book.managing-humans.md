@@ -1,13 +1,15 @@
 # Warren Shea's Notes for Managing Humans by Maichael Lopp (Book)
 **Version**: 201703 | **Status**: Complete
 
+# Managing Humans
+
 ## The Management Quiver
 Arrow analogy \- Every time you learn something, it's an arrow in your quicker
 
-### 1\. Don't be a Prick
+## 1\. Don't be a Prick
 Definition of a great manager \- Someone whom you can make a connection to no matter where on the organizational chart
 
-### 2\. Managers are not Evil
+## 2\. Managers are not Evil
 Pride and panic show people’s behaviour in best and worst case scenarios\
 Pride \- things are going well. Panic \- when things are not.\
 There are evil managers \- run from them
@@ -27,7 +29,7 @@ There are evil managers \- run from them
 7. What happens when they lose their shit/during panic?
    * e.g. Layoffs
 
-### 3\. The Rands Test (/11)
+## 3\. The Rands Test (/11)
 Do you have one-on-one meetings? (+1)\
 Do you have team meeting? (+1)\
 Do you have status reports? (-1)\
@@ -41,7 +43,7 @@ Are you actively killing the grapevine (gossip) ? (+1)
 
 Growing rapidly teaches you how communication breaks down
 
-### 4\. How to Run a meeting
+## 4\. How to Run a meeting
 Two useful meetings: Alignment and Creation
 
 A meeting has 2 critical components, an Agenda and a Referee
@@ -52,7 +54,7 @@ Keeping people engaged:
 * Silence to reset meeting
 * Change scenery
 
-### 5\. The Twinge
+## 5\. The Twinge
 A twinge is your experience speaking to you in an unexpected and possibly unstructured way.
 
 A twinge is listening to random stories and quickly tease out a flaw in logic or absence of a critical dependency.
@@ -61,7 +63,7 @@ When a story doesn’t feel right, you demand specifics. If the story can’t st
 
 Twinges are built with experience.
 
-### 6\. The Update, the Vent, and the Disaster
+## 6\. The Update, the Vent, and the Disaster
 
 * Hold one-on-one’s at the same time
 * Always do it
@@ -75,9 +77,9 @@ One-on-ones usually fall into the update (all clear), the vent (something’s up
 
 The Update:\
 &nbsp;&nbsp;&nbsp;&nbsp;if the meat of the conversation doesn’t occur in 15min, then\
-&nbsp;&nbsp;&nbsp;&nbsp;* 3 prepared topics\
-&nbsp;&nbsp;&nbsp;&nbsp;* Mini performance review\
-&nbsp;&nbsp;&nbsp;&nbsp;* My current disaster
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 3 prepared topics\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Mini performance review\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* My current disaster
 
 The Vent:\
 &nbsp;&nbsp;&nbsp;&nbsp;Don’t interrupt it.\
@@ -95,7 +97,7 @@ The Disaster:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* It’s not about the problem, but the emotional baggage\
 &nbsp;&nbsp;&nbsp;&nbsp;Is a result of poor management, when the employee believes it’s the only option to make change
 
-### 7\. The Monday Freakout
+## 7\. The Monday Freakout
 The more time doing work over the weekend, the more pissed off you are when Monday arrives.\
 Freakouts happen on Monday.\
 Tips to handling a freakout:
@@ -110,12 +112,12 @@ A freakout is a management failure.
 * There is a problem that needs to be solved.
 * Someone believes the best way to get your attention is by freaking out.
 
-### 8\. Lost in translation
+## 8\. Lost in translation
 Beginners shine brightly with enthusiasm until they fall.\
 The fall is not the lesson\
 When communications are down, listen hard, repeat everything, assume nothing
 
-### 9\. Agenda Detection
+## 9\. Agenda Detection
 Discern:
 
 * Typical meeting roles and how meeting participants assume them
@@ -129,7 +131,7 @@ Identify Pros and Cons: Pros are getting what they want, Cons are pissed off\
 Figure out the issue: What do the Cons want to solve?\
 Give the cons what they want
 
-### 10\. Dissecting the Mandate
+## 10\. Dissecting the Mandate
 This is the way it is. No Q\&A. No Collaboration.\
 Mandate Process: Decide, Deliver, Deliver Again\
 Decide: Make a decision when debate is no longer productive\
@@ -146,28 +148,28 @@ Two types of mandates:
 * Local (driven by you, the manager)
 * Foreign (driven elsewhere, likely from above)
 
-### 11\. Information Starvation
+## 11\. Information Starvation
 People create their own information, if they have none\
 Managers are information conduits\
 Aggressive Silence \- be quiet and people who have something to say at the tip of their tongue, will (say it).
 
-### 12\. Subtlety, Subterfuge, and Silence
+## 12\. Subtlety, Subterfuge, and Silence
 A good manager is a person who is playing to a strategy and isn’t merely stumbling around squashing fires all day.\
 Subtlety \- humility \- not exhibiting power and knowledge and starting at a place where you admit you don’t have all the answers.\
 Subterfuge \- a risk \- not following orders, but doing something to meet your goals\
 Silence \- assess \-
 
-### 13\. Managementese
+## 13\. Managementese
 All talk, no action. Speaking in generalities, not specifics. Don’t know what they’re saying.\
 Bottom line \- when talking to individuals, talk using a familiar language of a friend.
 
-### 14\. Fred Hates the Off-Site
+## 14\. Fred Hates the Off-Site
 Offsites \- understanding who we are, new direction and/or fewer disasters, or embarking on an epic journey\
 Master of Ceremonies \- responsive for moving the day along and knowing when to stop and pivot.\
 Taker of Notes \- capture the bright ideas, and the right ideas\
 Unless offsite energy is channeled back and immediately acted upon, an offsite represents a frustrating opportunity to dream, but not to act.
 
-### 15\. A different kind of DNA
+## 15\. A different kind of DNA
 Flat organizations \- a great way to solve the problem of engineer grow (to not grow into management)\
 No parade for leaders coming in, if equality is required\
 DNA \- Design n Architecture meeting
@@ -178,7 +180,7 @@ DNA \- Design n Architecture meeting
 * DNA has nothing to do with management and everything to do with leadership
 * DNA is achievable and aspirational \- everyone will agree they belong there; it’s not a club, it’s an honor
 
-### 16\. An Engineering Mindset
+## 16\. An Engineering Mindset
 Stay flexible \- the only stance to adopt when constant change is the only constant\
 Stop coding \- figure out how to get the team to solve this problem without you coding\
 Smaller teams/developers because we write less code and more time integrating existing code\
@@ -191,7 +193,7 @@ Advice for maintaining the engineering mindset:
 
 If you want to be a good manager, you can stop coding daily but… *stay flexible, remember what it means to be an engineer and don’t stop developing.*
 
-### 17\. Three Superpowers
+## 17\. Three Superpowers
 The Machine has the Debate \- the person with the plan starts with data \- lots of data\
 The machine loves data, loves all options \- but when the decision is made, it’s over. There’s no changing of the mind. A good debate results in the truth being vetted but also a consensus around the truth except for:
 
@@ -211,14 +213,14 @@ The Dictator has the Mandate\
 Mandate is “shut up and go” orders.\
 The dictator is less effective if the goal is not where it was intended/promised
 
-### 18\. Saying No
+## 18\. Saying No
 “You’re the boss \- for now”\
 Power corrupts and not saying “No” can help worsen the issue.\
 We operate with the assumption that it’s the managers that make the decisions
 
-### 19\. The Process is the Product
+## 19\. The Process is the Product
 
-### Maslow’s Hierarchy of Needs
+## Maslow’s Hierarchy of Needs
 ![][image2]
 You can’t go higher without the base.
 
@@ -228,14 +230,14 @@ You can’t go higher without the base.
 * A healthy pyramid is where one layer invades another
 * 1.0 wants you to think you’re building a product, but the product is only the outcome \- a successful 1.0 is measured by the success of the product by endless amounts of decisions, arguments, failures, successes
 
-### 20\. How to Start
+## 20\. How to Start
 
 * Beginning is a 3-phase commit: you’re fretting about starting, you’re preparing to being, or you’ve begun
 * Procrastination/Lazy is your brain trying to help you begin
 * Stress is a creativity buzz-kill: Stress=reaction \+ survival mode
 * One way: find a task such as “what is the smallest piece of research I can do” relative to the project
 
-### 21\. Taking Time to Think
+## 21\. Taking Time to Think
 
 * “I can’t think when I’m busy” \- it’s not that you aren’t thinking, you’re reacting.
 * You won’t be a successful manager without well developed react instincts.
@@ -251,7 +253,7 @@ You can’t go higher without the base.
   * Is it therapy or work? If it’s week 3 on you’re still venting, make changes
   * Ensure the to-do list is growing at the start of the design phase, and shrinking at the end
 
-### 22\. The value of the soak
+## 22\. The value of the soak
 The soak: Plant the seed of an original thought\
 Active soaking: activities you direct, and gather information (ask 5 dumb/obvious questions).
 
@@ -267,7 +269,7 @@ Passive soaking:
 
 Soaking is an act of creation: it’s design work, strategy. It’s removing emotion and ignorance and constructing an original solution of something that shows those you work with that you actively care
 
-### 23\. Managing Malcolm events
+## 23\. Managing Malcolm events
 “Seemingly insignificant events that are intent on screwing you in an unlikely way”\
 How to avoid it:\
 Artifacts: keep essential piece of knowledge, identifying the significantly insignificant
@@ -278,11 +280,11 @@ Artifacts: keep essential piece of knowledge, identifying the significantly insi
 
 Success is silent, whereas failure is not
 
-### 24\. Capturing Context
+## 24\. Capturing Context
 Version control is a secret weapon\
 Commenting is important
 
-### 25\. Trickle Theory
+## 25\. Trickle Theory
 The villain: Impossible tasks\
 Ways to tackle it:
 
@@ -296,7 +298,7 @@ Tips for boring tasks:
 * Just start
 * Mix it up
 
-### 26\. When the sky falls
+## 26\. When the sky falls
 When disaster hits (that may or may not be your fault)
 
 Step 1: The situation in the War Room
@@ -321,7 +323,7 @@ Step 0: What, precisely, are you trying to do?
 
 * When you’re in the midst of chaos, take a step back and ask this.
 
-### 27\. Hacking is Important
+## 27\. Hacking is Important
 
 * “Hackers believe something can always be better”
 * *The Hackery Way is an approach to building that involves continuous improvement and iteration. Hackers believe that something can always be better, and that nothing is ever complete. They just have to go fix it \- often in the face of people who say it’s impossible or are content with status quo.*
@@ -332,11 +334,11 @@ Step 0: What, precisely, are you trying to do?
 * Reasonable people are scared by the new, the appreciate predictable, profitable, and knowable that comes with well-defined process and like to thank everyone because these people keep trains running on time.
 * No one like barbarians because the barbarian strategy is one at odds with civilization \- by definition, a barbarian is building on a strategy that is at odds with the majority.
 
-### Versions of You
+## Versions of You
 Bored people quit.\
 Your job is not to figure out how to alienate people by calling them names, it’s to figure out how to include them by taking time to understand what they need and doing your best to give it to them.
 
-### 28\. Bored People Quit
+## 28\. Bored People Quit
 When someone quits, they’re effectively saying “I no longer believe in this company”. What’s worse is that what they were originally thinking was “I’m bored” \- and boredom is easier to fix than an absence of belief.\
 Techniques to detecting boredom:
 
@@ -356,7 +358,7 @@ A boredom plan of action:
 * Tell them what is going on
 * Don’t forget what it’s like to build a thing
 
-### 29\. Bellwethers
+## 29\. Bellwethers
 Success in an interview is extracting as much information as possible from the candidate\
 Bellwethers \- your go-to set of interviews that you trust. If they give the thumbs down, it’s over
 
@@ -372,7 +374,7 @@ Get a team consensus, in person. Get a collective decision. It’s your decision
 
 Be a fool when the hire isn’t a fit for the team
 
-### 30\. The 90-day interview
+## 30\. The 90-day interview
 
 1. Stay late, show up early
 2. Accept every lunch invitation you get
@@ -386,7 +388,7 @@ Be a fool when the hire isn’t a fit for the team
 7. Have an argument (how does this organization value conflict). You’ll find out how this group makes a decision and have a better taste of their passion and velocity
 8. Find your inner circle \- a short list of people that share your instincts
 
-### 31\. Managing Developers
+## 31\. Managing Developers
 *Note: Replaced all “Nerd” instances with “Developer”*
 “Your job with your developer is to bring calm to their chaos”
 
@@ -411,7 +413,7 @@ Not-invented-here syndrome: A developer’s default opening position is the buil
 The bitter developer: non team players (when they’ve seen a situation 4 times and seen it play out exactly the same way)\
 The disinterested or drifting developer: The developer won’t engage \- doesn’t want to or can’t.
 
-### 32\. NADD (Nerd Attention Deficiency Disorder)
+## 32\. NADD (Nerd Attention Deficiency Disorder)
 NADDers are amazing multi-taskers but it’s not their fundamental skill \- it’s the context switch\
 Context Switch: In order to focus on something, you need to do things to get in that mental state.\
 The Context Switch is transparent because of the experience.\
@@ -422,7 +424,7 @@ Downsides:
 * They’re always looking for *the next big thing*
 * They may sound like a know-it-all
 
-### 33\. A Nerd in a Cave (The Zone)
+## 33\. A Nerd in a Cave (The Zone)
 The author’s cave has:
 
 * A internet connected computer
@@ -435,37 +437,37 @@ The author’s cave has:
 The Zone: A deeply creative place where inspiration is built\
 The Place: very similar to the Zone, but not mentally the same
 
-### 34\. Meeting Creatures
+## 34\. Meeting Creatures
 Types of people in a meeting
 
-### 35\. Incrementalists and Completionists
+## 35\. Incrementalists and Completionists
 
 * **Incrementalists** are realists. *Incrementalists need vision* \- they need to define/see a plan/goal. They don’t finish things, no concept of done. They are addicted to action.
 * **Completionists** are dreamers. If you’re going to solve a problem, make sure it’s not being solved again in 3 months. *Completionists need action* \- they have the roadmap but struggle at pushing at it. They are addicted to thought.
 
-### 36\. Organics and Mechanics
+## 36\. Organics and Mechanics
 Organics \- all over the place. Loud, and can tell a joke\
 Mechanics \- move forward methodically/ They gather information and store that information in a manner easiest to find again. They quietly observe, are comfortably predictable, and annoy the hell out of organics.
 
-### 37\. Inwards, Outwards, and Holistics
+## 37\. Inwards, Outwards, and Holistics
 The vision hierarchy
 
 * **Inwards:** responsible for a small team working on a single product/technology.
 * **Holistics**: manager of managers, figuring out what is going on everywhere in the organization
 * **Outwards:** VPs, CEOs \- vision is focused on the outside world, public perception of the company. It’s not their job to run the company, but they’re accountable for it.
 
-### 38\. Free Electrons
+## 38\. Free Electrons
 Free Electron: Can do anything when it comes to code\
 Senior Electrons and Junior Electrons have similar productivity yields but seniors are more politically and socially aware.
 
-### 39\. Rules for the Reorg
+## 39\. Rules for the Reorg
 
-### 40\. An unexpected connection
+## 40\. An unexpected connection
 
-### 41\. Avoiding the Fez
+## 41\. Avoiding the Fez
 Fez slowly becomes irrelevant and unemployed by being useful for 1 (small), critical thing. They’re SMEs with something that isn’t used frequently. Fez is the personification of career drift.
 
-### 42\. A Glimpse and a Hook / 43\. Nailing the Phone Screen / 44\. Your Resignation Checklist
+## 42\. A Glimpse and a Hook / 43\. Nailing the Phone Screen / 44\. Your Resignation Checklist
 How to make a great resume. For reading during/after a resume is made.\
 How to prepare for the interview.
 
