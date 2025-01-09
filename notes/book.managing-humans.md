@@ -4,7 +4,7 @@
 # Managing Humans
 
 ## The Management Quiver
-Arrow analogy \- Every time you learn something, it's an arrow in your quicker
+Arrow analogy \- Every time you learn something, it's an arrow in your quiver
 
 ## 1\. Don't be a Prick
 Definition of a great manager \- Someone whom you can make a connection to no matter where on the organizational chart
@@ -37,7 +37,7 @@ Can you say no to your boss? (+1)\
 Can you explain the strategy of the company to a stranger? (+1)\
 Can you explain the current state of business? (+1)\
 Does your manager regularly tell you what he/she is thinking? (+1) Are you buying it? (+1)\
-Can you explain your career trajectory? (+1) Can you boss? (+1)\
+Can you explain your career trajectory? (+1) Can your boss? (+1)\
 Do you have time to be strategic? (+1)\
 Are you actively killing the grapevine (gossip) ? (+1)
 
@@ -132,14 +132,14 @@ Figure out the issue: What do the Cons want to solve?\
 Give the cons what they want
 
 ## 10\. Dissecting the Mandate
-This is the way it is. No Q\&A. No Collaboration.\
+This is the way it is. No Q&A. No Collaboration.\
 Mandate Process: Decide, Deliver, Deliver Again\
 Decide: Make a decision when debate is no longer productive\
 Deliver: Poor delivery occurs when a topic has to debate again\
 Deliver (Again) / Damage Control:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 outcomes of the meeting:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Yay: You motivated them. But you still need to deliver (again)\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Boo: You’re a tyrant. For those getting screwed. You need to deliver (again)\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Boo: You’re a tyrant. For those getting screwed, you need to deliver (again)\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• Yawn: Silent majority.
 
 Two types of mandates:
@@ -231,7 +231,7 @@ You can’t go higher without the base.
 
 ## 20\. How to Start
 
-* Beginning is a 3-phase commit: you’re fretting about starting, you’re preparing to being, or you’ve begun
+* Beginning is a 3-phase commit: you’re fretting about starting, you’re preparing to begin, or you’ve begun
 * Procrastination/Lazy is your brain trying to help you begin
 * Stress is a creativity buzz-kill: Stress=reaction \+ survival mode
 * One way: find a task such as “what is the smallest piece of research I can do” relative to the project
