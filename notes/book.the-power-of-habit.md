@@ -193,7 +193,7 @@ Set an alarm for 15m and ask yourself - do you feel the urge for that cookie?\
 Writing down forces momentary awareness for what you are thinking/feeling. Your words will give to recollection.\
 The point of these tests is to determine the reward you're craving.\
 Environmental cues that say "we're friends", they misremember what they've heard (to please the questioner)\
-The Framework for changing habits:\
+The Framework for changing habits:
 * Identify the routine
 * Experiment with rewards
 * Isolate the cue
