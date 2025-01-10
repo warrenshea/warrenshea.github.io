@@ -22,7 +22,7 @@ Oct 11, 2024
 | 9:40 - 10:25  | **[Hydration Unleashed – A Deep Dive Across Frameworks](#hydration-unleashed--a-deep-dive-across-frameworks)**<br>Jessica Janiuk (Google) | **Cloudflare Workers + AstroJS, An Out-Of-This-World Partnership!**<br>Kamari Aykes (Cloudflare) | **[The Best And Worst Parts Of Eleventy (Now In v3)](#the-best-and-worst-parts-of-eleventy-now-in-v3)**<br>Zach Leatherman (Font Awesome) |
 | 10:40 - 11:25 | **[Better Living Through Modern Cache Primitives](#better-living-through-modern-cache-primitives)**<br>Matt Biilmann (Netlify) | **The Silent Open Source Crisis: When Maintainers Walk Away**<br>Bekah Hawrot-Weigel (OpenSauced) | **[R.U.M. Was Not Built In A Day](#rum-was-not-built-in-a-day)**<br>Henri Helvetica (Developer) |
 | 11:40 - 12:25 | **[Modern CSS Feature Collisions And Pitfalls](#modern-css-feature-collisions-and-pitfalls)**<br>Stephanie Eckles (Adobe) | **[AWS For Front-End Developers](#aws-for-front-end-developers)**<br>Brian Rinaldi (LocalStack) | **Open Graph Images With Real Time Data**<br>Luis Ball (imgix) |
-| 1:55 - 2:40  | **[Designing DX](#designing-dx)**<br>Chris Coyier (CodePen) | **Postgres Is Eating Your Backend**<br>Brian Holt (Neon) | **[AI-Powered Content Management: Transforming Your Headless CMS With Storyblok](ai-powered-content-management-transforming-your-headless-cms-with-storyblok)**<br>Rob Erskine (Stellar Elements) |
+| 1:55 - 2:40  | **[Designing DX](#designing-dx)**<br>Chris Coyier (CodePen) | **Postgres Is Eating Your Backend**<br>Brian Holt (Neon) | **[AI-Powered Content Management: Transforming Your Headless CMS With Storyblok](#ai-powered-content-management-transforming-your-headless-cms-with-storyblok)**<br>Rob Erskine (Stellar Elements) |
 | 2:55 - 3:40  | **[Cache Rules Everything](#cache-rules-everything)**<br>Harry Roberts (CSS Wizardry Ltd.) | **[The Intersection Of Design And Development](#the-intersection-of-design-and-development)**<br>Ken Easson (Rangle.io) | **The Forensics Of RSCs**<br>Lazar Nikolov (Sentry) |
 | 3:55 - 4:40  | **[Entertainment As Code](#entertainment-as-code)**<br>Salma Alam-Naylor (Sentry) | **[From Web To Desktop And Back Again](#from-web-to-desktop-and-back-again)**<br>Rob Yoder (1Password) | **Everything You Need To Know About Testing**<br>Matthew Cabral (Capital One Canada) |
 | 4:55 - 5:40  | **[JSON And Beyond](#json-and-beyond)**<br>Douglas Crockford (JSON.org) | **[The New Firebase, The Same But Different](#the-new-firebase-the-same-but-different)**<br>James Daniels (Google) | **2 Paths For AI + Human Abilities: Augmentation Or Impairment**<br>George Zamfir (Accessibility Consultant) |
@@ -88,6 +88,10 @@ Chris Coyier (CodePen)
 ## AI-Powered Content Management: Transforming Your Headless CMS With Storyblok
 Rob Erskine (Stellar Elements)
 
+* [Cursor AI](https://www.cursor.com/)
+* Investigate storyblok - how does it handle responsive design?
+* UXAX
+
 ## Cache Rules Everything
 Harry Roberts (CSS Wizardry Ltd.)
 
@@ -105,3 +109,7 @@ Douglas Crockford (JSON.org)
 
 ## The New Firebase, The Same But Different
 James Daniels (Google)
+
+* redis
+* Service Workers
+* ISR - Incremental Static Regeneration (ISR) - Data Fetching
