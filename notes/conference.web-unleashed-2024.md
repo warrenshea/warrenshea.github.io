@@ -3,7 +3,8 @@
 
 # FITC Web Unleashed 2024
 
-Oct 10, 2024\
+Oct 10, 2024
+
 | Time           | Champagne                                     | Alcase                                | Provence                             |
 |----------------|------------------------------------------------|--------------------------------------------|------------------------------------------|
 | 9:40 - 10:25  | **Next-Gen Server JavaScript: Web Standards**<br>Wes Bos (wesbos.com) | **Level Up Your TypeScript**<br>Rob McDiarmid (Wealthsimple) | **Test-Driven Accessibility**<br>Daniel Flynn (Gusto) |
@@ -14,7 +15,8 @@ Oct 10, 2024\
 | 3:55 - 4:40  | **Demystifying Tailwind CSS**<br>James Wilkinson (Enable) | **Advanced Performance In Next.js With Server Components**<br>James Q Quick (Learn Build Teach) | **Navigating Modern Architectures: SPA vs. SSG vs. SSR** |
 | 4:55 - 5:40  | **Next.js vs. Astro: FIGHT**<br>Joel Varty (Agility CMS) | **Beyond Sites: Take Your Content On A Journey**<br>Bryan Robinson (Hygraph) | **Websites, Are They Still A Good Idea?** |
 
-Oct 11, 2024\
+Oct 11, 2024
+
 | Time           | Champagne                                      | Alcase                                | Provence                               |
 |----------------|------------------------------------------------|--------------------------------------------|------------------------------------------|
 | 9:40 - 10:25  | Hydration Unleashed – A Deep Dive Across Frameworks<br>Jessica Janiuk (Google) | Cloudflare Workers + AstroJS, An Out-Of-This-World Partnership!<br>Kamari Aykes (Cloudflare) | The Best And Worst Parts Of Eleventy (Now In v3)<br>Zach Leatherman (Font Awesome) |
