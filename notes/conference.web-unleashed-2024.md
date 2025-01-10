@@ -1,8 +1,6 @@
 # Warren Shea's Notes for FITC Web Unleashed 2024 (Conference)
 **Version**: 20150109 | **Status**: In Progress
 
-# FITC Web Unleashed 2024
-
 Oct 10, 2024
 
 | Time           | Champagne                                     | Alcase                                | Provence                             |
@@ -26,6 +24,8 @@ Oct 11, 2024
 | 2:55 - 3:40  | **Cache Rules Everything**<br>Harry Roberts (CSS Wizardry Ltd.) | **The Intersection Of Design And Development**<br>Ken Easson (Rangle.io) | **The Forensics Of RSCs**<br>Lazar Nikolov (Sentry) |
 | 3:55 - 4:40  | **Entertainment As Code**<br>Salma Alam-Naylor (Sentry) | **From Web To Desktop And Back Again**<br>Rob Yoder (1Password) | **Everything You Need To Know About Testing**<br>Matthew Cabral (Capital One Canada) |
 | 4:55 - 5:40  | **JSON And Beyond**<br>Douglas Crockford (JSON.org) | **The New Firebase, The Same But Different**<br>James Daniels (Google) | **2 Paths For AI + Human Abilities: Augmentation Or Impairment**<br>George Zamfir (Accessibility Consultant) |
+
+https://www.crowdcast.io/c/webu24
 
 ## Next-Gen Server JavaScript: Web Standards
 Wes Bos (wesbos.com)
@@ -64,3 +64,44 @@ Joel Varty (Agility CMS)
 ## Beyond Sites: Take Your Content On A Journey
 Bryan Robinson (Hygraph)
 
+## Hydration Unleashed – A Deep Dive Across Frameworks
+Jessica Janiuk (Google)
+
+## The Best And Worst Parts Of Eleventy (Now In v3)
+Zach Leatherman (Font Awesome)
+
+## Better Living Through Modern Cache Primitives
+Matt Biilmann (Netlify)
+
+## R.U.M. Was Not Built In A Day
+Henri Helvetica (Developer)
+
+## Modern CSS Feature Collisions And Pitfalls
+Stephanie Eckles (Adobe)
+
+## AWS For Front-End Developers
+Brian Rinaldi (LocalStack)
+
+## Designing DX
+Chris Coyier (CodePen)
+
+## AI-Powered Content Management: Transforming Your Headless CMS With Storyblok
+Rob Erskine (Stellar Elements)
+
+## Cache Rules Everything
+Harry Roberts (CSS Wizardry Ltd.)
+
+## The Intersection Of Design And Development
+Ken Easson (Rangle.io)
+
+## Entertainment As Code
+Salma Alam-Naylor (Sentry)
+
+## From Web To Desktop And Back Again
+Rob Yoder (1Password)
+
+## JSON And Beyond
+Douglas Crockford (JSON.org)
+
+## The New Firebase, The Same But Different
+James Daniels (Google)
