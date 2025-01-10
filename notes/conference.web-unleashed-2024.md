@@ -27,6 +27,9 @@ Oct 11, 2024
 | 3:55 - 4:40  | **[Entertainment As Code](#entertainment-as-code)**<br>Salma Alam-Naylor (Sentry) | **[From Web To Desktop And Back Again](#from-web-to-desktop-and-back-again)**<br>Rob Yoder (1Password) | **Everything You Need To Know About Testing**<br>Matthew Cabral (Capital One Canada) |
 | 4:55 - 5:40  | **[JSON And Beyond](#json-and-beyond)**<br>Douglas Crockford (JSON.org) | **[The New Firebase, The Same But Different](#the-new-firebase-the-same-but-different)**<br>James Daniels (Google) | **2 Paths For AI + Human Abilities: Augmentation Or Impairment**<br>George Zamfir (Accessibility Consultant) |
 
+## General Note
+* The simpler you can make it, the longer it will last
+
 ## Next-Gen Server JavaScript: Web Standards
 Wes Bos (wesbos.com)
 
@@ -39,10 +42,20 @@ Bermon Painter (Slalom)
 ## Surviving (And Thriving) In A Changing Front-end Landscape
 Sarah Mogin (Work & Co)
 
+* [https://www.gatorade.com/bottles/fully-customizable/](Gatorade Bottle Builder)
+* Grow, Optimize, Thrive
+* Book recommendation: Slack: Getting Past Burnout, Busywork, and the Myth of Total Efficiency by Tom DeMarco
+* "Most of the neat things that your desktop computer does for you today were, in a pre-computer world, handled by people that typically made less money than you do. Today, the computer does most of the work, but you have to drive it"
+
 ## Optimize Your Third-Parties: Chrome Aurora
 Houssein Djirdeh (Google Chrome)
 
 ## Designer/Developer Colab: Solving Handoff
+
+* Figma / Sketch / Invision differences
+* Design Token idea
+* Code Connect
+* Super Pages idea (Uber Template/Kitchen Sink/Boilerplate)
 
 ## The Pendulum Of The Industry – Focusing On Foundational Concepts
 Arthur Maltson (Capital One Canada)
