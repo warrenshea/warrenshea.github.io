@@ -70,17 +70,42 @@ Jessica Janiuk (Google)
 ## The Best And Worst Parts Of Eleventy (Now In v3)
 Zach Leatherman (Font Awesome)
 
+* [https://killedbygoogle.com/](https://killedbygoogle.com/): Projects discontinued by Google
+* VUE Community -> VITE
+* 0 npm audits
+* type="module" in packaage.json
+* Hugo - fast framework for build websites
+
 ## Better Living Through Modern Cache Primitives
 Matt Biilmann (Netlify)
 
 ## R.U.M. Was Not Built In A Day
 Henri Helvetica (Developer)
 
+* R.U.M. : Real User Monitoring
+* Real data vs lab/synthetic data
+* Akamai's mPulse
+* bric g7, g20 brazil russia india china
+* Velocity conference - solutions and strategies that will help accelerate digital supply chain
+* Rage Clicks
+* Google aurora [https://developer.chrome.com/docs/aurora](https://developer.chrome.com/docs/aurora)
+* 1password
+* Google Next Billion Users Team
+
 ## Modern CSS Feature Collisions And Pitfalls
 Stephanie Eckles (Adobe)
 
 ## AWS For Front-End Developers
 Brian Rinaldi (LocalStack)
+
+* [cfe.dev](cfe.dev) free newsletter
+* cdk cloud devlopment kit, geneates cloudformation
+* heroku VS netlify
+* s3 as static websever
+* localstack restart restart/start over
+* jam stack
+* cdk for typescript
+* api gateway cors
 
 ## Designing DX
 Chris Coyier (CodePen)
@@ -97,6 +122,9 @@ Harry Roberts (CSS Wizardry Ltd.)
 
 ## The Intersection Of Design And Development
 Ken Easson (Rangle.io)
+
+* Figma Design Token System replacement
+* Design Token VS Variables
 
 ## Entertainment As Code
 Salma Alam-Naylor (Sentry)
