@@ -1,11 +1,13 @@
 # Warren Shea's Notes for FITC Web Unleashed 2024 (Conference)
 **Version**: 20150109 | **Status**: In Progress
 
+[https://www.crowdcast.io/c/webu24](https://www.crowdcast.io/c/webu24)
+
 Oct 10, 2024
 
 | Time           | Champagne                                     | Alcase                                | Provence                             |
 |----------------|------------------------------------------------|--------------------------------------------|------------------------------------------|
-| 9:40 - 10:25  | **Next-Gen Server JavaScript: Web Standards**<br>Wes Bos (wesbos.com) | **Level Up Your TypeScript**<br>Rob McDiarmid (Wealthsimple) | **Test-Driven Accessibility**<br>Daniel Flynn (Gusto) |
+| 9:40 - 10:25  | **[Next-Gen Server JavaScript: Web Standards](#next-gen-server-javascript-web-standards)**<br>Wes Bos (wesbos.com) | **Level Up Your TypeScript**<br>Rob McDiarmid (Wealthsimple) | **Test-Driven Accessibility**<br>Daniel Flynn (Gusto) |
 | 10:40 - 11:25 | **Next-Gen Personalized And Localized Digital Experiences**<br>Bermon Painter (Slalom) | **Choosing A JS Framework In 2024**<br>Enrico Sacchetti (Viral Nation) | **Surviving (And Thriving) In A Changing Front-end Landscape**<br>Sarah Mogin (Work & Co) |
 | 11:40 - 12:25 | **Optimize Your Third-Parties: Chrome Aurora**<br>Houssein Djirdeh (Google Chrome) | **Designer/Developer Collaboration: Modern Approaches To Solving Handoff**| **AI-Powered Feature Management With LaunchDarkly**<br>Chris Leon (LaunchDarkly) |
 | 1:55 - 2:40  | **The Pendulum Of The Industry – Focusing On Foundational Concepts**<br>Arthur Maltson (Capital One Canada) |
@@ -24,8 +26,6 @@ Oct 11, 2024
 | 2:55 - 3:40  | **Cache Rules Everything**<br>Harry Roberts (CSS Wizardry Ltd.) | **The Intersection Of Design And Development**<br>Ken Easson (Rangle.io) | **The Forensics Of RSCs**<br>Lazar Nikolov (Sentry) |
 | 3:55 - 4:40  | **Entertainment As Code**<br>Salma Alam-Naylor (Sentry) | **From Web To Desktop And Back Again**<br>Rob Yoder (1Password) | **Everything You Need To Know About Testing**<br>Matthew Cabral (Capital One Canada) |
 | 4:55 - 5:40  | **JSON And Beyond**<br>Douglas Crockford (JSON.org) | **The New Firebase, The Same But Different**<br>James Daniels (Google) | **2 Paths For AI + Human Abilities: Augmentation Or Impairment**<br>George Zamfir (Accessibility Consultant) |
-
-https://www.crowdcast.io/c/webu24
 
 ## Next-Gen Server JavaScript: Web Standards
 Wes Bos (wesbos.com)
