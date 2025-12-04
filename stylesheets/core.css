@@ -23127,16 +23127,19 @@ ul.checkmark-list.checkmark-list-li-pb\:16px > li {
 }
 
 /* file: module.accordion.scss------------------------------------------------ */
-[data-module=accordion] [data-module="accordion.header"][aria-expanded=false] > span > [data-module="accordion.active"] {
+[data-module=accordion] [data-module="accordion.header"] {
+  text-align: left;
+}
+[data-module=accordion] [data-module="accordion.header"][aria-expanded=false] > [data-module="accordion.icon"] > [data-module="accordion.active"] {
   display: block;
 }
-[data-module=accordion] [data-module="accordion.header"][aria-expanded=false] > span > [data-module="accordion.inactive"] {
+[data-module=accordion] [data-module="accordion.header"][aria-expanded=false] > [data-module="accordion.icon"] > [data-module="accordion.inactive"] {
   display: none;
 }
-[data-module=accordion] [data-module="accordion.header"][aria-expanded=true] > span > [data-module="accordion.active"] {
+[data-module=accordion] [data-module="accordion.header"][aria-expanded=true] > [data-module="accordion.icon"] > [data-module="accordion.active"] {
   display: none;
 }
-[data-module=accordion] [data-module="accordion.header"][aria-expanded=true] > span > [data-module="accordion.inactive"] {
+[data-module=accordion] [data-module="accordion.header"][aria-expanded=true] > [data-module="accordion.icon"] > [data-module="accordion.inactive"] {
   display: block;
 }
 [data-module=accordion] [data-module="accordion.header"]:focus {
@@ -23151,11 +23154,31 @@ ul.checkmark-list.checkmark-list-li-pb\:16px > li {
 [data-module=accordion] [data-module="accordion.panel"][data-accordion-panel=hide] {
   height: 0;
 }
-[data-module=accordion] :where(.accordion-header-py\:16px-px\:24px > div > *) > button {
-  padding: 1rem 1.5rem;
+[data-module=accordion] :where([data-accordion-icons=right] > div > *) > button {
+  display: flex;
+  justify-content: space-between;
+}
+[data-module=accordion] :where([data-accordion-icons=left] > div > *) > button {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+[data-module=accordion] :where([data-accordion-icons=right].accordion-header-px\:24px > div > *) > button > [data-module="accordion.icon"] {
+  padding-left: 24px;
+}
+[data-module=accordion] :where([data-accordion-icons=left].accordion-header-px\:24px > div > *) > button > [data-module="accordion.icon"] {
+  padding-right: 24px;
+}
+[data-module=accordion] :where(.accordion-header-px\:24px > div > *) > button {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+[data-module=accordion] :where(.accordion-header-py\:16px > div > *) > button {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 [data-module=accordion] :where(.accordion-panel-p\:24px > div > div[data-module="accordion.panel"]) > div {
-  padding: 1.5rem;
+  padding: 24px;
 }
 
 /* file: module.tabs.scss------------------------------------------------ */
