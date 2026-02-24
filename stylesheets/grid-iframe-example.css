@@ -2,7 +2,7 @@
 .row0 > div.heading,
 .grid > div.heading,
 .grid0 > div.heading {
-  margin-top: 1.125rem;
+  margin-top: 18px;
   text-align: center;
   font-family: "heebo-bold";
   height: 1.5rem;
@@ -14,10 +14,10 @@
 .grid0 > div:not(.heading) {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5647058824);
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 8px;
+  margin-bottom: 8px;
   height: 2.5rem;
-  border: 0.0625rem #404040 solid;
+  border: 1px #404040 solid;
   border-radius: 0.25rem;
 }
 
@@ -36,16 +36,14 @@
 .row0 > div:not(.heading):nth-child(1),
 .grid > div:not(.heading):nth-child(1),
 .grid0 > div:not(.heading):nth-child(1) {
-  background-color: rgba(139, 0, 0, 0.5647058824);
-  /* Dark Red */
+  background-color: rgba(139, 0, 0, 0.5647058824); /* Dark Red */
 }
 
 .row > div:not(.heading):nth-child(2),
 .row0 > div:not(.heading):nth-child(2),
 .grid > div:not(.heading):nth-child(2),
 .grid0 > div:not(.heading):nth-child(2) {
-  background-color: rgba(0, 255, 0, 0.5647058824);
-  /* Bright Green */
+  background-color: rgba(0, 255, 0, 0.5647058824); /* Bright Green */
 }
 
 .row > div:not(.heading):nth-child(2):before,
@@ -59,8 +57,7 @@
 .row0 > div:not(.heading):nth-child(3),
 .grid > div:not(.heading):nth-child(3),
 .grid0 > div:not(.heading):nth-child(3) {
-  background-color: rgba(102, 102, 255, 0.5647058824);
-  /* Soft Blue */
+  background-color: rgba(102, 102, 255, 0.5647058824); /* Soft Blue */
 }
 
 .row > div:not(.heading):nth-child(3):before,
@@ -74,8 +71,7 @@
 .row0 > div:not(.heading):nth-child(4),
 .grid > div:not(.heading):nth-child(4),
 .grid0 > div:not(.heading):nth-child(4) {
-  background-color: rgba(255, 0, 255, 0.5647058824);
-  /* Magenta */
+  background-color: rgba(255, 0, 255, 0.5647058824); /* Magenta */
 }
 
 .row > div:not(.heading):nth-child(4):before,
@@ -89,8 +85,7 @@
 .row0 > div:not(.heading):nth-child(5),
 .grid > div:not(.heading):nth-child(5),
 .grid0 > div:not(.heading):nth-child(5) {
-  background-color: rgba(255, 255, 0, 0.5647058824);
-  /* Yellow */
+  background-color: rgba(255, 255, 0, 0.5647058824); /* Yellow */
 }
 
 .row > div:not(.heading):nth-child(5):before,
@@ -104,8 +99,7 @@
 .row0 > div:not(.heading):nth-child(6),
 .grid > div:not(.heading):nth-child(6),
 .grid0 > div:not(.heading):nth-child(6) {
-  background-color: rgba(0, 255, 255, 0.5647058824);
-  /* Cyan */
+  background-color: rgba(0, 255, 255, 0.5647058824); /* Cyan */
 }
 
 .row > div:not(.heading):nth-child(6):before,
@@ -119,8 +113,7 @@
 .row0 > div:not(.heading):nth-child(7),
 .grid > div:not(.heading):nth-child(7),
 .grid0 > div:not(.heading):nth-child(7) {
-  background-color: rgba(255, 0, 0, 0.5647058824);
-  /* Bright Red */
+  background-color: rgba(255, 0, 0, 0.5647058824); /* Bright Red */
 }
 
 .row > div:not(.heading):nth-child(7):before,
@@ -134,8 +127,7 @@
 .row0 > div:not(.heading):nth-child(8),
 .grid > div:not(.heading):nth-child(8),
 .grid0 > div:not(.heading):nth-child(8) {
-  background-color: rgba(255, 165, 0, 0.5647058824);
-  /* Orange */
+  background-color: rgba(255, 165, 0, 0.5647058824); /* Orange */
 }
 
 .row > div:not(.heading):nth-child(8):before,
@@ -149,8 +141,7 @@
 .row0 > div:not(.heading):nth-child(9),
 .grid > div:not(.heading):nth-child(9),
 .grid0 > div:not(.heading):nth-child(9) {
-  background-color: rgba(128, 0, 128, 0.5647058824);
-  /* Purple */
+  background-color: rgba(128, 0, 128, 0.5647058824); /* Purple */
 }
 
 .row > div:not(.heading):nth-child(9):before,
@@ -164,8 +155,7 @@
 .row0 > div:not(.heading):nth-child(10),
 .grid > div:not(.heading):nth-child(10),
 .grid0 > div:not(.heading):nth-child(10) {
-  background-color: rgba(0, 128, 0, 0.5647058824);
-  /* Dark Green */
+  background-color: rgba(0, 128, 0, 0.5647058824); /* Dark Green */
 }
 
 .row > div:not(.heading):nth-child(10):before,
@@ -179,8 +169,7 @@
 .row0 > div:not(.heading):nth-child(11),
 .grid > div:not(.heading):nth-child(11),
 .grid0 > div:not(.heading):nth-child(11) {
-  background-color: rgba(255, 69, 0, 0.5647058824);
-  /* Crimson */
+  background-color: rgba(255, 69, 0, 0.5647058824); /* Crimson */
 }
 
 .row > div:not(.heading):nth-child(11):before,
@@ -194,8 +183,7 @@
 .row0 > div:not(.heading):nth-child(12),
 .grid > div:not(.heading):nth-child(12),
 .grid0 > div:not(.heading):nth-child(12) {
-  background-color: rgba(147, 112, 219, 0.5647058824);
-  /* Medium Purple */
+  background-color: rgba(147, 112, 219, 0.5647058824); /* Medium Purple */
 }
 
 .row > div:not(.heading):nth-child(12):before,
@@ -209,8 +197,7 @@
 .row0 > div:not(.heading):nth-child(13),
 .grid > div:not(.heading):nth-child(13),
 .grid0 > div:not(.heading):nth-child(13) {
-  background-color: rgba(255, 20, 147, 0.5647058824);
-  /* Deep Pink */
+  background-color: rgba(255, 20, 147, 0.5647058824); /* Deep Pink */
 }
 
 .row > div:not(.heading):nth-child(13):before,
@@ -224,8 +211,7 @@
 .row0 > div:not(.heading):nth-child(14),
 .grid > div:not(.heading):nth-child(14),
 .grid0 > div:not(.heading):nth-child(14) {
-  background-color: rgba(165, 42, 42, 0.5647058824);
-  /* Brown */
+  background-color: rgba(165, 42, 42, 0.5647058824); /* Brown */
 }
 
 .row > div:not(.heading):nth-child(14):before,
@@ -239,8 +225,7 @@
 .row0 > div:not(.heading):nth-child(15),
 .grid > div:not(.heading):nth-child(15),
 .grid0 > div:not(.heading):nth-child(15) {
-  background-color: rgba(32, 178, 170, 0.5647058824);
-  /* Light Sea Green */
+  background-color: rgba(32, 178, 170, 0.5647058824); /* Light Sea Green */
 }
 
 .row > div:not(.heading):nth-child(15):before,
