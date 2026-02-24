@@ -1,7 +1,7 @@
 .grid-background {
   background-size: 1rem 1rem;
   /*  background-color: #f9f9f9;
-    background-image: radial-gradient(circle, #ddd rem-calc(2), #f9f9f9 0);*/
+    background-image: radial-gradient(circle, #ddd unit.rem-calc(2), #f9f9f9 0);*/
   /*  background-color: #c0c0c0;*/
   background-image: radial-gradient(circle, #aaa 0.125rem, #c0c0c0 0);
   background-position-x: center;
@@ -9,56 +9,56 @@
 
 .sm-left {
   color: #999;
-  width: 12.375rem;
+  width: 198px;
   height: 1.25rem;
   top: -0.125rem;
   z-index: -1;
-  left: calc(50% - 24.0625rem);
+  left: calc(50% - 385px);
 }
 
 .sm-right {
   color: #999;
-  width: 12.375rem;
+  width: 198px;
   height: 1.25rem;
   top: -0.125rem;
   z-index: -1;
-  right: calc(50% - 24.0625rem);
+  right: calc(50% - 385px);
 }
 
 .md-left {
   color: #999;
-  width: 7.875rem;
+  width: 126px;
   height: 1.25rem;
   top: -0.125rem;
   z-index: -1;
-  left: calc(50% - 31.9375rem);
+  left: calc(50% - 511px);
 }
 
 .md-right {
   color: #999;
-  width: 7.875rem;
+  width: 126px;
   height: 1.25rem;
   top: -0.125rem;
   z-index: -1;
-  right: calc(50% - 31.9375rem);
+  right: calc(50% - 511px);
 }
 
 .lg-left {
   color: #999;
-  width: 7.9375rem;
+  width: 127px;
   height: 1.25rem;
   top: -0.125rem;
   z-index: -1;
-  left: calc(50% - 39.9375rem);
+  left: calc(50% - 639px);
 }
 
 .lg-right {
   color: #999;
-  width: 7.9375rem;
+  width: 127px;
   height: 1.25rem;
   top: -0.125rem;
   z-index: -1;
-  right: calc(50% - 39.9375rem);
+  right: calc(50% - 639px);
 }
 
 .xl-left {
@@ -69,7 +69,7 @@
   z-index: -2;
   right: 50%;
   text-align: right;
-  padding-right: 41.875rem;
+  padding-right: 670px;
 }
 
 .xl-right {
@@ -80,7 +80,7 @@
   z-index: -2;
   left: 50%;
   text-align: left;
-  padding-left: 41.875rem;
+  padding-left: 670px;
 }
 
 .grid-type-gap {
@@ -91,22 +91,22 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  max-width: 80rem;
+  max-width: var(--max-page-width-1280);
   height: 100%;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .grid-type-gap.md {
   column-gap: 1.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .grid-type-gap.lg {
   column-gap: 1.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .grid-type-gap.xl {
@@ -128,7 +128,7 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  max-width: 80rem;
+  max-width: var(--max-page-width-1280);
   height: 100%;
 }
 
