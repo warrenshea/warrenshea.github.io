@@ -1,3 +1,16 @@
+:root {
+  --gradient-black-gray: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  --gradient-red-lightred: linear-gradient(105deg, #d33a2c 0, #d33a2c 92%, #ddd 92.5%, #ddd 100%);
+  --gradient-blue-lightblue: linear-gradient(105deg, #045da2 0, #045da2 92%, #a04d6f 92.5%, #a04d6f 100%);
+  --gradient-darkblue-yellow: linear-gradient(105deg, #004c9b 0, #004c9b 92%, #ffdc00 92.5%, #ffdc00 100%);
+  --gradient-green-white: linear-gradient(105deg, #217346 0, #217346 92%, #fff 92.5%, #fff 100%);
+  --gradient-html-red: linear-gradient(105deg, #e45028 0, #e45028 92%, #f1662b 92.5%, #f1662b 100%);
+  --gradient-js-yellow: linear-gradient(105deg, #e5a32b 0, #e5a32b 92%, #e6c61d 92.5%, #e6c61d 100%);
+  --gradient-css-blue: linear-gradient(105deg, #0873b9 0, #0873b9 92%, #28a9e0 92.5%, #28a9e0 100%);
+  --gradient-python-blue-yellow: linear-gradient(105deg, #306998 0, #306998 92%, #ffd43b 92.5%, #ffd43b 100%);
+  --gradient-white-lightgray: linear-gradient(-75deg, #f9f9f9 0, #f9f9f9 13%, #f9f9f9 13%, #f9f9f9 15%, #fff 15.5%, #fff 100%) ;
+}
+
 h2 {
   transition: opacity 0.5s ease;
 }
@@ -8,7 +21,7 @@ h2 {
 }
 
 .description-line {
-  background: linear-gradient(-75deg, #f9f9f9 0, #f9f9f9 13%, #f9f9f9 13%, #f9f9f9 15%, #fff 15.5%, #fff 100%);
+  background: var(--gradient-white-lightgray);
   transition: opacity 0.5s ease;
 }
 
@@ -18,7 +31,7 @@ h2 {
 }
 
 .title-a11y {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-angular {
@@ -30,19 +43,19 @@ h2 {
 }
 
 .title-clean-architecture {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-clean-code {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-command-prompt {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-css {
-  background: linear-gradient(105deg, #0873b9 0, #0873b9 92%, #28a9e0 92.5%, #28a9e0 100%);
+  background: var(--gradient-css-blue);
 }
 
 .title-css-grid {
@@ -70,7 +83,7 @@ h2 {
 }
 
 .title-excel {
-  background: linear-gradient(105deg, #217346 0, #217346 92%, #fff 92.5%, #fff 100%);
+  background: var(--gradient-green-white);
 }
 
 .title-flexbox {
@@ -98,7 +111,7 @@ h2 {
 }
 
 .title-html {
-  background: linear-gradient(105deg, #e45028 0, #e45028 92%, #f1662b 92.5%, #f1662b 100%);
+  background: var(--gradient-html-red);
 }
 
 .title-html-css-js {
@@ -118,11 +131,11 @@ h2 {
 }
 
 .title-javascript-the-good-parts {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-js {
-  background: linear-gradient(105deg, #e5a32b 0, #e5a32b 92%, #e6c61d 92.5%, #e6c61d 100%);
+  background: var(--gradient-js-yellow);
 }
 
 .title-js-design-patterns {
@@ -130,7 +143,7 @@ h2 {
 }
 
 .title-just-javascript {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-learn-node {
@@ -142,7 +155,7 @@ h2 {
 }
 
 .title-management {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-managing-humans {
@@ -174,7 +187,7 @@ h2 {
 }
 
 .title-personal-brand {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-php {
@@ -186,7 +199,7 @@ h2 {
 }
 
 .title-python {
-  background: linear-gradient(105deg, #306998 0, #306998 92%, #ffd43b 92.5%, #ffd43b 100%);
+  background: var(--gradient-python-blue-yellow);
 }
 
 .title-react {
@@ -226,7 +239,7 @@ h2 {
 }
 
 .title-the-clean-coder {
-  background: linear-gradient(105deg, #000 0, #000 92%, #666 92.5%, #666 100%);
+  background: var(--gradient-black-gray);
 }
 
 .title-udacity {
