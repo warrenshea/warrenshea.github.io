@@ -8290,14 +8290,8 @@ strong {
 }
 
 /* file: interactive-anchors-buttons.scss------------------------------------------------ */
-a.anchor\:blue,
-button.anchor\:blue,
-a.anchor\:white,
-button.anchor\:white,
-a.anchor\:red,
-button.anchor\:red,
-a.anchor\:yale-blue,
-button.anchor\:yale-blue {
+a[class^="anchor:"],
+button[class^="anchor:"] {
   cursor: pointer;
   font-family: "heebo-bold";
   border: none;
@@ -8305,6 +8299,22 @@ button.anchor\:yale-blue {
   margin: 0;
   padding: 0;
   background-color: transparent;
+}
+a[class^="anchor:"]:hover, a[class^="anchor:"]:hover:enabled, a[class^="anchor:"]:focus, a[class^="anchor:"]:focus:enabled, a[class^="anchor:"]:active, a[class^="anchor:"]:active:enabled,
+button[class^="anchor:"]:hover,
+button[class^="anchor:"]:hover:enabled,
+button[class^="anchor:"]:focus,
+button[class^="anchor:"]:focus:enabled,
+button[class^="anchor:"]:active,
+button[class^="anchor:"]:active:enabled {
+  text-decoration: underline;
+}
+a[class^="anchor:"]:disabled, a[class^="anchor:"].disabled, a[class^="anchor:"][disabled=true],
+button[class^="anchor:"]:disabled,
+button[class^="anchor:"].disabled,
+button[class^="anchor:"][disabled=true] {
+  cursor: default;
+  text-decoration: none;
 }
 
 a.anchor\:blue,
@@ -8323,7 +8333,6 @@ button.anchor\:blue:focus:enabled,
 button.anchor\:blue:active,
 button.anchor\:blue:active:enabled {
   color: var(--color-yale-blue);
-  text-decoration: underline;
 }
 a.anchor\:blue:hover > span > .ic, a.anchor\:blue:hover:enabled > span > .ic, a.anchor\:blue:focus > span > .ic, a.anchor\:blue:focus:enabled > span > .ic, a.anchor\:blue:active > span > .ic, a.anchor\:blue:active:enabled > span > .ic,
 button.anchor\:blue:hover > span > .ic,
@@ -8339,8 +8348,6 @@ button.anchor\:blue:disabled,
 button.anchor\:blue.disabled,
 button.anchor\:blue[disabled=true] {
   color: var(--color-onyx);
-  cursor: default;
-  text-decoration: none;
 }
 a.anchor\:blue:disabled > span > .ic, a.anchor\:blue.disabled > span > .ic, a.anchor\:blue[disabled=true] > span > .ic,
 button.anchor\:blue:disabled > span > .ic,
@@ -8365,7 +8372,6 @@ button.anchor\:white:focus:enabled,
 button.anchor\:white:active,
 button.anchor\:white:active:enabled {
   color: var(--color-white);
-  text-decoration: underline;
 }
 a.anchor\:white:hover > span > .ic, a.anchor\:white:hover:enabled > span > .ic, a.anchor\:white:focus > span > .ic, a.anchor\:white:focus:enabled > span > .ic, a.anchor\:white:active > span > .ic, a.anchor\:white:active:enabled > span > .ic,
 button.anchor\:white:hover > span > .ic,
@@ -8381,8 +8387,6 @@ button.anchor\:white:disabled,
 button.anchor\:white.disabled,
 button.anchor\:white[disabled=true] {
   color: var(--color-white);
-  cursor: default;
-  text-decoration: none;
 }
 a.anchor\:white:disabled > span > .ic, a.anchor\:white.disabled > span > .ic, a.anchor\:white[disabled=true] > span > .ic,
 button.anchor\:white:disabled > span > .ic,
@@ -8407,7 +8411,6 @@ button.anchor\:red:focus:enabled,
 button.anchor\:red:active,
 button.anchor\:red:active:enabled {
   color: var(--color-red);
-  text-decoration: underline;
 }
 a.anchor\:red:hover > span > .ic, a.anchor\:red:hover:enabled > span > .ic, a.anchor\:red:focus > span > .ic, a.anchor\:red:focus:enabled > span > .ic, a.anchor\:red:active > span > .ic, a.anchor\:red:active:enabled > span > .ic,
 button.anchor\:red:hover > span > .ic,
@@ -8423,8 +8426,6 @@ button.anchor\:red:disabled,
 button.anchor\:red.disabled,
 button.anchor\:red[disabled=true] {
   color: var(--color-onyx);
-  cursor: default;
-  text-decoration: none;
 }
 a.anchor\:red:disabled > span > .ic, a.anchor\:red.disabled > span > .ic, a.anchor\:red[disabled=true] > span > .ic,
 button.anchor\:red:disabled > span > .ic,
@@ -8449,8 +8450,6 @@ button.anchor\:yale-blue:focus:enabled,
 button.anchor\:yale-blue:active,
 button.anchor\:yale-blue:active:enabled {
   color: var(--color-eerie-black);
-  text-decoration: underline;
-  text-decoration: none;
 }
 a.anchor\:yale-blue:hover > span > .ic, a.anchor\:yale-blue:hover:enabled > span > .ic, a.anchor\:yale-blue:focus > span > .ic, a.anchor\:yale-blue:focus:enabled > span > .ic, a.anchor\:yale-blue:active > span > .ic, a.anchor\:yale-blue:active:enabled > span > .ic,
 button.anchor\:yale-blue:hover > span > .ic,
@@ -8466,7 +8465,6 @@ button.anchor\:yale-blue:disabled,
 button.anchor\:yale-blue.disabled,
 button.anchor\:yale-blue[disabled=true] {
   color: var(--color-onyx);
-  cursor: default;
 }
 a.anchor\:yale-blue:disabled > span > .ic, a.anchor\:yale-blue.disabled > span > .ic, a.anchor\:yale-blue[disabled=true] > span > .ic,
 button.anchor\:yale-blue:disabled > span > .ic,
@@ -8476,14 +8474,8 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
 }
 
 @media screen and (max-width: 47.99rem) {
-  a.sm\=\:anchor\:blue,
-  button.sm\=\:anchor\:blue,
-  a.sm\=\:anchor\:white,
-  button.sm\=\:anchor\:white,
-  a.sm\=\:anchor\:red,
-  button.sm\=\:anchor\:red,
-  a.sm\=\:anchor\:yale-blue,
-  button.sm\=\:anchor\:yale-blue {
+  a[class^="sm=:anchor:"],
+  button[class^="sm=:anchor:"] {
     cursor: pointer;
     font-family: "heebo-bold";
     border: none;
@@ -8491,6 +8483,22 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
     margin: 0;
     padding: 0;
     background-color: transparent;
+  }
+  a[class^="sm=:anchor:"]:hover, a[class^="sm=:anchor:"]:hover:enabled, a[class^="sm=:anchor:"]:focus, a[class^="sm=:anchor:"]:focus:enabled, a[class^="sm=:anchor:"]:active, a[class^="sm=:anchor:"]:active:enabled,
+  button[class^="sm=:anchor:"]:hover,
+  button[class^="sm=:anchor:"]:hover:enabled,
+  button[class^="sm=:anchor:"]:focus,
+  button[class^="sm=:anchor:"]:focus:enabled,
+  button[class^="sm=:anchor:"]:active,
+  button[class^="sm=:anchor:"]:active:enabled {
+    text-decoration: underline;
+  }
+  a[class^="sm=:anchor:"]:disabled, a[class^="sm=:anchor:"].disabled, a[class^="sm=:anchor:"][disabled=true],
+  button[class^="sm=:anchor:"]:disabled,
+  button[class^="sm=:anchor:"].disabled,
+  button[class^="sm=:anchor:"][disabled=true] {
+    cursor: default;
+    text-decoration: none;
   }
   a.sm\=\:anchor\:blue,
   button.sm\=\:anchor\:blue {
@@ -8508,7 +8516,6 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
   button.sm\=\:anchor\:blue:active,
   button.sm\=\:anchor\:blue:active:enabled {
     color: var(--color-yale-blue);
-    text-decoration: underline;
   }
   a.sm\=\:anchor\:blue:hover > span > .ic, a.sm\=\:anchor\:blue:hover:enabled > span > .ic, a.sm\=\:anchor\:blue:focus > span > .ic, a.sm\=\:anchor\:blue:focus:enabled > span > .ic, a.sm\=\:anchor\:blue:active > span > .ic, a.sm\=\:anchor\:blue:active:enabled > span > .ic,
   button.sm\=\:anchor\:blue:hover > span > .ic,
@@ -8524,8 +8531,6 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
   button.sm\=\:anchor\:blue.disabled,
   button.sm\=\:anchor\:blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.sm\=\:anchor\:blue:disabled > span > .ic, a.sm\=\:anchor\:blue.disabled > span > .ic, a.sm\=\:anchor\:blue[disabled=true] > span > .ic,
   button.sm\=\:anchor\:blue:disabled > span > .ic,
@@ -8549,7 +8554,6 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
   button.sm\=\:anchor\:white:active,
   button.sm\=\:anchor\:white:active:enabled {
     color: var(--color-white);
-    text-decoration: underline;
   }
   a.sm\=\:anchor\:white:hover > span > .ic, a.sm\=\:anchor\:white:hover:enabled > span > .ic, a.sm\=\:anchor\:white:focus > span > .ic, a.sm\=\:anchor\:white:focus:enabled > span > .ic, a.sm\=\:anchor\:white:active > span > .ic, a.sm\=\:anchor\:white:active:enabled > span > .ic,
   button.sm\=\:anchor\:white:hover > span > .ic,
@@ -8565,8 +8569,6 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
   button.sm\=\:anchor\:white.disabled,
   button.sm\=\:anchor\:white[disabled=true] {
     color: var(--color-white);
-    cursor: default;
-    text-decoration: none;
   }
   a.sm\=\:anchor\:white:disabled > span > .ic, a.sm\=\:anchor\:white.disabled > span > .ic, a.sm\=\:anchor\:white[disabled=true] > span > .ic,
   button.sm\=\:anchor\:white:disabled > span > .ic,
@@ -8590,7 +8592,6 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
   button.sm\=\:anchor\:red:active,
   button.sm\=\:anchor\:red:active:enabled {
     color: var(--color-red);
-    text-decoration: underline;
   }
   a.sm\=\:anchor\:red:hover > span > .ic, a.sm\=\:anchor\:red:hover:enabled > span > .ic, a.sm\=\:anchor\:red:focus > span > .ic, a.sm\=\:anchor\:red:focus:enabled > span > .ic, a.sm\=\:anchor\:red:active > span > .ic, a.sm\=\:anchor\:red:active:enabled > span > .ic,
   button.sm\=\:anchor\:red:hover > span > .ic,
@@ -8606,8 +8607,6 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
   button.sm\=\:anchor\:red.disabled,
   button.sm\=\:anchor\:red[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.sm\=\:anchor\:red:disabled > span > .ic, a.sm\=\:anchor\:red.disabled > span > .ic, a.sm\=\:anchor\:red[disabled=true] > span > .ic,
   button.sm\=\:anchor\:red:disabled > span > .ic,
@@ -8631,8 +8630,6 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
   button.sm\=\:anchor\:yale-blue:active,
   button.sm\=\:anchor\:yale-blue:active:enabled {
     color: var(--color-eerie-black);
-    text-decoration: underline;
-    text-decoration: none;
   }
   a.sm\=\:anchor\:yale-blue:hover > span > .ic, a.sm\=\:anchor\:yale-blue:hover:enabled > span > .ic, a.sm\=\:anchor\:yale-blue:focus > span > .ic, a.sm\=\:anchor\:yale-blue:focus:enabled > span > .ic, a.sm\=\:anchor\:yale-blue:active > span > .ic, a.sm\=\:anchor\:yale-blue:active:enabled > span > .ic,
   button.sm\=\:anchor\:yale-blue:hover > span > .ic,
@@ -8648,7 +8645,6 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
   button.sm\=\:anchor\:yale-blue.disabled,
   button.sm\=\:anchor\:yale-blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
   }
   a.sm\=\:anchor\:yale-blue:disabled > span > .ic, a.sm\=\:anchor\:yale-blue.disabled > span > .ic, a.sm\=\:anchor\:yale-blue[disabled=true] > span > .ic,
   button.sm\=\:anchor\:yale-blue:disabled > span > .ic,
@@ -8657,14 +8653,8 @@ button.anchor\:yale-blue[disabled=true] > span > .ic {
     background-color: var(--color-onyx);
   }
 }
-a.sm\+\:anchor\:blue,
-button.sm\+\:anchor\:blue,
-a.sm\+\:anchor\:white,
-button.sm\+\:anchor\:white,
-a.sm\+\:anchor\:red,
-button.sm\+\:anchor\:red,
-a.sm\+\:anchor\:yale-blue,
-button.sm\+\:anchor\:yale-blue {
+a[class^="sm+:anchor:"],
+button[class^="sm+:anchor:"] {
   cursor: pointer;
   font-family: "heebo-bold";
   border: none;
@@ -8672,6 +8662,22 @@ button.sm\+\:anchor\:yale-blue {
   margin: 0;
   padding: 0;
   background-color: transparent;
+}
+a[class^="sm+:anchor:"]:hover, a[class^="sm+:anchor:"]:hover:enabled, a[class^="sm+:anchor:"]:focus, a[class^="sm+:anchor:"]:focus:enabled, a[class^="sm+:anchor:"]:active, a[class^="sm+:anchor:"]:active:enabled,
+button[class^="sm+:anchor:"]:hover,
+button[class^="sm+:anchor:"]:hover:enabled,
+button[class^="sm+:anchor:"]:focus,
+button[class^="sm+:anchor:"]:focus:enabled,
+button[class^="sm+:anchor:"]:active,
+button[class^="sm+:anchor:"]:active:enabled {
+  text-decoration: underline;
+}
+a[class^="sm+:anchor:"]:disabled, a[class^="sm+:anchor:"].disabled, a[class^="sm+:anchor:"][disabled=true],
+button[class^="sm+:anchor:"]:disabled,
+button[class^="sm+:anchor:"].disabled,
+button[class^="sm+:anchor:"][disabled=true] {
+  cursor: default;
+  text-decoration: none;
 }
 
 a.sm\+\:anchor\:blue,
@@ -8690,7 +8696,6 @@ button.sm\+\:anchor\:blue:focus:enabled,
 button.sm\+\:anchor\:blue:active,
 button.sm\+\:anchor\:blue:active:enabled {
   color: var(--color-yale-blue);
-  text-decoration: underline;
 }
 a.sm\+\:anchor\:blue:hover > span > .ic, a.sm\+\:anchor\:blue:hover:enabled > span > .ic, a.sm\+\:anchor\:blue:focus > span > .ic, a.sm\+\:anchor\:blue:focus:enabled > span > .ic, a.sm\+\:anchor\:blue:active > span > .ic, a.sm\+\:anchor\:blue:active:enabled > span > .ic,
 button.sm\+\:anchor\:blue:hover > span > .ic,
@@ -8706,8 +8711,6 @@ button.sm\+\:anchor\:blue:disabled,
 button.sm\+\:anchor\:blue.disabled,
 button.sm\+\:anchor\:blue[disabled=true] {
   color: var(--color-onyx);
-  cursor: default;
-  text-decoration: none;
 }
 a.sm\+\:anchor\:blue:disabled > span > .ic, a.sm\+\:anchor\:blue.disabled > span > .ic, a.sm\+\:anchor\:blue[disabled=true] > span > .ic,
 button.sm\+\:anchor\:blue:disabled > span > .ic,
@@ -8732,7 +8735,6 @@ button.sm\+\:anchor\:white:focus:enabled,
 button.sm\+\:anchor\:white:active,
 button.sm\+\:anchor\:white:active:enabled {
   color: var(--color-white);
-  text-decoration: underline;
 }
 a.sm\+\:anchor\:white:hover > span > .ic, a.sm\+\:anchor\:white:hover:enabled > span > .ic, a.sm\+\:anchor\:white:focus > span > .ic, a.sm\+\:anchor\:white:focus:enabled > span > .ic, a.sm\+\:anchor\:white:active > span > .ic, a.sm\+\:anchor\:white:active:enabled > span > .ic,
 button.sm\+\:anchor\:white:hover > span > .ic,
@@ -8748,8 +8750,6 @@ button.sm\+\:anchor\:white:disabled,
 button.sm\+\:anchor\:white.disabled,
 button.sm\+\:anchor\:white[disabled=true] {
   color: var(--color-white);
-  cursor: default;
-  text-decoration: none;
 }
 a.sm\+\:anchor\:white:disabled > span > .ic, a.sm\+\:anchor\:white.disabled > span > .ic, a.sm\+\:anchor\:white[disabled=true] > span > .ic,
 button.sm\+\:anchor\:white:disabled > span > .ic,
@@ -8774,7 +8774,6 @@ button.sm\+\:anchor\:red:focus:enabled,
 button.sm\+\:anchor\:red:active,
 button.sm\+\:anchor\:red:active:enabled {
   color: var(--color-red);
-  text-decoration: underline;
 }
 a.sm\+\:anchor\:red:hover > span > .ic, a.sm\+\:anchor\:red:hover:enabled > span > .ic, a.sm\+\:anchor\:red:focus > span > .ic, a.sm\+\:anchor\:red:focus:enabled > span > .ic, a.sm\+\:anchor\:red:active > span > .ic, a.sm\+\:anchor\:red:active:enabled > span > .ic,
 button.sm\+\:anchor\:red:hover > span > .ic,
@@ -8790,8 +8789,6 @@ button.sm\+\:anchor\:red:disabled,
 button.sm\+\:anchor\:red.disabled,
 button.sm\+\:anchor\:red[disabled=true] {
   color: var(--color-onyx);
-  cursor: default;
-  text-decoration: none;
 }
 a.sm\+\:anchor\:red:disabled > span > .ic, a.sm\+\:anchor\:red.disabled > span > .ic, a.sm\+\:anchor\:red[disabled=true] > span > .ic,
 button.sm\+\:anchor\:red:disabled > span > .ic,
@@ -8816,8 +8813,6 @@ button.sm\+\:anchor\:yale-blue:focus:enabled,
 button.sm\+\:anchor\:yale-blue:active,
 button.sm\+\:anchor\:yale-blue:active:enabled {
   color: var(--color-eerie-black);
-  text-decoration: underline;
-  text-decoration: none;
 }
 a.sm\+\:anchor\:yale-blue:hover > span > .ic, a.sm\+\:anchor\:yale-blue:hover:enabled > span > .ic, a.sm\+\:anchor\:yale-blue:focus > span > .ic, a.sm\+\:anchor\:yale-blue:focus:enabled > span > .ic, a.sm\+\:anchor\:yale-blue:active > span > .ic, a.sm\+\:anchor\:yale-blue:active:enabled > span > .ic,
 button.sm\+\:anchor\:yale-blue:hover > span > .ic,
@@ -8833,7 +8828,6 @@ button.sm\+\:anchor\:yale-blue:disabled,
 button.sm\+\:anchor\:yale-blue.disabled,
 button.sm\+\:anchor\:yale-blue[disabled=true] {
   color: var(--color-onyx);
-  cursor: default;
 }
 a.sm\+\:anchor\:yale-blue:disabled > span > .ic, a.sm\+\:anchor\:yale-blue.disabled > span > .ic, a.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic,
 button.sm\+\:anchor\:yale-blue:disabled > span > .ic,
@@ -8843,14 +8837,8 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
 }
 
 @media screen and (max-width: 63.99rem) {
-  a.md-\:anchor\:blue,
-  button.md-\:anchor\:blue,
-  a.md-\:anchor\:white,
-  button.md-\:anchor\:white,
-  a.md-\:anchor\:red,
-  button.md-\:anchor\:red,
-  a.md-\:anchor\:yale-blue,
-  button.md-\:anchor\:yale-blue {
+  a[class^="md-:anchor:"],
+  button[class^="md-:anchor:"] {
     cursor: pointer;
     font-family: "heebo-bold";
     border: none;
@@ -8858,6 +8846,22 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
     margin: 0;
     padding: 0;
     background-color: transparent;
+  }
+  a[class^="md-:anchor:"]:hover, a[class^="md-:anchor:"]:hover:enabled, a[class^="md-:anchor:"]:focus, a[class^="md-:anchor:"]:focus:enabled, a[class^="md-:anchor:"]:active, a[class^="md-:anchor:"]:active:enabled,
+  button[class^="md-:anchor:"]:hover,
+  button[class^="md-:anchor:"]:hover:enabled,
+  button[class^="md-:anchor:"]:focus,
+  button[class^="md-:anchor:"]:focus:enabled,
+  button[class^="md-:anchor:"]:active,
+  button[class^="md-:anchor:"]:active:enabled {
+    text-decoration: underline;
+  }
+  a[class^="md-:anchor:"]:disabled, a[class^="md-:anchor:"].disabled, a[class^="md-:anchor:"][disabled=true],
+  button[class^="md-:anchor:"]:disabled,
+  button[class^="md-:anchor:"].disabled,
+  button[class^="md-:anchor:"][disabled=true] {
+    cursor: default;
+    text-decoration: none;
   }
   a.md-\:anchor\:blue,
   button.md-\:anchor\:blue {
@@ -8875,7 +8879,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md-\:anchor\:blue:active,
   button.md-\:anchor\:blue:active:enabled {
     color: var(--color-yale-blue);
-    text-decoration: underline;
   }
   a.md-\:anchor\:blue:hover > span > .ic, a.md-\:anchor\:blue:hover:enabled > span > .ic, a.md-\:anchor\:blue:focus > span > .ic, a.md-\:anchor\:blue:focus:enabled > span > .ic, a.md-\:anchor\:blue:active > span > .ic, a.md-\:anchor\:blue:active:enabled > span > .ic,
   button.md-\:anchor\:blue:hover > span > .ic,
@@ -8891,8 +8894,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md-\:anchor\:blue.disabled,
   button.md-\:anchor\:blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.md-\:anchor\:blue:disabled > span > .ic, a.md-\:anchor\:blue.disabled > span > .ic, a.md-\:anchor\:blue[disabled=true] > span > .ic,
   button.md-\:anchor\:blue:disabled > span > .ic,
@@ -8916,7 +8917,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md-\:anchor\:white:active,
   button.md-\:anchor\:white:active:enabled {
     color: var(--color-white);
-    text-decoration: underline;
   }
   a.md-\:anchor\:white:hover > span > .ic, a.md-\:anchor\:white:hover:enabled > span > .ic, a.md-\:anchor\:white:focus > span > .ic, a.md-\:anchor\:white:focus:enabled > span > .ic, a.md-\:anchor\:white:active > span > .ic, a.md-\:anchor\:white:active:enabled > span > .ic,
   button.md-\:anchor\:white:hover > span > .ic,
@@ -8932,8 +8932,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md-\:anchor\:white.disabled,
   button.md-\:anchor\:white[disabled=true] {
     color: var(--color-white);
-    cursor: default;
-    text-decoration: none;
   }
   a.md-\:anchor\:white:disabled > span > .ic, a.md-\:anchor\:white.disabled > span > .ic, a.md-\:anchor\:white[disabled=true] > span > .ic,
   button.md-\:anchor\:white:disabled > span > .ic,
@@ -8957,7 +8955,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md-\:anchor\:red:active,
   button.md-\:anchor\:red:active:enabled {
     color: var(--color-red);
-    text-decoration: underline;
   }
   a.md-\:anchor\:red:hover > span > .ic, a.md-\:anchor\:red:hover:enabled > span > .ic, a.md-\:anchor\:red:focus > span > .ic, a.md-\:anchor\:red:focus:enabled > span > .ic, a.md-\:anchor\:red:active > span > .ic, a.md-\:anchor\:red:active:enabled > span > .ic,
   button.md-\:anchor\:red:hover > span > .ic,
@@ -8973,8 +8970,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md-\:anchor\:red.disabled,
   button.md-\:anchor\:red[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.md-\:anchor\:red:disabled > span > .ic, a.md-\:anchor\:red.disabled > span > .ic, a.md-\:anchor\:red[disabled=true] > span > .ic,
   button.md-\:anchor\:red:disabled > span > .ic,
@@ -8998,8 +8993,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md-\:anchor\:yale-blue:active,
   button.md-\:anchor\:yale-blue:active:enabled {
     color: var(--color-eerie-black);
-    text-decoration: underline;
-    text-decoration: none;
   }
   a.md-\:anchor\:yale-blue:hover > span > .ic, a.md-\:anchor\:yale-blue:hover:enabled > span > .ic, a.md-\:anchor\:yale-blue:focus > span > .ic, a.md-\:anchor\:yale-blue:focus:enabled > span > .ic, a.md-\:anchor\:yale-blue:active > span > .ic, a.md-\:anchor\:yale-blue:active:enabled > span > .ic,
   button.md-\:anchor\:yale-blue:hover > span > .ic,
@@ -9015,7 +9008,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md-\:anchor\:yale-blue.disabled,
   button.md-\:anchor\:yale-blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
   }
   a.md-\:anchor\:yale-blue:disabled > span > .ic, a.md-\:anchor\:yale-blue.disabled > span > .ic, a.md-\:anchor\:yale-blue[disabled=true] > span > .ic,
   button.md-\:anchor\:yale-blue:disabled > span > .ic,
@@ -9025,14 +9017,8 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 48rem) and (max-width: 63.99rem) {
-  a.md\=\:anchor\:blue,
-  button.md\=\:anchor\:blue,
-  a.md\=\:anchor\:white,
-  button.md\=\:anchor\:white,
-  a.md\=\:anchor\:red,
-  button.md\=\:anchor\:red,
-  a.md\=\:anchor\:yale-blue,
-  button.md\=\:anchor\:yale-blue {
+  a[class^="md=:anchor:"],
+  button[class^="md=:anchor:"] {
     cursor: pointer;
     font-family: "heebo-bold";
     border: none;
@@ -9040,6 +9026,22 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
     margin: 0;
     padding: 0;
     background-color: transparent;
+  }
+  a[class^="md=:anchor:"]:hover, a[class^="md=:anchor:"]:hover:enabled, a[class^="md=:anchor:"]:focus, a[class^="md=:anchor:"]:focus:enabled, a[class^="md=:anchor:"]:active, a[class^="md=:anchor:"]:active:enabled,
+  button[class^="md=:anchor:"]:hover,
+  button[class^="md=:anchor:"]:hover:enabled,
+  button[class^="md=:anchor:"]:focus,
+  button[class^="md=:anchor:"]:focus:enabled,
+  button[class^="md=:anchor:"]:active,
+  button[class^="md=:anchor:"]:active:enabled {
+    text-decoration: underline;
+  }
+  a[class^="md=:anchor:"]:disabled, a[class^="md=:anchor:"].disabled, a[class^="md=:anchor:"][disabled=true],
+  button[class^="md=:anchor:"]:disabled,
+  button[class^="md=:anchor:"].disabled,
+  button[class^="md=:anchor:"][disabled=true] {
+    cursor: default;
+    text-decoration: none;
   }
   a.md\=\:anchor\:blue,
   button.md\=\:anchor\:blue {
@@ -9057,7 +9059,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\=\:anchor\:blue:active,
   button.md\=\:anchor\:blue:active:enabled {
     color: var(--color-yale-blue);
-    text-decoration: underline;
   }
   a.md\=\:anchor\:blue:hover > span > .ic, a.md\=\:anchor\:blue:hover:enabled > span > .ic, a.md\=\:anchor\:blue:focus > span > .ic, a.md\=\:anchor\:blue:focus:enabled > span > .ic, a.md\=\:anchor\:blue:active > span > .ic, a.md\=\:anchor\:blue:active:enabled > span > .ic,
   button.md\=\:anchor\:blue:hover > span > .ic,
@@ -9073,8 +9074,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\=\:anchor\:blue.disabled,
   button.md\=\:anchor\:blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.md\=\:anchor\:blue:disabled > span > .ic, a.md\=\:anchor\:blue.disabled > span > .ic, a.md\=\:anchor\:blue[disabled=true] > span > .ic,
   button.md\=\:anchor\:blue:disabled > span > .ic,
@@ -9098,7 +9097,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\=\:anchor\:white:active,
   button.md\=\:anchor\:white:active:enabled {
     color: var(--color-white);
-    text-decoration: underline;
   }
   a.md\=\:anchor\:white:hover > span > .ic, a.md\=\:anchor\:white:hover:enabled > span > .ic, a.md\=\:anchor\:white:focus > span > .ic, a.md\=\:anchor\:white:focus:enabled > span > .ic, a.md\=\:anchor\:white:active > span > .ic, a.md\=\:anchor\:white:active:enabled > span > .ic,
   button.md\=\:anchor\:white:hover > span > .ic,
@@ -9114,8 +9112,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\=\:anchor\:white.disabled,
   button.md\=\:anchor\:white[disabled=true] {
     color: var(--color-white);
-    cursor: default;
-    text-decoration: none;
   }
   a.md\=\:anchor\:white:disabled > span > .ic, a.md\=\:anchor\:white.disabled > span > .ic, a.md\=\:anchor\:white[disabled=true] > span > .ic,
   button.md\=\:anchor\:white:disabled > span > .ic,
@@ -9139,7 +9135,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\=\:anchor\:red:active,
   button.md\=\:anchor\:red:active:enabled {
     color: var(--color-red);
-    text-decoration: underline;
   }
   a.md\=\:anchor\:red:hover > span > .ic, a.md\=\:anchor\:red:hover:enabled > span > .ic, a.md\=\:anchor\:red:focus > span > .ic, a.md\=\:anchor\:red:focus:enabled > span > .ic, a.md\=\:anchor\:red:active > span > .ic, a.md\=\:anchor\:red:active:enabled > span > .ic,
   button.md\=\:anchor\:red:hover > span > .ic,
@@ -9155,8 +9150,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\=\:anchor\:red.disabled,
   button.md\=\:anchor\:red[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.md\=\:anchor\:red:disabled > span > .ic, a.md\=\:anchor\:red.disabled > span > .ic, a.md\=\:anchor\:red[disabled=true] > span > .ic,
   button.md\=\:anchor\:red:disabled > span > .ic,
@@ -9180,8 +9173,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\=\:anchor\:yale-blue:active,
   button.md\=\:anchor\:yale-blue:active:enabled {
     color: var(--color-eerie-black);
-    text-decoration: underline;
-    text-decoration: none;
   }
   a.md\=\:anchor\:yale-blue:hover > span > .ic, a.md\=\:anchor\:yale-blue:hover:enabled > span > .ic, a.md\=\:anchor\:yale-blue:focus > span > .ic, a.md\=\:anchor\:yale-blue:focus:enabled > span > .ic, a.md\=\:anchor\:yale-blue:active > span > .ic, a.md\=\:anchor\:yale-blue:active:enabled > span > .ic,
   button.md\=\:anchor\:yale-blue:hover > span > .ic,
@@ -9197,7 +9188,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\=\:anchor\:yale-blue.disabled,
   button.md\=\:anchor\:yale-blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
   }
   a.md\=\:anchor\:yale-blue:disabled > span > .ic, a.md\=\:anchor\:yale-blue.disabled > span > .ic, a.md\=\:anchor\:yale-blue[disabled=true] > span > .ic,
   button.md\=\:anchor\:yale-blue:disabled > span > .ic,
@@ -9207,14 +9197,8 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 48rem) {
-  a.md\+\:anchor\:blue,
-  button.md\+\:anchor\:blue,
-  a.md\+\:anchor\:white,
-  button.md\+\:anchor\:white,
-  a.md\+\:anchor\:red,
-  button.md\+\:anchor\:red,
-  a.md\+\:anchor\:yale-blue,
-  button.md\+\:anchor\:yale-blue {
+  a[class^="md+:anchor:"],
+  button[class^="md+:anchor:"] {
     cursor: pointer;
     font-family: "heebo-bold";
     border: none;
@@ -9222,6 +9206,22 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
     margin: 0;
     padding: 0;
     background-color: transparent;
+  }
+  a[class^="md+:anchor:"]:hover, a[class^="md+:anchor:"]:hover:enabled, a[class^="md+:anchor:"]:focus, a[class^="md+:anchor:"]:focus:enabled, a[class^="md+:anchor:"]:active, a[class^="md+:anchor:"]:active:enabled,
+  button[class^="md+:anchor:"]:hover,
+  button[class^="md+:anchor:"]:hover:enabled,
+  button[class^="md+:anchor:"]:focus,
+  button[class^="md+:anchor:"]:focus:enabled,
+  button[class^="md+:anchor:"]:active,
+  button[class^="md+:anchor:"]:active:enabled {
+    text-decoration: underline;
+  }
+  a[class^="md+:anchor:"]:disabled, a[class^="md+:anchor:"].disabled, a[class^="md+:anchor:"][disabled=true],
+  button[class^="md+:anchor:"]:disabled,
+  button[class^="md+:anchor:"].disabled,
+  button[class^="md+:anchor:"][disabled=true] {
+    cursor: default;
+    text-decoration: none;
   }
   a.md\+\:anchor\:blue,
   button.md\+\:anchor\:blue {
@@ -9239,7 +9239,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\+\:anchor\:blue:active,
   button.md\+\:anchor\:blue:active:enabled {
     color: var(--color-yale-blue);
-    text-decoration: underline;
   }
   a.md\+\:anchor\:blue:hover > span > .ic, a.md\+\:anchor\:blue:hover:enabled > span > .ic, a.md\+\:anchor\:blue:focus > span > .ic, a.md\+\:anchor\:blue:focus:enabled > span > .ic, a.md\+\:anchor\:blue:active > span > .ic, a.md\+\:anchor\:blue:active:enabled > span > .ic,
   button.md\+\:anchor\:blue:hover > span > .ic,
@@ -9255,8 +9254,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\+\:anchor\:blue.disabled,
   button.md\+\:anchor\:blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.md\+\:anchor\:blue:disabled > span > .ic, a.md\+\:anchor\:blue.disabled > span > .ic, a.md\+\:anchor\:blue[disabled=true] > span > .ic,
   button.md\+\:anchor\:blue:disabled > span > .ic,
@@ -9280,7 +9277,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\+\:anchor\:white:active,
   button.md\+\:anchor\:white:active:enabled {
     color: var(--color-white);
-    text-decoration: underline;
   }
   a.md\+\:anchor\:white:hover > span > .ic, a.md\+\:anchor\:white:hover:enabled > span > .ic, a.md\+\:anchor\:white:focus > span > .ic, a.md\+\:anchor\:white:focus:enabled > span > .ic, a.md\+\:anchor\:white:active > span > .ic, a.md\+\:anchor\:white:active:enabled > span > .ic,
   button.md\+\:anchor\:white:hover > span > .ic,
@@ -9296,8 +9292,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\+\:anchor\:white.disabled,
   button.md\+\:anchor\:white[disabled=true] {
     color: var(--color-white);
-    cursor: default;
-    text-decoration: none;
   }
   a.md\+\:anchor\:white:disabled > span > .ic, a.md\+\:anchor\:white.disabled > span > .ic, a.md\+\:anchor\:white[disabled=true] > span > .ic,
   button.md\+\:anchor\:white:disabled > span > .ic,
@@ -9321,7 +9315,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\+\:anchor\:red:active,
   button.md\+\:anchor\:red:active:enabled {
     color: var(--color-red);
-    text-decoration: underline;
   }
   a.md\+\:anchor\:red:hover > span > .ic, a.md\+\:anchor\:red:hover:enabled > span > .ic, a.md\+\:anchor\:red:focus > span > .ic, a.md\+\:anchor\:red:focus:enabled > span > .ic, a.md\+\:anchor\:red:active > span > .ic, a.md\+\:anchor\:red:active:enabled > span > .ic,
   button.md\+\:anchor\:red:hover > span > .ic,
@@ -9337,8 +9330,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\+\:anchor\:red.disabled,
   button.md\+\:anchor\:red[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.md\+\:anchor\:red:disabled > span > .ic, a.md\+\:anchor\:red.disabled > span > .ic, a.md\+\:anchor\:red[disabled=true] > span > .ic,
   button.md\+\:anchor\:red:disabled > span > .ic,
@@ -9362,8 +9353,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\+\:anchor\:yale-blue:active,
   button.md\+\:anchor\:yale-blue:active:enabled {
     color: var(--color-eerie-black);
-    text-decoration: underline;
-    text-decoration: none;
   }
   a.md\+\:anchor\:yale-blue:hover > span > .ic, a.md\+\:anchor\:yale-blue:hover:enabled > span > .ic, a.md\+\:anchor\:yale-blue:focus > span > .ic, a.md\+\:anchor\:yale-blue:focus:enabled > span > .ic, a.md\+\:anchor\:yale-blue:active > span > .ic, a.md\+\:anchor\:yale-blue:active:enabled > span > .ic,
   button.md\+\:anchor\:yale-blue:hover > span > .ic,
@@ -9379,7 +9368,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.md\+\:anchor\:yale-blue.disabled,
   button.md\+\:anchor\:yale-blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
   }
   a.md\+\:anchor\:yale-blue:disabled > span > .ic, a.md\+\:anchor\:yale-blue.disabled > span > .ic, a.md\+\:anchor\:yale-blue[disabled=true] > span > .ic,
   button.md\+\:anchor\:yale-blue:disabled > span > .ic,
@@ -9389,14 +9377,8 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (max-width: 79.99rem) {
-  a.lg-\:anchor\:blue,
-  button.lg-\:anchor\:blue,
-  a.lg-\:anchor\:white,
-  button.lg-\:anchor\:white,
-  a.lg-\:anchor\:red,
-  button.lg-\:anchor\:red,
-  a.lg-\:anchor\:yale-blue,
-  button.lg-\:anchor\:yale-blue {
+  a[class^="lg-:anchor:"],
+  button[class^="lg-:anchor:"] {
     cursor: pointer;
     font-family: "heebo-bold";
     border: none;
@@ -9404,6 +9386,22 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
     margin: 0;
     padding: 0;
     background-color: transparent;
+  }
+  a[class^="lg-:anchor:"]:hover, a[class^="lg-:anchor:"]:hover:enabled, a[class^="lg-:anchor:"]:focus, a[class^="lg-:anchor:"]:focus:enabled, a[class^="lg-:anchor:"]:active, a[class^="lg-:anchor:"]:active:enabled,
+  button[class^="lg-:anchor:"]:hover,
+  button[class^="lg-:anchor:"]:hover:enabled,
+  button[class^="lg-:anchor:"]:focus,
+  button[class^="lg-:anchor:"]:focus:enabled,
+  button[class^="lg-:anchor:"]:active,
+  button[class^="lg-:anchor:"]:active:enabled {
+    text-decoration: underline;
+  }
+  a[class^="lg-:anchor:"]:disabled, a[class^="lg-:anchor:"].disabled, a[class^="lg-:anchor:"][disabled=true],
+  button[class^="lg-:anchor:"]:disabled,
+  button[class^="lg-:anchor:"].disabled,
+  button[class^="lg-:anchor:"][disabled=true] {
+    cursor: default;
+    text-decoration: none;
   }
   a.lg-\:anchor\:blue,
   button.lg-\:anchor\:blue {
@@ -9421,7 +9419,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg-\:anchor\:blue:active,
   button.lg-\:anchor\:blue:active:enabled {
     color: var(--color-yale-blue);
-    text-decoration: underline;
   }
   a.lg-\:anchor\:blue:hover > span > .ic, a.lg-\:anchor\:blue:hover:enabled > span > .ic, a.lg-\:anchor\:blue:focus > span > .ic, a.lg-\:anchor\:blue:focus:enabled > span > .ic, a.lg-\:anchor\:blue:active > span > .ic, a.lg-\:anchor\:blue:active:enabled > span > .ic,
   button.lg-\:anchor\:blue:hover > span > .ic,
@@ -9437,8 +9434,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg-\:anchor\:blue.disabled,
   button.lg-\:anchor\:blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg-\:anchor\:blue:disabled > span > .ic, a.lg-\:anchor\:blue.disabled > span > .ic, a.lg-\:anchor\:blue[disabled=true] > span > .ic,
   button.lg-\:anchor\:blue:disabled > span > .ic,
@@ -9462,7 +9457,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg-\:anchor\:white:active,
   button.lg-\:anchor\:white:active:enabled {
     color: var(--color-white);
-    text-decoration: underline;
   }
   a.lg-\:anchor\:white:hover > span > .ic, a.lg-\:anchor\:white:hover:enabled > span > .ic, a.lg-\:anchor\:white:focus > span > .ic, a.lg-\:anchor\:white:focus:enabled > span > .ic, a.lg-\:anchor\:white:active > span > .ic, a.lg-\:anchor\:white:active:enabled > span > .ic,
   button.lg-\:anchor\:white:hover > span > .ic,
@@ -9478,8 +9472,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg-\:anchor\:white.disabled,
   button.lg-\:anchor\:white[disabled=true] {
     color: var(--color-white);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg-\:anchor\:white:disabled > span > .ic, a.lg-\:anchor\:white.disabled > span > .ic, a.lg-\:anchor\:white[disabled=true] > span > .ic,
   button.lg-\:anchor\:white:disabled > span > .ic,
@@ -9503,7 +9495,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg-\:anchor\:red:active,
   button.lg-\:anchor\:red:active:enabled {
     color: var(--color-red);
-    text-decoration: underline;
   }
   a.lg-\:anchor\:red:hover > span > .ic, a.lg-\:anchor\:red:hover:enabled > span > .ic, a.lg-\:anchor\:red:focus > span > .ic, a.lg-\:anchor\:red:focus:enabled > span > .ic, a.lg-\:anchor\:red:active > span > .ic, a.lg-\:anchor\:red:active:enabled > span > .ic,
   button.lg-\:anchor\:red:hover > span > .ic,
@@ -9519,8 +9510,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg-\:anchor\:red.disabled,
   button.lg-\:anchor\:red[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg-\:anchor\:red:disabled > span > .ic, a.lg-\:anchor\:red.disabled > span > .ic, a.lg-\:anchor\:red[disabled=true] > span > .ic,
   button.lg-\:anchor\:red:disabled > span > .ic,
@@ -9544,8 +9533,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg-\:anchor\:yale-blue:active,
   button.lg-\:anchor\:yale-blue:active:enabled {
     color: var(--color-eerie-black);
-    text-decoration: underline;
-    text-decoration: none;
   }
   a.lg-\:anchor\:yale-blue:hover > span > .ic, a.lg-\:anchor\:yale-blue:hover:enabled > span > .ic, a.lg-\:anchor\:yale-blue:focus > span > .ic, a.lg-\:anchor\:yale-blue:focus:enabled > span > .ic, a.lg-\:anchor\:yale-blue:active > span > .ic, a.lg-\:anchor\:yale-blue:active:enabled > span > .ic,
   button.lg-\:anchor\:yale-blue:hover > span > .ic,
@@ -9561,7 +9548,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg-\:anchor\:yale-blue.disabled,
   button.lg-\:anchor\:yale-blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
   }
   a.lg-\:anchor\:yale-blue:disabled > span > .ic, a.lg-\:anchor\:yale-blue.disabled > span > .ic, a.lg-\:anchor\:yale-blue[disabled=true] > span > .ic,
   button.lg-\:anchor\:yale-blue:disabled > span > .ic,
@@ -9571,14 +9557,8 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 64rem) and (max-width: 79.99rem) {
-  a.lg\=\:anchor\:blue,
-  button.lg\=\:anchor\:blue,
-  a.lg\=\:anchor\:white,
-  button.lg\=\:anchor\:white,
-  a.lg\=\:anchor\:red,
-  button.lg\=\:anchor\:red,
-  a.lg\=\:anchor\:yale-blue,
-  button.lg\=\:anchor\:yale-blue {
+  a[class^="lg=:anchor:"],
+  button[class^="lg=:anchor:"] {
     cursor: pointer;
     font-family: "heebo-bold";
     border: none;
@@ -9586,6 +9566,22 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
     margin: 0;
     padding: 0;
     background-color: transparent;
+  }
+  a[class^="lg=:anchor:"]:hover, a[class^="lg=:anchor:"]:hover:enabled, a[class^="lg=:anchor:"]:focus, a[class^="lg=:anchor:"]:focus:enabled, a[class^="lg=:anchor:"]:active, a[class^="lg=:anchor:"]:active:enabled,
+  button[class^="lg=:anchor:"]:hover,
+  button[class^="lg=:anchor:"]:hover:enabled,
+  button[class^="lg=:anchor:"]:focus,
+  button[class^="lg=:anchor:"]:focus:enabled,
+  button[class^="lg=:anchor:"]:active,
+  button[class^="lg=:anchor:"]:active:enabled {
+    text-decoration: underline;
+  }
+  a[class^="lg=:anchor:"]:disabled, a[class^="lg=:anchor:"].disabled, a[class^="lg=:anchor:"][disabled=true],
+  button[class^="lg=:anchor:"]:disabled,
+  button[class^="lg=:anchor:"].disabled,
+  button[class^="lg=:anchor:"][disabled=true] {
+    cursor: default;
+    text-decoration: none;
   }
   a.lg\=\:anchor\:blue,
   button.lg\=\:anchor\:blue {
@@ -9603,7 +9599,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\=\:anchor\:blue:active,
   button.lg\=\:anchor\:blue:active:enabled {
     color: var(--color-yale-blue);
-    text-decoration: underline;
   }
   a.lg\=\:anchor\:blue:hover > span > .ic, a.lg\=\:anchor\:blue:hover:enabled > span > .ic, a.lg\=\:anchor\:blue:focus > span > .ic, a.lg\=\:anchor\:blue:focus:enabled > span > .ic, a.lg\=\:anchor\:blue:active > span > .ic, a.lg\=\:anchor\:blue:active:enabled > span > .ic,
   button.lg\=\:anchor\:blue:hover > span > .ic,
@@ -9619,8 +9614,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\=\:anchor\:blue.disabled,
   button.lg\=\:anchor\:blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg\=\:anchor\:blue:disabled > span > .ic, a.lg\=\:anchor\:blue.disabled > span > .ic, a.lg\=\:anchor\:blue[disabled=true] > span > .ic,
   button.lg\=\:anchor\:blue:disabled > span > .ic,
@@ -9644,7 +9637,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\=\:anchor\:white:active,
   button.lg\=\:anchor\:white:active:enabled {
     color: var(--color-white);
-    text-decoration: underline;
   }
   a.lg\=\:anchor\:white:hover > span > .ic, a.lg\=\:anchor\:white:hover:enabled > span > .ic, a.lg\=\:anchor\:white:focus > span > .ic, a.lg\=\:anchor\:white:focus:enabled > span > .ic, a.lg\=\:anchor\:white:active > span > .ic, a.lg\=\:anchor\:white:active:enabled > span > .ic,
   button.lg\=\:anchor\:white:hover > span > .ic,
@@ -9660,8 +9652,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\=\:anchor\:white.disabled,
   button.lg\=\:anchor\:white[disabled=true] {
     color: var(--color-white);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg\=\:anchor\:white:disabled > span > .ic, a.lg\=\:anchor\:white.disabled > span > .ic, a.lg\=\:anchor\:white[disabled=true] > span > .ic,
   button.lg\=\:anchor\:white:disabled > span > .ic,
@@ -9685,7 +9675,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\=\:anchor\:red:active,
   button.lg\=\:anchor\:red:active:enabled {
     color: var(--color-red);
-    text-decoration: underline;
   }
   a.lg\=\:anchor\:red:hover > span > .ic, a.lg\=\:anchor\:red:hover:enabled > span > .ic, a.lg\=\:anchor\:red:focus > span > .ic, a.lg\=\:anchor\:red:focus:enabled > span > .ic, a.lg\=\:anchor\:red:active > span > .ic, a.lg\=\:anchor\:red:active:enabled > span > .ic,
   button.lg\=\:anchor\:red:hover > span > .ic,
@@ -9701,8 +9690,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\=\:anchor\:red.disabled,
   button.lg\=\:anchor\:red[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg\=\:anchor\:red:disabled > span > .ic, a.lg\=\:anchor\:red.disabled > span > .ic, a.lg\=\:anchor\:red[disabled=true] > span > .ic,
   button.lg\=\:anchor\:red:disabled > span > .ic,
@@ -9726,8 +9713,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\=\:anchor\:yale-blue:active,
   button.lg\=\:anchor\:yale-blue:active:enabled {
     color: var(--color-eerie-black);
-    text-decoration: underline;
-    text-decoration: none;
   }
   a.lg\=\:anchor\:yale-blue:hover > span > .ic, a.lg\=\:anchor\:yale-blue:hover:enabled > span > .ic, a.lg\=\:anchor\:yale-blue:focus > span > .ic, a.lg\=\:anchor\:yale-blue:focus:enabled > span > .ic, a.lg\=\:anchor\:yale-blue:active > span > .ic, a.lg\=\:anchor\:yale-blue:active:enabled > span > .ic,
   button.lg\=\:anchor\:yale-blue:hover > span > .ic,
@@ -9743,7 +9728,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\=\:anchor\:yale-blue.disabled,
   button.lg\=\:anchor\:yale-blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
   }
   a.lg\=\:anchor\:yale-blue:disabled > span > .ic, a.lg\=\:anchor\:yale-blue.disabled > span > .ic, a.lg\=\:anchor\:yale-blue[disabled=true] > span > .ic,
   button.lg\=\:anchor\:yale-blue:disabled > span > .ic,
@@ -9753,14 +9737,8 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 64rem) {
-  a.lg\+\:anchor\:blue,
-  button.lg\+\:anchor\:blue,
-  a.lg\+\:anchor\:white,
-  button.lg\+\:anchor\:white,
-  a.lg\+\:anchor\:red,
-  button.lg\+\:anchor\:red,
-  a.lg\+\:anchor\:yale-blue,
-  button.lg\+\:anchor\:yale-blue {
+  a[class^="lg+:anchor:"],
+  button[class^="lg+:anchor:"] {
     cursor: pointer;
     font-family: "heebo-bold";
     border: none;
@@ -9768,6 +9746,22 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
     margin: 0;
     padding: 0;
     background-color: transparent;
+  }
+  a[class^="lg+:anchor:"]:hover, a[class^="lg+:anchor:"]:hover:enabled, a[class^="lg+:anchor:"]:focus, a[class^="lg+:anchor:"]:focus:enabled, a[class^="lg+:anchor:"]:active, a[class^="lg+:anchor:"]:active:enabled,
+  button[class^="lg+:anchor:"]:hover,
+  button[class^="lg+:anchor:"]:hover:enabled,
+  button[class^="lg+:anchor:"]:focus,
+  button[class^="lg+:anchor:"]:focus:enabled,
+  button[class^="lg+:anchor:"]:active,
+  button[class^="lg+:anchor:"]:active:enabled {
+    text-decoration: underline;
+  }
+  a[class^="lg+:anchor:"]:disabled, a[class^="lg+:anchor:"].disabled, a[class^="lg+:anchor:"][disabled=true],
+  button[class^="lg+:anchor:"]:disabled,
+  button[class^="lg+:anchor:"].disabled,
+  button[class^="lg+:anchor:"][disabled=true] {
+    cursor: default;
+    text-decoration: none;
   }
   a.lg\+\:anchor\:blue,
   button.lg\+\:anchor\:blue {
@@ -9785,7 +9779,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\+\:anchor\:blue:active,
   button.lg\+\:anchor\:blue:active:enabled {
     color: var(--color-yale-blue);
-    text-decoration: underline;
   }
   a.lg\+\:anchor\:blue:hover > span > .ic, a.lg\+\:anchor\:blue:hover:enabled > span > .ic, a.lg\+\:anchor\:blue:focus > span > .ic, a.lg\+\:anchor\:blue:focus:enabled > span > .ic, a.lg\+\:anchor\:blue:active > span > .ic, a.lg\+\:anchor\:blue:active:enabled > span > .ic,
   button.lg\+\:anchor\:blue:hover > span > .ic,
@@ -9801,8 +9794,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\+\:anchor\:blue.disabled,
   button.lg\+\:anchor\:blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg\+\:anchor\:blue:disabled > span > .ic, a.lg\+\:anchor\:blue.disabled > span > .ic, a.lg\+\:anchor\:blue[disabled=true] > span > .ic,
   button.lg\+\:anchor\:blue:disabled > span > .ic,
@@ -9826,7 +9817,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\+\:anchor\:white:active,
   button.lg\+\:anchor\:white:active:enabled {
     color: var(--color-white);
-    text-decoration: underline;
   }
   a.lg\+\:anchor\:white:hover > span > .ic, a.lg\+\:anchor\:white:hover:enabled > span > .ic, a.lg\+\:anchor\:white:focus > span > .ic, a.lg\+\:anchor\:white:focus:enabled > span > .ic, a.lg\+\:anchor\:white:active > span > .ic, a.lg\+\:anchor\:white:active:enabled > span > .ic,
   button.lg\+\:anchor\:white:hover > span > .ic,
@@ -9842,8 +9832,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\+\:anchor\:white.disabled,
   button.lg\+\:anchor\:white[disabled=true] {
     color: var(--color-white);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg\+\:anchor\:white:disabled > span > .ic, a.lg\+\:anchor\:white.disabled > span > .ic, a.lg\+\:anchor\:white[disabled=true] > span > .ic,
   button.lg\+\:anchor\:white:disabled > span > .ic,
@@ -9867,7 +9855,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\+\:anchor\:red:active,
   button.lg\+\:anchor\:red:active:enabled {
     color: var(--color-red);
-    text-decoration: underline;
   }
   a.lg\+\:anchor\:red:hover > span > .ic, a.lg\+\:anchor\:red:hover:enabled > span > .ic, a.lg\+\:anchor\:red:focus > span > .ic, a.lg\+\:anchor\:red:focus:enabled > span > .ic, a.lg\+\:anchor\:red:active > span > .ic, a.lg\+\:anchor\:red:active:enabled > span > .ic,
   button.lg\+\:anchor\:red:hover > span > .ic,
@@ -9883,8 +9870,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\+\:anchor\:red.disabled,
   button.lg\+\:anchor\:red[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.lg\+\:anchor\:red:disabled > span > .ic, a.lg\+\:anchor\:red.disabled > span > .ic, a.lg\+\:anchor\:red[disabled=true] > span > .ic,
   button.lg\+\:anchor\:red:disabled > span > .ic,
@@ -9908,8 +9893,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\+\:anchor\:yale-blue:active,
   button.lg\+\:anchor\:yale-blue:active:enabled {
     color: var(--color-eerie-black);
-    text-decoration: underline;
-    text-decoration: none;
   }
   a.lg\+\:anchor\:yale-blue:hover > span > .ic, a.lg\+\:anchor\:yale-blue:hover:enabled > span > .ic, a.lg\+\:anchor\:yale-blue:focus > span > .ic, a.lg\+\:anchor\:yale-blue:focus:enabled > span > .ic, a.lg\+\:anchor\:yale-blue:active > span > .ic, a.lg\+\:anchor\:yale-blue:active:enabled > span > .ic,
   button.lg\+\:anchor\:yale-blue:hover > span > .ic,
@@ -9925,7 +9908,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.lg\+\:anchor\:yale-blue.disabled,
   button.lg\+\:anchor\:yale-blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
   }
   a.lg\+\:anchor\:yale-blue:disabled > span > .ic, a.lg\+\:anchor\:yale-blue.disabled > span > .ic, a.lg\+\:anchor\:yale-blue[disabled=true] > span > .ic,
   button.lg\+\:anchor\:yale-blue:disabled > span > .ic,
@@ -9935,14 +9917,8 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 80rem) {
-  a.xl\+\:anchor\:blue,
-  button.xl\+\:anchor\:blue,
-  a.xl\+\:anchor\:white,
-  button.xl\+\:anchor\:white,
-  a.xl\+\:anchor\:red,
-  button.xl\+\:anchor\:red,
-  a.xl\+\:anchor\:yale-blue,
-  button.xl\+\:anchor\:yale-blue {
+  a[class^="xl+:anchor:"],
+  button[class^="xl+:anchor:"] {
     cursor: pointer;
     font-family: "heebo-bold";
     border: none;
@@ -9950,6 +9926,22 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
     margin: 0;
     padding: 0;
     background-color: transparent;
+  }
+  a[class^="xl+:anchor:"]:hover, a[class^="xl+:anchor:"]:hover:enabled, a[class^="xl+:anchor:"]:focus, a[class^="xl+:anchor:"]:focus:enabled, a[class^="xl+:anchor:"]:active, a[class^="xl+:anchor:"]:active:enabled,
+  button[class^="xl+:anchor:"]:hover,
+  button[class^="xl+:anchor:"]:hover:enabled,
+  button[class^="xl+:anchor:"]:focus,
+  button[class^="xl+:anchor:"]:focus:enabled,
+  button[class^="xl+:anchor:"]:active,
+  button[class^="xl+:anchor:"]:active:enabled {
+    text-decoration: underline;
+  }
+  a[class^="xl+:anchor:"]:disabled, a[class^="xl+:anchor:"].disabled, a[class^="xl+:anchor:"][disabled=true],
+  button[class^="xl+:anchor:"]:disabled,
+  button[class^="xl+:anchor:"].disabled,
+  button[class^="xl+:anchor:"][disabled=true] {
+    cursor: default;
+    text-decoration: none;
   }
   a.xl\+\:anchor\:blue,
   button.xl\+\:anchor\:blue {
@@ -9967,7 +9959,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.xl\+\:anchor\:blue:active,
   button.xl\+\:anchor\:blue:active:enabled {
     color: var(--color-yale-blue);
-    text-decoration: underline;
   }
   a.xl\+\:anchor\:blue:hover > span > .ic, a.xl\+\:anchor\:blue:hover:enabled > span > .ic, a.xl\+\:anchor\:blue:focus > span > .ic, a.xl\+\:anchor\:blue:focus:enabled > span > .ic, a.xl\+\:anchor\:blue:active > span > .ic, a.xl\+\:anchor\:blue:active:enabled > span > .ic,
   button.xl\+\:anchor\:blue:hover > span > .ic,
@@ -9983,8 +9974,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.xl\+\:anchor\:blue.disabled,
   button.xl\+\:anchor\:blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.xl\+\:anchor\:blue:disabled > span > .ic, a.xl\+\:anchor\:blue.disabled > span > .ic, a.xl\+\:anchor\:blue[disabled=true] > span > .ic,
   button.xl\+\:anchor\:blue:disabled > span > .ic,
@@ -10008,7 +9997,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.xl\+\:anchor\:white:active,
   button.xl\+\:anchor\:white:active:enabled {
     color: var(--color-white);
-    text-decoration: underline;
   }
   a.xl\+\:anchor\:white:hover > span > .ic, a.xl\+\:anchor\:white:hover:enabled > span > .ic, a.xl\+\:anchor\:white:focus > span > .ic, a.xl\+\:anchor\:white:focus:enabled > span > .ic, a.xl\+\:anchor\:white:active > span > .ic, a.xl\+\:anchor\:white:active:enabled > span > .ic,
   button.xl\+\:anchor\:white:hover > span > .ic,
@@ -10024,8 +10012,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.xl\+\:anchor\:white.disabled,
   button.xl\+\:anchor\:white[disabled=true] {
     color: var(--color-white);
-    cursor: default;
-    text-decoration: none;
   }
   a.xl\+\:anchor\:white:disabled > span > .ic, a.xl\+\:anchor\:white.disabled > span > .ic, a.xl\+\:anchor\:white[disabled=true] > span > .ic,
   button.xl\+\:anchor\:white:disabled > span > .ic,
@@ -10049,7 +10035,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.xl\+\:anchor\:red:active,
   button.xl\+\:anchor\:red:active:enabled {
     color: var(--color-red);
-    text-decoration: underline;
   }
   a.xl\+\:anchor\:red:hover > span > .ic, a.xl\+\:anchor\:red:hover:enabled > span > .ic, a.xl\+\:anchor\:red:focus > span > .ic, a.xl\+\:anchor\:red:focus:enabled > span > .ic, a.xl\+\:anchor\:red:active > span > .ic, a.xl\+\:anchor\:red:active:enabled > span > .ic,
   button.xl\+\:anchor\:red:hover > span > .ic,
@@ -10065,8 +10050,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.xl\+\:anchor\:red.disabled,
   button.xl\+\:anchor\:red[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
-    text-decoration: none;
   }
   a.xl\+\:anchor\:red:disabled > span > .ic, a.xl\+\:anchor\:red.disabled > span > .ic, a.xl\+\:anchor\:red[disabled=true] > span > .ic,
   button.xl\+\:anchor\:red:disabled > span > .ic,
@@ -10090,8 +10073,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.xl\+\:anchor\:yale-blue:active,
   button.xl\+\:anchor\:yale-blue:active:enabled {
     color: var(--color-eerie-black);
-    text-decoration: underline;
-    text-decoration: none;
   }
   a.xl\+\:anchor\:yale-blue:hover > span > .ic, a.xl\+\:anchor\:yale-blue:hover:enabled > span > .ic, a.xl\+\:anchor\:yale-blue:focus > span > .ic, a.xl\+\:anchor\:yale-blue:focus:enabled > span > .ic, a.xl\+\:anchor\:yale-blue:active > span > .ic, a.xl\+\:anchor\:yale-blue:active:enabled > span > .ic,
   button.xl\+\:anchor\:yale-blue:hover > span > .ic,
@@ -10107,7 +10088,6 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
   button.xl\+\:anchor\:yale-blue.disabled,
   button.xl\+\:anchor\:yale-blue[disabled=true] {
     color: var(--color-onyx);
-    cursor: default;
   }
   a.xl\+\:anchor\:yale-blue:disabled > span > .ic, a.xl\+\:anchor\:yale-blue.disabled > span > .ic, a.xl\+\:anchor\:yale-blue[disabled=true] > span > .ic,
   button.xl\+\:anchor\:yale-blue:disabled > span > .ic,
@@ -10116,16 +10096,8 @@ button.sm\+\:anchor\:yale-blue[disabled=true] > span > .ic {
     background-color: var(--color-onyx);
   }
 }
-a.button\:blue,
-button.button\:blue,
-a.button\:transparent,
-button.button\:transparent,
-a.button\:white,
-button.button\:white,
-a.button\:red,
-button.button\:red,
-a.button\:yale-blue,
-button.button\:yale-blue {
+a[class^="button:"],
+button[class^="button:"] {
   position: relative;
   cursor: pointer;
   display: inline-flex;
@@ -10145,83 +10117,35 @@ button.button\:yale-blue {
   width: fit-content;
   vertical-align: middle;
 }
-a.button\:blue.uppercase,
-button.button\:blue.uppercase,
-a.button\:transparent.uppercase,
-button.button\:transparent.uppercase,
-a.button\:white.uppercase,
-button.button\:white.uppercase,
-a.button\:red.uppercase,
-button.button\:red.uppercase,
-a.button\:yale-blue.uppercase,
-button.button\:yale-blue.uppercase {
+a[class^="button:"].uppercase,
+button[class^="button:"].uppercase {
   letter-spacing: 0.015625rem;
   line-height: 3.25rem;
 }
-a.button\:blue.uppercase.small,
-button.button\:blue.uppercase.small,
-a.button\:transparent.uppercase.small,
-button.button\:transparent.uppercase.small,
-a.button\:white.uppercase.small,
-button.button\:white.uppercase.small,
-a.button\:red.uppercase.small,
-button.button\:red.uppercase.small,
-a.button\:yale-blue.uppercase.small,
-button.button\:yale-blue.uppercase.small {
+a[class^="button:"].uppercase.small,
+button[class^="button:"].uppercase.small {
   line-height: 0;
 }
-a.button\:blue.small,
-button.button\:blue.small,
-a.button\:transparent.small,
-button.button\:transparent.small,
-a.button\:white.small,
-button.button\:white.small,
-a.button\:red.small,
-button.button\:red.small,
-a.button\:yale-blue.small,
-button.button\:yale-blue.small {
+a[class^="button:"].small,
+button[class^="button:"].small {
   padding: 0 1rem;
   height: 2rem;
   line-height: 0;
 }
-a.button\:blue > span > .ic.ic-size\:16px,
-button.button\:blue > span > .ic.ic-size\:16px,
-a.button\:transparent > span > .ic.ic-size\:16px,
-button.button\:transparent > span > .ic.ic-size\:16px,
-a.button\:white > span > .ic.ic-size\:16px,
-button.button\:white > span > .ic.ic-size\:16px,
-a.button\:red > span > .ic.ic-size\:16px,
-button.button\:red > span > .ic.ic-size\:16px,
-a.button\:yale-blue > span > .ic.ic-size\:16px,
-button.button\:yale-blue > span > .ic.ic-size\:16px {
+a[class^="button:"] > span > .ic.ic-size\:16px,
+button[class^="button:"] > span > .ic.ic-size\:16px {
   margin-top: -2px;
   width: 1rem;
   height: 1rem;
 }
-a.button\:blue > span > .ic.ic-size\:24px,
-button.button\:blue > span > .ic.ic-size\:24px,
-a.button\:transparent > span > .ic.ic-size\:24px,
-button.button\:transparent > span > .ic.ic-size\:24px,
-a.button\:white > span > .ic.ic-size\:24px,
-button.button\:white > span > .ic.ic-size\:24px,
-a.button\:red > span > .ic.ic-size\:24px,
-button.button\:red > span > .ic.ic-size\:24px,
-a.button\:yale-blue > span > .ic.ic-size\:24px,
-button.button\:yale-blue > span > .ic.ic-size\:24px {
+a[class^="button:"] > span > .ic.ic-size\:24px,
+button[class^="button:"] > span > .ic.ic-size\:24px {
   margin-top: -2px;
   width: 1.5rem;
   height: 1.5rem;
 }
-a.button\:blue:focus,
-button.button\:blue:focus,
-a.button\:transparent:focus,
-button.button\:transparent:focus,
-a.button\:white:focus,
-button.button\:white:focus,
-a.button\:red:focus,
-button.button\:red:focus,
-a.button\:yale-blue:focus,
-button.button\:yale-blue:focus {
+a[class^="button:"]:focus,
+button[class^="button:"]:focus {
   box-shadow: var(--box-shadow-custom-7);
   outline: 0;
 }
@@ -10441,16 +10365,8 @@ button.button\:yale-blue[disabled=true] > span > .ic {
 }
 
 @media screen and (max-width: 47.99rem) {
-  a.sm\=\:button\:blue,
-  button.sm\=\:button\:blue,
-  a.sm\=\:button\:transparent,
-  button.sm\=\:button\:transparent,
-  a.sm\=\:button\:white,
-  button.sm\=\:button\:white,
-  a.sm\=\:button\:red,
-  button.sm\=\:button\:red,
-  a.sm\=\:button\:yale-blue,
-  button.sm\=\:button\:yale-blue {
+  a[class^="sm=:button:"],
+  button[class^="sm=:button:"] {
     position: relative;
     cursor: pointer;
     display: inline-flex;
@@ -10470,83 +10386,35 @@ button.button\:yale-blue[disabled=true] > span > .ic {
     width: fit-content;
     vertical-align: middle;
   }
-  a.sm\=\:button\:blue.uppercase,
-  button.sm\=\:button\:blue.uppercase,
-  a.sm\=\:button\:transparent.uppercase,
-  button.sm\=\:button\:transparent.uppercase,
-  a.sm\=\:button\:white.uppercase,
-  button.sm\=\:button\:white.uppercase,
-  a.sm\=\:button\:red.uppercase,
-  button.sm\=\:button\:red.uppercase,
-  a.sm\=\:button\:yale-blue.uppercase,
-  button.sm\=\:button\:yale-blue.uppercase {
+  a[class^="sm=:button:"].uppercase,
+  button[class^="sm=:button:"].uppercase {
     letter-spacing: 0.015625rem;
     line-height: 3.25rem;
   }
-  a.sm\=\:button\:blue.uppercase.small,
-  button.sm\=\:button\:blue.uppercase.small,
-  a.sm\=\:button\:transparent.uppercase.small,
-  button.sm\=\:button\:transparent.uppercase.small,
-  a.sm\=\:button\:white.uppercase.small,
-  button.sm\=\:button\:white.uppercase.small,
-  a.sm\=\:button\:red.uppercase.small,
-  button.sm\=\:button\:red.uppercase.small,
-  a.sm\=\:button\:yale-blue.uppercase.small,
-  button.sm\=\:button\:yale-blue.uppercase.small {
+  a[class^="sm=:button:"].uppercase.small,
+  button[class^="sm=:button:"].uppercase.small {
     line-height: 0;
   }
-  a.sm\=\:button\:blue.small,
-  button.sm\=\:button\:blue.small,
-  a.sm\=\:button\:transparent.small,
-  button.sm\=\:button\:transparent.small,
-  a.sm\=\:button\:white.small,
-  button.sm\=\:button\:white.small,
-  a.sm\=\:button\:red.small,
-  button.sm\=\:button\:red.small,
-  a.sm\=\:button\:yale-blue.small,
-  button.sm\=\:button\:yale-blue.small {
+  a[class^="sm=:button:"].small,
+  button[class^="sm=:button:"].small {
     padding: 0 1rem;
     height: 2rem;
     line-height: 0;
   }
-  a.sm\=\:button\:blue > span > .ic.ic-size\:16px,
-  button.sm\=\:button\:blue > span > .ic.ic-size\:16px,
-  a.sm\=\:button\:transparent > span > .ic.ic-size\:16px,
-  button.sm\=\:button\:transparent > span > .ic.ic-size\:16px,
-  a.sm\=\:button\:white > span > .ic.ic-size\:16px,
-  button.sm\=\:button\:white > span > .ic.ic-size\:16px,
-  a.sm\=\:button\:red > span > .ic.ic-size\:16px,
-  button.sm\=\:button\:red > span > .ic.ic-size\:16px,
-  a.sm\=\:button\:yale-blue > span > .ic.ic-size\:16px,
-  button.sm\=\:button\:yale-blue > span > .ic.ic-size\:16px {
+  a[class^="sm=:button:"] > span > .ic.ic-size\:16px,
+  button[class^="sm=:button:"] > span > .ic.ic-size\:16px {
     margin-top: -2px;
     width: 1rem;
     height: 1rem;
   }
-  a.sm\=\:button\:blue > span > .ic.ic-size\:24px,
-  button.sm\=\:button\:blue > span > .ic.ic-size\:24px,
-  a.sm\=\:button\:transparent > span > .ic.ic-size\:24px,
-  button.sm\=\:button\:transparent > span > .ic.ic-size\:24px,
-  a.sm\=\:button\:white > span > .ic.ic-size\:24px,
-  button.sm\=\:button\:white > span > .ic.ic-size\:24px,
-  a.sm\=\:button\:red > span > .ic.ic-size\:24px,
-  button.sm\=\:button\:red > span > .ic.ic-size\:24px,
-  a.sm\=\:button\:yale-blue > span > .ic.ic-size\:24px,
-  button.sm\=\:button\:yale-blue > span > .ic.ic-size\:24px {
+  a[class^="sm=:button:"] > span > .ic.ic-size\:24px,
+  button[class^="sm=:button:"] > span > .ic.ic-size\:24px {
     margin-top: -2px;
     width: 1.5rem;
     height: 1.5rem;
   }
-  a.sm\=\:button\:blue:focus,
-  button.sm\=\:button\:blue:focus,
-  a.sm\=\:button\:transparent:focus,
-  button.sm\=\:button\:transparent:focus,
-  a.sm\=\:button\:white:focus,
-  button.sm\=\:button\:white:focus,
-  a.sm\=\:button\:red:focus,
-  button.sm\=\:button\:red:focus,
-  a.sm\=\:button\:yale-blue:focus,
-  button.sm\=\:button\:yale-blue:focus {
+  a[class^="sm=:button:"]:focus,
+  button[class^="sm=:button:"]:focus {
     box-shadow: var(--box-shadow-custom-7);
     outline: 0;
   }
@@ -10760,16 +10628,8 @@ button.button\:yale-blue[disabled=true] > span > .ic {
     background-color: var(--color-onyx);
   }
 }
-a.sm\+\:button\:blue,
-button.sm\+\:button\:blue,
-a.sm\+\:button\:transparent,
-button.sm\+\:button\:transparent,
-a.sm\+\:button\:white,
-button.sm\+\:button\:white,
-a.sm\+\:button\:red,
-button.sm\+\:button\:red,
-a.sm\+\:button\:yale-blue,
-button.sm\+\:button\:yale-blue {
+a[class^="sm+:button:"],
+button[class^="sm+:button:"] {
   position: relative;
   cursor: pointer;
   display: inline-flex;
@@ -10789,83 +10649,35 @@ button.sm\+\:button\:yale-blue {
   width: fit-content;
   vertical-align: middle;
 }
-a.sm\+\:button\:blue.uppercase,
-button.sm\+\:button\:blue.uppercase,
-a.sm\+\:button\:transparent.uppercase,
-button.sm\+\:button\:transparent.uppercase,
-a.sm\+\:button\:white.uppercase,
-button.sm\+\:button\:white.uppercase,
-a.sm\+\:button\:red.uppercase,
-button.sm\+\:button\:red.uppercase,
-a.sm\+\:button\:yale-blue.uppercase,
-button.sm\+\:button\:yale-blue.uppercase {
+a[class^="sm+:button:"].uppercase,
+button[class^="sm+:button:"].uppercase {
   letter-spacing: 0.015625rem;
   line-height: 3.25rem;
 }
-a.sm\+\:button\:blue.uppercase.small,
-button.sm\+\:button\:blue.uppercase.small,
-a.sm\+\:button\:transparent.uppercase.small,
-button.sm\+\:button\:transparent.uppercase.small,
-a.sm\+\:button\:white.uppercase.small,
-button.sm\+\:button\:white.uppercase.small,
-a.sm\+\:button\:red.uppercase.small,
-button.sm\+\:button\:red.uppercase.small,
-a.sm\+\:button\:yale-blue.uppercase.small,
-button.sm\+\:button\:yale-blue.uppercase.small {
+a[class^="sm+:button:"].uppercase.small,
+button[class^="sm+:button:"].uppercase.small {
   line-height: 0;
 }
-a.sm\+\:button\:blue.small,
-button.sm\+\:button\:blue.small,
-a.sm\+\:button\:transparent.small,
-button.sm\+\:button\:transparent.small,
-a.sm\+\:button\:white.small,
-button.sm\+\:button\:white.small,
-a.sm\+\:button\:red.small,
-button.sm\+\:button\:red.small,
-a.sm\+\:button\:yale-blue.small,
-button.sm\+\:button\:yale-blue.small {
+a[class^="sm+:button:"].small,
+button[class^="sm+:button:"].small {
   padding: 0 1rem;
   height: 2rem;
   line-height: 0;
 }
-a.sm\+\:button\:blue > span > .ic.ic-size\:16px,
-button.sm\+\:button\:blue > span > .ic.ic-size\:16px,
-a.sm\+\:button\:transparent > span > .ic.ic-size\:16px,
-button.sm\+\:button\:transparent > span > .ic.ic-size\:16px,
-a.sm\+\:button\:white > span > .ic.ic-size\:16px,
-button.sm\+\:button\:white > span > .ic.ic-size\:16px,
-a.sm\+\:button\:red > span > .ic.ic-size\:16px,
-button.sm\+\:button\:red > span > .ic.ic-size\:16px,
-a.sm\+\:button\:yale-blue > span > .ic.ic-size\:16px,
-button.sm\+\:button\:yale-blue > span > .ic.ic-size\:16px {
+a[class^="sm+:button:"] > span > .ic.ic-size\:16px,
+button[class^="sm+:button:"] > span > .ic.ic-size\:16px {
   margin-top: -2px;
   width: 1rem;
   height: 1rem;
 }
-a.sm\+\:button\:blue > span > .ic.ic-size\:24px,
-button.sm\+\:button\:blue > span > .ic.ic-size\:24px,
-a.sm\+\:button\:transparent > span > .ic.ic-size\:24px,
-button.sm\+\:button\:transparent > span > .ic.ic-size\:24px,
-a.sm\+\:button\:white > span > .ic.ic-size\:24px,
-button.sm\+\:button\:white > span > .ic.ic-size\:24px,
-a.sm\+\:button\:red > span > .ic.ic-size\:24px,
-button.sm\+\:button\:red > span > .ic.ic-size\:24px,
-a.sm\+\:button\:yale-blue > span > .ic.ic-size\:24px,
-button.sm\+\:button\:yale-blue > span > .ic.ic-size\:24px {
+a[class^="sm+:button:"] > span > .ic.ic-size\:24px,
+button[class^="sm+:button:"] > span > .ic.ic-size\:24px {
   margin-top: -2px;
   width: 1.5rem;
   height: 1.5rem;
 }
-a.sm\+\:button\:blue:focus,
-button.sm\+\:button\:blue:focus,
-a.sm\+\:button\:transparent:focus,
-button.sm\+\:button\:transparent:focus,
-a.sm\+\:button\:white:focus,
-button.sm\+\:button\:white:focus,
-a.sm\+\:button\:red:focus,
-button.sm\+\:button\:red:focus,
-a.sm\+\:button\:yale-blue:focus,
-button.sm\+\:button\:yale-blue:focus {
+a[class^="sm+:button:"]:focus,
+button[class^="sm+:button:"]:focus {
   box-shadow: var(--box-shadow-custom-7);
   outline: 0;
 }
@@ -11085,16 +10897,8 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
 }
 
 @media screen and (max-width: 63.99rem) {
-  a.md-\:button\:blue,
-  button.md-\:button\:blue,
-  a.md-\:button\:transparent,
-  button.md-\:button\:transparent,
-  a.md-\:button\:white,
-  button.md-\:button\:white,
-  a.md-\:button\:red,
-  button.md-\:button\:red,
-  a.md-\:button\:yale-blue,
-  button.md-\:button\:yale-blue {
+  a[class^="md-:button:"],
+  button[class^="md-:button:"] {
     position: relative;
     cursor: pointer;
     display: inline-flex;
@@ -11114,83 +10918,35 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
     width: fit-content;
     vertical-align: middle;
   }
-  a.md-\:button\:blue.uppercase,
-  button.md-\:button\:blue.uppercase,
-  a.md-\:button\:transparent.uppercase,
-  button.md-\:button\:transparent.uppercase,
-  a.md-\:button\:white.uppercase,
-  button.md-\:button\:white.uppercase,
-  a.md-\:button\:red.uppercase,
-  button.md-\:button\:red.uppercase,
-  a.md-\:button\:yale-blue.uppercase,
-  button.md-\:button\:yale-blue.uppercase {
+  a[class^="md-:button:"].uppercase,
+  button[class^="md-:button:"].uppercase {
     letter-spacing: 0.015625rem;
     line-height: 3.25rem;
   }
-  a.md-\:button\:blue.uppercase.small,
-  button.md-\:button\:blue.uppercase.small,
-  a.md-\:button\:transparent.uppercase.small,
-  button.md-\:button\:transparent.uppercase.small,
-  a.md-\:button\:white.uppercase.small,
-  button.md-\:button\:white.uppercase.small,
-  a.md-\:button\:red.uppercase.small,
-  button.md-\:button\:red.uppercase.small,
-  a.md-\:button\:yale-blue.uppercase.small,
-  button.md-\:button\:yale-blue.uppercase.small {
+  a[class^="md-:button:"].uppercase.small,
+  button[class^="md-:button:"].uppercase.small {
     line-height: 0;
   }
-  a.md-\:button\:blue.small,
-  button.md-\:button\:blue.small,
-  a.md-\:button\:transparent.small,
-  button.md-\:button\:transparent.small,
-  a.md-\:button\:white.small,
-  button.md-\:button\:white.small,
-  a.md-\:button\:red.small,
-  button.md-\:button\:red.small,
-  a.md-\:button\:yale-blue.small,
-  button.md-\:button\:yale-blue.small {
+  a[class^="md-:button:"].small,
+  button[class^="md-:button:"].small {
     padding: 0 1rem;
     height: 2rem;
     line-height: 0;
   }
-  a.md-\:button\:blue > span > .ic.ic-size\:16px,
-  button.md-\:button\:blue > span > .ic.ic-size\:16px,
-  a.md-\:button\:transparent > span > .ic.ic-size\:16px,
-  button.md-\:button\:transparent > span > .ic.ic-size\:16px,
-  a.md-\:button\:white > span > .ic.ic-size\:16px,
-  button.md-\:button\:white > span > .ic.ic-size\:16px,
-  a.md-\:button\:red > span > .ic.ic-size\:16px,
-  button.md-\:button\:red > span > .ic.ic-size\:16px,
-  a.md-\:button\:yale-blue > span > .ic.ic-size\:16px,
-  button.md-\:button\:yale-blue > span > .ic.ic-size\:16px {
+  a[class^="md-:button:"] > span > .ic.ic-size\:16px,
+  button[class^="md-:button:"] > span > .ic.ic-size\:16px {
     margin-top: -2px;
     width: 1rem;
     height: 1rem;
   }
-  a.md-\:button\:blue > span > .ic.ic-size\:24px,
-  button.md-\:button\:blue > span > .ic.ic-size\:24px,
-  a.md-\:button\:transparent > span > .ic.ic-size\:24px,
-  button.md-\:button\:transparent > span > .ic.ic-size\:24px,
-  a.md-\:button\:white > span > .ic.ic-size\:24px,
-  button.md-\:button\:white > span > .ic.ic-size\:24px,
-  a.md-\:button\:red > span > .ic.ic-size\:24px,
-  button.md-\:button\:red > span > .ic.ic-size\:24px,
-  a.md-\:button\:yale-blue > span > .ic.ic-size\:24px,
-  button.md-\:button\:yale-blue > span > .ic.ic-size\:24px {
+  a[class^="md-:button:"] > span > .ic.ic-size\:24px,
+  button[class^="md-:button:"] > span > .ic.ic-size\:24px {
     margin-top: -2px;
     width: 1.5rem;
     height: 1.5rem;
   }
-  a.md-\:button\:blue:focus,
-  button.md-\:button\:blue:focus,
-  a.md-\:button\:transparent:focus,
-  button.md-\:button\:transparent:focus,
-  a.md-\:button\:white:focus,
-  button.md-\:button\:white:focus,
-  a.md-\:button\:red:focus,
-  button.md-\:button\:red:focus,
-  a.md-\:button\:yale-blue:focus,
-  button.md-\:button\:yale-blue:focus {
+  a[class^="md-:button:"]:focus,
+  button[class^="md-:button:"]:focus {
     box-shadow: var(--box-shadow-custom-7);
     outline: 0;
   }
@@ -11405,16 +11161,8 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 48rem) and (max-width: 63.99rem) {
-  a.md\=\:button\:blue,
-  button.md\=\:button\:blue,
-  a.md\=\:button\:transparent,
-  button.md\=\:button\:transparent,
-  a.md\=\:button\:white,
-  button.md\=\:button\:white,
-  a.md\=\:button\:red,
-  button.md\=\:button\:red,
-  a.md\=\:button\:yale-blue,
-  button.md\=\:button\:yale-blue {
+  a[class^="md=:button:"],
+  button[class^="md=:button:"] {
     position: relative;
     cursor: pointer;
     display: inline-flex;
@@ -11434,83 +11182,35 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
     width: fit-content;
     vertical-align: middle;
   }
-  a.md\=\:button\:blue.uppercase,
-  button.md\=\:button\:blue.uppercase,
-  a.md\=\:button\:transparent.uppercase,
-  button.md\=\:button\:transparent.uppercase,
-  a.md\=\:button\:white.uppercase,
-  button.md\=\:button\:white.uppercase,
-  a.md\=\:button\:red.uppercase,
-  button.md\=\:button\:red.uppercase,
-  a.md\=\:button\:yale-blue.uppercase,
-  button.md\=\:button\:yale-blue.uppercase {
+  a[class^="md=:button:"].uppercase,
+  button[class^="md=:button:"].uppercase {
     letter-spacing: 0.015625rem;
     line-height: 3.25rem;
   }
-  a.md\=\:button\:blue.uppercase.small,
-  button.md\=\:button\:blue.uppercase.small,
-  a.md\=\:button\:transparent.uppercase.small,
-  button.md\=\:button\:transparent.uppercase.small,
-  a.md\=\:button\:white.uppercase.small,
-  button.md\=\:button\:white.uppercase.small,
-  a.md\=\:button\:red.uppercase.small,
-  button.md\=\:button\:red.uppercase.small,
-  a.md\=\:button\:yale-blue.uppercase.small,
-  button.md\=\:button\:yale-blue.uppercase.small {
+  a[class^="md=:button:"].uppercase.small,
+  button[class^="md=:button:"].uppercase.small {
     line-height: 0;
   }
-  a.md\=\:button\:blue.small,
-  button.md\=\:button\:blue.small,
-  a.md\=\:button\:transparent.small,
-  button.md\=\:button\:transparent.small,
-  a.md\=\:button\:white.small,
-  button.md\=\:button\:white.small,
-  a.md\=\:button\:red.small,
-  button.md\=\:button\:red.small,
-  a.md\=\:button\:yale-blue.small,
-  button.md\=\:button\:yale-blue.small {
+  a[class^="md=:button:"].small,
+  button[class^="md=:button:"].small {
     padding: 0 1rem;
     height: 2rem;
     line-height: 0;
   }
-  a.md\=\:button\:blue > span > .ic.ic-size\:16px,
-  button.md\=\:button\:blue > span > .ic.ic-size\:16px,
-  a.md\=\:button\:transparent > span > .ic.ic-size\:16px,
-  button.md\=\:button\:transparent > span > .ic.ic-size\:16px,
-  a.md\=\:button\:white > span > .ic.ic-size\:16px,
-  button.md\=\:button\:white > span > .ic.ic-size\:16px,
-  a.md\=\:button\:red > span > .ic.ic-size\:16px,
-  button.md\=\:button\:red > span > .ic.ic-size\:16px,
-  a.md\=\:button\:yale-blue > span > .ic.ic-size\:16px,
-  button.md\=\:button\:yale-blue > span > .ic.ic-size\:16px {
+  a[class^="md=:button:"] > span > .ic.ic-size\:16px,
+  button[class^="md=:button:"] > span > .ic.ic-size\:16px {
     margin-top: -2px;
     width: 1rem;
     height: 1rem;
   }
-  a.md\=\:button\:blue > span > .ic.ic-size\:24px,
-  button.md\=\:button\:blue > span > .ic.ic-size\:24px,
-  a.md\=\:button\:transparent > span > .ic.ic-size\:24px,
-  button.md\=\:button\:transparent > span > .ic.ic-size\:24px,
-  a.md\=\:button\:white > span > .ic.ic-size\:24px,
-  button.md\=\:button\:white > span > .ic.ic-size\:24px,
-  a.md\=\:button\:red > span > .ic.ic-size\:24px,
-  button.md\=\:button\:red > span > .ic.ic-size\:24px,
-  a.md\=\:button\:yale-blue > span > .ic.ic-size\:24px,
-  button.md\=\:button\:yale-blue > span > .ic.ic-size\:24px {
+  a[class^="md=:button:"] > span > .ic.ic-size\:24px,
+  button[class^="md=:button:"] > span > .ic.ic-size\:24px {
     margin-top: -2px;
     width: 1.5rem;
     height: 1.5rem;
   }
-  a.md\=\:button\:blue:focus,
-  button.md\=\:button\:blue:focus,
-  a.md\=\:button\:transparent:focus,
-  button.md\=\:button\:transparent:focus,
-  a.md\=\:button\:white:focus,
-  button.md\=\:button\:white:focus,
-  a.md\=\:button\:red:focus,
-  button.md\=\:button\:red:focus,
-  a.md\=\:button\:yale-blue:focus,
-  button.md\=\:button\:yale-blue:focus {
+  a[class^="md=:button:"]:focus,
+  button[class^="md=:button:"]:focus {
     box-shadow: var(--box-shadow-custom-7);
     outline: 0;
   }
@@ -11725,16 +11425,8 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 48rem) {
-  a.md\+\:button\:blue,
-  button.md\+\:button\:blue,
-  a.md\+\:button\:transparent,
-  button.md\+\:button\:transparent,
-  a.md\+\:button\:white,
-  button.md\+\:button\:white,
-  a.md\+\:button\:red,
-  button.md\+\:button\:red,
-  a.md\+\:button\:yale-blue,
-  button.md\+\:button\:yale-blue {
+  a[class^="md+:button:"],
+  button[class^="md+:button:"] {
     position: relative;
     cursor: pointer;
     display: inline-flex;
@@ -11754,83 +11446,35 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
     width: fit-content;
     vertical-align: middle;
   }
-  a.md\+\:button\:blue.uppercase,
-  button.md\+\:button\:blue.uppercase,
-  a.md\+\:button\:transparent.uppercase,
-  button.md\+\:button\:transparent.uppercase,
-  a.md\+\:button\:white.uppercase,
-  button.md\+\:button\:white.uppercase,
-  a.md\+\:button\:red.uppercase,
-  button.md\+\:button\:red.uppercase,
-  a.md\+\:button\:yale-blue.uppercase,
-  button.md\+\:button\:yale-blue.uppercase {
+  a[class^="md+:button:"].uppercase,
+  button[class^="md+:button:"].uppercase {
     letter-spacing: 0.015625rem;
     line-height: 3.25rem;
   }
-  a.md\+\:button\:blue.uppercase.small,
-  button.md\+\:button\:blue.uppercase.small,
-  a.md\+\:button\:transparent.uppercase.small,
-  button.md\+\:button\:transparent.uppercase.small,
-  a.md\+\:button\:white.uppercase.small,
-  button.md\+\:button\:white.uppercase.small,
-  a.md\+\:button\:red.uppercase.small,
-  button.md\+\:button\:red.uppercase.small,
-  a.md\+\:button\:yale-blue.uppercase.small,
-  button.md\+\:button\:yale-blue.uppercase.small {
+  a[class^="md+:button:"].uppercase.small,
+  button[class^="md+:button:"].uppercase.small {
     line-height: 0;
   }
-  a.md\+\:button\:blue.small,
-  button.md\+\:button\:blue.small,
-  a.md\+\:button\:transparent.small,
-  button.md\+\:button\:transparent.small,
-  a.md\+\:button\:white.small,
-  button.md\+\:button\:white.small,
-  a.md\+\:button\:red.small,
-  button.md\+\:button\:red.small,
-  a.md\+\:button\:yale-blue.small,
-  button.md\+\:button\:yale-blue.small {
+  a[class^="md+:button:"].small,
+  button[class^="md+:button:"].small {
     padding: 0 1rem;
     height: 2rem;
     line-height: 0;
   }
-  a.md\+\:button\:blue > span > .ic.ic-size\:16px,
-  button.md\+\:button\:blue > span > .ic.ic-size\:16px,
-  a.md\+\:button\:transparent > span > .ic.ic-size\:16px,
-  button.md\+\:button\:transparent > span > .ic.ic-size\:16px,
-  a.md\+\:button\:white > span > .ic.ic-size\:16px,
-  button.md\+\:button\:white > span > .ic.ic-size\:16px,
-  a.md\+\:button\:red > span > .ic.ic-size\:16px,
-  button.md\+\:button\:red > span > .ic.ic-size\:16px,
-  a.md\+\:button\:yale-blue > span > .ic.ic-size\:16px,
-  button.md\+\:button\:yale-blue > span > .ic.ic-size\:16px {
+  a[class^="md+:button:"] > span > .ic.ic-size\:16px,
+  button[class^="md+:button:"] > span > .ic.ic-size\:16px {
     margin-top: -2px;
     width: 1rem;
     height: 1rem;
   }
-  a.md\+\:button\:blue > span > .ic.ic-size\:24px,
-  button.md\+\:button\:blue > span > .ic.ic-size\:24px,
-  a.md\+\:button\:transparent > span > .ic.ic-size\:24px,
-  button.md\+\:button\:transparent > span > .ic.ic-size\:24px,
-  a.md\+\:button\:white > span > .ic.ic-size\:24px,
-  button.md\+\:button\:white > span > .ic.ic-size\:24px,
-  a.md\+\:button\:red > span > .ic.ic-size\:24px,
-  button.md\+\:button\:red > span > .ic.ic-size\:24px,
-  a.md\+\:button\:yale-blue > span > .ic.ic-size\:24px,
-  button.md\+\:button\:yale-blue > span > .ic.ic-size\:24px {
+  a[class^="md+:button:"] > span > .ic.ic-size\:24px,
+  button[class^="md+:button:"] > span > .ic.ic-size\:24px {
     margin-top: -2px;
     width: 1.5rem;
     height: 1.5rem;
   }
-  a.md\+\:button\:blue:focus,
-  button.md\+\:button\:blue:focus,
-  a.md\+\:button\:transparent:focus,
-  button.md\+\:button\:transparent:focus,
-  a.md\+\:button\:white:focus,
-  button.md\+\:button\:white:focus,
-  a.md\+\:button\:red:focus,
-  button.md\+\:button\:red:focus,
-  a.md\+\:button\:yale-blue:focus,
-  button.md\+\:button\:yale-blue:focus {
+  a[class^="md+:button:"]:focus,
+  button[class^="md+:button:"]:focus {
     box-shadow: var(--box-shadow-custom-7);
     outline: 0;
   }
@@ -12045,16 +11689,8 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (max-width: 79.99rem) {
-  a.lg-\:button\:blue,
-  button.lg-\:button\:blue,
-  a.lg-\:button\:transparent,
-  button.lg-\:button\:transparent,
-  a.lg-\:button\:white,
-  button.lg-\:button\:white,
-  a.lg-\:button\:red,
-  button.lg-\:button\:red,
-  a.lg-\:button\:yale-blue,
-  button.lg-\:button\:yale-blue {
+  a[class^="lg-:button:"],
+  button[class^="lg-:button:"] {
     position: relative;
     cursor: pointer;
     display: inline-flex;
@@ -12074,83 +11710,35 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
     width: fit-content;
     vertical-align: middle;
   }
-  a.lg-\:button\:blue.uppercase,
-  button.lg-\:button\:blue.uppercase,
-  a.lg-\:button\:transparent.uppercase,
-  button.lg-\:button\:transparent.uppercase,
-  a.lg-\:button\:white.uppercase,
-  button.lg-\:button\:white.uppercase,
-  a.lg-\:button\:red.uppercase,
-  button.lg-\:button\:red.uppercase,
-  a.lg-\:button\:yale-blue.uppercase,
-  button.lg-\:button\:yale-blue.uppercase {
+  a[class^="lg-:button:"].uppercase,
+  button[class^="lg-:button:"].uppercase {
     letter-spacing: 0.015625rem;
     line-height: 3.25rem;
   }
-  a.lg-\:button\:blue.uppercase.small,
-  button.lg-\:button\:blue.uppercase.small,
-  a.lg-\:button\:transparent.uppercase.small,
-  button.lg-\:button\:transparent.uppercase.small,
-  a.lg-\:button\:white.uppercase.small,
-  button.lg-\:button\:white.uppercase.small,
-  a.lg-\:button\:red.uppercase.small,
-  button.lg-\:button\:red.uppercase.small,
-  a.lg-\:button\:yale-blue.uppercase.small,
-  button.lg-\:button\:yale-blue.uppercase.small {
+  a[class^="lg-:button:"].uppercase.small,
+  button[class^="lg-:button:"].uppercase.small {
     line-height: 0;
   }
-  a.lg-\:button\:blue.small,
-  button.lg-\:button\:blue.small,
-  a.lg-\:button\:transparent.small,
-  button.lg-\:button\:transparent.small,
-  a.lg-\:button\:white.small,
-  button.lg-\:button\:white.small,
-  a.lg-\:button\:red.small,
-  button.lg-\:button\:red.small,
-  a.lg-\:button\:yale-blue.small,
-  button.lg-\:button\:yale-blue.small {
+  a[class^="lg-:button:"].small,
+  button[class^="lg-:button:"].small {
     padding: 0 1rem;
     height: 2rem;
     line-height: 0;
   }
-  a.lg-\:button\:blue > span > .ic.ic-size\:16px,
-  button.lg-\:button\:blue > span > .ic.ic-size\:16px,
-  a.lg-\:button\:transparent > span > .ic.ic-size\:16px,
-  button.lg-\:button\:transparent > span > .ic.ic-size\:16px,
-  a.lg-\:button\:white > span > .ic.ic-size\:16px,
-  button.lg-\:button\:white > span > .ic.ic-size\:16px,
-  a.lg-\:button\:red > span > .ic.ic-size\:16px,
-  button.lg-\:button\:red > span > .ic.ic-size\:16px,
-  a.lg-\:button\:yale-blue > span > .ic.ic-size\:16px,
-  button.lg-\:button\:yale-blue > span > .ic.ic-size\:16px {
+  a[class^="lg-:button:"] > span > .ic.ic-size\:16px,
+  button[class^="lg-:button:"] > span > .ic.ic-size\:16px {
     margin-top: -2px;
     width: 1rem;
     height: 1rem;
   }
-  a.lg-\:button\:blue > span > .ic.ic-size\:24px,
-  button.lg-\:button\:blue > span > .ic.ic-size\:24px,
-  a.lg-\:button\:transparent > span > .ic.ic-size\:24px,
-  button.lg-\:button\:transparent > span > .ic.ic-size\:24px,
-  a.lg-\:button\:white > span > .ic.ic-size\:24px,
-  button.lg-\:button\:white > span > .ic.ic-size\:24px,
-  a.lg-\:button\:red > span > .ic.ic-size\:24px,
-  button.lg-\:button\:red > span > .ic.ic-size\:24px,
-  a.lg-\:button\:yale-blue > span > .ic.ic-size\:24px,
-  button.lg-\:button\:yale-blue > span > .ic.ic-size\:24px {
+  a[class^="lg-:button:"] > span > .ic.ic-size\:24px,
+  button[class^="lg-:button:"] > span > .ic.ic-size\:24px {
     margin-top: -2px;
     width: 1.5rem;
     height: 1.5rem;
   }
-  a.lg-\:button\:blue:focus,
-  button.lg-\:button\:blue:focus,
-  a.lg-\:button\:transparent:focus,
-  button.lg-\:button\:transparent:focus,
-  a.lg-\:button\:white:focus,
-  button.lg-\:button\:white:focus,
-  a.lg-\:button\:red:focus,
-  button.lg-\:button\:red:focus,
-  a.lg-\:button\:yale-blue:focus,
-  button.lg-\:button\:yale-blue:focus {
+  a[class^="lg-:button:"]:focus,
+  button[class^="lg-:button:"]:focus {
     box-shadow: var(--box-shadow-custom-7);
     outline: 0;
   }
@@ -12365,16 +11953,8 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 64rem) and (max-width: 79.99rem) {
-  a.lg\=\:button\:blue,
-  button.lg\=\:button\:blue,
-  a.lg\=\:button\:transparent,
-  button.lg\=\:button\:transparent,
-  a.lg\=\:button\:white,
-  button.lg\=\:button\:white,
-  a.lg\=\:button\:red,
-  button.lg\=\:button\:red,
-  a.lg\=\:button\:yale-blue,
-  button.lg\=\:button\:yale-blue {
+  a[class^="lg=:button:"],
+  button[class^="lg=:button:"] {
     position: relative;
     cursor: pointer;
     display: inline-flex;
@@ -12394,83 +11974,35 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
     width: fit-content;
     vertical-align: middle;
   }
-  a.lg\=\:button\:blue.uppercase,
-  button.lg\=\:button\:blue.uppercase,
-  a.lg\=\:button\:transparent.uppercase,
-  button.lg\=\:button\:transparent.uppercase,
-  a.lg\=\:button\:white.uppercase,
-  button.lg\=\:button\:white.uppercase,
-  a.lg\=\:button\:red.uppercase,
-  button.lg\=\:button\:red.uppercase,
-  a.lg\=\:button\:yale-blue.uppercase,
-  button.lg\=\:button\:yale-blue.uppercase {
+  a[class^="lg=:button:"].uppercase,
+  button[class^="lg=:button:"].uppercase {
     letter-spacing: 0.015625rem;
     line-height: 3.25rem;
   }
-  a.lg\=\:button\:blue.uppercase.small,
-  button.lg\=\:button\:blue.uppercase.small,
-  a.lg\=\:button\:transparent.uppercase.small,
-  button.lg\=\:button\:transparent.uppercase.small,
-  a.lg\=\:button\:white.uppercase.small,
-  button.lg\=\:button\:white.uppercase.small,
-  a.lg\=\:button\:red.uppercase.small,
-  button.lg\=\:button\:red.uppercase.small,
-  a.lg\=\:button\:yale-blue.uppercase.small,
-  button.lg\=\:button\:yale-blue.uppercase.small {
+  a[class^="lg=:button:"].uppercase.small,
+  button[class^="lg=:button:"].uppercase.small {
     line-height: 0;
   }
-  a.lg\=\:button\:blue.small,
-  button.lg\=\:button\:blue.small,
-  a.lg\=\:button\:transparent.small,
-  button.lg\=\:button\:transparent.small,
-  a.lg\=\:button\:white.small,
-  button.lg\=\:button\:white.small,
-  a.lg\=\:button\:red.small,
-  button.lg\=\:button\:red.small,
-  a.lg\=\:button\:yale-blue.small,
-  button.lg\=\:button\:yale-blue.small {
+  a[class^="lg=:button:"].small,
+  button[class^="lg=:button:"].small {
     padding: 0 1rem;
     height: 2rem;
     line-height: 0;
   }
-  a.lg\=\:button\:blue > span > .ic.ic-size\:16px,
-  button.lg\=\:button\:blue > span > .ic.ic-size\:16px,
-  a.lg\=\:button\:transparent > span > .ic.ic-size\:16px,
-  button.lg\=\:button\:transparent > span > .ic.ic-size\:16px,
-  a.lg\=\:button\:white > span > .ic.ic-size\:16px,
-  button.lg\=\:button\:white > span > .ic.ic-size\:16px,
-  a.lg\=\:button\:red > span > .ic.ic-size\:16px,
-  button.lg\=\:button\:red > span > .ic.ic-size\:16px,
-  a.lg\=\:button\:yale-blue > span > .ic.ic-size\:16px,
-  button.lg\=\:button\:yale-blue > span > .ic.ic-size\:16px {
+  a[class^="lg=:button:"] > span > .ic.ic-size\:16px,
+  button[class^="lg=:button:"] > span > .ic.ic-size\:16px {
     margin-top: -2px;
     width: 1rem;
     height: 1rem;
   }
-  a.lg\=\:button\:blue > span > .ic.ic-size\:24px,
-  button.lg\=\:button\:blue > span > .ic.ic-size\:24px,
-  a.lg\=\:button\:transparent > span > .ic.ic-size\:24px,
-  button.lg\=\:button\:transparent > span > .ic.ic-size\:24px,
-  a.lg\=\:button\:white > span > .ic.ic-size\:24px,
-  button.lg\=\:button\:white > span > .ic.ic-size\:24px,
-  a.lg\=\:button\:red > span > .ic.ic-size\:24px,
-  button.lg\=\:button\:red > span > .ic.ic-size\:24px,
-  a.lg\=\:button\:yale-blue > span > .ic.ic-size\:24px,
-  button.lg\=\:button\:yale-blue > span > .ic.ic-size\:24px {
+  a[class^="lg=:button:"] > span > .ic.ic-size\:24px,
+  button[class^="lg=:button:"] > span > .ic.ic-size\:24px {
     margin-top: -2px;
     width: 1.5rem;
     height: 1.5rem;
   }
-  a.lg\=\:button\:blue:focus,
-  button.lg\=\:button\:blue:focus,
-  a.lg\=\:button\:transparent:focus,
-  button.lg\=\:button\:transparent:focus,
-  a.lg\=\:button\:white:focus,
-  button.lg\=\:button\:white:focus,
-  a.lg\=\:button\:red:focus,
-  button.lg\=\:button\:red:focus,
-  a.lg\=\:button\:yale-blue:focus,
-  button.lg\=\:button\:yale-blue:focus {
+  a[class^="lg=:button:"]:focus,
+  button[class^="lg=:button:"]:focus {
     box-shadow: var(--box-shadow-custom-7);
     outline: 0;
   }
@@ -12685,16 +12217,8 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 64rem) {
-  a.lg\+\:button\:blue,
-  button.lg\+\:button\:blue,
-  a.lg\+\:button\:transparent,
-  button.lg\+\:button\:transparent,
-  a.lg\+\:button\:white,
-  button.lg\+\:button\:white,
-  a.lg\+\:button\:red,
-  button.lg\+\:button\:red,
-  a.lg\+\:button\:yale-blue,
-  button.lg\+\:button\:yale-blue {
+  a[class^="lg+:button:"],
+  button[class^="lg+:button:"] {
     position: relative;
     cursor: pointer;
     display: inline-flex;
@@ -12714,83 +12238,35 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
     width: fit-content;
     vertical-align: middle;
   }
-  a.lg\+\:button\:blue.uppercase,
-  button.lg\+\:button\:blue.uppercase,
-  a.lg\+\:button\:transparent.uppercase,
-  button.lg\+\:button\:transparent.uppercase,
-  a.lg\+\:button\:white.uppercase,
-  button.lg\+\:button\:white.uppercase,
-  a.lg\+\:button\:red.uppercase,
-  button.lg\+\:button\:red.uppercase,
-  a.lg\+\:button\:yale-blue.uppercase,
-  button.lg\+\:button\:yale-blue.uppercase {
+  a[class^="lg+:button:"].uppercase,
+  button[class^="lg+:button:"].uppercase {
     letter-spacing: 0.015625rem;
     line-height: 3.25rem;
   }
-  a.lg\+\:button\:blue.uppercase.small,
-  button.lg\+\:button\:blue.uppercase.small,
-  a.lg\+\:button\:transparent.uppercase.small,
-  button.lg\+\:button\:transparent.uppercase.small,
-  a.lg\+\:button\:white.uppercase.small,
-  button.lg\+\:button\:white.uppercase.small,
-  a.lg\+\:button\:red.uppercase.small,
-  button.lg\+\:button\:red.uppercase.small,
-  a.lg\+\:button\:yale-blue.uppercase.small,
-  button.lg\+\:button\:yale-blue.uppercase.small {
+  a[class^="lg+:button:"].uppercase.small,
+  button[class^="lg+:button:"].uppercase.small {
     line-height: 0;
   }
-  a.lg\+\:button\:blue.small,
-  button.lg\+\:button\:blue.small,
-  a.lg\+\:button\:transparent.small,
-  button.lg\+\:button\:transparent.small,
-  a.lg\+\:button\:white.small,
-  button.lg\+\:button\:white.small,
-  a.lg\+\:button\:red.small,
-  button.lg\+\:button\:red.small,
-  a.lg\+\:button\:yale-blue.small,
-  button.lg\+\:button\:yale-blue.small {
+  a[class^="lg+:button:"].small,
+  button[class^="lg+:button:"].small {
     padding: 0 1rem;
     height: 2rem;
     line-height: 0;
   }
-  a.lg\+\:button\:blue > span > .ic.ic-size\:16px,
-  button.lg\+\:button\:blue > span > .ic.ic-size\:16px,
-  a.lg\+\:button\:transparent > span > .ic.ic-size\:16px,
-  button.lg\+\:button\:transparent > span > .ic.ic-size\:16px,
-  a.lg\+\:button\:white > span > .ic.ic-size\:16px,
-  button.lg\+\:button\:white > span > .ic.ic-size\:16px,
-  a.lg\+\:button\:red > span > .ic.ic-size\:16px,
-  button.lg\+\:button\:red > span > .ic.ic-size\:16px,
-  a.lg\+\:button\:yale-blue > span > .ic.ic-size\:16px,
-  button.lg\+\:button\:yale-blue > span > .ic.ic-size\:16px {
+  a[class^="lg+:button:"] > span > .ic.ic-size\:16px,
+  button[class^="lg+:button:"] > span > .ic.ic-size\:16px {
     margin-top: -2px;
     width: 1rem;
     height: 1rem;
   }
-  a.lg\+\:button\:blue > span > .ic.ic-size\:24px,
-  button.lg\+\:button\:blue > span > .ic.ic-size\:24px,
-  a.lg\+\:button\:transparent > span > .ic.ic-size\:24px,
-  button.lg\+\:button\:transparent > span > .ic.ic-size\:24px,
-  a.lg\+\:button\:white > span > .ic.ic-size\:24px,
-  button.lg\+\:button\:white > span > .ic.ic-size\:24px,
-  a.lg\+\:button\:red > span > .ic.ic-size\:24px,
-  button.lg\+\:button\:red > span > .ic.ic-size\:24px,
-  a.lg\+\:button\:yale-blue > span > .ic.ic-size\:24px,
-  button.lg\+\:button\:yale-blue > span > .ic.ic-size\:24px {
+  a[class^="lg+:button:"] > span > .ic.ic-size\:24px,
+  button[class^="lg+:button:"] > span > .ic.ic-size\:24px {
     margin-top: -2px;
     width: 1.5rem;
     height: 1.5rem;
   }
-  a.lg\+\:button\:blue:focus,
-  button.lg\+\:button\:blue:focus,
-  a.lg\+\:button\:transparent:focus,
-  button.lg\+\:button\:transparent:focus,
-  a.lg\+\:button\:white:focus,
-  button.lg\+\:button\:white:focus,
-  a.lg\+\:button\:red:focus,
-  button.lg\+\:button\:red:focus,
-  a.lg\+\:button\:yale-blue:focus,
-  button.lg\+\:button\:yale-blue:focus {
+  a[class^="lg+:button:"]:focus,
+  button[class^="lg+:button:"]:focus {
     box-shadow: var(--box-shadow-custom-7);
     outline: 0;
   }
@@ -13005,16 +12481,8 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
   }
 }
 @media screen and (min-width: 80rem) {
-  a.xl\+\:button\:blue,
-  button.xl\+\:button\:blue,
-  a.xl\+\:button\:transparent,
-  button.xl\+\:button\:transparent,
-  a.xl\+\:button\:white,
-  button.xl\+\:button\:white,
-  a.xl\+\:button\:red,
-  button.xl\+\:button\:red,
-  a.xl\+\:button\:yale-blue,
-  button.xl\+\:button\:yale-blue {
+  a[class^="xl+:button:"],
+  button[class^="xl+:button:"] {
     position: relative;
     cursor: pointer;
     display: inline-flex;
@@ -13034,83 +12502,35 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
     width: fit-content;
     vertical-align: middle;
   }
-  a.xl\+\:button\:blue.uppercase,
-  button.xl\+\:button\:blue.uppercase,
-  a.xl\+\:button\:transparent.uppercase,
-  button.xl\+\:button\:transparent.uppercase,
-  a.xl\+\:button\:white.uppercase,
-  button.xl\+\:button\:white.uppercase,
-  a.xl\+\:button\:red.uppercase,
-  button.xl\+\:button\:red.uppercase,
-  a.xl\+\:button\:yale-blue.uppercase,
-  button.xl\+\:button\:yale-blue.uppercase {
+  a[class^="xl+:button:"].uppercase,
+  button[class^="xl+:button:"].uppercase {
     letter-spacing: 0.015625rem;
     line-height: 3.25rem;
   }
-  a.xl\+\:button\:blue.uppercase.small,
-  button.xl\+\:button\:blue.uppercase.small,
-  a.xl\+\:button\:transparent.uppercase.small,
-  button.xl\+\:button\:transparent.uppercase.small,
-  a.xl\+\:button\:white.uppercase.small,
-  button.xl\+\:button\:white.uppercase.small,
-  a.xl\+\:button\:red.uppercase.small,
-  button.xl\+\:button\:red.uppercase.small,
-  a.xl\+\:button\:yale-blue.uppercase.small,
-  button.xl\+\:button\:yale-blue.uppercase.small {
+  a[class^="xl+:button:"].uppercase.small,
+  button[class^="xl+:button:"].uppercase.small {
     line-height: 0;
   }
-  a.xl\+\:button\:blue.small,
-  button.xl\+\:button\:blue.small,
-  a.xl\+\:button\:transparent.small,
-  button.xl\+\:button\:transparent.small,
-  a.xl\+\:button\:white.small,
-  button.xl\+\:button\:white.small,
-  a.xl\+\:button\:red.small,
-  button.xl\+\:button\:red.small,
-  a.xl\+\:button\:yale-blue.small,
-  button.xl\+\:button\:yale-blue.small {
+  a[class^="xl+:button:"].small,
+  button[class^="xl+:button:"].small {
     padding: 0 1rem;
     height: 2rem;
     line-height: 0;
   }
-  a.xl\+\:button\:blue > span > .ic.ic-size\:16px,
-  button.xl\+\:button\:blue > span > .ic.ic-size\:16px,
-  a.xl\+\:button\:transparent > span > .ic.ic-size\:16px,
-  button.xl\+\:button\:transparent > span > .ic.ic-size\:16px,
-  a.xl\+\:button\:white > span > .ic.ic-size\:16px,
-  button.xl\+\:button\:white > span > .ic.ic-size\:16px,
-  a.xl\+\:button\:red > span > .ic.ic-size\:16px,
-  button.xl\+\:button\:red > span > .ic.ic-size\:16px,
-  a.xl\+\:button\:yale-blue > span > .ic.ic-size\:16px,
-  button.xl\+\:button\:yale-blue > span > .ic.ic-size\:16px {
+  a[class^="xl+:button:"] > span > .ic.ic-size\:16px,
+  button[class^="xl+:button:"] > span > .ic.ic-size\:16px {
     margin-top: -2px;
     width: 1rem;
     height: 1rem;
   }
-  a.xl\+\:button\:blue > span > .ic.ic-size\:24px,
-  button.xl\+\:button\:blue > span > .ic.ic-size\:24px,
-  a.xl\+\:button\:transparent > span > .ic.ic-size\:24px,
-  button.xl\+\:button\:transparent > span > .ic.ic-size\:24px,
-  a.xl\+\:button\:white > span > .ic.ic-size\:24px,
-  button.xl\+\:button\:white > span > .ic.ic-size\:24px,
-  a.xl\+\:button\:red > span > .ic.ic-size\:24px,
-  button.xl\+\:button\:red > span > .ic.ic-size\:24px,
-  a.xl\+\:button\:yale-blue > span > .ic.ic-size\:24px,
-  button.xl\+\:button\:yale-blue > span > .ic.ic-size\:24px {
+  a[class^="xl+:button:"] > span > .ic.ic-size\:24px,
+  button[class^="xl+:button:"] > span > .ic.ic-size\:24px {
     margin-top: -2px;
     width: 1.5rem;
     height: 1.5rem;
   }
-  a.xl\+\:button\:blue:focus,
-  button.xl\+\:button\:blue:focus,
-  a.xl\+\:button\:transparent:focus,
-  button.xl\+\:button\:transparent:focus,
-  a.xl\+\:button\:white:focus,
-  button.xl\+\:button\:white:focus,
-  a.xl\+\:button\:red:focus,
-  button.xl\+\:button\:red:focus,
-  a.xl\+\:button\:yale-blue:focus,
-  button.xl\+\:button\:yale-blue:focus {
+  a[class^="xl+:button:"]:focus,
+  button[class^="xl+:button:"]:focus {
     box-shadow: var(--box-shadow-custom-7);
     outline: 0;
   }
@@ -13324,28 +12744,17 @@ button.sm\+\:button\:yale-blue[disabled=true] > span > .ic {
     background-color: var(--color-onyx);
   }
 }
-button.anchor\:blue,
-button.anchor\:white,
-button.anchor\:red,
-button.anchor\:yale-blue {
+button[class^="anchor:"] {
   text-align: left;
   display: inline-flex;
   vertical-align: middle;
 }
 
-.button\:blue::-moz-focus-inner,
-.button\:transparent::-moz-focus-inner,
-.button\:white::-moz-focus-inner,
-.button\:red::-moz-focus-inner,
-.button\:yale-blue::-moz-focus-inner {
+[class^="button:"]::-moz-focus-inner {
   border: 0;
 }
 
-.button\:blue:after,
-.button\:transparent:after,
-.button\:white:after,
-.button\:red:after,
-.button\:yale-blue:after {
+[class^="button:"]:after {
   content: "";
   display: block;
   left: 50%;
@@ -13373,385 +12782,145 @@ button.anchor\:yale-blue {
     transform: scale(2);
   }
 }
-a.button\:blue:not(:active):after,
-button.button\:blue:not(:active):after,
-a.button\:transparent:not(:active):after,
-button.button\:transparent:not(:active):after,
-a.button\:white:not(:active):after,
-button.button\:white:not(:active):after,
-a.button\:red:not(:active):after,
-button.button\:red:not(:active):after,
-a.button\:yale-blue:not(:active):after,
-button.button\:yale-blue:not(:active):after {
+a[class^="button:"]:not(:active):after,
+button[class^="button:"]:not(:active):after {
   animation: ripple 0.3s ease-in;
 }
 
-a.button\:blue:after,
-button.button\:blue:after,
-a.button\:transparent:after,
-button.button\:transparent:after,
-a.button\:white:after,
-button.button\:white:after,
-a.button\:red:after,
-button.button\:red:after,
-a.button\:yale-blue:after,
-button.button\:yale-blue:after {
+a[class^="button:"]:after,
+button[class^="button:"]:after {
   visibility: hidden;
 }
 
-a.button\:focus:after,
-button.button\:focus:after,
-a.button\:focus:after,
-button.button\:focus:after,
-a.button\:focus:after,
-button.button\:focus:after,
-a.button\:focus:after,
-button.button\:focus:after,
-a.button\:focus:after,
-button.button\:focus:after {
+a[class^="button:"]:focus:after,
+button[class^="button:"]:focus:after {
   visibility: visible;
 }
 
 @media screen and (max-width: 47.99rem) {
-  a.sm\=\:button\:blue:not(:active):after,
-  button.sm\=\:button\:blue:not(:active):after,
-  a.sm\=\:button\:transparent:not(:active):after,
-  button.sm\=\:button\:transparent:not(:active):after,
-  a.sm\=\:button\:white:not(:active):after,
-  button.sm\=\:button\:white:not(:active):after,
-  a.sm\=\:button\:red:not(:active):after,
-  button.sm\=\:button\:red:not(:active):after,
-  a.sm\=\:button\:yale-blue:not(:active):after,
-  button.sm\=\:button\:yale-blue:not(:active):after {
+  a[class^="sm=:button:"]:not(:active):after,
+  button[class^="sm=:button:"]:not(:active):after {
     animation: ripple 0.3s ease-in;
   }
-  a.sm\=\:button\:blue:after,
-  button.sm\=\:button\:blue:after,
-  a.sm\=\:button\:transparent:after,
-  button.sm\=\:button\:transparent:after,
-  a.sm\=\:button\:white:after,
-  button.sm\=\:button\:white:after,
-  a.sm\=\:button\:red:after,
-  button.sm\=\:button\:red:after,
-  a.sm\=\:button\:yale-blue:after,
-  button.sm\=\:button\:yale-blue:after {
+  a[class^="sm=:button:"]:after,
+  button[class^="sm=:button:"]:after {
     visibility: hidden;
   }
-  a.sm\=\:button\:focus:after,
-  button.sm\=\:button\:focus:after,
-  a.sm\=\:button\:focus:after,
-  button.sm\=\:button\:focus:after,
-  a.sm\=\:button\:focus:after,
-  button.sm\=\:button\:focus:after,
-  a.sm\=\:button\:focus:after,
-  button.sm\=\:button\:focus:after,
-  a.sm\=\:button\:focus:after,
-  button.sm\=\:button\:focus:after {
+  a[class^="sm=:button:"]:focus:after,
+  button[class^="sm=:button:"]:focus:after {
     visibility: visible;
   }
 }
-a.sm\+\:button\:blue:not(:active):after,
-button.sm\+\:button\:blue:not(:active):after,
-a.sm\+\:button\:transparent:not(:active):after,
-button.sm\+\:button\:transparent:not(:active):after,
-a.sm\+\:button\:white:not(:active):after,
-button.sm\+\:button\:white:not(:active):after,
-a.sm\+\:button\:red:not(:active):after,
-button.sm\+\:button\:red:not(:active):after,
-a.sm\+\:button\:yale-blue:not(:active):after,
-button.sm\+\:button\:yale-blue:not(:active):after {
+a[class^="sm+:button:"]:not(:active):after,
+button[class^="sm+:button:"]:not(:active):after {
   animation: ripple 0.3s ease-in;
 }
 
-a.sm\+\:button\:blue:after,
-button.sm\+\:button\:blue:after,
-a.sm\+\:button\:transparent:after,
-button.sm\+\:button\:transparent:after,
-a.sm\+\:button\:white:after,
-button.sm\+\:button\:white:after,
-a.sm\+\:button\:red:after,
-button.sm\+\:button\:red:after,
-a.sm\+\:button\:yale-blue:after,
-button.sm\+\:button\:yale-blue:after {
+a[class^="sm+:button:"]:after,
+button[class^="sm+:button:"]:after {
   visibility: hidden;
 }
 
-a.sm\+\:button\:focus:after,
-button.sm\+\:button\:focus:after,
-a.sm\+\:button\:focus:after,
-button.sm\+\:button\:focus:after,
-a.sm\+\:button\:focus:after,
-button.sm\+\:button\:focus:after,
-a.sm\+\:button\:focus:after,
-button.sm\+\:button\:focus:after,
-a.sm\+\:button\:focus:after,
-button.sm\+\:button\:focus:after {
+a[class^="sm+:button:"]:focus:after,
+button[class^="sm+:button:"]:focus:after {
   visibility: visible;
 }
 
 @media screen and (max-width: 63.99rem) {
-  a.md-\:button\:blue:not(:active):after,
-  button.md-\:button\:blue:not(:active):after,
-  a.md-\:button\:transparent:not(:active):after,
-  button.md-\:button\:transparent:not(:active):after,
-  a.md-\:button\:white:not(:active):after,
-  button.md-\:button\:white:not(:active):after,
-  a.md-\:button\:red:not(:active):after,
-  button.md-\:button\:red:not(:active):after,
-  a.md-\:button\:yale-blue:not(:active):after,
-  button.md-\:button\:yale-blue:not(:active):after {
+  a[class^="md-:button:"]:not(:active):after,
+  button[class^="md-:button:"]:not(:active):after {
     animation: ripple 0.3s ease-in;
   }
-  a.md-\:button\:blue:after,
-  button.md-\:button\:blue:after,
-  a.md-\:button\:transparent:after,
-  button.md-\:button\:transparent:after,
-  a.md-\:button\:white:after,
-  button.md-\:button\:white:after,
-  a.md-\:button\:red:after,
-  button.md-\:button\:red:after,
-  a.md-\:button\:yale-blue:after,
-  button.md-\:button\:yale-blue:after {
+  a[class^="md-:button:"]:after,
+  button[class^="md-:button:"]:after {
     visibility: hidden;
   }
-  a.md-\:button\:focus:after,
-  button.md-\:button\:focus:after,
-  a.md-\:button\:focus:after,
-  button.md-\:button\:focus:after,
-  a.md-\:button\:focus:after,
-  button.md-\:button\:focus:after,
-  a.md-\:button\:focus:after,
-  button.md-\:button\:focus:after,
-  a.md-\:button\:focus:after,
-  button.md-\:button\:focus:after {
+  a[class^="md-:button:"]:focus:after,
+  button[class^="md-:button:"]:focus:after {
     visibility: visible;
   }
 }
 @media screen and (min-width: 48rem) and (max-width: 63.99rem) {
-  a.md\=\:button\:blue:not(:active):after,
-  button.md\=\:button\:blue:not(:active):after,
-  a.md\=\:button\:transparent:not(:active):after,
-  button.md\=\:button\:transparent:not(:active):after,
-  a.md\=\:button\:white:not(:active):after,
-  button.md\=\:button\:white:not(:active):after,
-  a.md\=\:button\:red:not(:active):after,
-  button.md\=\:button\:red:not(:active):after,
-  a.md\=\:button\:yale-blue:not(:active):after,
-  button.md\=\:button\:yale-blue:not(:active):after {
+  a[class^="md=:button:"]:not(:active):after,
+  button[class^="md=:button:"]:not(:active):after {
     animation: ripple 0.3s ease-in;
   }
-  a.md\=\:button\:blue:after,
-  button.md\=\:button\:blue:after,
-  a.md\=\:button\:transparent:after,
-  button.md\=\:button\:transparent:after,
-  a.md\=\:button\:white:after,
-  button.md\=\:button\:white:after,
-  a.md\=\:button\:red:after,
-  button.md\=\:button\:red:after,
-  a.md\=\:button\:yale-blue:after,
-  button.md\=\:button\:yale-blue:after {
+  a[class^="md=:button:"]:after,
+  button[class^="md=:button:"]:after {
     visibility: hidden;
   }
-  a.md\=\:button\:focus:after,
-  button.md\=\:button\:focus:after,
-  a.md\=\:button\:focus:after,
-  button.md\=\:button\:focus:after,
-  a.md\=\:button\:focus:after,
-  button.md\=\:button\:focus:after,
-  a.md\=\:button\:focus:after,
-  button.md\=\:button\:focus:after,
-  a.md\=\:button\:focus:after,
-  button.md\=\:button\:focus:after {
+  a[class^="md=:button:"]:focus:after,
+  button[class^="md=:button:"]:focus:after {
     visibility: visible;
   }
 }
 @media screen and (min-width: 48rem) {
-  a.md\+\:button\:blue:not(:active):after,
-  button.md\+\:button\:blue:not(:active):after,
-  a.md\+\:button\:transparent:not(:active):after,
-  button.md\+\:button\:transparent:not(:active):after,
-  a.md\+\:button\:white:not(:active):after,
-  button.md\+\:button\:white:not(:active):after,
-  a.md\+\:button\:red:not(:active):after,
-  button.md\+\:button\:red:not(:active):after,
-  a.md\+\:button\:yale-blue:not(:active):after,
-  button.md\+\:button\:yale-blue:not(:active):after {
+  a[class^="md+:button:"]:not(:active):after,
+  button[class^="md+:button:"]:not(:active):after {
     animation: ripple 0.3s ease-in;
   }
-  a.md\+\:button\:blue:after,
-  button.md\+\:button\:blue:after,
-  a.md\+\:button\:transparent:after,
-  button.md\+\:button\:transparent:after,
-  a.md\+\:button\:white:after,
-  button.md\+\:button\:white:after,
-  a.md\+\:button\:red:after,
-  button.md\+\:button\:red:after,
-  a.md\+\:button\:yale-blue:after,
-  button.md\+\:button\:yale-blue:after {
+  a[class^="md+:button:"]:after,
+  button[class^="md+:button:"]:after {
     visibility: hidden;
   }
-  a.md\+\:button\:focus:after,
-  button.md\+\:button\:focus:after,
-  a.md\+\:button\:focus:after,
-  button.md\+\:button\:focus:after,
-  a.md\+\:button\:focus:after,
-  button.md\+\:button\:focus:after,
-  a.md\+\:button\:focus:after,
-  button.md\+\:button\:focus:after,
-  a.md\+\:button\:focus:after,
-  button.md\+\:button\:focus:after {
+  a[class^="md+:button:"]:focus:after,
+  button[class^="md+:button:"]:focus:after {
     visibility: visible;
   }
 }
 @media screen and (max-width: 79.99rem) {
-  a.lg-\:button\:blue:not(:active):after,
-  button.lg-\:button\:blue:not(:active):after,
-  a.lg-\:button\:transparent:not(:active):after,
-  button.lg-\:button\:transparent:not(:active):after,
-  a.lg-\:button\:white:not(:active):after,
-  button.lg-\:button\:white:not(:active):after,
-  a.lg-\:button\:red:not(:active):after,
-  button.lg-\:button\:red:not(:active):after,
-  a.lg-\:button\:yale-blue:not(:active):after,
-  button.lg-\:button\:yale-blue:not(:active):after {
+  a[class^="lg-:button:"]:not(:active):after,
+  button[class^="lg-:button:"]:not(:active):after {
     animation: ripple 0.3s ease-in;
   }
-  a.lg-\:button\:blue:after,
-  button.lg-\:button\:blue:after,
-  a.lg-\:button\:transparent:after,
-  button.lg-\:button\:transparent:after,
-  a.lg-\:button\:white:after,
-  button.lg-\:button\:white:after,
-  a.lg-\:button\:red:after,
-  button.lg-\:button\:red:after,
-  a.lg-\:button\:yale-blue:after,
-  button.lg-\:button\:yale-blue:after {
+  a[class^="lg-:button:"]:after,
+  button[class^="lg-:button:"]:after {
     visibility: hidden;
   }
-  a.lg-\:button\:focus:after,
-  button.lg-\:button\:focus:after,
-  a.lg-\:button\:focus:after,
-  button.lg-\:button\:focus:after,
-  a.lg-\:button\:focus:after,
-  button.lg-\:button\:focus:after,
-  a.lg-\:button\:focus:after,
-  button.lg-\:button\:focus:after,
-  a.lg-\:button\:focus:after,
-  button.lg-\:button\:focus:after {
+  a[class^="lg-:button:"]:focus:after,
+  button[class^="lg-:button:"]:focus:after {
     visibility: visible;
   }
 }
 @media screen and (min-width: 64rem) and (max-width: 79.99rem) {
-  a.lg\=\:button\:blue:not(:active):after,
-  button.lg\=\:button\:blue:not(:active):after,
-  a.lg\=\:button\:transparent:not(:active):after,
-  button.lg\=\:button\:transparent:not(:active):after,
-  a.lg\=\:button\:white:not(:active):after,
-  button.lg\=\:button\:white:not(:active):after,
-  a.lg\=\:button\:red:not(:active):after,
-  button.lg\=\:button\:red:not(:active):after,
-  a.lg\=\:button\:yale-blue:not(:active):after,
-  button.lg\=\:button\:yale-blue:not(:active):after {
+  a[class^="lg=:button:"]:not(:active):after,
+  button[class^="lg=:button:"]:not(:active):after {
     animation: ripple 0.3s ease-in;
   }
-  a.lg\=\:button\:blue:after,
-  button.lg\=\:button\:blue:after,
-  a.lg\=\:button\:transparent:after,
-  button.lg\=\:button\:transparent:after,
-  a.lg\=\:button\:white:after,
-  button.lg\=\:button\:white:after,
-  a.lg\=\:button\:red:after,
-  button.lg\=\:button\:red:after,
-  a.lg\=\:button\:yale-blue:after,
-  button.lg\=\:button\:yale-blue:after {
+  a[class^="lg=:button:"]:after,
+  button[class^="lg=:button:"]:after {
     visibility: hidden;
   }
-  a.lg\=\:button\:focus:after,
-  button.lg\=\:button\:focus:after,
-  a.lg\=\:button\:focus:after,
-  button.lg\=\:button\:focus:after,
-  a.lg\=\:button\:focus:after,
-  button.lg\=\:button\:focus:after,
-  a.lg\=\:button\:focus:after,
-  button.lg\=\:button\:focus:after,
-  a.lg\=\:button\:focus:after,
-  button.lg\=\:button\:focus:after {
+  a[class^="lg=:button:"]:focus:after,
+  button[class^="lg=:button:"]:focus:after {
     visibility: visible;
   }
 }
 @media screen and (min-width: 64rem) {
-  a.lg\+\:button\:blue:not(:active):after,
-  button.lg\+\:button\:blue:not(:active):after,
-  a.lg\+\:button\:transparent:not(:active):after,
-  button.lg\+\:button\:transparent:not(:active):after,
-  a.lg\+\:button\:white:not(:active):after,
-  button.lg\+\:button\:white:not(:active):after,
-  a.lg\+\:button\:red:not(:active):after,
-  button.lg\+\:button\:red:not(:active):after,
-  a.lg\+\:button\:yale-blue:not(:active):after,
-  button.lg\+\:button\:yale-blue:not(:active):after {
+  a[class^="lg+:button:"]:not(:active):after,
+  button[class^="lg+:button:"]:not(:active):after {
     animation: ripple 0.3s ease-in;
   }
-  a.lg\+\:button\:blue:after,
-  button.lg\+\:button\:blue:after,
-  a.lg\+\:button\:transparent:after,
-  button.lg\+\:button\:transparent:after,
-  a.lg\+\:button\:white:after,
-  button.lg\+\:button\:white:after,
-  a.lg\+\:button\:red:after,
-  button.lg\+\:button\:red:after,
-  a.lg\+\:button\:yale-blue:after,
-  button.lg\+\:button\:yale-blue:after {
+  a[class^="lg+:button:"]:after,
+  button[class^="lg+:button:"]:after {
     visibility: hidden;
   }
-  a.lg\+\:button\:focus:after,
-  button.lg\+\:button\:focus:after,
-  a.lg\+\:button\:focus:after,
-  button.lg\+\:button\:focus:after,
-  a.lg\+\:button\:focus:after,
-  button.lg\+\:button\:focus:after,
-  a.lg\+\:button\:focus:after,
-  button.lg\+\:button\:focus:after,
-  a.lg\+\:button\:focus:after,
-  button.lg\+\:button\:focus:after {
+  a[class^="lg+:button:"]:focus:after,
+  button[class^="lg+:button:"]:focus:after {
     visibility: visible;
   }
 }
 @media screen and (min-width: 80rem) {
-  a.xl\+\:button\:blue:not(:active):after,
-  button.xl\+\:button\:blue:not(:active):after,
-  a.xl\+\:button\:transparent:not(:active):after,
-  button.xl\+\:button\:transparent:not(:active):after,
-  a.xl\+\:button\:white:not(:active):after,
-  button.xl\+\:button\:white:not(:active):after,
-  a.xl\+\:button\:red:not(:active):after,
-  button.xl\+\:button\:red:not(:active):after,
-  a.xl\+\:button\:yale-blue:not(:active):after,
-  button.xl\+\:button\:yale-blue:not(:active):after {
+  a[class^="xl+:button:"]:not(:active):after,
+  button[class^="xl+:button:"]:not(:active):after {
     animation: ripple 0.3s ease-in;
   }
-  a.xl\+\:button\:blue:after,
-  button.xl\+\:button\:blue:after,
-  a.xl\+\:button\:transparent:after,
-  button.xl\+\:button\:transparent:after,
-  a.xl\+\:button\:white:after,
-  button.xl\+\:button\:white:after,
-  a.xl\+\:button\:red:after,
-  button.xl\+\:button\:red:after,
-  a.xl\+\:button\:yale-blue:after,
-  button.xl\+\:button\:yale-blue:after {
+  a[class^="xl+:button:"]:after,
+  button[class^="xl+:button:"]:after {
     visibility: hidden;
   }
-  a.xl\+\:button\:focus:after,
-  button.xl\+\:button\:focus:after,
-  a.xl\+\:button\:focus:after,
-  button.xl\+\:button\:focus:after,
-  a.xl\+\:button\:focus:after,
-  button.xl\+\:button\:focus:after,
-  a.xl\+\:button\:focus:after,
-  button.xl\+\:button\:focus:after,
-  a.xl\+\:button\:focus:after,
-  button.xl\+\:button\:focus:after {
+  a[class^="xl+:button:"]:focus:after,
+  button[class^="xl+:button:"]:focus:after {
     visibility: visible;
   }
 }
@@ -13764,27 +12933,15 @@ button.sm\+\:button\:focus:after {
   vertical-align: middle;
 }
 
-.button\:blue:not(:active):after,
-.button\:transparent:not(:active):after,
-.button\:white:not(:active):after,
-.button\:red:not(:active):after,
-.button\:yale-blue:not(:active):after {
+[class^="button:"]:not(:active):after {
   animation: ripple 0.3s ease-in;
 }
 
-.button\:blue:after,
-.button\:transparent:after,
-.button\:white:after,
-.button\:red:after,
-.button\:yale-blue:after {
+[class^="button:"]:after {
   visibility: hidden;
 }
 
-.button\:blue:focus:after,
-.button\:transparent:focus:after,
-.button\:white:focus:after,
-.button\:red:focus:after,
-.button\:yale-blue:focus:after {
+[class^="button:"]:focus:after {
   visibility: visible;
 }
 
@@ -14367,10 +13524,6 @@ fieldset.unstyle {
 .form\:theme\:gl0b3x [data-module="autocomplete.multiselect"] input[type=text][data-module="autocomplete.input"] {
   margin-top: 0;
 }
-.form\:theme\:gl0b3x [data-module="slider.input-container"],
-.form\:theme\:gl0b3x [data-module="range-slider.input-container"] {
-  line-height: 0;
-}
 .form\:theme\:gl0b3x [data-module="slider.input-container"] [data-module="slider.background"],
 .form\:theme\:gl0b3x [data-module="range-slider.input-container"] [data-module="slider.background"] {
   position: relative;
@@ -14390,7 +13543,6 @@ fieldset.unstyle {
 }
 .form\:theme\:gl0b3x [data-module="slider.input-container"] [data-module="slider.labels"] li,
 .form\:theme\:gl0b3x [data-module="range-slider.input-container"] [data-module="slider.labels"] li {
-  line-height: 1rem;
   flex-basis: 100%;
 }
 .form\:theme\:gl0b3x [data-module="slider.input-container"].fit {
@@ -21374,6 +20526,7 @@ ul.checkmark-list.checkmark-list-li-pb\:16px > li {
   overflow: visible;
   right: 0;
   width: 100%;
+  padding: 0;
 }
 @media screen and (min-width: 64rem) {
   [data-module=popover] {
@@ -21421,7 +20574,7 @@ ul.checkmark-list.checkmark-list-li-pb\:16px > li {
 }
 [data-module=popover][data-popover-direction=top]::before {
   border-width: 11px;
-  bottom: 11px;
+  bottom: -11px;
   left: calc(50% - 12px);
   border-bottom-width: 0;
   border-top-color: #ddd;
@@ -21451,13 +20604,22 @@ ul.checkmark-list.checkmark-list-li-pb\:16px > li {
 }
 [data-module=popover] button[data-popover-close] {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
 }
 @media screen and (min-width: 64rem) {
   [data-module=popover] button[data-popover-close] {
-    top: 20px;
-    right: 20px;
+    top: 12px;
+    right: 12px;
+  }
+}
+[data-module=popover] [data-module="popover.content"] {
+  display: block;
+  padding: 16px 2.5rem 16px 16px;
+}
+@media screen and (min-width: 64rem) {
+  [data-module=popover] [data-module="popover.content"] {
+    padding: 24px 3.5rem 24px 32px;
   }
 }
 
